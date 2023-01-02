@@ -92,14 +92,19 @@ def process_changefiles(url):
         os.makedirs(temp_path)
     if not os.path.exists(file_path):
         # Read the cookies from the file
-        cookies = {}
-        with open("cookies.txt") as f:
-            for line in f:
-                test = line.strip().split("=")
-                # name, value = line.strip().split("=")
-                cookies[test[0]] = f'{test[1]}=="'
-        print(f"Processing {url}")
-        response = requests.get(url, cookies=cookies)
+
+        if "geofabrik" in url:
+            cookies = {}
+            with open("cookies.txt") as f:
+                for line in f:
+                    test = line.strip().split("=")
+                    # name, value = line.strip().split("=")
+                    cookies[test[0]] = f'{test[1]}=="'
+            print(f"Processing {url}")
+            response = requests.get(url, cookies=cookies)
+        else:
+            response = requests.get(url)
+
         if not response.status_code == 200:
             sys.exit()
 
@@ -160,10 +165,13 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
     download_urls = []
 
     while seq < last_seq:
-        replaced_url = repl.get_diff_url(seq).replace(
-            "download.geofabrik", "osm-internal.download.geofabrik"
-        )
-        download_urls.append(replaced_url)
+        seq_url = repl.get_diff_url(seq)
+        if "geofabrik" in base_url:
+            # use internal server
+            seq_url = repl.get_diff_url(seq).replace(
+                "download.geofabrik", "osm-internal.download.geofabrik"
+            )
+        download_urls.append(seq_url)
         seq += 1
     return download_urls, last_ts
 
@@ -227,7 +235,9 @@ def main(start_date, end_date, url, out_file_name, tags, output):
     df = df.sort_values("total_map_changes", ascending=False)
     print(df)
     if output == "json":
-        df.to_json(f"{out_file_name}.json", index=False)
+        # with open(f"{out_file_name}.json") as file:
+        #     file.write(json.dumps(users))
+        df.to_json(f"{out_file_name}.json", orient="records")
     if output == "csv":
         df.to_csv(f"{out_file_name}.csv", index=False)
     if output == "excel":
@@ -275,7 +285,8 @@ if __name__ == "__main__":
             tzinfo=dt.timezone.utc
         )
     start_time = time.time()
-    auth(args.username, args.password)
+    if "geofabrik" in args.url:
+        auth(args.username, args.password)
     main(start_date, end_date, args.url, args.name, args.tags, args.output)
     end_time = time.time()
     elapsed_time = end_time - start_time

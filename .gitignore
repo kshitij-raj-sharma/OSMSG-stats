@@ -3,3 +3,6 @@ cookies.txt
 settings.json
 output
 temp
+*.csv
+*.json
+*.xlsx
