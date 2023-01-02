@@ -1,5 +1,5 @@
 # OSM Stats Generator
-On the Fly Stats Generator , Inspired from [Insights](https://github.com/hotosm/insights),
+On the Fly Stats Generator 
 
 Simple python script processes osm files live and produces stats with use of  databases
 
