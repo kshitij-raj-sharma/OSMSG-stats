@@ -10,6 +10,7 @@ import sys
 import time
 
 import osmium
+import pandas as pd
 import requests
 from osmium.replication.server import ReplicationServer
 
@@ -27,6 +28,7 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
         action = "delete"
     if user in users:
         users[user]["name"] = uname
+        users[user]["uid"] = user
         if changeset not in users_temp[user]["changesets"]:
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
@@ -39,6 +41,7 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
     else:
         users[user] = {
             "name": uname,
+            "uid": user,
             "changesets": 0,
             "nodes": {"create": 0, "modify": 0, "delete": 0},
             "ways": {"create": 0, "modify": 0, "delete": 0},
@@ -194,7 +197,7 @@ def auth(username, password):
     print("Authenticated !")
 
 
-def main(start_date, end_date, url, out_file_name, tags):
+def main(start_date, end_date, url, out_file_name, tags, output):
     global additional_tags
     additional_tags = tags
 
@@ -208,12 +211,27 @@ def main(start_date, end_date, url, out_file_name, tags):
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         executor.map(process_changefiles, download_urls)
-    # Open a file in write mode
-    file_out = f"{out_file_name}.json"
-    with open(file_out, "w") as f:
-        # Write the JSON string to the file
-        f.write(json.dumps(users))
-    print(f"Stats generated as {file_out}")
+
+    df = pd.json_normalize(list(users.values()))
+    df = df.assign(
+        total_map_changes=df["nodes.create"]
+        + df["nodes.modify"]
+        + df["nodes.delete"]
+        + df["ways.create"]
+        + df["ways.modify"]
+        + df["ways.delete"]
+        + df["relations.create"]
+        + df["relations.modify"]
+        + df["relations.delete"]
+    )
+    df = df.sort_values("total_map_changes", ascending=False)
+    print(df)
+    if output == "json":
+        df.to_json(f"{out_file_name}.json", index=False)
+    if output == "csv":
+        df.to_csv(f"{out_file_name}.csv", index=False)
+    if output == "excel":
+        df.to_excel(f"{out_file_name}.xlsx", index=False)
 
 
 if __name__ == "__main__":
@@ -225,7 +243,7 @@ if __name__ == "__main__":
     parser.add_argument("--username", required=True, help="Your OSM Username")
     parser.add_argument("--password", required=True, help="Your OSM Password")
     parser.add_argument(
-        "--out",
+        "--name",
         default="output_stats",
         help="Output stat file name",
     )
@@ -239,11 +257,18 @@ if __name__ == "__main__":
     parser.add_argument(
         "--url", required=True, help="Your public Geofabrik Download URL "
     )
+    parser.add_argument(
+        "--output",
+        choices=["csv", "json", "excel"],
+        default="json",
+        help="Stats output format",
+    )
 
     args = parser.parse_args()
     start_date = dt.datetime.strptime(args.start_date, "%Y-%m-%d").replace(
         tzinfo=dt.timezone.utc
     )
+
     end_date = None
     if args.end_date:
         end_date = dt.datetime.strptime(args.end_date, "%Y-%m-%d").replace(
@@ -251,7 +276,7 @@ if __name__ == "__main__":
         )
     start_time = time.time()
     auth(args.username, args.password)
-    main(start_date, end_date, args.url, args.out, args.tags)
+    main(start_date, end_date, args.url, args.name, args.tags, args.output)
     end_time = time.time()
     elapsed_time = end_time - start_time
 

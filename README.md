@@ -16,3 +16,8 @@ python app.py --start_date 2023-01-01 --url "http://download.geofabrik.de/asia/n
 Benchmarks : 
 Speed depends upon no of cores available on your CPU .
 Generally on Normal i5 machine To process a year of data for country like Nepal it takes approx 3min .
+
+Installation 
+
+- Install osmium lib
+- Clone the repo , install requirements and enjoy

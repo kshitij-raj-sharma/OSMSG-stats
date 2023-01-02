@@ -1,2 +1,3 @@
 requests==2.281
 osmium
+pandas
