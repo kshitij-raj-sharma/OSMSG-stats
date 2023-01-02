@@ -17,7 +17,8 @@ users_temp = {}
 users = {}
 
 
-def calculate_stats(user, uname, changeset, version, osm_type):
+def calculate_stats(user, uname, changeset, version, tags, osm_type):
+    tags_to_collect = list(additional_tags) if additional_tags else None
     if version == 1:
         action = "create"
     elif version > 1:
@@ -30,6 +31,11 @@ def calculate_stats(user, uname, changeset, version, osm_type):
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
         users[user][osm_type][action] += 1
+        if tags_to_collect:
+            for tag in tags_to_collect:
+                if tag in tags:
+                    users[user][tag][action] += 1
+
     else:
         users[user] = {
             "name": uname,
@@ -38,11 +44,18 @@ def calculate_stats(user, uname, changeset, version, osm_type):
             "ways": {"create": 0, "modify": 0, "delete": 0},
             "relations": {"create": 0, "modify": 0, "delete": 0},
         }
+        if tags_to_collect:
+            for tag in tags_to_collect:
+                users[user][tag] = {"create": 0, "modify": 0, "delete": 0}
         users_temp[user] = {"changesets": []}
         if changeset not in users_temp[user]["changesets"]:
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
         users[user][osm_type][action] = 1
+        if tags_to_collect:
+            for tag in tags_to_collect:
+                if tag in tags:
+                    users[user][tag][action] = 1
 
 
 class ChangefileHandler(osmium.SimpleHandler):
@@ -51,15 +64,15 @@ class ChangefileHandler(osmium.SimpleHandler):
 
     def node(self, n):
 
-        calculate_stats(n.uid, n.user, n.changeset, n.version, "nodes")
+        calculate_stats(n.uid, n.user, n.changeset, n.version, n.tags, "nodes")
 
     def way(self, w):
 
-        calculate_stats(w.uid, w.user, w.changeset, w.version, "ways")
+        calculate_stats(w.uid, w.user, w.changeset, w.version, w.tags, "ways")
 
     def relation(self, r):
 
-        calculate_stats(r.uid, r.user, r.changeset, r.version, "relations")
+        calculate_stats(r.uid, r.user, r.changeset, r.version, r.tags, "relations")
 
 
 def process_changefiles(url):
@@ -181,7 +194,9 @@ def auth(username, password):
     print("Authenticated !")
 
 
-def main(start_date, end_date, url, out_file):
+def main(start_date, end_date, url, out_file, tags):
+    global additional_tags
+    additional_tags = tags
 
     print("Script Started")
     print("Generating Download Urls")
@@ -212,6 +227,12 @@ if __name__ == "__main__":
     parser.add_argument("--username", required=True, help="Your OSM Username")
     parser.add_argument("--password", required=True, help="Your OSM Password")
     parser.add_argument("--out", default="output", help="Output stats file location")
+    parser.add_argument(
+        "--tags",
+        nargs="+",
+        type=str,
+        help="Additional stats to collect : List of tags key",
+    )
 
     parser.add_argument(
         "--url", required=True, help="Your public Geofabrik Download URL "
@@ -228,7 +249,7 @@ if __name__ == "__main__":
         )
     start_time = time.time()
     auth(args.username, args.password)
-    main(start_date, end_date, args.url, args.out)
+    main(start_date, end_date, args.url, args.out, args.tags)
     end_time = time.time()
     elapsed_time = end_time - start_time
 
