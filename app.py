@@ -213,7 +213,7 @@ def main(start_date, end_date, url, out_file_name, tags):
     with open(file_out, "w") as f:
         # Write the JSON string to the file
         f.write(json.dumps(users))
-    print(f"Stats generated as {file_out}.json")
+    print(f"Stats generated as {file_out}")
 
 
 if __name__ == "__main__":
