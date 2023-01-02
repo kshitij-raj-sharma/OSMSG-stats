@@ -194,7 +194,7 @@ def auth(username, password):
     print("Authenticated !")
 
 
-def main(start_date, end_date, url, out_file, tags):
+def main(start_date, end_date, url, out_file_name, tags):
     global additional_tags
     additional_tags = tags
 
@@ -209,13 +209,11 @@ def main(start_date, end_date, url, out_file, tags):
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         executor.map(process_changefiles, download_urls)
     # Open a file in write mode
-    if not os.path.exists(out_file):
-        os.mkdir(out_file)
-    out_file_name = f"{out_file}/stat_{start_date}_{server_ts}.json"
-    with open(out_file_name, "w") as f:
+    file_out = f"{out_file_name}.json"
+    with open(file_out, "w") as f:
         # Write the JSON string to the file
         f.write(json.dumps(users))
-    print(f"Stats generated at {out_file_name}")
+    print(f"Stats generated as {file_out}.json")
 
 
 if __name__ == "__main__":
@@ -226,7 +224,11 @@ if __name__ == "__main__":
     parser.add_argument("--end_date", help="End date in the format YYYY-MM-DD")
     parser.add_argument("--username", required=True, help="Your OSM Username")
     parser.add_argument("--password", required=True, help="Your OSM Password")
-    parser.add_argument("--out", default="output", help="Output stats file location")
+    parser.add_argument(
+        "--out",
+        default="output_stats",
+        help="Output stat file name",
+    )
     parser.add_argument(
         "--tags",
         nargs="+",

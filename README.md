@@ -7,10 +7,10 @@ On the Fly Stats Generator , Inspired from [Insights](https://github.com/hotosm/
 {"uid": {"name": "your osm username", "changesets": 13, "nodes": {"create": 426, "modify": 1579, "delete": 0}, "ways": {"create": 67, "modify": 99, "delete": 0}, "relations": {"create": 0, "modify": 0, "delete": 0}, "building": {"create": 5, "modify": 0, "delete": 0}, "highway": {"create": 0, "modify": 0, "delete": 0}}
 ```
 
-Run Following command to Use : 
+Example command to Run : 
 
 ```
-python app.py --start_date 2023-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'your osm password' --tags 'building' 'highway'
+python app.py --start_date 2023-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'kshitijraj sharma' --password 'Bishalraj1' --tags 'building' 'highway' 'waterway' 'amenity' --out all_tags_stats
 ```
 
 Benchmarks : 
