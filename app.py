@@ -163,26 +163,29 @@ def auth(username, password):
     with open(f"settings.json", "w") as f:
         # Write the JSON string to the file
         f.write(json.dumps(auth_settings))
-    subprocess.run(
-        [
-            "python3",
-            "oauth_cookie_client.py",
-            "-o",
-            "cookies.txt",
-            "-s",
-            "settings.json",
-        ]
-    )
+    try:
+        subprocess.run(
+            [
+                "python3",
+                "oauth_cookie_client.py",
+                "-o",
+                "cookies.txt",
+                "-s",
+                "settings.json",
+            ]
+        )
+    except Exception as ex:
+        print("Authentication Failed")
+        print(ex)
+        sys.exit()
     print("Authenticated !")
 
 
-def main(start_date, end_date):
+def main(start_date, end_date, url, out_file):
 
     print("Script Started")
     print("Generating Download Urls")
-    download_urls, server_ts = get_download_urls_changefiles(
-        start_date, end_date, "http://download.geofabrik.de/asia/nepal-updates"
-    )
+    download_urls, server_ts = get_download_urls_changefiles(start_date, end_date, url)
     print("Download urls Generated")
 
     print("Starting Thread Processing")
@@ -191,9 +194,13 @@ def main(start_date, end_date):
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         executor.map(process_changefiles, download_urls)
     # Open a file in write mode
-    with open(f"output/stat_{start_date}_{server_ts}.json", "w") as f:
+    if not os.path.exists(out_file):
+        os.mkdir(out_file)
+    out_file_name = f"{out_file}/stat_{start_date}_{server_ts}.json"
+    with open(out_file_name, "w") as f:
         # Write the JSON string to the file
         f.write(json.dumps(users))
+    print(f"Stats generated at {out_file_name}")
 
 
 if __name__ == "__main__":
@@ -204,6 +211,11 @@ if __name__ == "__main__":
     parser.add_argument("--end_date", help="End date in the format YYYY-MM-DD")
     parser.add_argument("--username", required=True, help="Your OSM Username")
     parser.add_argument("--password", required=True, help="Your OSM Password")
+    parser.add_argument("--out", default="output", help="Output stats file location")
+
+    parser.add_argument(
+        "--url", required=True, help="Your public Geofabrik Download URL "
+    )
 
     args = parser.parse_args()
     start_date = dt.datetime.strptime(args.start_date, "%Y-%m-%d").replace(
@@ -216,7 +228,7 @@ if __name__ == "__main__":
         )
     start_time = time.time()
     auth(args.username, args.password)
-    main(start_date, end_date)
+    main(start_date, end_date, args.url, args.out)
     end_time = time.time()
     elapsed_time = end_time - start_time
 
