@@ -1,6 +1,6 @@
-# osm_stats_analyzer
+# OSM Stats Generator On the Fly
 On the Fly Stats Generator , Inspired from [Insights](https://github.com/hotosm/insights)
-
+Simple python script processes osm files live and produces stats with use of  databases
 1. It can Generate Stats on Country Level for countries Supported on http://download.geofabrik.de/ using boundary as visualized 
 2. It can also take any other server replication changefile to extract stats 
 2. Generates stats like this :
