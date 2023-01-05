@@ -120,7 +120,9 @@ def process_changefiles(url):
     handler.apply_file(file_path[:-3])
     os.remove(file_path)
     os.remove(file_path[:-3])
-    os.remove(temp_path)
+    # Delete the changefiles folder
+    os.chdir(os.getcwd())
+    shutil.rmtree("temp")
 
 
 def get_download_urls_changefiles(start_date, end_date, base_url):
