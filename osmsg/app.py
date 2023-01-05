@@ -328,35 +328,38 @@ def main():
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         executor.map(process_changefiles, download_urls)
+    if len(users) > 1:
 
-    df = pd.json_normalize(list(users.values()))
-    df = df.assign(
-        changes=df["nodes.create"]
-        + df["nodes.modify"]
-        + df["nodes.delete"]
-        + df["ways.create"]
-        + df["ways.modify"]
-        + df["ways.delete"]
-        + df["relations.create"]
-        + df["relations.modify"]
-        + df["relations.delete"]
-    )
-    df.insert(3, "map_changes", df["changes"], True)
-    df = df.drop(columns=["changes"])
-    df = df.sort_values("map_changes", ascending=False)
-    df.insert(0, "rank", range(1, len(df) + 1), True)
-    if args.rows:
-        df = df.head(args.rows)
-    print(df)
+        df = pd.json_normalize(list(users.values()))
+        df = df.assign(
+            changes=df["nodes.create"]
+            + df["nodes.modify"]
+            + df["nodes.delete"]
+            + df["ways.create"]
+            + df["ways.modify"]
+            + df["ways.delete"]
+            + df["relations.create"]
+            + df["relations.modify"]
+            + df["relations.delete"]
+        )
+        df.insert(3, "map_changes", df["changes"], True)
+        df = df.drop(columns=["changes"])
+        df = df.sort_values("map_changes", ascending=False)
+        df.insert(0, "rank", range(1, len(df) + 1), True)
+        if args.rows:
+            df = df.head(args.rows)
+        print(df)
 
-    if args.format == "json":
-        # with open(f"{out_file_name}.json") as file:
-        #     file.write(json.dumps(users))
-        df.to_json(f"{args.name}_{start_date}-{end_date}.json", orient="records")
-    if args.format == "csv":
-        df.to_csv(f"{args.name}_{start_date}-{end_date}.csv", index=False)
-    if args.format == "excel":
-        df.to_excel(f"{args.name}_{start_date}-{end_date}.xlsx", index=False)
+        if args.format == "json":
+            # with open(f"{out_file_name}.json") as file:
+            #     file.write(json.dumps(users))
+            df.to_json(f"{args.name}_{start_date}-{end_date}.json", orient="records")
+        if args.format == "csv":
+            df.to_csv(f"{args.name}_{start_date}-{end_date}.csv", index=False)
+        if args.format == "excel":
+            df.to_excel(f"{args.name}_{start_date}-{end_date}.xlsx", index=False)
+    else:
+        sys.exit()
 
     end_time = time.time()
     elapsed_time = end_time - start_time
