@@ -120,6 +120,7 @@ def process_changefiles(url):
     handler.apply_file(file_path[:-3])
     os.remove(file_path)
     os.remove(file_path[:-3])
+    os.remove(temp_path)
 
 
 def get_download_urls_changefiles(start_date, end_date, base_url):
