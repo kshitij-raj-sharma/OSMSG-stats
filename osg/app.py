@@ -14,6 +14,8 @@ import pandas as pd
 import requests
 from osmium.replication.server import ReplicationServer
 
+from osg.utils import verify_me_osm
+
 users_temp = {}
 users = {}
 
@@ -94,14 +96,12 @@ def process_changefiles(url):
         # Read the cookies from the file
 
         if "geofabrik" in url:
-            cookies = {}
-            with open("cookies.txt") as f:
-                for line in f:
-                    test = line.strip().split("=")
-                    # name, value = line.strip().split("=")
-                    cookies[test[0]] = f'{test[1]}=="'
+            cookies_fmt = {}
+            test = cookies.split("=")
+            # name, value = line.strip().split("=")
+            cookies_fmt[test[0]] = f'{test[1]}=="'
             print(f"Processing {url}")
-            response = requests.get(url, cookies=cookies)
+            response = requests.get(url, cookies=cookies_fmt)
         else:
             response = requests.get(url)
 
@@ -178,73 +178,13 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
 
 def auth(username, password):
     print("Authenticating...")
-    auth_settings = {
-        "user": username,
-        "password": password,
-        "osm_host": "https://www.openstreetmap.org",
-        "consumer_url": "https://osm-internal.download.geofabrik.de/get_cookie",
-    }
-    with open(f"settings.json", "w") as f:
-        # Write the JSON string to the file
-        f.write(json.dumps(auth_settings))
-    try:
-        subprocess.run(
-            [
-                "python3",
-                "oauth_cookie_client.py",
-                "-o",
-                "cookies.txt",
-                "-s",
-                "settings.json",
-            ]
-        )
-    except Exception as ex:
-        print("Authentication Failed")
-        print(ex)
-        sys.exit()
+    cookies = verify_me_osm(username, password)
+
     print("Authenticated !")
+    return cookies
 
 
-def main(start_date, end_date, url, out_file_name, tags, output):
-    global additional_tags
-    additional_tags = tags
-
-    print("Script Started")
-    print("Generating Download Urls")
-    download_urls, server_ts = get_download_urls_changefiles(start_date, end_date, url)
-    print("Download urls Generated")
-
-    print("Starting Thread Processing")
-    # Use the ThreadPoolExecutor to download the images in parallel
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        # Use `map` to apply the `download_image` function to each element in the `urls` list
-        executor.map(process_changefiles, download_urls)
-
-    df = pd.json_normalize(list(users.values()))
-    df = df.assign(
-        total_map_changes=df["nodes.create"]
-        + df["nodes.modify"]
-        + df["nodes.delete"]
-        + df["ways.create"]
-        + df["ways.modify"]
-        + df["ways.delete"]
-        + df["relations.create"]
-        + df["relations.modify"]
-        + df["relations.delete"]
-    )
-    df = df.sort_values("total_map_changes", ascending=False)
-    print(df)
-    if output == "json":
-        # with open(f"{out_file_name}.json") as file:
-        #     file.write(json.dumps(users))
-        df.to_json(f"{out_file_name}.json", orient="records")
-    if output == "csv":
-        df.to_csv(f"{out_file_name}.csv", index=False)
-    if output == "excel":
-        df.to_excel(f"{out_file_name}.xlsx", index=False)
-
-
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--start_date", required=True, help="Start date in the format YYYY-MM-DD"
@@ -268,7 +208,7 @@ if __name__ == "__main__":
         "--url", required=True, help="Your public Geofabrik Download URL "
     )
     parser.add_argument(
-        "--output",
+        "--format",
         choices=["csv", "json", "excel"],
         default="json",
         help="Stats output format",
@@ -285,9 +225,52 @@ if __name__ == "__main__":
             tzinfo=dt.timezone.utc
         )
     start_time = time.time()
+
+    global additional_tags
+    global cookies
+    additional_tags = args.tags
+    cookies = None
     if "geofabrik" in args.url:
-        auth(args.username, args.password)
-    main(start_date, end_date, args.url, args.name, args.tags, args.output)
+        cookies = auth(args.username, args.password)
+    print("Script Started")
+    print("Generating Download Urls")
+    download_urls, server_ts = get_download_urls_changefiles(
+        start_date, end_date, args.url
+    )
+    print("Download urls Generated")
+
+    print("Starting Thread Processing")
+    # Use the ThreadPoolExecutor to download the images in parallel
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        # Use `map` to apply the `download_image` function to each element in the `urls` list
+        executor.map(process_changefiles, download_urls)
+
+    df = pd.json_normalize(list(users.values()))
+    df = df.assign(
+        changes=df["nodes.create"]
+        + df["nodes.modify"]
+        + df["nodes.delete"]
+        + df["ways.create"]
+        + df["ways.modify"]
+        + df["ways.delete"]
+        + df["relations.create"]
+        + df["relations.modify"]
+        + df["relations.delete"]
+    )
+    df.insert(3, "map_changes", df["changes"], True)
+    df = df.drop(columns=["changes"])
+    df = df.sort_values("map_changes", ascending=False)
+    df.insert(0, "rank", range(1, len(df) + 1), True)
+    print(df)
+    if args.format == "json":
+        # with open(f"{out_file_name}.json") as file:
+        #     file.write(json.dumps(users))
+        df.to_json(f"{args.name}.json", orient="records")
+    if args.format == "csv":
+        df.to_csv(f"{args.name}.csv", index=False)
+    if args.format == "excel":
+        df.to_excel(f"{args.name}.xlsx", index=False)
+
     end_time = time.time()
     elapsed_time = end_time - start_time
 
@@ -299,3 +282,7 @@ if __name__ == "__main__":
             int(hours), int(minutes), seconds
         )
     )
+
+
+if __name__ == "__main__":
+    main()

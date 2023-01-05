@@ -1,8 +1,7 @@
-sendfile_osm_oauth_protector
-cookies.txt
-settings.json
 output
 temp
 *.csv
 *.json
 *.xlsx
+*.egg-info
+__pycache__

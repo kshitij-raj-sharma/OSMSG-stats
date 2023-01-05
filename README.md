@@ -13,13 +13,13 @@ Simple python script processes osm files live and produces stats with use of  da
 Example command to get stat of Nepal for 2022 to now : 
 
 ```
-python app.py --start_date 2022-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --name all_tags_stats
+osg --start_date 2022-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --name all_tags_stats --format csv
 ```
 
 Example command to get stat of a day for whole world :
 
 ```
-python app.py --start_date 2023-01-01 --end_date 2023-01-02 --url "https://planet.openstreetmap.org/replication/day" --username 'your osm username' --password 'your password' --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name all_tags_stats --output csv
+osg --start_date 2023-01-01 --end_date 2023-01-02 --url "https://planet.openstreetmap.org/replication/day" --username 'your osm username' --password 'your password' --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name all_tags_stats --format csv
 ```
 
 Benchmarks : 
@@ -29,4 +29,7 @@ Generally on Normal i5 machine To process a year of data for country like Nepal 
 Installation 
 
 - Install osmium lib
-- Clone the repo , install requirements and enjoy
+- Instal osg 
+```
+pip install osg 
+```
