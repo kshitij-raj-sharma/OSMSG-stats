@@ -23,6 +23,7 @@ jobs:
         run : |
           pip install flare-floss
           pip install -e . 
+          pip install tweepy
 
       - name : Generate Weekly Stats
         env: #assign variables 
