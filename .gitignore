@@ -1,6 +1,5 @@
 output
 temp
-*.csv
 *.json
 *.xlsx
 *.egg-info
