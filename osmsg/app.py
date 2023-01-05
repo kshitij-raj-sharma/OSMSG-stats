@@ -1,4 +1,5 @@
 import argparse
+import calendar
 import concurrent.futures
 import datetime as dt
 import gzip
@@ -16,6 +17,56 @@ from osmsg.utils import verify_me_osm
 
 users_temp = {}
 users = {}
+
+from datetime import datetime, timedelta
+
+
+def strip_utc(date_str):
+    return dt.datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=dt.timezone.utc)
+
+
+def get_prev_year_dates():
+    # Get today's date
+    today = datetime.now()
+
+    # Get the start and end date of the previous year
+    prev_year_start = datetime(today.year - 1, 1, 1)
+    prev_year_end = datetime(today.year - 1, 12, 31)
+
+    return strip_utc(prev_year_start.strftime("%Y-%m-%d")), strip_utc(
+        prev_year_end.strftime("%Y-%m-%d")
+    )
+
+
+def previous_month():
+    today = datetime.now()
+    month = today.month
+    year = today.year
+    if today.month == 1:
+        month = 13
+        year -= 1
+    prev_month_start = datetime(year, month - 1, 1)
+    prev_month_end = datetime(year, month - 1, calendar.monthrange(year, month - 1)[1])
+    return strip_utc(prev_month_start.strftime("%Y-%m-%d")), strip_utc(
+        prev_month_end.strftime("%Y-%m-%d")
+    )
+
+
+def previous_day():
+    today = datetime.today()
+    previous_day = today - timedelta(days=1)
+    return strip_utc(previous_day.strftime("%Y-%m-%d")), strip_utc(
+        today.strftime("%Y-%m-%d")
+    )
+
+
+def previous_week():
+    today = datetime.today()
+    start_date = today - timedelta(days=today.weekday() + 7)
+    end_date = start_date + timedelta(days=6)
+    return strip_utc(start_date.strftime("%Y-%m-%d")), strip_utc(
+        end_date.strftime("%Y-%m-%d")
+    )
 
 
 def calculate_stats(user, uname, changeset, version, tags, osm_type):
@@ -187,15 +238,13 @@ def auth(username, password):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--start_date", required=True, help="Start date in the format YYYY-MM-DD"
-    )
+    parser.add_argument("--start_date", help="Start date in the format YYYY-MM-DD")
     parser.add_argument("--end_date", help="End date in the format YYYY-MM-DD")
     parser.add_argument("--username", required=True, help="Your OSM Username")
     parser.add_argument("--password", required=True, help="Your OSM Password")
     parser.add_argument(
         "--name",
-        default="output_stats",
+        default="stats",
         help="Output stat file name",
     )
     parser.add_argument(
@@ -214,6 +263,11 @@ def main():
     parser.add_argument(
         "--url", required=True, help="Your public Geofabrik Download URL "
     )
+    parser.add_argument("--extract_last_week", action="store_true", default=False)
+    parser.add_argument("--extract_last_day", action="store_true", default=False)
+    parser.add_argument("--extract_last_month", action="store_true", default=False)
+    parser.add_argument("--extract_last_year", action="store_true", default=False)
+
     parser.add_argument(
         "--format",
         choices=["csv", "json", "excel"],
@@ -222,11 +276,23 @@ def main():
     )
 
     args = parser.parse_args()
-    start_date = dt.datetime.strptime(args.start_date, "%Y-%m-%d").replace(
-        tzinfo=dt.timezone.utc
-    )
+    if args.start_date:
+        start_date = dt.datetime.strptime(args.start_date, "%Y-%m-%d").replace(
+            tzinfo=dt.timezone.utc
+        )
 
-    end_date = None
+    if not args.start_date:
+        if (
+            args.extract_last_week
+            or args.extract_last_day
+            or args.extract_last_month
+            or args.extract_last_year
+        ):
+            pass
+        else:
+            print("Supply start_date")
+            sys.exit()
+
     if args.end_date:
         end_date = dt.datetime.strptime(args.end_date, "%Y-%m-%d").replace(
             tzinfo=dt.timezone.utc
@@ -240,6 +306,17 @@ def main():
     if "geofabrik" in args.url:
         cookies = auth(args.username, args.password)
     print("Script Started")
+
+    if args.extract_last_year:
+        start_date, end_date = get_prev_year_dates()
+
+    if args.extract_last_month:
+        start_date, end_date = previous_month()
+
+    if args.extract_last_day:
+        start_date, end_date = previous_day()
+    if args.extract_last_week:
+        start_date, end_date = previous_week()
     print("Generating Download Urls")
     download_urls, server_ts = get_download_urls_changefiles(
         start_date, end_date, args.url
@@ -275,11 +352,11 @@ def main():
     if args.format == "json":
         # with open(f"{out_file_name}.json") as file:
         #     file.write(json.dumps(users))
-        df.to_json(f"{args.name}.json", orient="records")
+        df.to_json(f"{args.name}_{start_date}-{end_date}.json", orient="records")
     if args.format == "csv":
-        df.to_csv(f"{args.name}.csv", index=False)
+        df.to_csv(f"{args.name}_{start_date}-{end_date}.csv", index=False)
     if args.format == "excel":
-        df.to_excel(f"{args.name}.xlsx", index=False)
+        df.to_excel(f"{args.name}_{start_date}-{end_date}.xlsx", index=False)
 
     end_time = time.time()
     elapsed_time = end_time - start_time
