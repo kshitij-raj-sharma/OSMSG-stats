@@ -10,7 +10,7 @@ auth.set_access_token(os.environ["ACCESS_TOKEN"], os.environ["ACCESS_TOKEN_SECRE
 api = tweepy.API(auth)
 
 files = os.listdir(os.getcwd())
-json_files = [f for f in files if f.endswith(".json")]
+json_files = [f for f in files if f.endswith(".png")]
 first_file = os.path.join(os.getcwd(), json_files[0])
 
 
