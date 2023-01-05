@@ -8,6 +8,7 @@ import shutil
 import sys
 import time
 
+import dataframe_image as dfi
 import osmium
 import pandas as pd
 import requests
@@ -270,7 +271,7 @@ def main():
 
     parser.add_argument(
         "--format",
-        choices=["csv", "json", "excel"],
+        choices=["csv", "json", "excel", "image"],
         default="json",
         help="Stats output format",
     )
@@ -349,15 +350,18 @@ def main():
         if args.rows:
             df = df.head(args.rows)
         print(df)
+        if args.format == "image":
+            # Convert the DataFrame to an image
+            dfi.export(df, f"{args.name}.png")
 
         if args.format == "json":
             # with open(f"{out_file_name}.json") as file:
             #     file.write(json.dumps(users))
-            df.to_json(f"{args.name}_{start_date}-{end_date}.json", orient="records")
+            df.to_json(f"{args.name}_{start_date}_{end_date}.json", orient="records")
         if args.format == "csv":
-            df.to_csv(f"{args.name}_{start_date}-{end_date}.csv", index=False)
+            df.to_csv(f"{args.name}_{start_date}_{end_date}.csv", index=False)
         if args.format == "excel":
-            df.to_excel(f"{args.name}_{start_date}-{end_date}.xlsx", index=False)
+            df.to_excel(f"{args.name}_{start_date}_{end_date}.xlsx", index=False)
     else:
         sys.exit()
 

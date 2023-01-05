@@ -1,7 +1,7 @@
 name: Run Weekly Report
 on:
-  # schedule:
-  #   - cron: '0 */3 * * *' # Run every 3 hour
+  schedule:
+    - cron: '0 0 * * MON' # Run every Monday
   push:
     branches:
       - master # run also on push
@@ -23,14 +23,15 @@ jobs:
         run : 
           pip install -e . 
 
-      # - name : Run App 
-      #   env: #assign variables 
-      #     API_KEY: ${{ secrets.API_KEY }}
-      #     API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
-      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      #     ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-      #     BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
-      #     OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
-      #     OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
-      #   run:
-          # python app.py
+      - name : Generate Weekly Stats
+        env: #assign variables 
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+          OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
+          OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
+        run:
+          osmsg --rows 10  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image --extract_last_week
+          python tweet.py

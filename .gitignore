@@ -5,3 +5,4 @@ temp
 *.egg-info
 __pycache__
 dist
+.env

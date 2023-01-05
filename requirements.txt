@@ -1,3 +1,5 @@
 requests
 osmium
 pandas
+tweepy
+dataframe-image
