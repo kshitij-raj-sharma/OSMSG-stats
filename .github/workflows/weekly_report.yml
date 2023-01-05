@@ -2,9 +2,7 @@ name: Run Weekly Report
 on:
   schedule:
     - cron: '0 0 * * MON' # Run every Monday
-  push:
-    branches:
-      - master # run also on push
+
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -35,5 +33,5 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --rows 10  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image --extract_last_week
+          osmsg --rows 20  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image --extract_last_week
           python tweet.py

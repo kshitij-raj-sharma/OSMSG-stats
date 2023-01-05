@@ -30,7 +30,7 @@ media = api.media_upload(first_file)
 
 
 api.update_status(
-    status=f"Top 10 Nepal's {lstfile[0]} This week (from {lstfile[1]} to {lstfile[2][:-5]})\n",
+    status=f"Top 20 Nepal's Contributors This week (from {lstfile[1]} to {lstfile[2][:-4]})\n",
     media_ids=[media.media_id],
 )
 print("twitted")
