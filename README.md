@@ -1,6 +1,30 @@
 # OSM Stats Generator
 On the Fly Stats Generator 
 
+Usage :
+
+```
+osg [-h] --start_date START_DATE [--end_date END_DATE] --username USERNAME --password PASSWORD [--name NAME] [--tags TAGS [TAGS ...]] --url
+           URL [--format {csv,json,excel}]
+```
+
+Options:
+
+```
+  -h, --help            show this help message and exit
+  --start_date START_DATE
+                        Start date in the format YYYY-MM-DD
+  --end_date END_DATE   End date in the format YYYY-MM-DD
+  --username USERNAME   Your OSM Username
+  --password PASSWORD   Your OSM Password
+  --name NAME           Output stat file name
+  --tags TAGS [TAGS ...]
+                        Additional stats to collect : List of tags key
+  --url URL             Your public Geofabrik Download URL
+  --format {csv,json,excel}
+                        Stats output format
+```
+
 Simple python script processes osm files live and produces stats with use of  databases
 
 1. It can Generate Stats on Country Level for countries Supported on http://download.geofabrik.de/ using boundary as visualized 
