@@ -1,0 +1,36 @@
+name: Run Weekly Report
+on:
+  # schedule:
+  #   - cron: '0 */3 * * *' # Run every 3 hour
+  push:
+    branches:
+      - master # run also on push
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name : Install Osmium 
+        run :
+          sudo apt-get install -y osmium-tool
+
+      - name : Install necessary dependecies  
+        run : 
+          pip install -e . 
+
+      # - name : Run App 
+      #   env: #assign variables 
+      #     API_KEY: ${{ secrets.API_KEY }}
+      #     API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      #     ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+      #     BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+      #     OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
+      #     OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
+      #   run:
+          # python app.py

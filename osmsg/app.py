@@ -206,6 +206,12 @@ def main():
     )
 
     parser.add_argument(
+        "--rows",
+        type=int,
+        help="No fo top rows to extract , to extract top 100 , pass 100",
+    )
+
+    parser.add_argument(
         "--url", required=True, help="Your public Geofabrik Download URL "
     )
     parser.add_argument(
@@ -262,7 +268,10 @@ def main():
     df = df.drop(columns=["changes"])
     df = df.sort_values("map_changes", ascending=False)
     df.insert(0, "rank", range(1, len(df) + 1), True)
+    if args.rows:
+        df = df.head(args.rows)
     print(df)
+
     if args.format == "json":
         # with open(f"{out_file_name}.json") as file:
         #     file.write(json.dumps(users))

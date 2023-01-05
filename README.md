@@ -4,8 +4,9 @@ On the Fly Commandline Stats Generator for OpenStreetMap User Contributions
 Usage :
 
 ```
-osmg [-h] --start_date START_DATE [--end_date END_DATE] --username USERNAME --password PASSWORD [--name NAME] [--tags TAGS [TAGS ...]] --url
-           URL [--format {csv,json,excel}]
+osmsg [-h] --start_date START_DATE [--end_date END_DATE] --username USERNAME
+             --password PASSWORD [--name NAME] [--tags TAGS [TAGS ...]] [--rows ROWS]
+             --url URL [--format {csv,json,excel}]
 ```
 
 Options:
@@ -20,6 +21,7 @@ Options:
   --name NAME           Output stat file name
   --tags TAGS [TAGS ...]
                         Additional stats to collect : List of tags key
+  --rows ROWS           No fo top rows to extract , to extract top 100 , pass 100
   --url URL             Your public Geofabrik Download URL
   --format {csv,json,excel}
                         Stats output format
