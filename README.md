@@ -1,10 +1,10 @@
 # OSM Stats Generator
-On the Fly Stats Generator 
+On the Fly Stats Generator  for OpenStreetMap User Contributions
 
 Usage :
 
 ```
-osg [-h] --start_date START_DATE [--end_date END_DATE] --username USERNAME --password PASSWORD [--name NAME] [--tags TAGS [TAGS ...]] --url
+osmsg [-h] --start_date START_DATE [--end_date END_DATE] --username USERNAME --password PASSWORD [--name NAME] [--tags TAGS [TAGS ...]] --url
            URL [--format {csv,json,excel}]
 ```
 
@@ -37,13 +37,13 @@ Simple python script processes osm files live and produces stats with use of  da
 Example command to get stat of Nepal for 2022 to now : 
 
 ```
-osg --start_date 2022-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --name all_tags_stats --format csv
+osmsg --start_date 2022-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --name all_tags_stats --format csv
 ```
 
 Example command to get stat of a day for whole world :
 
 ```
-osg --start_date 2023-01-01 --end_date 2023-01-02 --url "https://planet.openstreetmap.org/replication/day" --username 'your osm username' --password 'your password' --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name all_tags_stats --format csv
+osmsg --start_date 2023-01-01 --end_date 2023-01-02 --url "https://planet.openstreetmap.org/replication/day" --username 'your osm username' --password 'your password' --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name all_tags_stats --format csv
 ```
 
 Benchmarks : 
@@ -53,7 +53,7 @@ Generally on Normal i5 machine To process a year of data for country like Nepal 
 Installation 
 
 - Install osmium lib
-- Instal osg 
+- Instal osmsg 
 ```
-pip install osg 
+pip install osmsg 
 ```

@@ -2,19 +2,16 @@ import argparse
 import concurrent.futures
 import datetime as dt
 import gzip
-import json
 import os
 import shutil
-import subprocess
 import sys
 import time
 
 import osmium
 import pandas as pd
 import requests
+from osmg.utils import verify_me_osm
 from osmium.replication.server import ReplicationServer
-
-from osg.utils import verify_me_osm
 
 users_temp = {}
 users = {}

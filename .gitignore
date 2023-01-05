@@ -5,3 +5,4 @@ temp
 *.xlsx
 *.egg-info
 __pycache__
+dist
