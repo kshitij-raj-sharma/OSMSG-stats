@@ -2,6 +2,9 @@ name: Run Weekly Report
 on:
   schedule:
     - cron: '0 0 * * MON' # Run every Monday
+  push:
+    branches:
+      - master
 
 jobs:
   issue:

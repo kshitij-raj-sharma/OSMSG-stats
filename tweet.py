@@ -30,7 +30,7 @@ media = api.media_upload(first_file)
 
 
 api.update_status(
-    status=f"Top 20 Nepal's Contributors This week (from {lstfile[1]} to {lstfile[2][:-4]})\n",
+    status=f"Top 20 Nepal's Contributors This week (from {lstfile[1]} to {lstfile[2][:-4]})\n Check full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal",
     media_ids=[media.media_id],
 )
 print("twitted")
