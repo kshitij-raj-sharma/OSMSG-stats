@@ -14,19 +14,14 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
-          
-      - name : Install Floss Manager
-        run : |
-          sudo add-apt-repository ppa:floss/stable
-          sudo apt update
-          sudo apt install floss-manager
 
       - name : Install Osmium 
         run :
           sudo apt-get install -y osmium-tool
 
       - name : Install necessary dependecies  
-        run : 
+        run : |
+          pip install flare-floss
           pip install -e . 
 
       - name : Generate Weekly Stats
