@@ -25,8 +25,8 @@ try:
 except:
     print("Error during authentication")
 
-image = "stats.png"
-media = api.media_upload(image)
+
+media = api.media_upload(first_file)
 
 
 api.update_status(
