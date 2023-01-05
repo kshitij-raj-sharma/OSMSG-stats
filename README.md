@@ -1,6 +1,8 @@
 # OpenStreetMap Stats Generator
 On the Fly Commandline Stats Generator for OpenStreetMap User Contributions
 
+I tweet Stats Every week at https://twitter.com/OSM_retweet_bot
+
 Monitored Country's stats are available under ```stats```, For now Monitored countries are : ```Nepal```
 
 Usage :
