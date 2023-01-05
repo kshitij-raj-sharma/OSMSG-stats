@@ -1,10 +1,10 @@
-# OSM Stats Generator
-On the Fly Stats Generator  for OpenStreetMap User Contributions
+# OpenStreetMap Stats Generator
+On the Fly Commandline Stats Generator for OpenStreetMap User Contributions
 
 Usage :
 
 ```
-osmsg [-h] --start_date START_DATE [--end_date END_DATE] --username USERNAME --password PASSWORD [--name NAME] [--tags TAGS [TAGS ...]] --url
+osmg [-h] --start_date START_DATE [--end_date END_DATE] --username USERNAME --password PASSWORD [--name NAME] [--tags TAGS [TAGS ...]] --url
            URL [--format {csv,json,excel}]
 ```
 

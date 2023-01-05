@@ -10,8 +10,9 @@ import time
 import osmium
 import pandas as pd
 import requests
-from osmg.utils import verify_me_osm
 from osmium.replication.server import ReplicationServer
+
+from osmsg.utils import verify_me_osm
 
 users_temp = {}
 users = {}
