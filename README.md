@@ -13,7 +13,7 @@ Simple python script processes osm files live and produces stats with use of  da
 Example command to get stat of Nepal for 2022 to now : 
 
 ```
-python app.py --start_date 2022-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --out all_tags_stats
+python app.py --start_date 2022-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --name all_tags_stats
 ```
 
 Example command to get stat of a day for whole world :
