@@ -11,6 +11,7 @@ import time
 import dataframe_image as dfi
 import osmium
 import pandas as pd
+import pytz
 import requests
 from osmium.replication.server import ReplicationServer
 
@@ -22,11 +23,16 @@ users = {}
 from datetime import datetime, timedelta
 
 
-def strip_utc(date_str):
-    return dt.datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=dt.timezone.utc)
+def strip_utc(date_str, timezone):
+    tz = dt.timezone.utc
+    if timezone == "Nepal":
+        # Set the timezone to Nepal
+        tz = pytz.timezone("Asia/Kathmandu")
+
+    return dt.datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=tz)
 
 
-def get_prev_year_dates():
+def get_prev_year_dates(timezone):
     # Get today's date
     today = datetime.now()
 
@@ -34,12 +40,12 @@ def get_prev_year_dates():
     prev_year_start = datetime(today.year - 1, 1, 1)
     prev_year_end = datetime(today.year - 1, 12, 31)
 
-    return strip_utc(prev_year_start.strftime("%Y-%m-%d")), strip_utc(
-        prev_year_end.strftime("%Y-%m-%d")
+    return strip_utc(prev_year_start.strftime("%Y-%m-%d"), timezone), strip_utc(
+        prev_year_end.strftime("%Y-%m-%d"), timezone
     )
 
 
-def previous_month():
+def previous_month(timezone):
     today = datetime.now()
     month = today.month
     year = today.year
@@ -48,25 +54,25 @@ def previous_month():
         year -= 1
     prev_month_start = datetime(year, month - 1, 1)
     prev_month_end = datetime(year, month - 1, calendar.monthrange(year, month - 1)[1])
-    return strip_utc(prev_month_start.strftime("%Y-%m-%d")), strip_utc(
-        prev_month_end.strftime("%Y-%m-%d")
+    return strip_utc(prev_month_start.strftime("%Y-%m-%d"), timezone), strip_utc(
+        prev_month_end.strftime("%Y-%m-%d"), timezone
     )
 
 
-def previous_day():
+def previous_day(timezone):
     today = datetime.today()
     previous_day = today - timedelta(days=1)
-    return strip_utc(previous_day.strftime("%Y-%m-%d")), strip_utc(
-        today.strftime("%Y-%m-%d")
+    return strip_utc(previous_day.strftime("%Y-%m-%d"), timezone), strip_utc(
+        today.strftime("%Y-%m-%d"), timezone
     )
 
 
-def previous_week():
+def previous_week(timezone):
     today = datetime.today()
     start_date = today - timedelta(days=today.weekday() + 7)
     end_date = start_date + timedelta(days=6)
-    return strip_utc(start_date.strftime("%Y-%m-%d")), strip_utc(
-        end_date.strftime("%Y-%m-%d")
+    return strip_utc(start_date.strftime("%Y-%m-%d"), timezone), strip_utc(
+        end_date.strftime("%Y-%m-%d"), timezone
     )
 
 
@@ -226,7 +232,7 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
             )
         download_urls.append(seq_url)
         seq += 1
-    return download_urls, last_ts
+    return download_urls, server_ts
 
 
 def auth(username, password):
@@ -243,6 +249,13 @@ def main():
     parser.add_argument("--end_date", help="End date in the format YYYY-MM-DD")
     parser.add_argument("--username", required=True, help="Your OSM Username")
     parser.add_argument("--password", required=True, help="Your OSM Password")
+    parser.add_argument(
+        "--timezone",
+        default="UTC",
+        choices=["Nepal", "UTC"],
+        help="Your Timezone : Currently Supported Nepal, Default : UTC",
+    )
+
     parser.add_argument(
         "--name",
         default="stats",
@@ -309,19 +322,21 @@ def main():
     print("Script Started")
 
     if args.extract_last_year:
-        start_date, end_date = get_prev_year_dates()
+        start_date, end_date = get_prev_year_dates(args.timezone)
 
     if args.extract_last_month:
-        start_date, end_date = previous_month()
+        start_date, end_date = previous_month(args.timezone)
 
     if args.extract_last_day:
-        start_date, end_date = previous_day()
+        start_date, end_date = previous_day(args.timezone)
     if args.extract_last_week:
-        start_date, end_date = previous_week()
+        start_date, end_date = previous_week(args.timezone)
     print("Generating Download Urls")
     download_urls, server_ts = get_download_urls_changefiles(
         start_date, end_date, args.url
     )
+    if server_ts < end_date:
+        end_date = server_ts
     print("Download urls Generated")
 
     print("Starting Thread Processing")

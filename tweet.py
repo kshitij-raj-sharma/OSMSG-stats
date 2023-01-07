@@ -44,7 +44,7 @@ def main():
         print("twitted")
     if args.tweet_last_day:
         api.update_status(
-            status=f"Top 50 Nepal's Contributors Last Day (from {lstfile[1]} to {lstfile[2][:-4]})\n Check full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal \n #daily #osmnepal",
+            status=f"Top 50 Nepal's Contributors Last Day (Nepal Timezone) (from {lstfile[1]} to {lstfile[2][:-4]})\n Check full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal \n #daily #osmnepal",
             media_ids=[media.media_id],
         )
         print("twitted")
