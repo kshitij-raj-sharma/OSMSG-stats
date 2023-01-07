@@ -1,0 +1,40 @@
+name: Run Daily Report
+on:
+  schedule:
+    - cron: '0 12 * * *' # Run every day at 12
+  push:
+    branches:
+      - master
+
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name : Install Osmium 
+        run :
+          sudo apt-get install -y osmium-tool
+
+      - name : Install necessary dependecies  
+        run : |
+          pip install flare-floss
+          pip install -e . 
+          pip install tweepy
+
+      - name : Generate Weekly Stats
+        env: #assign variables 
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+          OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
+          OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
+        run: |
+          osmsg --rows 50  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image --extract_last_day
+          python tweet.py --tweet_last_day
