@@ -38,13 +38,13 @@ def main():
 
     if args.tweet_last_week:
         api.update_status(
-            status=f"Top 20 Nepal's Contributors This week (from {lstfile[1]} to {lstfile[2][:-4]})\n Check full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal \n #weekly #osmnepal",
+            status=f"Top 50 Nepal's Contributors This week (Nepal Timezone) (From {lstfile[1]} to {lstfile[2][:-4]})\n Check full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal \n #weeklystats #osm #openstreetmap #osmnepal",
             media_ids=[media.media_id],
         )
         print("twitted")
     if args.tweet_last_day:
         api.update_status(
-            status=f"Top 50 Nepal's Contributors Last Day (Nepal Timezone) (from {lstfile[1]} to {lstfile[2][:-4]})\n Check full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal \n #daily #osmnepal",
+            status=f"Top 50 Nepal's Contributors Last Day (Nepal Timezone) (From {lstfile[1]} to {lstfile[2][:-4]})\n Check full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal \n #dailystats #osm #openstreetmap #osmnepal",
             media_ids=[media.media_id],
         )
         print("twitted")
