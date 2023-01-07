@@ -2,10 +2,6 @@ name: Run Daily Report
 on:
   schedule:
     - cron: '0 12 * * *' # Run every day at 12
-  push:
-    branches:
-      - master
-
 jobs:
   issue:
     runs-on: ubuntu-latest
