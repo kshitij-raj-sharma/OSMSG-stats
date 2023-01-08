@@ -4,3 +4,4 @@ pandas
 tweepy
 dataframe-image
 flare-floss
+tabulate

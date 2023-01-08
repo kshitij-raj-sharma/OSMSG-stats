@@ -237,7 +237,10 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
 
 def auth(username, password):
     print("Authenticating...")
-    cookies = verify_me_osm(username, password)
+    try:
+        cookies = verify_me_osm(username, password)
+    except Exception as ex:
+        raise ValueError("OSM Authentication Failed")
 
     print("Authenticated !")
     return cookies
@@ -284,7 +287,7 @@ def main():
 
     parser.add_argument(
         "--format",
-        choices=["csv", "json", "excel", "image"],
+        choices=["csv", "json", "excel", "image", "text"],
         default="json",
         help="Stats output format",
     )
@@ -377,6 +380,14 @@ def main():
             df.to_csv(f"{args.name}_{start_date}_{end_date}.csv", index=False)
         if args.format == "excel":
             df.to_excel(f"{args.name}_{start_date}_{end_date}.xlsx", index=False)
+        if args.format == "text":
+            text_output = df.to_markdown(tablefmt="grid", index=False)
+            with open(f"{args.name}.txt", "w", encoding="utf-8") as file:
+                file.write(
+                    f"Top {args.rows} User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
+                )
+                file.write(text_output)
+
     else:
         sys.exit()
 
@@ -394,4 +405,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as ex:
+        print(ex)
+        sys.exit()
