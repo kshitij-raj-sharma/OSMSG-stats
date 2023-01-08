@@ -12,7 +12,7 @@ def main():
     parser.add_argument("--tweet_last_day", action="store_true", default=False)
     parser.add_argument("--tweet_last_month", action="store_true", default=False)
     parser.add_argument("--tweet_last_year", action="store_true", default=False)
-    parser.add_argument("--global", action="store_true", default=False)
+    parser.add_argument("--tweet_global", action="store_true", default=False)
 
     args = parser.parse_args()
 
@@ -45,7 +45,7 @@ def main():
         )
         print("twitted")
     if args.tweet_last_day:
-        if args.global:
+        if args.tweet_global:
             api.update_status(
             status=f"Top 50 Global's Contributors Last Day (UTC Timezone) (From {lstfile[1]} to {lstfile[2][:-4]})\n Check full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats \n #dailystats #osm #openstreetmap #global",
             media_ids=[media.media_id],
