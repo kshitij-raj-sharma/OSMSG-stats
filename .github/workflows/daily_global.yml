@@ -27,17 +27,13 @@ jobs:
 
       - name : Generate Daily Stats
         env: #assign variables 
-          API_KEY: ${{ secrets.API_KEY }}
-          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
            osmsg --rows 100  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name stats
 
       - name: add stats to git 
+      
         run : |
             git config --global user.email "skshitizraj@gmail.com"
             git config --global user.name "kshitijrajsharma"

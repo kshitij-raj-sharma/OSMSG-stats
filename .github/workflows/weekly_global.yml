@@ -27,16 +27,17 @@ jobs:
 
       - name : Generate Weekly Stats
         env: #assign variables 
-          API_KEY: ${{ secrets.API_KEY }}
-          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
            osmsg --rows 100  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name stats 
       - name : Tweet Stats 
+        env: #assign variables 
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run : |
           python tweet.py --tweet_last_week --tweet_global
       - name: Upload stats to Github 
@@ -45,7 +46,7 @@ jobs:
             git config --global user.name "kshitijrajsharma"
             mv *.csv stats/Global/Weekly/weekly_global_stats.csv
             git add -f stats/Global/Weekly/weekly_global_stats.csv
-            git commit -m "Updated daily global stats"
+            git commit -m "Updated weekly global stats"
             git push
 
 
