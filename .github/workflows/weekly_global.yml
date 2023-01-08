@@ -1,7 +1,7 @@
 name: Run Weekly Report Global
 on:
   # schedule:
-    #  - cron: '0 7 * * *' # Run every day at 6 UTC
+      # - cron: '0 0 * * MON' # Run every Monday
   push:
     branches:
       - master
