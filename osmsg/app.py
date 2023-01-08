@@ -286,7 +286,15 @@ def main():
     parser.add_argument("--extract_last_year", action="store_true", default=False)
 
     parser.add_argument(
+        "--exclude_date_in_name",
+        action="store_true",
+        help="By default from and to date will be added to filename , You can skip this behaviour with this option",
+        default=False,
+    )
+
+    parser.add_argument(
         "--format",
+        nargs="+",
         choices=["csv", "json", "excel", "image", "text"],
         default="json",
         help="Stats output format",
@@ -368,21 +376,25 @@ def main():
         if args.rows:
             df = df.head(args.rows)
         print(df)
-        if args.format == "image":
-            # Convert the DataFrame to an image
-            dfi.export(df, f"{args.name}_{start_date}_{end_date}.png")
 
-        if args.format == "json":
+        fname = f"{args.name}_{start_date}_{end_date}"
+        if args.exclude_date_in_name:
+            fname = args.name
+        if "image" in args.format:
+            # Convert the DataFrame to an image
+            dfi.export(df, f"{fname}.png")
+
+        if "json" in args.format:
             # with open(f"{out_file_name}.json") as file:
             #     file.write(json.dumps(users))
-            df.to_json(f"{args.name}_{start_date}_{end_date}.json", orient="records")
-        if args.format == "csv":
-            df.to_csv(f"{args.name}_{start_date}_{end_date}.csv", index=False)
-        if args.format == "excel":
-            df.to_excel(f"{args.name}_{start_date}_{end_date}.xlsx", index=False)
-        if args.format == "text":
+            df.to_json(f"{fname}.json", orient="records")
+        if "csv" in args.format:
+            df.to_csv(f"{fname}.csv", index=False)
+        if "excel" in args.format:
+            df.to_excel(f"{fname}.xlsx", index=False)
+        if "text" in args.format:
             text_output = df.to_markdown(tablefmt="grid", index=False)
-            with open(f"{args.name}.txt", "w", encoding="utf-8") as file:
+            with open(f"{fname}.txt", "w", encoding="utf-8") as file:
                 file.write(
                     f"Top {args.rows} User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
                 )
