@@ -1,7 +1,10 @@
 name: Run Daily Report
 on:
-  schedule:
-    - cron: '0 6 * * *' # Run every day at 6 UTC
+  # schedule:
+  #   - cron: '0 6 * * *' # Run every day at 6 UTC
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -32,5 +35,9 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --rows 50  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image --timezone Nepal --extract_last_day
-          python tweet.py --tweet_last_day
+          # osmsg --rows 50  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image --extract_last_day
+          # python tweet.py --tweet_last_day --global
+
+          cd stats/Global/Daily
+          echo "This is the updated README" > README.md
+

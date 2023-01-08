@@ -8,9 +8,9 @@ Monitored Country's stats are available under ```stats```, For now Monitored cou
 Usage :
 
 ```
-osmsg [-h] --start_date START_DATE [--end_date END_DATE] --username USERNAME
-             --password PASSWORD [--name NAME] [--tags TAGS [TAGS ...]] [--rows ROWS]
-             --url URL [--format {csv,json,excel}]
+osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] --username USERNAME --password PASSWORD [--timezone {Nepal,UTC}]
+             [--name NAME] [--tags TAGS [TAGS ...]] [--rows ROWS] --url URL [--extract_last_week] [--extract_last_day] [--extract_last_month]
+             [--extract_last_year] [--format {csv,json,excel,image}]
 ```
 
 Options:
@@ -22,12 +22,18 @@ Options:
   --end_date END_DATE   End date in the format YYYY-MM-DD
   --username USERNAME   Your OSM Username
   --password PASSWORD   Your OSM Password
+  --timezone {Nepal,UTC}
+                        Your Timezone : Currently Supported Nepal, Default : UTC
   --name NAME           Output stat file name
   --tags TAGS [TAGS ...]
                         Additional stats to collect : List of tags key
   --rows ROWS           No fo top rows to extract , to extract top 100 , pass 100
   --url URL             Your public Geofabrik Download URL
-  --format {csv,json,excel}
+  --extract_last_week
+  --extract_last_day
+  --extract_last_month
+  --extract_last_year
+  --format {csv,json,excel,image}
                         Stats output format
 ```
 
