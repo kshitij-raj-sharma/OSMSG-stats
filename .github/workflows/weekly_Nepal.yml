@@ -2,7 +2,9 @@ name: Run Weekly Report Nepal
 on:
   schedule:
     - cron: '0 0 * * MON' # Run every Monday
-
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -33,5 +35,15 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --rows 50  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image --extract_last_week
+          osmsg --rows 100  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name stats
           python tweet.py --tweet_last_week
+
+      - name: add stats to git 
+      
+        run : |
+            git config --global user.email "skshitizraj@gmail.com"
+            git config --global user.name "kshitijrajsharma"
+            mv *.csv stats/Nepal/Weekly/weekly_nepal_stats.csv
+            git add -f stats/Nepal/Weekly/weekly_nepal_stats.csv
+            git commit -m "Updated Weekly Nepal stats"
+            git push
