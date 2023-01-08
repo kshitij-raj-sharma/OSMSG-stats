@@ -36,7 +36,6 @@ jobs:
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
            osmsg --rows 100  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format text --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name daily_stats 
-                # Add the daily stats file to the staging area
 
       - name: add stats to git 
         run :
