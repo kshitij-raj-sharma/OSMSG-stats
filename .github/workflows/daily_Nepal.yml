@@ -41,6 +41,7 @@ jobs:
       - name: add stats to git 
       
         run : |
+            git pull 
             git config --global user.email "skshitizraj@gmail.com"
             git config --global user.name "kshitijrajsharma"
             mv *.csv stats/Nepal/Daily/daily_nepal_stats.csv

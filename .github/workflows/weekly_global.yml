@@ -42,6 +42,7 @@ jobs:
           python tweet.py --tweet_last_week --tweet_global
       - name: Upload stats to Github 
         run : |
+            git pull
             git config --global user.email "skshitizraj@gmail.com"
             git config --global user.name "kshitijrajsharma"
             mv *.csv stats/Global/Weekly/weekly_global_stats.csv
