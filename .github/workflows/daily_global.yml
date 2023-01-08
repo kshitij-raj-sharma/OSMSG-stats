@@ -1,4 +1,4 @@
-name: Run Daily Report
+name: Run Daily Report Global
 on:
   # schedule:
     #  - cron: '0 7 * * *' # Run every day at 6 UTC

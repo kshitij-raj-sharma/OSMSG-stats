@@ -1,4 +1,4 @@
-name: Run Weekly Report
+name: Run Weekly Report Nepal
 on:
   schedule:
     - cron: '0 0 * * MON' # Run every Monday

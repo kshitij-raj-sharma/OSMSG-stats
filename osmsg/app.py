@@ -382,7 +382,7 @@ def main():
             fname = args.name
         if "image" in args.format:
             # Convert the DataFrame to an image
-            dfi.export(df, f"{fname}.png")
+            dfi.export(df, f"{fname}.png", max_cols=-1)
 
         if "json" in args.format:
             # with open(f"{out_file_name}.json") as file:
