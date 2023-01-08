@@ -42,7 +42,7 @@ jobs:
             git config --global user.email "skshitizraj@gmail.com"
             git config --global user.name "kshitijrajsharma"
             mv *.csv stats/Global/Daily/daily_global_stats.csv
-            git add -f stats/Global/Daily/daily_global_stats.txt
+            git add -f stats/Global/Daily/daily_global_stats.csv
             git commit -m "Updated daily global stats"
             git push
 
