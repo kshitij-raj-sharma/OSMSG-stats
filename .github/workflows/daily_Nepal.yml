@@ -1,4 +1,4 @@
-name: Run Daily Report
+name: Run Daily Report Nepal
 on:
   schedule:
     - cron: '0 6 * * *' # Run every day at 6 UTC
