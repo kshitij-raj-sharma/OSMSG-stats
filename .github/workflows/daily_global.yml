@@ -36,6 +36,6 @@ jobs:
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
           osmsg --rows 50  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image --extract_last_day
-          python tweet.py --tweet_last_day --global
+          python tweet.py --tweet_last_day --tweet_global
 
 
