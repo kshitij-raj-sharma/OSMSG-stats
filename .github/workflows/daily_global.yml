@@ -35,12 +35,12 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-           osmsg --rows 100  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format text --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name daily_stats 
+           osmsg --rows 100  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format text --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name stats/Global/Daily/daily_global_stats 
 
       - name: add stats to git 
         run :
-            git add daily_stats.txt
-            git commit -m "Updated daily global stats" --stats/Global/Daily/
+            git add -f stats/Global/Daily/daily_global_stats.txt
+            git commit -m "Updated daily global stats"
             git push
 
 
