@@ -188,6 +188,8 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
 
     # Gets sequence id using timestamp we get from osm api using pyosmium tool
     seq = repl.timestamp_to_sequence(start_date)
+    start_seq = seq
+    start_seq_url = repl.get_state_url(start_seq)
 
     if seq is None:
         print(
@@ -222,6 +224,7 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
         sys.exit()
 
     download_urls = []
+    end_seq_url = repl.get_state_url(last_seq)
 
     while seq < last_seq:
         seq_url = repl.get_diff_url(seq)
@@ -232,7 +235,7 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
             )
         download_urls.append(seq_url)
         seq += 1
-    return download_urls, server_ts
+    return download_urls, server_ts, start_seq, last_seq, start_seq_url, end_seq_url
 
 
 def auth(username, password):
@@ -343,9 +346,14 @@ def main():
     if args.extract_last_week:
         start_date, end_date = previous_week(args.timezone)
     print("Generating Download Urls")
-    download_urls, server_ts = get_download_urls_changefiles(
-        start_date, end_date, args.url
-    )
+    (
+        download_urls,
+        server_ts,
+        start_seq,
+        end_seq,
+        start_seq_url,
+        end_seq_url,
+    ) = get_download_urls_changefiles(start_date, end_date, args.url)
     if server_ts < end_date:
         end_date = server_ts
     print("Download urls Generated")
@@ -399,6 +407,11 @@ def main():
                     f"Top {args.rows} User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
                 )
                 file.write(text_output)
+        command = " ".join(sys.argv)
+        with open(f"{fname}_metadata.txt", "w", encoding="utf-8") as file:
+            file.write(
+                f"Command : {command} \nSource : {args.url} \nStart Date : {start_date} \nStart_seq : {start_seq} = {start_seq_url} \nEnd_date : {end_date} \nEnd_seq : {end_seq} = {end_seq_url} \n"
+            )
 
     else:
         sys.exit()
@@ -410,7 +423,7 @@ def main():
     hours, rem = divmod(elapsed_time, 3600)
     minutes, seconds = divmod(rem, 60)
     print(
-        "Script Completd in hr:min:sec = {:0>2}:{:0>2}:{:05.2f}".format(
+        "Script Completed in hr:min:sec = {:0>2}:{:0>2}:{:05.2f}".format(
             int(hours), int(minutes), seconds
         )
     )
