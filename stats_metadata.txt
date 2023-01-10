@@ -1,0 +1,6 @@
+Command : /Users/kshitij/OSMSG/env/bin/osmsg --rows 50 --url http://download.geofabrik.de/asia/nepal-updates --username Kshitijraj Sharma --password Bishalraj1 --format text csv --extract_last_day --tags building highway waterway amenity landuse natural --exclude_date_in_name 
+Source : http://download.geofabrik.de/asia/nepal-updates 
+Start Date : 2023-01-09 00:00:00+00:00 
+Start_seq : 3095 = 2023-01-07 21:21:24+00:00 
+End_date : 2023-01-09 21:21:23+00:00 
+End_seq : 3097 = 2023-01-09 21:21:23+00:00 

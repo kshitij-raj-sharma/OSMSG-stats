@@ -23,18 +23,29 @@ users = {}
 from datetime import datetime, timedelta
 
 
-def strip_utc(date_str, timezone):
+def in_local_timezone(date, timezone):
     tz = dt.timezone.utc
     if timezone == "Nepal":
         # Set the timezone to Nepal
         tz = pytz.timezone("Asia/Kathmandu")
 
-    return dt.datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=tz)
+    return date.astimezone(tz)
+
+
+def strip_utc(date_str, timezone):
+    tz = dt.timezone.utc
+    given_dt = dt.datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=tz)
+
+    if timezone == "Nepal":
+        # Set the timezone to Nepal
+        tz = pytz.timezone("Asia/Kathmandu")
+
+    return given_dt.astimezone(tz)
 
 
 def get_prev_year_dates(timezone):
     # Get today's date
-    today = datetime.now()
+    today = datetime.utcnow()
 
     # Get the start and end date of the previous year
     prev_year_start = datetime(today.year - 1, 1, 1)
@@ -46,7 +57,7 @@ def get_prev_year_dates(timezone):
 
 
 def previous_month(timezone):
-    today = datetime.now()
+    today = datetime.utcnow()
     month = today.month
     year = today.year
     if today.month == 1:
@@ -124,30 +135,32 @@ class ChangefileHandler(osmium.SimpleHandler):
         super(ChangefileHandler, self).__init__()
 
     def node(self, n):
+        if n.timestamp >= start_date_utc and n.timestamp <= end_date_utc:
 
-        calculate_stats(n.uid, n.user, n.changeset, n.version, n.tags, "nodes")
+            calculate_stats(n.uid, n.user, n.changeset, n.version, n.tags, "nodes")
 
     def way(self, w):
-
-        calculate_stats(w.uid, w.user, w.changeset, w.version, w.tags, "ways")
+        if w.timestamp >= start_date_utc and w.timestamp <= end_date_utc:
+            calculate_stats(w.uid, w.user, w.changeset, w.version, w.tags, "ways")
 
     def relation(self, r):
-
-        calculate_stats(r.uid, r.user, r.changeset, r.version, r.tags, "relations")
+        if r.timestamp >= start_date_utc and r.timestamp <= end_date_utc:
+            calculate_stats(r.uid, r.user, r.changeset, r.version, r.tags, "relations")
 
 
 def process_changefiles(url):
     # Check that the request was successful
     # Send a GET request to the URL
+    print(f"Processing {url}")
 
     url_splitted_list = url.split("/")
     temp_path = os.path.join(os.getcwd(), "temp/changefiles")
+
     file_path = os.path.join(
         temp_path,
         f"{url_splitted_list[-3]}_{url_splitted_list[-2]}_{url_splitted_list[-1]}",
     )
-    if not os.path.exists(temp_path):
-        os.makedirs(temp_path)
+
     if not os.path.exists(file_path):
         # Read the cookies from the file
 
@@ -156,7 +169,6 @@ def process_changefiles(url):
             test = cookies.split("=")
             # name, value = line.strip().split("=")
             cookies_fmt[test[0]] = f'{test[1]}=="'
-            print(f"Processing {url}")
             response = requests.get(url, cookies=cookies_fmt)
         else:
             response = requests.get(url)
@@ -176,18 +188,15 @@ def process_changefiles(url):
         shutil.copyfileobj(f_in, f_out)
 
     handler.apply_file(file_path[:-3])
-    os.remove(file_path)
-    os.remove(file_path[:-3])
-    # Delete the changefiles folder
-    os.chdir(os.getcwd())
-    shutil.rmtree("temp")
 
 
-def get_download_urls_changefiles(start_date, end_date, base_url):
+def get_download_urls_changefiles(start_date, end_date, base_url, timezone):
     repl = ReplicationServer(base_url)
 
     # Gets sequence id using timestamp we get from osm api using pyosmium tool
     seq = repl.timestamp_to_sequence(start_date)
+    # going one step back to cover all changes
+    seq = seq - 1
     start_seq = seq
     start_seq_url = repl.get_state_url(start_seq)
 
@@ -216,7 +225,7 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
             last_ts = end_date
 
     print(
-        f"You have supplied {start_date} : {seq} to {last_ts} : {last_seq} . Latest Server Fetched is : {server_seq} & {server_ts} on {base_url}"
+        f"You have supplied {start_date} : {seq} to {last_ts} : {last_seq} . Latest Server Fetched is : {server_seq} & {in_local_timezone(server_ts,timezone)} on {base_url}"
     )
 
     if seq >= last_seq:
@@ -226,7 +235,7 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
     download_urls = []
     end_seq_url = repl.get_state_url(last_seq)
 
-    while seq < last_seq:
+    while seq <= last_seq:
         seq_url = repl.get_diff_url(seq)
         if "geofabrik" in base_url:
             # use internal server
@@ -234,8 +243,29 @@ def get_download_urls_changefiles(start_date, end_date, base_url):
                 "download.geofabrik", "osm-internal.download.geofabrik"
             )
         download_urls.append(seq_url)
-        seq += 1
+        seq = seq + 1
     return download_urls, server_ts, start_seq, last_seq, start_seq_url, end_seq_url
+
+
+def seq_to_timestamp(url, timezone):
+    response = requests.get(url)
+    rtxt = response.text
+    # find the index of the "timestamp=" substring
+    timestamp_start = rtxt.find("timestamp=") + len("timestamp=")
+
+    # find the index of the next newline character
+    timestamp_end = rtxt.find("\n", timestamp_start)
+
+    # extract the substring between the two indexes
+    timestamp = rtxt[timestamp_start:timestamp_end]
+    timestamp_obj = dt.datetime.strptime(timestamp, "%Y-%m-%dT%H\:%M\:%SZ")
+    timestamp_obj = timestamp_obj.replace(tzinfo=dt.timezone.utc)
+    tz = dt.timezone.utc
+    if timezone == "Nepal":
+        # Set the timezone to Nepal
+        tz = pytz.timezone("Asia/Kathmandu")
+
+    return timestamp_obj.astimezone(tz)
 
 
 def auth(username, password):
@@ -353,16 +383,33 @@ def main():
         end_seq,
         start_seq_url,
         end_seq_url,
-    ) = get_download_urls_changefiles(start_date, end_date, args.url)
+    ) = get_download_urls_changefiles(start_date, end_date, args.url, args.timezone)
     if server_ts < end_date:
+        print(
+            "Warning : End date data is not available at server, Changing to latest available date "
+        )
         end_date = server_ts
+        if start_date > server_ts:
+            print("Data is not available after start date ")
+            sys.exit()
+    global end_date_utc
+    global start_date_utc
+
+    start_date_utc = start_date
+    end_date_utc = end_date
     print("Download urls Generated")
 
     print("Starting Thread Processing")
+    temp_path = os.path.join(os.getcwd(), "temp/changefiles")
+    if not os.path.exists(temp_path):
+        os.makedirs(temp_path)
+
     # Use the ThreadPoolExecutor to download the images in parallel
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         executor.map(process_changefiles, download_urls)
+    os.chdir(os.getcwd())
+    shutil.rmtree("temp")
     if len(users) > 1:
 
         df = pd.json_normalize(list(users.values()))
@@ -408,9 +455,12 @@ def main():
                 )
                 file.write(text_output)
         command = " ".join(sys.argv)
+        start_repl_ts = seq_to_timestamp(start_seq_url, args.timezone)
+        end_repl_ts = seq_to_timestamp(end_seq_url, args.timezone)
+
         with open(f"{fname}_metadata.txt", "w", encoding="utf-8") as file:
             file.write(
-                f"Command : {command} \nSource : {args.url} \nStart Date : {start_date} \nStart_seq : {start_seq} = {start_seq_url} \nEnd_date : {end_date} \nEnd_seq : {end_seq} = {end_seq_url} \n"
+                f"Command : {command} \nSource : {args.url} \nStart Date : {in_local_timezone(start_date,args.timezone)} \nStart_seq : {start_seq} = {start_repl_ts} \nEnd_date : {in_local_timezone(end_date,args.timezone)} \nEnd_seq : {end_seq} = {end_repl_ts} \n"
             )
 
     else:
