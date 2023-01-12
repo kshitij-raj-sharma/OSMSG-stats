@@ -222,7 +222,11 @@ def get_download_urls_changefiles(start_date, end_date, base_url, timezone):
     if end_date:
         end_date_seq = repl.timestamp_to_sequence(end_date)
         if end_date_seq:
-            last_seq = end_date_seq
+            if end_date_seq < last_seq:
+                # get one step ahead to cover all
+                last_seq = end_date_seq + 1
+            else:
+                last_seq = end_date_seq
             last_ts = end_date
 
     print(
