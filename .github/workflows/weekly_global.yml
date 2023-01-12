@@ -30,7 +30,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-           osmsg --rows 100  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv image --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name stats 
+           osmsg --rows 100  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv image --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name stats --read_from_metadata stats/Global/Daily/stats_metadata.json
       - name : Tweet Stats 
         env: #assign variables 
           API_KEY: ${{ secrets.API_KEY }}
@@ -46,10 +46,10 @@ jobs:
             git config --global user.email "skshitizraj@gmail.com"
             git config --global user.name "kshitijrajsharma"
             mv *.csv stats/Global/Weekly/weekly_global_stats.csv
-            mv stats_metadata.txt stats/Global/Weekly/stats_metadata.txt
+            mv stats_metadata.json stats/Global/Weekly/stats_metadata.json
 
             git add -f stats/Global/Weekly/weekly_global_stats.csv
-            git add -f stats/Global/Weekly/stats_metadata.txt
+            git add -f stats/Global/Weekly/stats_metadata.json
 
             git commit -m "Updated Weekly Global Stats"
             git push

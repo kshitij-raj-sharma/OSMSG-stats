@@ -35,7 +35,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --rows 100  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --timezone Nepal --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name stats
+          osmsg --rows 100  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --timezone Nepal --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name stats --read_from_metadata stats/Nepal/Daily/stats_metadata.json
           python tweet.py --tweet_last_day
 
       - name: add stats to git 
@@ -45,9 +45,9 @@ jobs:
             git config --global user.email "skshitizraj@gmail.com"
             git config --global user.name "kshitijrajsharma"
             mv *.csv stats/Nepal/Daily/daily_nepal_stats.csv
-            mv stats_metadata.txt stats/Nepal/Daily/stats_metadata.txt
+            mv stats_metadata.json stats/Nepal/Daily/stats_metadata.json
 
             git add -f stats/Nepal/Daily/daily_nepal_stats.csv
-            git add -f stats/Nepal/Daily/stats_metadata.txt
+            git add -f stats/Nepal/Daily/stats_metadata.json
             git commit -m "Updated Daily Nepal stats"
             git push

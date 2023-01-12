@@ -3,6 +3,7 @@ import calendar
 import concurrent.futures
 import datetime as dt
 import gzip
+import json
 import os
 import shutil
 import sys
@@ -334,6 +335,10 @@ def main():
         default="json",
         help="Stats output format",
     )
+    parser.add_argument(
+        "--read_from_metadata",
+        help="Location of metadata to pick start date from previous run's end_date",
+    )
 
     args = parser.parse_args()
     if args.start_date:
@@ -377,6 +382,26 @@ def main():
         start_date, end_date = previous_day(args.timezone)
     if args.extract_last_week:
         start_date, end_date = previous_week(args.timezone)
+
+    if args.read_from_metadata:
+        if os.path.exists(args.read_from_metadata):
+            with open(args.read_from_metadata, "r") as openfile:
+                # Reading from json file
+                meta_json = json.load(openfile)
+            if "end_date" in meta_json:
+                start_date = datetime.strptime(
+                    meta_json["end_date"], "%Y-%m-%d %H:%M:%S%z"
+                )
+
+                print(f"Start date changed to {start_date} after reading from metajson")
+            else:
+                print("no end_date in meta json")
+        else:
+            print("couldn't read start_date from metajson")
+    if start_date == end_date:
+        print("Err: Start date and end date are equal")
+        sys.exit()
+
     print("Generating Download Urls")
     (
         download_urls,
@@ -391,7 +416,7 @@ def main():
             "Warning : End date data is not available at server, Changing to latest available date "
         )
         end_date = server_ts
-        if start_date > server_ts:
+        if start_date >= server_ts:
             print("Data is not available after start date ")
             sys.exit()
     global end_date_utc
@@ -468,10 +493,20 @@ def main():
         start_date = in_local_timezone(start_date, args.timezone)
         end_date = in_local_timezone(end_date, args.timezone)
 
-        with open(f"{fname}_metadata.txt", "w", encoding="utf-8") as file:
+        with open(f"{args.name}_metadata.json", "w", encoding="utf-8") as file:
             file.write(
-                f"Command : {command} \nSource : {args.url} \nStart Date : {start_date} \nStart_seq : {start_seq} = {start_repl_ts} \nEnd_date : {end_date} \nEnd_seq : {end_seq} = {end_repl_ts} \n"
+                json.dumps(
+                    {
+                        "command": str(command),
+                        "source": str(args.url),
+                        "start_date": str(start_date),
+                        "start_seq": f"{start_seq} = {start_repl_ts}",
+                        "end_date": str(end_date),
+                        "end_seq": f"{end_seq} = {end_repl_ts}",
+                    }
+                )
             )
+        print("Metadata Created")
 
     else:
         sys.exit()
