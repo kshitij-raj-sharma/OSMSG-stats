@@ -284,7 +284,9 @@ def main():
     parser.add_argument("--start_date", help="Start date in the format YYYY-MM-DD")
     parser.add_argument("--end_date", help="End date in the format YYYY-MM-DD")
     parser.add_argument("--username", required=True, help="Your OSM Username")
-    parser.add_argument("--password", required=True, help="Your OSM Password")
+    parser.add_argument(
+        "--password", required=True, help="Your OSM Password", default=argparse.SUPPRESS
+    )
     parser.add_argument(
         "--timezone",
         default="UTC",
@@ -454,13 +456,21 @@ def main():
                     f"Top {args.rows} User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
                 )
                 file.write(text_output)
+        # Loop through the arguments
+        for i in range(len(sys.argv)):
+            # If the argument is '--password'
+            if sys.argv[i] == "--password":
+                # Replace the value with '***'
+                sys.argv[i + 1] = "***"
         command = " ".join(sys.argv)
         start_repl_ts = seq_to_timestamp(start_seq_url, args.timezone)
         end_repl_ts = seq_to_timestamp(end_seq_url, args.timezone)
+        start_date = in_local_timezone(start_date, args.timezone)
+        end_date = in_local_timezone(end_date, args.timezone)
 
         with open(f"{fname}_metadata.txt", "w", encoding="utf-8") as file:
             file.write(
-                f"Command : {command} \nSource : {args.url} \nStart Date : {in_local_timezone(start_date,args.timezone)} \nStart_seq : {start_seq} = {start_repl_ts} \nEnd_date : {in_local_timezone(end_date,args.timezone)} \nEnd_seq : {end_seq} = {end_repl_ts} \n"
+                f"Command : {command} \nSource : {args.url} \nStart Date : {start_date} \nStart_seq : {start_seq} = {start_repl_ts} \nEnd_date : {end_date} \nEnd_seq : {end_seq} = {end_repl_ts} \n"
             )
 
     else:

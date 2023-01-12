@@ -46,12 +46,12 @@ jobs:
             git config --global user.email "skshitizraj@gmail.com"
             git config --global user.name "kshitijrajsharma"
             mv *.csv stats/Global/Weekly/weekly_global_stats.csv
-            mv *.txt stats/Global/Weekly/weekly_global_stats_metadata.txt
+            mv stats_metadata.txt stats/Global/Weekly/stats_metadata.txt
 
             git add -f stats/Global/Weekly/weekly_global_stats.csv
-            git add -f stats/Global/Weekly/weekly_global_stats_metadata.txt
+            git add -f stats/Global/Weekly/stats_metadata.txt
 
-            git commit -m "Updated weekly global stats"
+            git commit -m "Updated Weekly Global Stats"
             git push
 
 

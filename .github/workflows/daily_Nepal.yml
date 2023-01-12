@@ -45,9 +45,9 @@ jobs:
             git config --global user.email "skshitizraj@gmail.com"
             git config --global user.name "kshitijrajsharma"
             mv *.csv stats/Nepal/Daily/daily_nepal_stats.csv
-            mv *.txt stats/Nepal/Daily/daily_nepal_stats_metadata.txt
+            mv stats_metadata.txt stats/Nepal/Daily/stats_metadata.txt
 
             git add -f stats/Nepal/Daily/daily_nepal_stats.csv
-            git add -f stats/Nepal/Daily/daily_nepal_stats_metadata.txt
-            git commit -m "Updated daily Nepal stats"
+            git add -f stats/Nepal/Daily/stats_metadata.txt
+            git commit -m "Updated Daily Nepal stats"
             git push

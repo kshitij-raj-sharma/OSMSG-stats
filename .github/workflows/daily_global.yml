@@ -49,11 +49,11 @@ jobs:
             git config --global user.email "skshitizraj@gmail.com"
             git config --global user.name "kshitijrajsharma"
             mv *.csv stats/Global/Daily/daily_global_stats.csv
-            mv *.txt stats/Global/Daily/daily_global_stats_metadata.txt
+            mv stats_metadata.txt stats/Global/Daily/stats_metadata.txt
 
             git add -f stats/Global/Daily/daily_global_stats.csv
-            git add -f stats/Global/Daily/daily_global_stats_metadata.txt
-            git commit -m "Updated daily global stats"
+            git add -f stats/Global/Daily/stats_metadata.txt
+            git commit -m "Updated Daily global stats"
             git push
 
 
