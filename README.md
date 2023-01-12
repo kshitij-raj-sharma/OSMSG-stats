@@ -5,16 +5,15 @@ I tweet Stats Every week at https://twitter.com/stats_osm and Produce Stats [her
 
 Monitored Country's stats are available under ```stats```, For now Monitored countries are : ```Nepal``` , weekly,monthly and yearly stats are stored in github , Daily are only available via tweet
 
-Usage :
-
+usage: 
 ```
-osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] --username USERNAME --password PASSWORD [--timezone {Nepal,UTC}]
-             [--name NAME] [--tags TAGS [TAGS ...]] [--rows ROWS] --url URL [--extract_last_week] [--extract_last_day] [--extract_last_month]
-             [--extract_last_year] [--format {csv,json,excel,image}]
+osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] --username USERNAME --password PASSWORD
+             [--timezone {Nepal,UTC}] [--name NAME] [--tags TAGS [TAGS ...]] [--rows ROWS] --url URL [--extract_last_week]
+             [--extract_last_day] [--extract_last_month] [--extract_last_year] [--exclude_date_in_name]
+             [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]] [--read_from_metadata READ_FROM_METADATA]
 ```
 
-Options:
-
+options:
 ```
   -h, --help            show this help message and exit
   --start_date START_DATE
@@ -33,8 +32,12 @@ Options:
   --extract_last_day
   --extract_last_month
   --extract_last_year
-  --format {csv,json,excel,image}
+  --exclude_date_in_name
+                        By default from and to date will be added to filename , You can skip this behaviour with this option
+  --format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]
                         Stats output format
+  --read_from_metadata READ_FROM_METADATA
+                        Location of metadata to pick start date from previous run's end_date
 ```
 
 Simple python script processes osm files live and produces stats with use of  databases
@@ -57,6 +60,8 @@ Example command to get stat of a day for whole world :
 ```
 osmsg --start_date 2023-01-01 --end_date 2023-01-02 --url "https://planet.openstreetmap.org/replication/day" --username 'your osm username' --password 'your password' --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name all_tags_stats --format csv
 ```
+
+Check more commands examples inside ```stats/``` ```stats_metadata.json``` 
 
 Benchmarks : 
 Speed depends upon no of cores available on your CPU .
