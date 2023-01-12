@@ -1,6 +1,5 @@
 output
 temp
-*.json
 *.xlsx
 *.egg-info
 __pycache__
