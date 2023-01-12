@@ -462,6 +462,8 @@ def main():
         if args.rows:
             df = df.head(args.rows)
         print(df)
+        start_date = in_local_timezone(start_date, args.timezone)
+        end_date = in_local_timezone(end_date, args.timezone)
 
         fname = f"{args.name}_{start_date}_{end_date}"
         if args.exclude_date_in_name:
@@ -494,8 +496,6 @@ def main():
         command = " ".join(sys.argv)
         start_repl_ts = seq_to_timestamp(start_seq_url, args.timezone)
         end_repl_ts = seq_to_timestamp(end_seq_url, args.timezone)
-        start_date = in_local_timezone(start_date, args.timezone)
-        end_date = in_local_timezone(end_date, args.timezone)
 
         with open(f"{args.name}_metadata.json", "w", encoding="utf-8") as file:
             file.write(
