@@ -47,7 +47,7 @@ def main():
 
         else:
             api.update_status(
-                status=f"Top 100 Nepal Contributors This week (Nepal Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Weekly/weekly_nepal_stats.csv \n #weeklystats #osm #openstreetmap #osmnepal",
+                status=f"Top 100 Nepal Contributors This week (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Weekly/weekly_nepal_stats.csv \n #weeklystats #osm #openstreetmap #osmnepal",
                 media_ids=[media.media_id],
             )
         print("twitted")
