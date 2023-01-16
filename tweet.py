@@ -41,13 +41,26 @@ def main():
     if args.tweet_last_week:
         if args.tweet_global:
             api.update_status(
-                status=f"Top 100 Global Contributors Last Week (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Weekly/weekly_global_stats.csv \n #dailystats #osm #openstreetmap #global",
+                status=f"Top 100 Global Contributors Last Week (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Weekly/weekly_global_stats.csv \n #weeklystats #osm #openstreetmap #global",
                 media_ids=[media.media_id],
             )
 
         else:
             api.update_status(
                 status=f"Top 100 Nepal Contributors This week (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Weekly/weekly_nepal_stats.csv \n #weeklystats #osm #openstreetmap #osmnepal",
+                media_ids=[media.media_id],
+            )
+        print("twitted")
+    if args.tweet_last_month:
+        if args.tweet_global:
+            api.update_status(
+                status=f"Top 100 Global Contributors Last Month (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Weekly/weekly_global_stats.csv \n #monthlystats #osm #openstreetmap #global",
+                media_ids=[media.media_id],
+            )
+
+        else:
+            api.update_status(
+                status=f"Top 100 Nepal Contributors This Month (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Weekly/weekly_nepal_stats.csv \n #monthlyystats #osm #openstreetmap #osmnepal",
                 media_ids=[media.media_id],
             )
         print("twitted")
