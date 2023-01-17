@@ -71,6 +71,22 @@ def previous_month(timezone):
     )
 
 
+def get_prev_hour(timezone):
+    now = datetime.now()
+
+    # Get the previous hour's start time
+    start_time = now.replace(minute=0, second=0, microsecond=0) - timedelta(hours=1)
+
+    # Get the previous hour's end time
+    end_time = start_time + timedelta(hours=1)
+
+    tz = dt.timezone.utc
+    if timezone == "Nepal":
+        # Set the timezone to Nepal
+        tz = pytz.timezone("Asia/Kathmandu")
+    return start_time.astimezone(tz), end_time.astimezone(tz)
+
+
 def previous_day(timezone):
     today = datetime.today()
     previous_day = today - timedelta(days=1)
@@ -338,6 +354,8 @@ def main():
     parser.add_argument("--extract_last_day", action="store_true", default=False)
     parser.add_argument("--extract_last_month", action="store_true", default=False)
     parser.add_argument("--extract_last_year", action="store_true", default=False)
+    parser.add_argument("--extract_last_hour", action="store_true", default=False)
+
     parser.add_argument(
         "--wild_tags",
         action="store_true",
@@ -376,6 +394,7 @@ def main():
             or args.extract_last_day
             or args.extract_last_month
             or args.extract_last_year
+            or args.extract_last_hour
         ):
             pass
         else:
@@ -397,6 +416,9 @@ def main():
     if "geofabrik" in args.url:
         cookies = auth(args.username, args.password)
     print("Script Started")
+
+    if args.extract_last_hour:
+        start_date, end_date = get_prev_hour(args.timezone)
 
     if args.extract_last_year:
         start_date, end_date = get_prev_year_dates(args.timezone)
@@ -496,12 +518,14 @@ def main():
             fname = args.name
         if "image" in args.format:
             # Convert the DataFrame to an image
+            df = df if args.rows else df.head(100)  # 100 as max rows for image format
             dfi.export(
                 df.drop(columns=["create", "modify", "delete"])
                 if args.wild_tags
                 else df,
                 f"{fname}.png",
                 max_cols=-1,
+                max_rows=-1,
             )
 
         if "json" in args.format:
