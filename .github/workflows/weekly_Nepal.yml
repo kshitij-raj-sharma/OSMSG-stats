@@ -35,7 +35,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --rows 100  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' 'landuse' 'natural' --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json
+          osmsg --rows 100  --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --wild_tags
           python tweet.py --tweet_last_week 
 
       - name: add stats to git 

@@ -103,6 +103,13 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
         users[user][osm_type][action] += 1
+        if wild_tags:
+            for key, value in tags:
+                if key in users[user][action]:
+                    users[user][action][key] += 1
+                else:
+                    users[user][action][key] = 1
+
         if tags_to_collect:
             for tag in tags_to_collect:
                 if tag in tags:
@@ -125,6 +132,13 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
         users[user][osm_type][action] = 1
+        if wild_tags:
+            users[user]["create"] = {}
+            users[user]["modify"] = {}
+            users[user]["delete"] = {}
+
+            for tag, value in tags:
+                users[user][action][tag] = 1
         if tags_to_collect:
             for tag in tags_to_collect:
                 if tag in tags:
@@ -324,6 +338,12 @@ def main():
     parser.add_argument("--extract_last_day", action="store_true", default=False)
     parser.add_argument("--extract_last_month", action="store_true", default=False)
     parser.add_argument("--extract_last_year", action="store_true", default=False)
+    parser.add_argument(
+        "--wild_tags",
+        action="store_true",
+        help="Extract statistics of all of the unique tags and its count",
+        default=False,
+    )
 
     parser.add_argument(
         "--exclude_date_in_name",
@@ -370,6 +390,8 @@ def main():
 
     global additional_tags
     global cookies
+    global wild_tags
+    wild_tags = args.wild_tags
     additional_tags = args.tags
     cookies = None
     if "geofabrik" in args.url:
@@ -442,7 +464,11 @@ def main():
     os.chdir(os.getcwd())
     shutil.rmtree("temp")
     if len(users) > 1:
-
+        print(users)
+        for user in users:
+            users[user]["create"] = json.dumps(users[user]["create"])
+            users[user]["modify"] = json.dumps(users[user]["modify"])
+            users[user]["delete"] = json.dumps(users[user]["delete"])
         df = pd.json_normalize(list(users.values()))
         df = df.assign(
             changes=df["nodes.create"]
@@ -470,7 +496,13 @@ def main():
             fname = args.name
         if "image" in args.format:
             # Convert the DataFrame to an image
-            dfi.export(df, f"{fname}.png", max_cols=-1)
+            dfi.export(
+                df.drop(columns=["create", "modify", "delete"])
+                if args.wild_tags
+                else df,
+                f"{fname}.png",
+                max_cols=-1,
+            )
 
         if "json" in args.format:
             # with open(f"{out_file_name}.json") as file:
