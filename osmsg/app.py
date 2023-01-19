@@ -510,6 +510,17 @@ def main():
         if args.rows:
             df = df.head(args.rows)
         print(df)
+        # Get the column names of the DataFrame
+        cols = df.columns.tolist()
+        # Identify the column names that you want to move
+        cols_to_move = ["create", "modify", "delete"]
+        # Remove the columns to move from the list of column names
+        cols = [col for col in cols if col not in cols_to_move]
+        # Add the columns to move to the end of the list of column names
+        cols = cols + cols_to_move
+        # Reindex the DataFrame with the new order of column names
+        df = df.reindex(columns=cols)
+
         start_date = in_local_timezone(start_date, args.timezone)
         end_date = in_local_timezone(end_date, args.timezone)
 
@@ -518,11 +529,13 @@ def main():
             fname = args.name
         if "image" in args.format:
             # Convert the DataFrame to an image
-            df = df if args.rows else df.head(100)  # 100 as max rows for image format
+            df_img = (
+                df if args.rows else df.head(100)
+            )  # 100 as max rows for image format
             dfi.export(
-                df.drop(columns=["create", "modify", "delete"])
+                df_img.drop(columns=["create", "modify", "delete"])
                 if args.wild_tags
-                else df,
+                else df_img,
                 f"{fname}.png",
                 max_cols=-1,
                 max_rows=-1,
