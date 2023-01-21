@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 
+import pandas as pd
 import tweepy
 
 
@@ -26,6 +27,17 @@ def main():
     json_files = [f for f in files if f.endswith(".png")]
     first_file = os.path.join(os.getcwd(), json_files[0])
 
+    csv = [f for f in files if f.endswith(".csv")]
+    summary_text = ""
+    if csv:
+        first_file = os.path.join(os.getcwd(), csv[0])
+
+        # read the .csv file and store it in a DataFrame
+        df = pd.read_csv(first_file)
+
+        # Get the attribute of first row
+        summary_text = f"Kudos to {df.loc[0, 'name']} ,  who tops the table with {df.loc[0, 'map_changes']} map changes , followed by {df.loc[1, 'name']} with {df.loc[1, 'map_changes']} map changes and {df.loc[2, 'name']} with {df.loc[2, 'map_changes']} map changes respectively."
+
     filename = os.path.basename(first_file)
 
     lstfile = filename.split("_")
@@ -41,38 +53,38 @@ def main():
     if args.tweet_last_week:
         if args.tweet_global:
             api.update_status(
-                status=f"Top 100 Global Contributors Last Week (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Weekly/weekly_global_stats.csv \n #weeklystats #osm #openstreetmap #global",
+                status=f"Top 100 Global Contributors Last Week (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\n{summary_text}\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Weekly/weekly_global_stats.csv \n #weeklystats #osm #openstreetmap #global",
                 media_ids=[media.media_id],
             )
 
         else:
             api.update_status(
-                status=f"Top 100 Nepal Contributors This week (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Weekly/weekly_nepal_stats.csv \n #weeklystats #osm #openstreetmap #osmnepal",
+                status=f"Top 100 Nepal Contributors This week (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\n{summary_text}\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Weekly/weekly_nepal_stats.csv \n #weeklystats #osm #openstreetmap #osmnepal",
                 media_ids=[media.media_id],
             )
         print("twitted")
     if args.tweet_last_month:
         if args.tweet_global:
             api.update_status(
-                status=f"Top 100 Global Contributors Last Month (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Monthly/Monthly_global_stats.csv \n #monthlystats #osm #openstreetmap #global",
+                status=f"Top 100 Global Contributors Last Month (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\n{summary_text}\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Monthly/Monthly_global_stats.csv \n #monthlystats #osm #openstreetmap #global",
                 media_ids=[media.media_id],
             )
 
         else:
             api.update_status(
-                status=f"Top 100 Nepal Contributors This Month (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Monthly/Monthly_nepal_stats.csv \n #monthlyystats #osm #openstreetmap #osmnepal",
+                status=f"Top 100 Nepal Contributors This Month (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\n{summary_text}\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Monthly/Monthly_nepal_stats.csv \n #monthlyystats #osm #openstreetmap #osmnepal",
                 media_ids=[media.media_id],
             )
         print("twitted")
     if args.tweet_last_day:
         if args.tweet_global:
             api.update_status(
-                status=f"Top 100 Global Contributors Last Day (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Daily/daily_global_stats.csv \n #dailystats #osm #openstreetmap #global",
+                status=f"Top 100 Global Contributors Last Day (UTC Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\n{summary_text}\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Daily/daily_global_stats.csv \n #dailystats #osm #openstreetmap #global",
                 media_ids=[media.media_id],
             )
         else:
             api.update_status(
-                status=f"Top 100 Nepal Contributors Last Day (Nepal Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Daily/daily_nepal_stats.csv \n #dailystats #osm #openstreetmap #osmnepal",
+                status=f"Top 100 Nepal Contributors Last Day (Nepal Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\n{summary_text}\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Daily/daily_nepal_stats.csv \n #dailystats #osm #openstreetmap #osmnepal",
                 media_ids=[media.media_id],
             )
             print("twitted")
