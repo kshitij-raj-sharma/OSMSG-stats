@@ -36,7 +36,7 @@ def main():
         df = pd.read_csv(csv_file)
 
         # Get the attribute of first row
-        summary_text = f"User {df.loc[0, 'name']} tops table with {df.loc[0, 'map_changes']} followed by {df.loc[1, 'name']} with {df.loc[1, 'map_changes']} & {df.loc[2, 'name']} with {df.loc[2, 'map_changes']} map changes"
+        summary_text = f"User {df.loc[0, 'name']} tops table with {df.loc[0, 'map_changes']} map changes, Followed by {df.loc[1, 'name']} - {df.loc[1, 'map_changes']} & {df.loc[2, 'name']} - {df.loc[2, 'map_changes']}"
 
     filename = os.path.basename(first_file)
 
