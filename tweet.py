@@ -30,10 +30,10 @@ def main():
     csv = [f for f in files if f.endswith(".csv")]
     summary_text = ""
     if csv:
-        first_file = os.path.join(os.getcwd(), csv[0])
+        csv_file = os.path.join(os.getcwd(), csv[0])
 
         # read the .csv file and store it in a DataFrame
-        df = pd.read_csv(first_file)
+        df = pd.read_csv(csv_file)
 
         # Get the attribute of first row
         summary_text = f"Kudos to {df.loc[0, 'name']} ,  who tops the table with {df.loc[0, 'map_changes']} map changes , followed by {df.loc[1, 'name']} with {df.loc[1, 'map_changes']} map changes and {df.loc[2, 'name']} with {df.loc[2, 'map_changes']} map changes respectively."
