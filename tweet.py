@@ -36,7 +36,7 @@ def main():
         df = pd.read_csv(csv_file)
 
         # Get the attribute of first row
-        summary_text = f"Kudos to {df.loc[0, 'name']} ,  who tops the table with {df.loc[0, 'map_changes']} map changes , followed by {df.loc[1, 'name']} with {df.loc[1, 'map_changes']} map changes and {df.loc[2, 'name']} with {df.loc[2, 'map_changes']} map changes respectively."
+        summary_text = f"Kudos to {df.loc[0, 'name']},tops the table with {df.loc[0, 'map_changes']},followed by {df.loc[1, 'name']} with {df.loc[1, 'map_changes']} and {df.loc[2, 'name']} with {df.loc[2, 'map_changes']} map changes."
 
     filename = os.path.basename(first_file)
 
@@ -84,7 +84,7 @@ def main():
             )
         else:
             api.update_status(
-                status=f"Top 100 Nepal Contributors Last Day (Nepal Timezone)\n(From {lstfile[1]} to {lstfile[2][:-4]})\n{summary_text}\nCheck full stats on : https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Daily/daily_nepal_stats.csv \n #dailystats #osm #openstreetmap #osmnepal",
+                status=f"Top 100 Nepal Contributors Last Day (Nepal Tmz)\nFrom {lstfile[1]} to {lstfile[2][:-4]})\n{summary_text}\nFull Stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Daily/daily_nepal_stats.csv \n #dailystats #osm #openstreetmap #osmnepal",
                 media_ids=[media.media_id],
             )
             print("twitted")

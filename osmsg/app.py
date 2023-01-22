@@ -486,7 +486,7 @@ def main():
     os.chdir(os.getcwd())
     shutil.rmtree("temp")
     if len(users) > 1:
-        print(users)
+        # print(users)
         for user in users:
             users[user]["create"] = json.dumps(users[user]["create"])
             users[user]["modify"] = json.dumps(users[user]["modify"])
