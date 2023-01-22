@@ -72,7 +72,7 @@ def main():
 
         else:
             api.update_status(
-                status=f"Nepal Contributors This Month(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Monthly/Monthly_nepal_stats.csv #monthlyystats #OpenStreetMap #osmnepal",
+                status=f"Nepal Contributors This Month(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Monthly/Monthly_nepal_stats.csv #monthlystats #OpenStreetMap #osmnepal",
                 media_ids=[media.media_id],
             )
         print("twitted")
@@ -84,7 +84,7 @@ def main():
             )
         else:
             api.update_status(
-                status=f"Nepal Contributors Last Day\n{lstfile[1]} - {lstfile[2][:-4]}\n{summary_text}\nFull Stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Daily/daily_nepal_stats.csv #dailystats #OpenStreetMap #osmnepal",
+                status=f"Nepal Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Daily/daily_nepal_stats.csv #dailystats #OpenStreetMap #osmnepal",
                 media_ids=[media.media_id],
             )
             print("twitted")
