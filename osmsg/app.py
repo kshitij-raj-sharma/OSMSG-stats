@@ -221,13 +221,23 @@ def process_changefiles(url):
     handler.apply_file(file_path[:-3])
 
 
-def get_download_urls_changefiles(start_date, end_date, base_url, timezone):
+def get_download_urls_changefiles(
+    start_date, end_date, base_url, timezone, scan_early_seq=False
+):
     repl = ReplicationServer(base_url)
 
     # Gets sequence id using timestamp we get from osm api using pyosmium tool
     seq = repl.timestamp_to_sequence(start_date)
-    # going one step back to cover all changes
-    seq = seq - 1
+    # going one step back to cover all changes only if it is not already behind
+    if (
+        scan_early_seq
+        or (start_date - seq_to_timestamp(repl.get_state_url(seq), timezone)).days < 1
+    ):
+        print(
+            f"Initial fetched difference is {(seq_to_timestamp(repl.get_state_url(seq), timezone) - start_date).days} Hence , Reducing Sequence to Cover all Changes"
+        )
+        seq = seq - 1
+
     start_seq = seq
     start_seq_url = repl.get_state_url(start_seq)
 
@@ -260,7 +270,7 @@ def get_download_urls_changefiles(start_date, end_date, base_url, timezone):
             last_ts = end_date
 
     print(
-        f"You have supplied {start_date} : {seq} to {last_ts} : {last_seq} . Latest Server Fetched is : {server_seq} & {in_local_timezone(server_ts,timezone)} on {base_url}"
+        f"You have supplied {start_date} : {seq} to {last_ts} : {last_seq} . Latest Server Fetched is : {server_seq} & {in_local_timezone(server_ts,timezone)} on {base_url}\nGoing from {seq_to_timestamp(repl.get_state_url(seq), timezone)} to {seq_to_timestamp(repl.get_state_url(last_seq), timezone)}"
     )
 
     if seq >= last_seq:
@@ -532,7 +542,9 @@ def main():
         if "image" in args.format:
             # Convert the DataFrame to an image
             df_img = (
-                df if args.rows else df.head(100)
+                (df if args.rows <= 100 else df.head(100))
+                if args.rows
+                else df.head(100)
             )  # 100 as max rows for image format
             dfi.export(
                 df_img.drop(columns=["create", "modify", "delete"])

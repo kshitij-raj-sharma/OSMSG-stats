@@ -35,7 +35,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --rows 100  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --extract_last_month --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Global/Monthly/stats_metadata.json --wild_tags
+          osmsg --rows 1000  --url "https://planet.openstreetmap.org/replication/day" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --extract_last_month --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Global/Monthly/stats_metadata.json --wild_tags
           python tweet.py --tweet_last_month --tweet_global
 
       - name: add stats to git 
