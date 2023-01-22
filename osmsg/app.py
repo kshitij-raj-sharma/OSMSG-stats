@@ -487,10 +487,11 @@ def main():
     shutil.rmtree("temp")
     if len(users) > 1:
         # print(users)
-        for user in users:
-            users[user]["create"] = json.dumps(users[user]["create"])
-            users[user]["modify"] = json.dumps(users[user]["modify"])
-            users[user]["delete"] = json.dumps(users[user]["delete"])
+        if args.wild_tags:
+            for user in users:
+                users[user]["create"] = json.dumps(users[user]["create"])
+                users[user]["modify"] = json.dumps(users[user]["modify"])
+                users[user]["delete"] = json.dumps(users[user]["delete"])
         df = pd.json_normalize(list(users.values()))
         df = df.assign(
             changes=df["nodes.create"]
@@ -510,16 +511,17 @@ def main():
         if args.rows:
             df = df.head(args.rows)
         print(df)
-        # Get the column names of the DataFrame
-        cols = df.columns.tolist()
-        # Identify the column names that you want to move
-        cols_to_move = ["create", "modify", "delete"]
-        # Remove the columns to move from the list of column names
-        cols = [col for col in cols if col not in cols_to_move]
-        # Add the columns to move to the end of the list of column names
-        cols = cols + cols_to_move
-        # Reindex the DataFrame with the new order of column names
-        df = df.reindex(columns=cols)
+        if args.wild_tags:
+            # Get the column names of the DataFrame
+            cols = df.columns.tolist()
+            # Identify the column names that you want to move
+            cols_to_move = ["create", "modify", "delete"]
+            # Remove the columns to move from the list of column names
+            cols = [col for col in cols if col not in cols_to_move]
+            # Add the columns to move to the end of the list of column names
+            cols = cols + cols_to_move
+            # Reindex the DataFrame with the new order of column names
+            df = df.reindex(columns=cols)
 
         start_date = in_local_timezone(start_date, args.timezone)
         end_date = in_local_timezone(end_date, args.timezone)
