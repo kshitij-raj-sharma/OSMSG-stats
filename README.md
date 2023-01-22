@@ -7,9 +7,9 @@ Monitored Country's stats are available under ```stats```, For now Monitored cou
 
 usage: 
 ```
-osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] --username USERNAME --password PASSWORD
-             [--timezone {Nepal,UTC}] [--name NAME] [--tags TAGS [TAGS ...]] [--rows ROWS] --url URL [--extract_last_week]
-             [--extract_last_day] [--extract_last_month] [--extract_last_year] [--exclude_date_in_name]
+osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] --username USERNAME --password PASSWORD [--timezone {Nepal,UTC}]
+             [--name NAME] [--tags TAGS [TAGS ...]] [--rows ROWS] --url URL [--extract_last_week] [--extract_last_day] [--extract_last_month]
+             [--extract_last_year] [--extract_last_hour] [--wild_tags] [--exclude_date_in_name]
              [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]] [--read_from_metadata READ_FROM_METADATA]
 ```
 
@@ -32,6 +32,8 @@ options:
   --extract_last_day
   --extract_last_month
   --extract_last_year
+  --extract_last_hour
+  --wild_tags           Extract statistics of all of the unique tags and its count
   --exclude_date_in_name
                         By default from and to date will be added to filename , You can skip this behaviour with this option
   --format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]
