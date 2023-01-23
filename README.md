@@ -5,22 +5,22 @@ I tweet Stats Every day/week/month Global/Region  at https://twitter.com/stats_o
 
 Monitored Country's stats are available under ```stats```, For now Monitored countries are : ```Nepal``` , weekly,monthly and yearly stats are stored in github and twitter for sure
 
-usage: 
+Usage: 
 ```
-osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] --username USERNAME --password PASSWORD [--timezone {Nepal,UTC}]
+osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME] [--password PASSWORD] [--timezone {Nepal,UTC}]
              [--name NAME] [--tags TAGS [TAGS ...]] [--rows ROWS] --url URL [--extract_last_week] [--extract_last_day] [--extract_last_month]
              [--extract_last_year] [--extract_last_hour] [--wild_tags] [--exclude_date_in_name]
              [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]] [--read_from_metadata READ_FROM_METADATA]
 ```
 
-options:
+Options:
 ```
   -h, --help            show this help message and exit
   --start_date START_DATE
                         Start date in the format YYYY-MM-DD
   --end_date END_DATE   End date in the format YYYY-MM-DD
-  --username USERNAME   Your OSM Username
-  --password PASSWORD   Your OSM Password
+  --username USERNAME   Your OSM Username : Only required for Geofabrik Internal Changefiles
+  --password PASSWORD   Your OSM Password : Only required for Geofabrik Internal Changefiles
   --timezone {Nepal,UTC}
                         Your Timezone : Currently Supported Nepal, Default : UTC
   --name NAME           Output stat file name
@@ -39,7 +39,8 @@ options:
   --format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]
                         Stats output format
   --read_from_metadata READ_FROM_METADATA
-                        Location of metadata to pick start date from previous run's end_date
+                        Location of metadata to pick start date from previous run's end_date , Generally used if you want to run bot on regular
+                        interval using cron/service
 ```
 
 Simple python script processes osm files live and produces stats with use of  databases

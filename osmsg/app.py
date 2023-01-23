@@ -394,7 +394,7 @@ def main():
     )
     parser.add_argument(
         "--read_from_metadata",
-        help="Location of metadata to pick start date from previous run's end_date",
+        help="Location of metadata to pick start date from previous run's end_date , Generally used if you want to run bot on regular interval using cron/service",
     )
 
     args = parser.parse_args()
