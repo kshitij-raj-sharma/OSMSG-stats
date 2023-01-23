@@ -77,3 +77,6 @@ Installation
 ```
 pip install osmsg 
 ```
+
+##### Note : 
+This project is under active development hence you may notice bugs or incomplete functions , Feel free to file issue or Contribute . Happy Coding ! Happy Mapping 
