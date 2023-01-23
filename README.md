@@ -3,7 +3,7 @@ On the Fly Commandline Stats Generator for OpenStreetMap User Contributions
 
 I tweet Stats Every day/week/month Global/Region  at https://twitter.com/stats_osm and Produce Stats [here](/stats/)
 
-Monitored Country's stats are available under ```stats```, For now Monitored countries are : ```Nepal``` , weekly,monthly and yearly stats are stored in github , Daily are only available via tweet
+Monitored Country's stats are available under ```stats```, For now Monitored countries are : ```Nepal``` , weekly,monthly and yearly stats are stored in github and twitter for sure
 
 usage: 
 ```
