@@ -121,10 +121,10 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
         users[user][osm_type][action] += 1
         if wild_tags:
             for key, value in tags:
-                if key in users[user][action]:
-                    users[user][action][key] += 1
+                if key in users[user][f"tags_{action}"]:
+                    users[user][f"tags_{action}"][key] += 1
                 else:
-                    users[user][action][key] = 1
+                    users[user][f"tags_{action}"][key] = 1
 
         if tags_to_collect:
             for tag in tags_to_collect:
@@ -149,12 +149,12 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
         users[user]["changesets"] = len(users_temp[user]["changesets"])
         users[user][osm_type][action] = 1
         if wild_tags:
-            users[user]["create"] = {}
-            users[user]["modify"] = {}
-            users[user]["delete"] = {}
+            users[user]["tags_create"] = {}
+            users[user]["tags_modify"] = {}
+            users[user]["tags_delete"] = {}
 
             for tag, value in tags:
-                users[user][action][tag] = 1
+                users[user][f"tags_{action}"][tag] = 1
         if tags_to_collect:
             for tag in tags_to_collect:
                 if tag in tags:
@@ -195,7 +195,7 @@ def process_changefiles(url):
     if not os.path.exists(file_path):
         # Read the cookies from the file
 
-        if "geofabrik" in url:
+        if "geofabrik" in url.lower():
             cookies_fmt = {}
             test = cookies.split("=")
             # name, value = line.strip().split("=")
@@ -328,9 +328,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--start_date", help="Start date in the format YYYY-MM-DD")
     parser.add_argument("--end_date", help="End date in the format YYYY-MM-DD")
-    parser.add_argument("--username", required=True, help="Your OSM Username")
     parser.add_argument(
-        "--password", required=True, help="Your OSM Password", default=argparse.SUPPRESS
+        "--username",
+        help="Your OSM Username : Only required for Geofabrik Internal Changefiles",
+    )
+    parser.add_argument(
+        "--password",
+        help="Your OSM Password : Only required for Geofabrik Internal Changefiles",
+        default=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--timezone",
@@ -423,7 +428,11 @@ def main():
     wild_tags = args.wild_tags
     additional_tags = args.tags
     cookies = None
-    if "geofabrik" in args.url:
+    if "geofabrik" in args.url.lower():
+        if not (args.username and args.password):
+            assert (
+                args.username and args.password
+            ), "OSM username and password are required for geofabrik url"
         cookies = auth(args.username, args.password)
     print("Script Started")
 
@@ -499,9 +508,33 @@ def main():
         # print(users)
         if args.wild_tags:
             for user in users:
-                users[user]["create"] = json.dumps(users[user]["create"])
-                users[user]["modify"] = json.dumps(users[user]["modify"])
-                users[user]["delete"] = json.dumps(users[user]["delete"])
+                users[user]["tags_create"] = json.dumps(
+                    dict(
+                        sorted(
+                            users[user]["tags_create"].items(),
+                            key=lambda item: item[1],
+                            reverse=True,
+                        )
+                    )
+                )
+                users[user]["tags_modify"] = json.dumps(
+                    dict(
+                        sorted(
+                            users[user]["tags_modify"].items(),
+                            key=lambda item: item[1],
+                            reverse=True,
+                        )
+                    )
+                )
+                users[user]["tags_delete"] = json.dumps(
+                    dict(
+                        sorted(
+                            users[user]["tags_delete"].items(),
+                            key=lambda item: item[1],
+                            reverse=True,
+                        )
+                    )
+                )
         df = pd.json_normalize(list(users.values()))
         df = df.assign(
             changes=df["nodes.create"]
@@ -525,7 +558,7 @@ def main():
             # Get the column names of the DataFrame
             cols = df.columns.tolist()
             # Identify the column names that you want to move
-            cols_to_move = ["create", "modify", "delete"]
+            cols_to_move = ["tags_create", "tags_modify", "tags_delete"]
             # Remove the columns to move from the list of column names
             cols = [col for col in cols if col not in cols_to_move]
             # Add the columns to move to the end of the list of column names
@@ -547,7 +580,7 @@ def main():
                 else df.head(100)
             )  # 100 as max rows for image format
             dfi.export(
-                df_img.drop(columns=["create", "modify", "delete"])
+                df_img.drop(columns=["tags_create", "tags_modify", "tags_delete"])
                 if args.wild_tags
                 else df_img,
                 f"{fname}.png",
