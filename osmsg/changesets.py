@@ -1,11 +1,12 @@
 import datetime
+import datetime as dt
 import sys
 
 import osmium
 import requests
 
 
-class ChangesetProcesser:
+class ChangesetToolKit:
     def __init__(
         self, replication_url="https://planet.openstreetmap.org/replication/changesets/"
     ):
@@ -16,7 +17,7 @@ class ChangesetProcesser:
         current_sequence = int(state_yml.split("sequence: ")[1])
         last_run = datetime.datetime.strptime(
             state_yml.split("last_run: ")[1][:19], "%Y-%m-%d %H:%M:%S"
-        )
+        ).replace(tzinfo=dt.timezone.utc)
         return current_sequence, last_run
 
     def timestamp_to_sequence(self, timestamp):
@@ -27,15 +28,16 @@ class ChangesetProcesser:
         )
         # timestamp of sequnce should always be lesser than supplied timestamp
         difference = timestamp - self.sequence_to_timestamp(desired_sequence)
+
         if self.sequence_to_timestamp(desired_sequence) > timestamp:
-            while difference.days() != 1:
+            while difference.days != 1:
                 desired_sequence = (
                     desired_sequence - 360 if difference >= 2 else 60
                 )  # if difference bigger than or equal to  2 day  reduce almost 6 hour else reduce 1 hour
                 difference = timestamp - self.sequence_to_timestamp(desired_sequence)
 
         if (
-            difference.days() > 1
+            difference.days > 1
         ):  # supplied timestamp is higher and captured is lower so increase the sequence
             while difference.days() != 1:
                 desired_sequence = (
@@ -81,11 +83,10 @@ class ChangesetProcesser:
         state_url = self.get_state_url(sequence)
 
         state_yml = requests.get(state_url).text
-        captured_sequence = int(state_yml.split("sequence: ")[1])
         last_run = datetime.datetime.strptime(
             state_yml.split("last_run: ")[1][:19], "%Y-%m-%d %H:%M:%S"
-        )
-        return last_run, captured_sequence
+        ).replace(tzinfo=dt.timezone.utc)
+        return last_run
 
     def get_download_urls(self, start_date, end_date=None):
         download_urls = []
@@ -99,19 +100,9 @@ class ChangesetProcesser:
         if start_seq >= end_seq:
             print("Already up-to-date.")
             sys.exit()
+        print(f"Generating Download URLS from {start_seq} to {end_seq}")
         while start_seq <= end_seq:
             seq_url = self.get_diff_url(start_seq)
             download_urls.append(seq_url)
-            start_seq = +1
+            start_seq = start_seq + 1
         return download_urls, start_seq, end_seq
-
-
-class ChangesetHandler(osmium.SimpleHandler):
-    def __init__(self):
-        super(ChangesetHandler, self).__init__()
-        self.hotosm_changesets = []
-
-    def changeset(self, c):
-        print(c.tags)
-        if "hotosm" in c.tags:
-            self.hotosm_changesets.append(c)

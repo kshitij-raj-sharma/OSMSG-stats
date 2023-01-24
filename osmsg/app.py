@@ -18,6 +18,8 @@ from osmium.replication.server import ReplicationServer
 
 from osmsg.utils import verify_me_osm
 
+from .changesets import ChangesetToolKit
+
 users_temp = {}
 users = {}
 
@@ -33,9 +35,11 @@ def in_local_timezone(date, timezone):
     return date.astimezone(tz)
 
 
-def strip_utc(date_str, timezone):
+def strip_utc(date, timezone):
     tz = dt.timezone.utc
-    given_dt = dt.datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=tz)
+    given_dt = date
+    if not isinstance(date, datetime):
+        given_dt = dt.datetime.strptime(date, "%Y-%m-%d").replace(tzinfo=tz)
 
     if timezone == "Nepal":
         # Set the timezone to Nepal
@@ -159,6 +163,17 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
             for tag in tags_to_collect:
                 if tag in tags:
                     users[user][tag][action] = 1
+
+
+class ChangesetHandler(osmium.SimpleHandler):
+    def __init__(self):
+        super(ChangesetHandler, self).__init__()
+        self.hotosm_changesets = []
+
+    def changeset(self, c):
+        print(c.tags)
+        if "hotosm" in c.tags:
+            self.hotosm_changesets.append(c)
 
 
 class ChangefileHandler(osmium.SimpleHandler):
@@ -468,6 +483,15 @@ def main():
     if start_date == end_date:
         print("Err: Start date and end date are equal")
         sys.exit()
+
+    Changeset = ChangesetToolKit()
+    download_urls, start_seq, end_seq = Changeset.get_download_urls(
+        start_date, end_date
+    )
+    print(
+        f"You have supplied start_date as : {start_date} and end_date as : {end_date} , Processing Changeset from {strip_utc(Changeset.sequence_to_timestamp(start_seq),args.timezone)} to {strip_utc(Changeset.sequence_to_timestamp(end_seq),args.timezone)}"
+    )
+    # end_date = Changeset.sequence_to_timestamp(end_seq)
 
     print("Generating Download Urls")
     (
