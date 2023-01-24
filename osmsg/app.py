@@ -8,6 +8,7 @@ import os
 import shutil
 import sys
 import time
+from datetime import datetime
 
 import dataframe_image as dfi
 import osmium
@@ -18,162 +19,90 @@ from osmium.replication.server import ReplicationServer
 
 from osmsg.utils import verify_me_osm
 
+from .changefiles import (
+    get_prev_hour,
+    get_prev_year_dates,
+    in_local_timezone,
+    previous_day,
+    previous_month,
+    previous_week,
+    seq_to_timestamp,
+    strip_utc,
+)
 from .changesets import ChangesetToolKit
 
 users_temp = {}
 users = {}
-
-from datetime import datetime, timedelta
-
-
-def in_local_timezone(date, timezone):
-    tz = dt.timezone.utc
-    if timezone == "Nepal":
-        # Set the timezone to Nepal
-        tz = pytz.timezone("Asia/Kathmandu")
-
-    return date.astimezone(tz)
-
-
-def strip_utc(date, timezone):
-    tz = dt.timezone.utc
-    given_dt = date
-    if not isinstance(date, datetime):
-        given_dt = dt.datetime.strptime(date, "%Y-%m-%d").replace(tzinfo=tz)
-
-    if timezone == "Nepal":
-        # Set the timezone to Nepal
-        tz = pytz.timezone("Asia/Kathmandu")
-
-    return given_dt.astimezone(tz)
-
-
-def get_prev_year_dates(timezone):
-    # Get today's date
-    today = datetime.utcnow()
-
-    # Get the start and end date of the previous year
-    prev_year_start = datetime(today.year - 1, 1, 1)
-    prev_year_end = datetime(today.year - 1, 12, 31)
-
-    return strip_utc(prev_year_start.strftime("%Y-%m-%d"), timezone), strip_utc(
-        prev_year_end.strftime("%Y-%m-%d"), timezone
-    )
-
-
-def previous_month(timezone):
-    today = datetime.utcnow()
-    month = today.month
-    year = today.year
-    if today.month == 1:
-        month = 13
-        year -= 1
-    prev_month_start = datetime(year, month - 1, 1)
-    prev_month_end = datetime(year, month - 1, calendar.monthrange(year, month - 1)[1])
-    return strip_utc(prev_month_start.strftime("%Y-%m-%d"), timezone), strip_utc(
-        prev_month_end.strftime("%Y-%m-%d"), timezone
-    )
-
-
-def get_prev_hour(timezone):
-    now = datetime.now()
-
-    # Get the previous hour's start time
-    start_time = now.replace(minute=0, second=0, microsecond=0) - timedelta(hours=1)
-
-    # Get the previous hour's end time
-    end_time = start_time + timedelta(hours=1)
-
-    tz = dt.timezone.utc
-    if timezone == "Nepal":
-        # Set the timezone to Nepal
-        tz = pytz.timezone("Asia/Kathmandu")
-    return start_time.astimezone(tz), end_time.astimezone(tz)
-
-
-def previous_day(timezone):
-    today = datetime.today()
-    previous_day = today - timedelta(days=1)
-    return strip_utc(previous_day.strftime("%Y-%m-%d"), timezone), strip_utc(
-        today.strftime("%Y-%m-%d"), timezone
-    )
-
-
-def previous_week(timezone):
-    today = datetime.today()
-    start_date = today - timedelta(days=today.weekday() + 7)
-    end_date = start_date + timedelta(days=6)
-    return strip_utc(start_date.strftime("%Y-%m-%d"), timezone), strip_utc(
-        end_date.strftime("%Y-%m-%d"), timezone
-    )
+hashtag_changesets = []
 
 
 def calculate_stats(user, uname, changeset, version, tags, osm_type):
-    tags_to_collect = list(additional_tags) if additional_tags else None
-    if version == 1:
-        action = "create"
-    elif version > 1:
-        action = "modify"
-    elif version == 0:
-        action = "delete"
-    if user in users:
-        users[user]["name"] = uname
-        users[user]["uid"] = user
-        if changeset not in users_temp[user]["changesets"]:
-            users_temp[user]["changesets"].append(changeset)
-        users[user]["changesets"] = len(users_temp[user]["changesets"])
-        users[user][osm_type][action] += 1
-        if wild_tags:
-            for key, value in tags:
-                if key in users[user][f"tags_{action}"]:
-                    users[user][f"tags_{action}"][key] += 1
-                else:
-                    users[user][f"tags_{action}"][key] = 1
+    if len(hashtag_changesets) > 0:
+        if changeset in hashtag_changesets:
+            tags_to_collect = list(additional_tags) if additional_tags else None
+            if version == 1:
+                action = "create"
+            elif version > 1:
+                action = "modify"
+            elif version == 0:
+                action = "delete"
+            if user in users:
+                users[user]["name"] = uname
+                users[user]["uid"] = user
+                if changeset not in users_temp[user]["changesets"]:
+                    users_temp[user]["changesets"].append(changeset)
+                users[user]["changesets"] = len(users_temp[user]["changesets"])
+                users[user][osm_type][action] += 1
+                if wild_tags:
+                    for key, value in tags:
+                        if key in users[user][f"tags_{action}"]:
+                            users[user][f"tags_{action}"][key] += 1
+                        else:
+                            users[user][f"tags_{action}"][key] = 1
 
-        if tags_to_collect:
-            for tag in tags_to_collect:
-                if tag in tags:
-                    users[user][tag][action] += 1
+                if tags_to_collect:
+                    for tag in tags_to_collect:
+                        if tag in tags:
+                            users[user][tag][action] += 1
 
-    else:
-        users[user] = {
-            "name": uname,
-            "uid": user,
-            "changesets": 0,
-            "nodes": {"create": 0, "modify": 0, "delete": 0},
-            "ways": {"create": 0, "modify": 0, "delete": 0},
-            "relations": {"create": 0, "modify": 0, "delete": 0},
-        }
-        if tags_to_collect:
-            for tag in tags_to_collect:
-                users[user][tag] = {"create": 0, "modify": 0, "delete": 0}
-        users_temp[user] = {"changesets": []}
-        if changeset not in users_temp[user]["changesets"]:
-            users_temp[user]["changesets"].append(changeset)
-        users[user]["changesets"] = len(users_temp[user]["changesets"])
-        users[user][osm_type][action] = 1
-        if wild_tags:
-            users[user]["tags_create"] = {}
-            users[user]["tags_modify"] = {}
-            users[user]["tags_delete"] = {}
+            else:
+                users[user] = {
+                    "name": uname,
+                    "uid": user,
+                    "changesets": 0,
+                    "nodes": {"create": 0, "modify": 0, "delete": 0},
+                    "ways": {"create": 0, "modify": 0, "delete": 0},
+                    "relations": {"create": 0, "modify": 0, "delete": 0},
+                }
+                if tags_to_collect:
+                    for tag in tags_to_collect:
+                        users[user][tag] = {"create": 0, "modify": 0, "delete": 0}
+                users_temp[user] = {"changesets": []}
+                if changeset not in users_temp[user]["changesets"]:
+                    users_temp[user]["changesets"].append(changeset)
+                users[user]["changesets"] = len(users_temp[user]["changesets"])
+                users[user][osm_type][action] = 1
+                if wild_tags:
+                    users[user]["tags_create"] = {}
+                    users[user]["tags_modify"] = {}
+                    users[user]["tags_delete"] = {}
 
-            for tag, value in tags:
-                users[user][f"tags_{action}"][tag] = 1
-        if tags_to_collect:
-            for tag in tags_to_collect:
-                if tag in tags:
-                    users[user][tag][action] = 1
+                    for tag, value in tags:
+                        users[user][f"tags_{action}"][tag] = 1
+                if tags_to_collect:
+                    for tag in tags_to_collect:
+                        if tag in tags:
+                            users[user][tag][action] = 1
 
 
 class ChangesetHandler(osmium.SimpleHandler):
     def __init__(self):
         super(ChangesetHandler, self).__init__()
-        self.hotosm_changesets = []
 
     def changeset(self, c):
-        print(c.tags)
-        if "hotosm" in c.tags:
-            self.hotosm_changesets.append(c)
+        if "comment" in c.tags:
+            if any(elem in c.tags["comment"] for elem in hashtags):
+                hashtag_changesets.append(c.id)
 
 
 class ChangefileHandler(osmium.SimpleHandler):
@@ -182,11 +111,11 @@ class ChangefileHandler(osmium.SimpleHandler):
 
     def node(self, n):
         if n.timestamp >= start_date_utc and n.timestamp <= end_date_utc:
-
             calculate_stats(n.uid, n.user, n.changeset, n.version, n.tags, "nodes")
 
     def way(self, w):
         if w.timestamp >= start_date_utc and w.timestamp <= end_date_utc:
+
             calculate_stats(w.uid, w.user, w.changeset, w.version, w.tags, "ways")
 
     def relation(self, r):
@@ -228,8 +157,37 @@ def process_changefiles(url):
             f.write(file_data)
 
     # Open the .osc.gz file in read-only mode
-    print(file_path)
     handler = ChangefileHandler()
+    with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
+        shutil.copyfileobj(f_in, f_out)
+
+    handler.apply_file(file_path[:-3])
+
+
+def process_changesets(url):
+    print(f"Processing {url}")
+    url_splitted_list = url.split("/")
+    temp_path = os.path.join(os.getcwd(), "temp/changesets")
+    if not os.path.exists(temp_path):
+        os.makedirs(temp_path)
+    file_path = os.path.join(
+        temp_path,
+        f"{url_splitted_list[-3]}_{url_splitted_list[-2]}_{url_splitted_list[-1]}",
+    )
+    if not os.path.exists(file_path):
+
+        response = requests.get(url)
+        if not response.status_code == 200:
+            sys.exit()
+
+        file_data = response.content
+
+        with open(file_path, "wb") as f:
+            f.write(file_data)
+
+    # Open the .osc.gz file in read-only mode
+
+    handler = ChangesetHandler()
     with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
         shutil.copyfileobj(f_in, f_out)
 
@@ -307,27 +265,6 @@ def get_download_urls_changefiles(
     return download_urls, server_ts, start_seq, last_seq, start_seq_url, end_seq_url
 
 
-def seq_to_timestamp(url, timezone):
-    response = requests.get(url)
-    rtxt = response.text
-    # find the index of the "timestamp=" substring
-    timestamp_start = rtxt.find("timestamp=") + len("timestamp=")
-
-    # find the index of the next newline character
-    timestamp_end = rtxt.find("\n", timestamp_start)
-
-    # extract the substring between the two indexes
-    timestamp = rtxt[timestamp_start:timestamp_end]
-    timestamp_obj = dt.datetime.strptime(timestamp, "%Y-%m-%dT%H\:%M\:%SZ")
-    timestamp_obj = timestamp_obj.replace(tzinfo=dt.timezone.utc)
-    tz = dt.timezone.utc
-    if timezone == "Nepal":
-        # Set the timezone to Nepal
-        tz = pytz.timezone("Asia/Kathmandu")
-
-    return timestamp_obj.astimezone(tz)
-
-
 def auth(username, password):
     print("Authenticating...")
     try:
@@ -369,6 +306,13 @@ def main():
         nargs="+",
         type=str,
         help="Additional stats to collect : List of tags key",
+    )
+
+    parser.add_argument(
+        "--hashtags",
+        nargs="+",
+        type=str,
+        help="Hashtags Statstics to Collect : List of hashtags",
     )
 
     parser.add_argument(
@@ -440,8 +384,10 @@ def main():
     global additional_tags
     global cookies
     global wild_tags
+    global hashtags
     wild_tags = args.wild_tags
     additional_tags = args.tags
+    hashtags = args.hashtags
     cookies = None
     if "geofabrik" in args.url.lower():
         if not (args.username and args.password):
@@ -483,17 +429,26 @@ def main():
     if start_date == end_date:
         print("Err: Start date and end date are equal")
         sys.exit()
+    if args.hashtags:
 
-    Changeset = ChangesetToolKit()
-    download_urls, start_seq, end_seq = Changeset.get_download_urls(
-        start_date, end_date
-    )
-    print(
-        f"You have supplied start_date as : {start_date} and end_date as : {end_date} , Processing Changeset from {strip_utc(Changeset.sequence_to_timestamp(start_seq),args.timezone)} to {strip_utc(Changeset.sequence_to_timestamp(end_seq),args.timezone)}"
-    )
-    # end_date = Changeset.sequence_to_timestamp(end_seq)
+        Changeset = ChangesetToolKit()
+        (
+            changeset_download_urls,
+            changeset_start_seq,
+            changeset_end_seq,
+        ) = Changeset.get_download_urls(start_date, end_date)
+        print(
+            f"You have supplied start_date as : {start_date} and end_date as : {end_date} , Processing Changeset from {strip_utc(Changeset.sequence_to_timestamp(changeset_start_seq),args.timezone)} to {strip_utc(Changeset.sequence_to_timestamp(changeset_end_seq),args.timezone)}"
+        )
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            # Use `map` to apply the `download_image` function to each element in the `urls` list
+            executor.map(process_changesets, changeset_download_urls)
+        print("Changeset Processing Finished")
+        end_date = strip_utc(
+            Changeset.sequence_to_timestamp(changeset_end_seq), args.timezone
+        )
 
-    print("Generating Download Urls")
+    print("Changefiles : Generating Download Urls")
     (
         download_urls,
         server_ts,
@@ -515,9 +470,6 @@ def main():
 
     start_date_utc = start_date
     end_date_utc = end_date
-    print("Download urls Generated")
-
-    print("Starting Thread Processing")
     temp_path = os.path.join(os.getcwd(), "temp/changefiles")
     if not os.path.exists(temp_path):
         os.makedirs(temp_path)
@@ -526,8 +478,10 @@ def main():
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         executor.map(process_changefiles, download_urls)
+    print("Changefiles Processing Finished")
     os.chdir(os.getcwd())
     shutil.rmtree("temp")
+    print(users)
     if len(users) > 1:
         # print(users)
         if args.wild_tags:

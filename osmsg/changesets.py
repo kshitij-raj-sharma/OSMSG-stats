@@ -100,9 +100,10 @@ class ChangesetToolKit:
         if start_seq >= end_seq:
             print("Already up-to-date.")
             sys.exit()
-        print(f"Generating Download URLS from {start_seq} to {end_seq}")
+        initial_seq = start_seq
+        print(f"Changesets: Generating Download URLS from {start_seq} to {end_seq}")
         while start_seq <= end_seq:
             seq_url = self.get_diff_url(start_seq)
             download_urls.append(seq_url)
             start_seq = start_seq + 1
-        return download_urls, start_seq, end_seq
+        return download_urls, initial_seq, end_seq
