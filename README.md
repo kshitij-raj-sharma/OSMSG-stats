@@ -53,7 +53,7 @@ Options:
   export OSM_PASSWORD="yourpassword"
   ```
 
-  Now use command as it is without username and password
+  Now use command as it is without username and password , OSM Login is enabled from Geofabrik (itself)[https://github.com/geofabrik/sendfile_osm_oauth_protector] So OSMSG Doesn't uses any third party tool/methododology for the authentication  
 
 It is a Simple python script processes osm files live and produces stats with use of databases
 
