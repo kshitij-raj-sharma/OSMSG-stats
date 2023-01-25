@@ -101,7 +101,7 @@ class ChangesetHandler(osmium.SimpleHandler):
 
     def changeset(self, c):
         if "comment" in c.tags:
-            if any(elem in c.tags["comment"] for elem in hashtags):
+            if any(elem.lower() in c.tags["comment"].lower() for elem in hashtags):
                 hashtag_changesets.append(c.id)
 
 
@@ -314,6 +314,12 @@ def main():
         type=str,
         help="Hashtags Statstics to Collect : List of hashtags",
     )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Force for the Hashtag Replication fetch if it is greater than a day interval",
+        default=False,
+    )
 
     parser.add_argument(
         "--rows",
@@ -429,6 +435,15 @@ def main():
     if start_date == end_date:
         print("Err: Start date and end date are equal")
         sys.exit()
+
+    if (end_date - start_date).days > 1:
+        if args.hashtags:
+            print(
+                "Replication for Changeset is minutely , To process more than a day data it might take a while"
+            )
+            if not args.force:
+                sys.exit()
+
     if args.hashtags:
 
         Changeset = ChangesetToolKit()
