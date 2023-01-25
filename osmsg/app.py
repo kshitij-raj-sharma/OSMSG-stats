@@ -507,7 +507,6 @@ def main():
     print("Changefiles Processing Finished")
     os.chdir(os.getcwd())
     shutil.rmtree("temp")
-    print(users)
     if len(users) > 1:
         # print(users)
         if args.wild_tags:
@@ -633,6 +632,7 @@ def main():
         print("Metadata Created")
 
     else:
+        print("No data Found")
         sys.exit()
 
     end_time = time.time()
