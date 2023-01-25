@@ -39,7 +39,7 @@ def main():
 
         # Get the attribute of first row
         summary_text = f"User {df.loc[0, 'name']} tops table with {df.loc[0, 'map_changes']} map changes, Followed by {df.loc[1, 'name']} - {df.loc[1, 'map_changes']} & {df.loc[2, 'name']} - {df.loc[2, 'map_changes']}"
-        thread_summary = f"Total {len(df)} users recorded with {df['changesets'].sum()} changesets and {df['map_changes'].sum()} map changes \nThey created {df['nodes.create'].sum()} Nodes , {df['ways.create'].sum()} Ways & {df['relations.create'].sum()} Relations. Out of which {df['building.create'].sum()} building, {df['highway.create'].sum()} highway & {df['waterway.create'].sum()} waterway were created\nUsers Modified {df['nodes.modify'].sum()} Nodes , {df['ways.modify'].sum()} Ways & {df['relations.modify'].sum()} Relations."
+        thread_summary = f"A total of {len(df)} users recorded with {df['changesets'].sum()} changesets and {df['map_changes'].sum()} map changes.\nThey created {df['nodes.create'].sum()} Nodes , {df['ways.create'].sum()} Ways & {df['relations.create'].sum()} Relations. Out of which {df['building.create'].sum()} were building, {df['highway.create'].sum()} were highway, {df['waterway.create'].sum()} were waterway & {df['amenity.create'].sum()} were amenities.\nUsers also mcodified {df['nodes.modify'].sum()} Nodes , {df['ways.modify'].sum()} Ways & {df['relations.modify'].sum()} Relations."
     filename = os.path.basename(first_file)
 
     lstfile = filename.split("_")
