@@ -84,7 +84,7 @@ def main():
             media_ids=[media.media_id],
         )
         thread_tweet = api.update_status(
-            status=thread_tweet,
+            status=thread_summary,
             in_reply_to_status_id=orginal_tweet.id,
         )
 
@@ -95,7 +95,7 @@ def main():
                 media_ids=[media.media_id],
             )
             thread_tweet = api.update_status(
-                status=thread_tweet,
+                status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
             )
         else:
@@ -104,7 +104,7 @@ def main():
                 media_ids=[media.media_id],
             )
             thread_tweet = api.update_status(
-                status=thread_tweet,
+                status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
             )
 
