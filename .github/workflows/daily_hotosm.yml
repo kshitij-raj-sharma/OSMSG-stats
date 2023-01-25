@@ -2,9 +2,9 @@ name: Run Daily Report Global Hotosm Hashtag
 on:
   schedule:
      - cron: '0 6 * * *' # Run every day at 7 UTC
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
