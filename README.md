@@ -46,16 +46,16 @@ Options:
                         interval using cron/service
 ```
 
-OSM Username and Password are not Mandatory , They are only required if you want to use geofabrik internal changefiles , There are two options you can either pass your username password on command line or export those in your env variable and script will pick it from there so that you don't need to pass your username and password to command itself like this.
+  OSM Username and Password are not Mandatory , They are only required if you want to use geofabrik internal changefiles , There are two options you can either pass your username password on command line or export those in your env variable and script will pick it from there so that you don't need to pass your username and password to command itself like this.
 
-```
-export OSM_USERNAME="yourusername"
-export OSM_PASSWORD="yourpassword"
-```
+  ```
+  export OSM_USERNAME="yourusername"
+  export OSM_PASSWORD="yourpassword"
+  ```
 
-Now use command as it is without username and password
+  Now use command as it is without username and password
 
-Simple python script processes osm files live and produces stats with use of databases
+It is a Simple python script processes osm files live and produces stats with use of databases
 
 1. It can Generate Stats on Country Level for countries Supported on http://download.geofabrik.de/ using boundary as visualized
 2. It can also take any other server replication changefile to extract stats
