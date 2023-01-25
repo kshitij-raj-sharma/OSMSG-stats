@@ -312,7 +312,7 @@ def main():
         "--hashtags",
         nargs="+",
         type=str,
-        help="Hashtags Statstics to Collect : List of hashtags",
+        help="Hashtags Statstics to Collect : List of hashtags , Limited until daily stats for now",
     )
     parser.add_argument(
         "--force",
