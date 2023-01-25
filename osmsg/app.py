@@ -36,7 +36,7 @@ users = {}
 hashtag_changesets = []
 
 
-def collect_changefile_stats(user, uname, version, tags, osm_type):
+def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
     tags_to_collect = list(additional_tags) if additional_tags else None
     if version == 1:
         action = "create"
@@ -94,11 +94,16 @@ def collect_changefile_stats(user, uname, version, tags, osm_type):
 
 
 def calculate_stats(user, uname, changeset, version, tags, osm_type):
-    if len(hashtag_changesets) > 0:  # intersect with changesets
-        if changeset in hashtag_changesets:
-            collect_changefile_stats(user, uname, version, tags, osm_type)
+    if hashtags:  # intersect with changesets
+        if (
+            len(hashtag_changesets) > 0
+        ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
+            if changeset in hashtag_changesets:
+                collect_changefile_stats(
+                    user, uname, changeset, version, tags, osm_type
+                )
     else:  # collect everything
-        collect_changefile_stats(user, uname, version, tags, osm_type)
+        collect_changefile_stats(user, uname, changeset, version, tags, osm_type)
 
 
 class ChangesetHandler(osmium.SimpleHandler):

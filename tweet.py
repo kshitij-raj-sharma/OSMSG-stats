@@ -39,7 +39,7 @@ def main():
 
         # Get the attribute of first row
         summary_text = f"User {df.loc[0, 'name']} tops table with {df.loc[0, 'map_changes']} map changes, Followed by {df.loc[1, 'name']} - {df.loc[1, 'map_changes']} & {df.loc[2, 'name']} - {df.loc[2, 'map_changes']}"
-        thread_summary = f"Total- Users:{len(df)},Changesets: {df['changesets'].sum()}\nCreated= Nodes:{df['nodes.create'].sum()}, Ways: {df['nodes.create'].sum()}, Relation: {df['nodes.create'].sum()}\nBuilding:{df['building.create'].sum()},Highway:{df['highway.create'].sum()},Amenity:{df['amenity.create'].sum()}"
+        thread_summary = f"Total {len(df)} Recorded with changesets: {df['changesets'].sum()} and map changes {df['map_changes'].sum()}\nNodes Created :{df['nodes.create'].sum()}, Ways Created : {df['ways.create'].sum()}, Relation Created : {df['relations.create'].sum()}\nBuilding Created :  {df['building.create'].sum()}, Highway Created :{df['highway.create'].sum()}, Waterway Created :{df['waterway.create'].sum()} & Amenity Created :{df['amenity.create'].sum()}"
     filename = os.path.basename(first_file)
 
     lstfile = filename.split("_")
