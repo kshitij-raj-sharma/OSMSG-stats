@@ -80,7 +80,7 @@ def main():
         print("twitted")
     if args.tweet_hotosm:
         orginal_tweet = api.update_status(
-            status=f"Hotosm Contributors Last Day(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Daily/hotosm/daily_stats.csv #dailystats #hotosm #OpenStreetMap",
+            status=f"HOTOSM Contributors Last Day(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Daily/hotosm/daily_stats.csv #dailystats @hotosm #OpenStreetMap",
             media_ids=[media.media_id],
         )
         thread_tweet = api.update_status(
