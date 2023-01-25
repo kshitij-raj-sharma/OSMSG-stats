@@ -2,7 +2,6 @@ import datetime
 import datetime as dt
 import sys
 
-import osmium
 import requests
 
 

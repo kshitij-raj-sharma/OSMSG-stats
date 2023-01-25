@@ -14,6 +14,7 @@ def main():
     parser.add_argument("--tweet_last_month", action="store_true", default=False)
     parser.add_argument("--tweet_last_year", action="store_true", default=False)
     parser.add_argument("--tweet_global", action="store_true", default=False)
+    parser.add_argument("--tweet_hotosm", action="store_true", default=False)
 
     args = parser.parse_args()
 
@@ -76,6 +77,12 @@ def main():
                 media_ids=[media.media_id],
             )
         print("twitted")
+    if args.tweet_hotosm:
+        api.update_status(
+            status=f"Hotosm Contributors Last Day(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Daily/hotosm/daily_stats.csv #dailystats #hotosm #OpenStreetMap #global",
+            media_ids=[media.media_id],
+        )
+
     if args.tweet_last_day:
         if args.tweet_global:
             api.update_status(

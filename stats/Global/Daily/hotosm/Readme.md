@@ -1,0 +1,1 @@
+#### Contribution Stats for any changes including hashtag #hotosm (Case insensitive)
