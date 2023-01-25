@@ -173,6 +173,7 @@ def process_changefiles(url):
         shutil.copyfileobj(f_in, f_out)
 
     handler.apply_file(file_path[:-3])
+    print(f"Finished {url}")
 
 
 def process_changesets(url):
@@ -293,12 +294,13 @@ def main():
     parser.add_argument("--end_date", help="End date in the format YYYY-MM-DD")
     parser.add_argument(
         "--username",
+        default=None,
         help="Your OSM Username : Only required for Geofabrik Internal Changefiles",
     )
     parser.add_argument(
         "--password",
+        default=None,
         help="Your OSM Password : Only required for Geofabrik Internal Changefiles",
-        default=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--timezone",
@@ -407,6 +409,11 @@ def main():
     hashtags = args.hashtags
     cookies = None
     if "geofabrik" in args.url.lower():
+        if args.username is None:
+            args.username = os.environ.get("OSM_USERNAME")
+        if args.password is None:
+            args.password = os.environ.get("OSM_PASSWORD")
+
         if not (args.username and args.password):
             assert (
                 args.username and args.password
