@@ -1,7 +1,7 @@
 name: Run Daily Report Nepal
 on:
   schedule:
-    - cron: '0 6 * * *' # Run every day at 6 UTC
+    - cron: "0 6 * * *" # Run every day at 6 UTC
   # push:
   #   branches:
   #     - master
@@ -15,18 +15,17 @@ jobs:
         with:
           python-version: 3.8
 
-      - name : Install Osmium 
-        run :
-          sudo apt-get install -y osmium-tool
+      - name: Install Osmium
+        run: sudo apt-get install -y osmium-tool
 
-      - name : Install necessary dependecies  
-        run : |
+      - name: Install necessary dependecies
+        run: |
           pip install flare-floss
           pip install -e . 
           pip install tweepy
 
-      - name : Generate Daily Stats
-        env: #assign variables 
+      - name: Generate Daily Stats
+        env: #assign variables
           API_KEY: ${{ secrets.API_KEY }}
           API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
@@ -36,18 +35,28 @@ jobs:
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
           osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --timezone Nepal --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Daily/stats_metadata.json --wild_tags
-          python tweet.py --tweet_last_day
 
-      - name: add stats to git 
-      
-        run : |
-            git pull 
-            git config --global user.email "skshitizraj@gmail.com"
-            git config --global user.name "kshitijrajsharma"
-            mv *.csv stats/Nepal/Daily/daily_nepal_stats.csv
-            mv stats_metadata.json stats/Nepal/Daily/stats_metadata.json
+      - name: add stats to git
 
-            git add -f stats/Nepal/Daily/daily_nepal_stats.csv
-            git add -f stats/Nepal/Daily/stats_metadata.json
-            git commit -m "Updated Daily Nepal stats"
-            git push
+        run: |
+          git pull 
+          git config --global user.email "skshitizraj@gmail.com"
+          git config --global user.name "kshitijrajsharma"
+          mv *.csv stats/Nepal/Daily/daily_nepal_stats.csv
+          mv stats_metadata.json stats/Nepal/Daily/stats_metadata.json
+
+          git add -f stats/Nepal/Daily/daily_nepal_stats.csv
+          git add -f stats/Nepal/Daily/stats_metadata.json
+          git commit -m "Updated Daily Nepal stats"
+          git push
+
+      - name: Tweet Stats
+        env: #assign variables
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+        run: |
+          commit_id=$(git rev-parse --short HEAD)
+          python tweet.py --tweet_last_day --git $commit_id
