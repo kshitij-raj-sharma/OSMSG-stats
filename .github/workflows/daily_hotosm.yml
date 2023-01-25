@@ -1,10 +1,10 @@
-name: Run Daily Report Global Hotosm Hashtag
+name: Run Daily Report Hotosm Hashtag
 on:
-  schedule:
-     - cron: '0 6 * * *' # Run every day at 7 UTC
-  # push:
-  #   branches:
-  #     - master
+  # schedule:
+  #   - cron: "0 6 * * *" # Run every day at 7 UTC
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -15,43 +15,39 @@ jobs:
         with:
           python-version: 3.8
 
-      - name : Install Osmium 
-        run :
-          sudo apt-get install -y osmium-tool
+      - name: Install Osmium
+        run: sudo apt-get install -y osmium-tool
 
-      - name : Install necessary dependecies  
-        run : |
+      - name: Install necessary dependecies
+        run: |
           pip install flare-floss
           pip install -e . 
           pip install tweepy
 
-      - name : Generate Daily Hashtag Stats
+      - name: Generate Daily Hashtag Stats
         run: |
-           osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --wild_tags --read_from_metadata stats/Global/Daily/stats_metadata.json --hashtags hotosm
-      
-      - name : Tweet Stats 
-        env: #assign variables 
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --wild_tags --read_from_metadata stats/Global/Daily/stats_metadata.json --hashtags hotosm
+
+      - name: Tweet Stats
+        env: #assign variables
           API_KEY: ${{ secrets.API_KEY }}
           API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
-        run : |
+        run: |
           python tweet.py --tweet_hotosm
 
-      - name: add stats to git 
-      
-        run : |
-            git pull
-            git config --global user.email "skshitizraj@gmail.com"
-            git config --global user.name "kshitijrajsharma"
-            mv *.csv stats/Global/Daily/hotosm/daily_stats.csv
-            mv stats_metadata.json stats/Global/Daily/hotosm/stats_metadata.json
+      - name: add stats to git
 
-            git add -f stats/Global/Daily/hotosm/daily_stats.csv
-            git add -f stats/Global/Daily/hotosm/stats_metadata.json
-            git commit -m "Updated Daily hotosm stats"
-            git push
+        run: |
+          git pull
+          git config --global user.email "skshitizraj@gmail.com"
+          git config --global user.name "kshitijrajsharma"
+          mv *.csv stats/Global/Daily/hotosm/daily_stats.csv
+          mv stats_metadata.json stats/Global/Daily/hotosm/stats_metadata.json
 
-
-
+          git add -f stats/Global/Daily/hotosm/daily_stats.csv
+          git add -f stats/Global/Daily/hotosm/stats_metadata.json
+          git commit -m "Updated Daily hotosm stats"
+          git push
