@@ -108,6 +108,7 @@ def main():
                 status=f"Nepal Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Daily/daily_nepal_stats.csv #dailystats #OpenStreetMap #osmnepal",
                 media_ids=[media.media_id],
             )
+            print(thread_summary)
             thread_tweet = api.update_status(
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,

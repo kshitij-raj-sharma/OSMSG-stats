@@ -37,8 +37,8 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          mv *.csv stats/Nepal/Weekly/weekly_nepal_stats.csv
-          mv stats_metadata.json stats/Nepal/Weekly/stats_metadata.json
+          cp *.csv stats/Nepal/Weekly/weekly_nepal_stats.csv
+          cp stats_metadata.json stats/Nepal/Weekly/stats_metadata.json
 
           git add -f stats/Nepal/Weekly/weekly_nepal_stats.csv
           git add -f stats/Nepal/Weekly/stats_metadata.json
