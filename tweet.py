@@ -15,6 +15,11 @@ def main():
     parser.add_argument("--tweet_last_year", action="store_true", default=False)
     parser.add_argument("--tweet_global", action="store_true", default=False)
     parser.add_argument("--tweet_hotosm", action="store_true", default=False)
+    parser.add_argument(
+        "--git",
+        default=None,
+        help="Github Commit id to include in tweet",
+    )
 
     args = parser.parse_args()
 
@@ -55,32 +60,32 @@ def main():
     if args.tweet_last_week:
         if args.tweet_global:
             api.update_status(
-                status=f"Global Contributors Last Week(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Weekly/weekly_global_stats.csv #weeklystats #OpenStreetMap #global",
+                status=f"Global Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Weekly/weekly_global_stats.csv #weeklystats #OpenStreetMap #global",
                 media_ids=[media.media_id],
             )
 
         else:
             api.update_status(
-                status=f"Nepal Contributors Last Week(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Weekly/weekly_nepal_stats.csv #weeklystats #OpenStreetMap #osmnepal",
+                status=f"Nepal Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Weekly/weekly_nepal_stats.csv #weeklystats #OpenStreetMap #osmnepal",
                 media_ids=[media.media_id],
             )
         print("twitted")
     if args.tweet_last_month:
         if args.tweet_global:
             api.update_status(
-                status=f"Global Contributors Last Month(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Monthly/Monthly_global_stats.csv #monthlystats #OpenStreetMap #global",
+                status=f"Global Contributors Last Month\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Monthly/Monthly_global_stats.csv #monthlystats #OpenStreetMap #global",
                 media_ids=[media.media_id],
             )
 
         else:
             api.update_status(
-                status=f"Nepal Contributors This Month(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Monthly/Monthly_nepal_stats.csv #monthlystats #OpenStreetMap #osmnepal",
+                status=f"Nepal Contributors This Month\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Monthly/Monthly_nepal_stats.csv #monthlystats #OpenStreetMap #osmnepal",
                 media_ids=[media.media_id],
             )
         print("twitted")
     if args.tweet_hotosm:
         orginal_tweet = api.update_status(
-            status=f"HOTOSM Contributors Last Day(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Daily/hotosm/daily_stats.csv #dailystats @hotosm #OpenStreetMap",
+            status=f"HOTOSM Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Daily/hotosm/daily_stats.csv #dailystats @hotosm #OpenStreetMap",
             media_ids=[media.media_id],
         )
         thread_tweet = api.update_status(
@@ -91,7 +96,7 @@ def main():
     if args.tweet_last_day:
         if args.tweet_global:
             orginal_tweet = api.update_status(
-                status=f"Global Contributors Last Day(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Daily/daily_global_stats.csv #dailystats #OpenStreetMap #global",
+                status=f"Global Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Daily/daily_global_stats.csv #dailystats #OpenStreetMap #global",
                 media_ids=[media.media_id],
             )
             thread_tweet = api.update_status(
@@ -100,7 +105,7 @@ def main():
             )
         else:
             orginal_tweet = api.update_status(
-                status=f"Nepal Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Daily/daily_nepal_stats.csv #dailystats #OpenStreetMap #osmnepal",
+                status=f"Nepal Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Daily/daily_nepal_stats.csv #dailystats #OpenStreetMap #osmnepal",
                 media_ids=[media.media_id],
             )
             thread_tweet = api.update_status(
