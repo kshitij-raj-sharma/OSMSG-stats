@@ -36,63 +36,69 @@ users = {}
 hashtag_changesets = []
 
 
+def collect_changefile_stats(user, uname, version, tags, osm_type):
+    tags_to_collect = list(additional_tags) if additional_tags else None
+    if version == 1:
+        action = "create"
+    elif version > 1:
+        action = "modify"
+    elif version == 0:
+        action = "delete"
+    if user in users:
+        users[user]["name"] = uname
+        users[user]["uid"] = user
+        if changeset not in users_temp[user]["changesets"]:
+            users_temp[user]["changesets"].append(changeset)
+        users[user]["changesets"] = len(users_temp[user]["changesets"])
+        users[user][osm_type][action] += 1
+        if wild_tags:
+            for key, value in tags:
+                if key in users[user][f"tags_{action}"]:
+                    users[user][f"tags_{action}"][key] += 1
+                else:
+                    users[user][f"tags_{action}"][key] = 1
+
+        if tags_to_collect:
+            for tag in tags_to_collect:
+                if tag in tags:
+                    users[user][tag][action] += 1
+
+    else:
+        users[user] = {
+            "name": uname,
+            "uid": user,
+            "changesets": 0,
+            "nodes": {"create": 0, "modify": 0, "delete": 0},
+            "ways": {"create": 0, "modify": 0, "delete": 0},
+            "relations": {"create": 0, "modify": 0, "delete": 0},
+        }
+        if tags_to_collect:
+            for tag in tags_to_collect:
+                users[user][tag] = {"create": 0, "modify": 0, "delete": 0}
+        users_temp[user] = {"changesets": []}
+        if changeset not in users_temp[user]["changesets"]:
+            users_temp[user]["changesets"].append(changeset)
+        users[user]["changesets"] = len(users_temp[user]["changesets"])
+        users[user][osm_type][action] = 1
+        if wild_tags:
+            users[user]["tags_create"] = {}
+            users[user]["tags_modify"] = {}
+            users[user]["tags_delete"] = {}
+
+            for tag, value in tags:
+                users[user][f"tags_{action}"][tag] = 1
+        if tags_to_collect:
+            for tag in tags_to_collect:
+                if tag in tags:
+                    users[user][tag][action] = 1
+
+
 def calculate_stats(user, uname, changeset, version, tags, osm_type):
-    if len(hashtag_changesets) > 0:
+    if len(hashtag_changesets) > 0:  # intersect with changesets
         if changeset in hashtag_changesets:
-            tags_to_collect = list(additional_tags) if additional_tags else None
-            if version == 1:
-                action = "create"
-            elif version > 1:
-                action = "modify"
-            elif version == 0:
-                action = "delete"
-            if user in users:
-                users[user]["name"] = uname
-                users[user]["uid"] = user
-                if changeset not in users_temp[user]["changesets"]:
-                    users_temp[user]["changesets"].append(changeset)
-                users[user]["changesets"] = len(users_temp[user]["changesets"])
-                users[user][osm_type][action] += 1
-                if wild_tags:
-                    for key, value in tags:
-                        if key in users[user][f"tags_{action}"]:
-                            users[user][f"tags_{action}"][key] += 1
-                        else:
-                            users[user][f"tags_{action}"][key] = 1
-
-                if tags_to_collect:
-                    for tag in tags_to_collect:
-                        if tag in tags:
-                            users[user][tag][action] += 1
-
-            else:
-                users[user] = {
-                    "name": uname,
-                    "uid": user,
-                    "changesets": 0,
-                    "nodes": {"create": 0, "modify": 0, "delete": 0},
-                    "ways": {"create": 0, "modify": 0, "delete": 0},
-                    "relations": {"create": 0, "modify": 0, "delete": 0},
-                }
-                if tags_to_collect:
-                    for tag in tags_to_collect:
-                        users[user][tag] = {"create": 0, "modify": 0, "delete": 0}
-                users_temp[user] = {"changesets": []}
-                if changeset not in users_temp[user]["changesets"]:
-                    users_temp[user]["changesets"].append(changeset)
-                users[user]["changesets"] = len(users_temp[user]["changesets"])
-                users[user][osm_type][action] = 1
-                if wild_tags:
-                    users[user]["tags_create"] = {}
-                    users[user]["tags_modify"] = {}
-                    users[user]["tags_delete"] = {}
-
-                    for tag, value in tags:
-                        users[user][f"tags_{action}"][tag] = 1
-                if tags_to_collect:
-                    for tag in tags_to_collect:
-                        if tag in tags:
-                            users[user][tag][action] = 1
+            collect_changefile_stats(user, uname, version, tags, osm_type)
+    else:  # collect everything
+        collect_changefile_stats(user, uname, version, tags, osm_type)
 
 
 class ChangesetHandler(osmium.SimpleHandler):
