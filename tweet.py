@@ -30,6 +30,7 @@ def main():
 
     csv = [f for f in files if f.endswith(".csv")]
     summary_text = ""
+    thread_summary = ""
     if csv:
         csv_file = os.path.join(os.getcwd(), csv[0])
 
@@ -38,7 +39,7 @@ def main():
 
         # Get the attribute of first row
         summary_text = f"User {df.loc[0, 'name']} tops table with {df.loc[0, 'map_changes']} map changes, Followed by {df.loc[1, 'name']} - {df.loc[1, 'map_changes']} & {df.loc[2, 'name']} - {df.loc[2, 'map_changes']}"
-
+        thread_summary = f"Total- Users:{len(df)},Changesets: {df['changesets'].sum()}\nCreated= Nodes:{df['nodes.create'].sum()}, Ways: {df['nodes.create'].sum()}, Relation: {df['nodes.create'].sum()}\nBuilding:{df['building.create'].sum()},Highway:{df['highway.create'].sum()},Amenity:{df['amenity.create'].sum()}"
     filename = os.path.basename(first_file)
 
     lstfile = filename.split("_")
@@ -78,23 +79,34 @@ def main():
             )
         print("twitted")
     if args.tweet_hotosm:
-        api.update_status(
+        orginal_tweet = api.update_status(
             status=f"Hotosm Contributors Last Day(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Daily/hotosm/daily_stats.csv #dailystats #hotosm #OpenStreetMap",
             media_ids=[media.media_id],
+        )
+        thread_tweet = api.update_status(
+            status=thread_tweet,
+            in_reply_to_status_id=orginal_tweet.id,
         )
 
     if args.tweet_last_day:
         if args.tweet_global:
-            api.update_status(
+            orginal_tweet = api.update_status(
                 status=f"Global Contributors Last Day(UTC)\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Global/Daily/daily_global_stats.csv #dailystats #OpenStreetMap #global",
                 media_ids=[media.media_id],
             )
+            thread_tweet = api.update_status(
+                status=thread_tweet,
+                in_reply_to_status_id=orginal_tweet.id,
+            )
         else:
-            api.update_status(
+            orginal_tweet = api.update_status(
                 status=f"Nepal Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull stats: https://github.com/kshitijrajsharma/OSMSG/tree/master/stats/Nepal/Daily/daily_nepal_stats.csv #dailystats #OpenStreetMap #osmnepal",
                 media_ids=[media.media_id],
             )
-            print("twitted")
+            thread_tweet = api.update_status(
+                status=thread_tweet,
+                in_reply_to_status_id=orginal_tweet.id,
+            )
 
 
 if __name__ == "__main__":
