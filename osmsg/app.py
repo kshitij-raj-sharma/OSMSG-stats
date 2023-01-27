@@ -51,6 +51,8 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
         users[user][osm_type][action] += 1
+        if osm_type == "nodes" and tags:
+            users[user]["poi"][action] += 1
         if wild_tags:
             for key, value in tags:
                 if key in users[user][f"tags_{action}"]:
@@ -71,6 +73,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             "nodes": {"create": 0, "modify": 0, "delete": 0},
             "ways": {"create": 0, "modify": 0, "delete": 0},
             "relations": {"create": 0, "modify": 0, "delete": 0},
+            "poi": {"create": 0, "modify": 0, "delete": 0},  # nodes that has tags
         }
         if tags_to_collect:
             for tag in tags_to_collect:
