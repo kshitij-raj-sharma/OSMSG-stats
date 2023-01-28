@@ -5,3 +5,5 @@ tweepy
 dataframe-image
 flare-floss
 tabulate
+Shapely
+geopandas

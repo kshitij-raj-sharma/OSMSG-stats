@@ -1,5 +1,4 @@
 import argparse
-import calendar
 import concurrent.futures
 import datetime as dt
 import gzip
@@ -11,11 +10,12 @@ import time
 from datetime import datetime
 
 import dataframe_image as dfi
+import geopandas as gpd
 import osmium
 import pandas as pd
-import pytz
 import requests
 from osmium.replication.server import ReplicationServer
+from shapely.geometry import box
 
 from osmsg.utils import verify_me_osm
 
@@ -33,7 +33,10 @@ from .changesets import ChangesetToolKit
 
 users_temp = {}
 users = {}
-hashtag_changesets = []
+hashtag_changesets = {}
+
+# read the GeoJSON file
+countries_df = gpd.read_file("data/countries_un.geojson")
 
 
 def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
@@ -50,6 +53,10 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
         if changeset not in users_temp[user]["changesets"]:
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
+        if hashtags:
+            for ch in hashtag_changesets[changeset]:
+                if ch not in users[user]["countries"]:
+                    users[user]["countries"].append(ch)
         users[user][osm_type][action] += 1
         if osm_type == "nodes" and tags:
             users[user]["poi"][action] += 1
@@ -75,6 +82,8 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             "relations": {"create": 0, "modify": 0, "delete": 0},
             "poi": {"create": 0, "modify": 0, "delete": 0},  # nodes that has tags
         }
+        if hashtags:
+            users[user]["countries"] = hashtag_changesets[changeset]
         if tags_to_collect:
             for tag in tags_to_collect:
                 users[user][tag] = {"create": 0, "modify": 0, "delete": 0}
@@ -101,7 +110,7 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
         if (
             len(hashtag_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
-            if changeset in hashtag_changesets:
+            if changeset in hashtag_changesets.keys():
                 collect_changefile_stats(
                     user, uname, changeset, version, tags, osm_type
                 )
@@ -116,7 +125,19 @@ class ChangesetHandler(osmium.SimpleHandler):
     def changeset(self, c):
         if "comment" in c.tags:
             if any(elem.lower() in c.tags["comment"].lower() for elem in hashtags):
-                hashtag_changesets.append(c.id)
+                hashtag_changesets[c.id] = []
+                # get bbox
+                bounds = str(c.bounds)
+                bbox_list = bounds.strip("()").split(" ")
+                minx, miny = bbox_list[0].split("/")
+                maxx, maxy = bbox_list[1].split("/")
+                bbox = box(float(minx), float(miny), float(maxx), float(maxy))
+                # Create a point for the centroid of the bounding box
+                centroid = bbox.centroid
+                intersected_rows = countries_df[countries_df.intersects(centroid)]
+                for i, row in intersected_rows.iterrows():
+                    if row["name"] not in hashtag_changesets[c.id]:
+                        hashtag_changesets[c.id].append(row["name"])
 
 
 class ChangefileHandler(osmium.SimpleHandler):
@@ -380,11 +401,11 @@ def main():
 
     args = parser.parse_args()
     if args.start_date:
-        start_date = dt.datetime.strptime(args.start_date, "%Y-%m-%d").replace(
-            tzinfo=dt.timezone.utc
+        start_date = strip_utc(
+            dt.datetime.strptime(args.start_date, "%Y-%m-%d %H:%M:%S%z"), args.timezone
         )
 
-    if not args.start_date:
+    if not args.start_date or not args.end_date:
         if (
             args.extract_last_week
             or args.extract_last_day
@@ -394,12 +415,12 @@ def main():
         ):
             pass
         else:
-            print("Supply start_date")
+            print("ERR: Supply start_date & End_date")
             sys.exit()
 
     if args.end_date:
-        end_date = dt.datetime.strptime(args.end_date, "%Y-%m-%d").replace(
-            tzinfo=dt.timezone.utc
+        end_date = strip_utc(
+            dt.datetime.strptime(args.end_date, "%Y-%m-%d %H:%M:%S%z"), args.timezone
         )
     start_time = time.time()
 
@@ -499,7 +520,7 @@ def main():
         )
         end_date = server_ts
         if start_date >= server_ts:
-            print("Data is not available after start date ")
+            print("Err: Data is not available after start date ")
             sys.exit()
     global end_date_utc
     global start_date_utc
@@ -549,6 +570,10 @@ def main():
                     )
                 )
         df = pd.json_normalize(list(users.values()))
+
+        if hashtags:
+            df["countries"] = df["countries"].apply(lambda x: ",".join(map(str, x)))
+
         df = df.assign(
             changes=df["nodes.create"]
             + df["nodes.modify"]
