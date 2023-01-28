@@ -6,41 +6,34 @@ I tweet stats Every day/week/month for Global/Region and #hotosm hashtag at http
 
 Monitored Country's stats are available under `stats`, For now Monitored countries are : `Nepal` , weekly,monthly and yearly stats are stored in github and twitter for sure
 
-usage:
-
+usage: 
 ```
-osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
-             [--password PASSWORD] [--timezone {Nepal,UTC}] [--name NAME]
-             [--tags TAGS [TAGS ...]] [--hashtags HASHTAGS [HASHTAGS ...]] [--force]
-             [--rows ROWS] --url URL [--extract_last_week] [--extract_last_day]
-             [--extract_last_month] [--extract_last_year] [--extract_last_hour]
-             [--wild_tags] [--exclude_date_in_name]
-             [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
+osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME] [--password PASSWORD] [--timezone {Nepal,UTC}]
+             [--name NAME] [--country COUNTRY] [--tags TAGS [TAGS ...]] [--hashtags HASHTAGS [HASHTAGS ...]] [--force] [--rows ROWS] --url URL
+             [--extract_last_week] [--extract_last_day] [--extract_last_month] [--extract_last_year] [--extract_last_hour] [--wild_tags]
+             [--exclude_date_in_name] [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
              [--read_from_metadata READ_FROM_METADATA]
 ```
 
 options:
-
 ```
   -h, --help            show this help message and exit
   --start_date START_DATE
-                        Start date in the format YYYY-MM-DD
-  --end_date END_DATE   End date in the format YYYY-MM-DD
-  --username USERNAME   Your OSM Username : Only required for Geofabrik Internal
-                        Changefiles
-  --password PASSWORD   Your OSM Password : Only required for Geofabrik Internal
-                        Changefiles
+                        Start date in the format YYYY-MM-DD HH:M:Sz eg: 2023-01-28 17:43:09+05:45
+  --end_date END_DATE   End date in the format YYYY-MM-DD HH:M:Sz eg:2023-01-28 17:43:09+05:45
+  --username USERNAME   Your OSM Username : Only required for Geofabrik Internal Changefiles
+  --password PASSWORD   Your OSM Password : Only required for Geofabrik Internal Changefiles
   --timezone {Nepal,UTC}
                         Your Timezone : Currently Supported Nepal, Default : UTC
   --name NAME           Output stat file name
+  --country COUNTRY     Country name to extract (get name from data/un_countries) : Only viable until day stats since changeset replication is
+                        available for minute, avoid using for geofabrik url since geofabrik already gives country level changefiles
   --tags TAGS [TAGS ...]
                         Additional stats to collect : List of tags key
   --hashtags HASHTAGS [HASHTAGS ...]
-                        Hashtags Statstics to Collect : List of hashtags , Limited until
-                        daily stats for now
-  --force               Force for the Hashtag Replication fetch if it is greater than a day
-                        interval
-  --rows ROWS           No fo top rows to extract , to extract top 100 , pass 100
+                        Hashtags Statstics to Collect : List of hashtags , Limited until daily stats for now
+  --force               Force for the Hashtag Replication fetch if it is greater than a day interval
+  --rows ROWS           No. of top rows to extract , to extract top 100 , pass 100
   --url URL             Your public Geofabrik Download URL
   --extract_last_week
   --extract_last_day
@@ -49,13 +42,11 @@ options:
   --extract_last_hour
   --wild_tags           Extract statistics of all of the unique tags and its count
   --exclude_date_in_name
-                        By default from and to date will be added to filename , You can
-                        skip this behaviour with this option
+                        By default from and to date will be added to filename , You can skip this behaviour with this option
   --format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]
                         Stats output format
   --read_from_metadata READ_FROM_METADATA
-                        Location of metadata to pick start date from previous run's
-                        end_date , Generally used if you want to run bot on regular
+                        Location of metadata to pick start date from previous run's end_date , Generally used if you want to run bot on regular
                         interval using cron/service
 ```
 

@@ -34,6 +34,7 @@ from .changesets import ChangesetToolKit
 users_temp = {}
 users = {}
 hashtag_changesets = {}
+countries_changesets = []
 
 # read the GeoJSON file
 countries_df = gpd.read_file("data/countries_un.geojson")
@@ -105,11 +106,17 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
 
 
 def calculate_stats(user, uname, changeset, version, tags, osm_type):
-    if hashtags:  # intersect with changesets
+    if (hashtags and country) or hashtags:  # intersect with changesets
         if (
             len(hashtag_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
             if changeset in hashtag_changesets.keys():
+                collect_changefile_stats(
+                    user, uname, changeset, version, tags, osm_type
+                )
+    elif country:
+        if len(countries_changesets) > 0:
+            if changeset in countries_changesets:
                 collect_changefile_stats(
                     user, uname, changeset, version, tags, osm_type
                 )
@@ -122,10 +129,31 @@ class ChangesetHandler(osmium.SimpleHandler):
         super(ChangesetHandler, self).__init__()
 
     def changeset(self, c):
-        if "comment" in c.tags:
-            if any(elem.lower() in c.tags["comment"].lower() for elem in hashtags):
-                hashtag_changesets[c.id] = []
-                # get bbox
+        country_check = False
+        if hashtags:
+            if "comment" in c.tags:
+                if any(elem.lower() in c.tags["comment"].lower() for elem in hashtags):
+                    hashtag_changesets[c.id] = []
+                    # get bbox
+                    bounds = str(c.bounds)
+                    bbox_list = bounds.strip("()").split(" ")
+                    minx, miny = bbox_list[0].split("/")
+                    maxx, maxy = bbox_list[1].split("/")
+                    bbox = box(float(minx), float(miny), float(maxx), float(maxy))
+                    # Create a point for the centroid of the bounding box
+                    centroid = bbox.centroid
+                    intersected_rows = countries_df[countries_df.intersects(centroid)]
+                    for i, row in intersected_rows.iterrows():
+                        if row["name"] not in hashtag_changesets[c.id]:
+                            if country:
+                                country_check = True
+                                if row["name"] == country:
+                                    hashtag_changesets[c.id].append(row["name"])
+                            else:
+                                hashtag_changesets[c.id].append(row["name"])
+
+        if not country_check:  # hash tag not supplied
+            if country:
                 bounds = str(c.bounds)
                 bbox_list = bounds.strip("()").split(" ")
                 minx, miny = bbox_list[0].split("/")
@@ -135,8 +163,8 @@ class ChangesetHandler(osmium.SimpleHandler):
                 centroid = bbox.centroid
                 intersected_rows = countries_df[countries_df.intersects(centroid)]
                 for i, row in intersected_rows.iterrows():
-                    if row["name"] not in hashtag_changesets[c.id]:
-                        hashtag_changesets[c.id].append(row["name"])
+                    if row["name"] == country:
+                        countries_changesets.append(c.id)
 
 
 class ChangefileHandler(osmium.SimpleHandler):
@@ -235,6 +263,7 @@ def process_changesets(url):
         shutil.copyfileobj(f_in, f_out)
 
     handler.apply_file(file_path[:-3])
+    print(f"Finished {url}")
 
 
 def get_download_urls_changefiles(
@@ -353,6 +382,12 @@ def main():
         help="Output stat file name",
     )
     parser.add_argument(
+        "--country",
+        default=None,
+        help="Country name to extract (get name from data/un_countries) : Only viable until day stats since changeset replication is available for minute, avoid using for geofabrik url since geofabrik already gives country level changefiles",
+    )
+
+    parser.add_argument(
         "--tags",
         nargs="+",
         type=str,
@@ -375,7 +410,7 @@ def main():
     parser.add_argument(
         "--rows",
         type=int,
-        help="No fo top rows to extract , to extract top 100 , pass 100",
+        help="No. of top rows to extract , to extract top 100 , pass 100",
     )
 
     parser.add_argument(
@@ -438,15 +473,21 @@ def main():
             end_date = dt.datetime.strptime(args.end_date, "%Y-%m-%d %H:%M:%S%z")
 
         end_date = strip_utc(end_date, args.timezone)
+    if args.country:
+        if not countries_df["name"].isin([args.country]).any():
+            print("Country doesn't exists : Refer to data/countries_un.csv name column")
+            sys.exit()
     start_time = time.time()
 
     global additional_tags
     global cookies
     global wild_tags
     global hashtags
+    global country
     wild_tags = args.wild_tags
     additional_tags = args.tags
     hashtags = args.hashtags
+    country = args.country
     cookies = None
     if "geofabrik" in args.url.lower():
         if args.username is None:
@@ -495,14 +536,14 @@ def main():
         sys.exit()
 
     if (end_date - start_date).days > 1:
-        if args.hashtags:
+        if args.hashtags or args.country:
             print(
-                "Replication for Changeset is minutely , To process more than a day data it might take a while"
+                "Warning : Replication for Changeset is minutely , To process more than a day data it might take a while , Use --force to ignnore this warning"
             )
             if not args.force:
                 sys.exit()
 
-    if args.hashtags:
+    if args.hashtags or args.country:
 
         Changeset = ChangesetToolKit()
         (
@@ -516,7 +557,7 @@ def main():
         with concurrent.futures.ThreadPoolExecutor() as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list
             executor.map(process_changesets, changeset_download_urls)
-            executor.shutdown(wait=True)
+            # executor.shutdown(wait=True)
 
         print("Changeset Processing Finished")
         end_date = strip_utc(
@@ -554,7 +595,7 @@ def main():
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         executor.map(process_changefiles, download_urls)
 
-        executor.shutdown(wait=True)
+        # executor.shutdown(wait=True)
     print("Changefiles Processing Finished")
     os.chdir(os.getcwd())
     shutil.rmtree("temp")
