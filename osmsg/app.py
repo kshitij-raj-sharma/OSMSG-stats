@@ -43,9 +43,9 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
     tags_to_collect = list(additional_tags) if additional_tags else None
     if version == 1:
         action = "create"
-    elif version > 1:
+    if version > 1:
         action = "modify"
-    elif version == 0:
+    if version == 0:
         action = "delete"
     if user in users:
         users[user]["name"] = uname
@@ -80,13 +80,13 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             "nodes": {"create": 0, "modify": 0, "delete": 0},
             "ways": {"create": 0, "modify": 0, "delete": 0},
             "relations": {"create": 0, "modify": 0, "delete": 0},
-            "poi": {"create": 0, "modify": 0, "delete": 0},  # nodes that has tags
+            "poi": {"create": 0, "modify": 0},  # nodes that has tags
         }
         if hashtags:
             users[user]["countries"] = hashtag_changesets[changeset]
         if tags_to_collect:
             for tag in tags_to_collect:
-                users[user][tag] = {"create": 0, "modify": 0, "delete": 0}
+                users[user][tag] = {"create": 0, "modify": 0}
         users_temp[user] = {"changesets": []}
         if changeset not in users_temp[user]["changesets"]:
             users_temp[user]["changesets"].append(changeset)
@@ -95,7 +95,6 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
         if wild_tags:
             users[user]["tags_create"] = {}
             users[user]["tags_modify"] = {}
-            users[user]["tags_delete"] = {}
 
             for tag, value in tags:
                 users[user][f"tags_{action}"][tag] = 1
@@ -322,8 +321,15 @@ def auth(username, password):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--start_date", help="Start date in the format YYYY-MM-DD")
-    parser.add_argument("--end_date", help="End date in the format YYYY-MM-DD")
+    parser.add_argument(
+        "--start_date",
+        help="Start date in the format YYYY-MM-DD HH:M:Sz eg: 2023-01-28 17:43:09+05:45",
+    )
+    parser.add_argument(
+        "--end_date",
+        help="End date in the format YYYY-MM-DD HH:M:Sz eg:2023-01-28 17:43:09+05:45",
+        default=dt.datetime.now(),
+    )
     parser.add_argument(
         "--username",
         default=None,
@@ -413,7 +419,7 @@ def main():
             dt.datetime.strptime(args.start_date, "%Y-%m-%d %H:%M:%S%z"), args.timezone
         )
 
-    if not args.start_date or not args.end_date:
+    if not args.start_date:
         if (
             args.extract_last_week
             or args.extract_last_day
@@ -423,13 +429,15 @@ def main():
         ):
             pass
         else:
-            print("ERR: Supply start_date & End_date")
+            print("ERR: Supply start_date")
             sys.exit()
 
     if args.end_date:
-        end_date = strip_utc(
-            dt.datetime.strptime(args.end_date, "%Y-%m-%d %H:%M:%S%z"), args.timezone
-        )
+        end_date = args.end_date
+        if not isinstance(end_date, datetime):
+            end_date = dt.datetime.strptime(args.end_date, "%Y-%m-%d %H:%M:%S%z")
+
+        end_date = strip_utc(end_date, args.timezone)
     start_time = time.time()
 
     global additional_tags
@@ -508,6 +516,7 @@ def main():
         with concurrent.futures.ThreadPoolExecutor() as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list
             executor.map(process_changesets, changeset_download_urls)
+            executor.shutdown(wait=True)
 
         print("Changeset Processing Finished")
         end_date = strip_utc(
@@ -571,15 +580,6 @@ def main():
                         )
                     )
                 )
-                users[user]["tags_delete"] = json.dumps(
-                    dict(
-                        sorted(
-                            users[user]["tags_delete"].items(),
-                            key=lambda item: item[1],
-                            reverse=True,
-                        )
-                    )
-                )
         df = pd.json_normalize(list(users.values()))
 
         if hashtags:
@@ -607,7 +607,7 @@ def main():
             # Get the column names of the DataFrame
             cols = df.columns.tolist()
             # Identify the column names that you want to move
-            cols_to_move = ["tags_create", "tags_modify", "tags_delete"]
+            cols_to_move = ["tags_create", "tags_modify"]
             # Remove the columns to move from the list of column names
             cols = [col for col in cols if col not in cols_to_move]
             # Add the columns to move to the end of the list of column names
@@ -629,7 +629,7 @@ def main():
                 else df.head(100)
             )  # 100 as max rows for image format
             dfi.export(
-                df_img.drop(columns=["tags_create", "tags_modify", "tags_delete"])
+                df_img.drop(columns=["tags_create", "tags_modify"])
                 if args.wild_tags
                 else df_img,
                 f"{fname}.png",
