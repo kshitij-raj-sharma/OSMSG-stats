@@ -4,6 +4,7 @@ import datetime as dt
 import gzip
 import json
 import os
+import re
 import shutil
 import sys
 import time
@@ -34,7 +35,7 @@ from .changesets import ChangesetToolKit
 users_temp = {}
 users = {}
 hashtag_changesets = {}
-countries_changesets = []
+countries_changesets = {}
 
 # read the GeoJSON file
 countries_df = gpd.read_file("data/countries_un.geojson")
@@ -58,6 +59,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             for ch in hashtag_changesets[changeset]:
                 if ch not in users[user]["countries"]:
                     users[user]["countries"].append(ch)
+
         users[user][osm_type][action] += 1
         if osm_type == "nodes" and tags:
             users[user]["poi"][action] += 1
@@ -72,6 +74,10 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             for tag in tags_to_collect:
                 if tag in tags:
                     users[user][tag][action] += 1
+        if country:
+            for ch in countries_changesets[changeset]:
+                if ch not in users[user]["hashtags"]:
+                    users[user]["hashtags"].append(ch)
 
     else:
         users[user] = {
@@ -85,6 +91,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
         }
         if hashtags:
             users[user]["countries"] = hashtag_changesets[changeset]
+
         if tags_to_collect:
             for tag in tags_to_collect:
                 users[user][tag] = {"create": 0, "modify": 0}
@@ -103,6 +110,8 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             for tag in tags_to_collect:
                 if tag in tags:
                     users[user][tag][action] = 1
+        if country:
+            users[user]["hashtags"] = countries_changesets[changeset]
 
 
 def calculate_stats(user, uname, changeset, version, tags, osm_type):
@@ -116,7 +125,7 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
                 )
     elif country:
         if len(countries_changesets) > 0:
-            if changeset in countries_changesets:
+            if changeset in countries_changesets.keys():
                 collect_changefile_stats(
                     user, uname, changeset, version, tags, osm_type
                 )
@@ -133,7 +142,8 @@ class ChangesetHandler(osmium.SimpleHandler):
         if hashtags:
             if "comment" in c.tags:
                 if any(elem.lower() in c.tags["comment"].lower() for elem in hashtags):
-                    hashtag_changesets[c.id] = []
+                    if c.id not in hashtag_changesets.keys():
+                        hashtag_changesets[c.id] = []
                     # get bbox
                     bounds = str(c.bounds)
                     bbox_list = bounds.strip("()").split(" ")
@@ -164,7 +174,13 @@ class ChangesetHandler(osmium.SimpleHandler):
                 intersected_rows = countries_df[countries_df.intersects(centroid)]
                 for i, row in intersected_rows.iterrows():
                     if row["name"] == country:
-                        countries_changesets.append(c.id)
+                        if c.id not in countries_changesets.keys():
+                            countries_changesets[c.id] = []
+                        if "comment" in c.tags:
+                            hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
+                            for tag in hashtags_comment:
+                                if tag not in countries_changesets[c.id]:
+                                    countries_changesets[c.id].append(tag)
 
 
 class ChangefileHandler(osmium.SimpleHandler):
@@ -655,6 +671,11 @@ def main():
             cols = cols + cols_to_move
             # Reindex the DataFrame with the new order of column names
             df = df.reindex(columns=cols)
+
+        if country:
+            df["hashtags"] = df["hashtags"].apply(lambda x: ",".join(map(str, x)))
+            column_to_move = "hashtags"
+            df = df.assign(**{column_to_move: df.pop(column_to_move)})
 
         start_date = in_local_timezone(start_date, args.timezone)
         end_date = in_local_timezone(end_date, args.timezone)
