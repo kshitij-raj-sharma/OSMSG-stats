@@ -20,9 +20,9 @@ jobs:
 
       - name: Install necessary dependecies
         run: |
-          pip install tweepy
-          pip install -r requirements.txt
+          pip install flare-floss
           pip install -e . 
+          pip install tweepy
 
       - name: Generate Daily Hashtag Stats
         run: |

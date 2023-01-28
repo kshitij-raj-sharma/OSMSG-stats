@@ -19,5 +19,13 @@ setup(
     license="MIT",
     packages=["osmsg"],
     entry_points={"console_scripts": ["osmsg = osmsg.app:main"]},
-    install_requires=["osmium", "pandas", "requests", "tabulate", "dataframe-image"],
+    install_requires=[
+        "osmium",
+        "pandas",
+        "requests",
+        "tabulate",
+        "Shapely",
+        "geopandas",
+        "dataframe-image",
+    ],
 )
