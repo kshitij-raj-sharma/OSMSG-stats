@@ -1,380 +1,314 @@
-rank,name,uid,changesets,map_changes,nodes.create,nodes.modify,nodes.delete,ways.create,ways.modify,ways.delete,relations.create,relations.modify,relations.delete,building.create,building.modify,building.delete,highway.create,highway.modify,highway.delete,waterway.create,waterway.modify,waterway.delete,amenity.create,amenity.modify,amenity.delete,tags_create,tags_modify,tags_delete
-1,nyainariantsoa,10732815,9,18631,17023,487,0,1041,80,0,0,0,0,811,0,0,222,78,0,1,0,0,0,0,0,"{""building"": 811, ""highway"": 222, ""natural"": 7, ""source"": 1, ""surface"": 1, ""waterway"": 1}","{""highway"": 78, ""surface"": 29, ""source"": 22, ""lanes"": 6, ""oneway"": 6, ""smoothness"": 4, ""admin_level"": 1, ""boundary"": 1, ""name"": 1, ""barrier"": 1}",{}
-2,Aglis IRM-ED,8072046,8,11477,8705,727,0,2024,21,0,0,0,0,2020,3,0,4,17,0,0,0,0,0,0,0,"{""building"": 2020, ""highway"": 4}","{""highway"": 17, ""building"": 3}",{}
-3,Tom_HL,18192024,27,9725,7967,964,0,738,56,0,0,0,0,738,26,0,0,0,0,0,0,0,0,0,0,"{""building"": 738}","{""building"": 26, ""landuse"": 1}",{}
-4,snoguera1,18307869,76,8975,7666,6,0,1301,2,0,0,0,0,1301,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 1301}","{""building"": 1}",{}
-5,Rizki IRM-ED,17714670,4,8901,1770,6571,0,395,165,0,0,0,0,394,124,0,1,8,0,0,0,0,0,0,0,"{""building"": 394, ""highway"": 1}","{""building"": 124, ""highway"": 8, ""crossing"": 1, ""access"": 1, ""barrier"": 1, ""motorcycle"": 1, ""import"": 1, ""source"": 1}",{}
-6,ACTksantna,18334350,8,8749,7286,0,0,1463,0,0,0,0,0,1443,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1443, ""natural"": 20}",{},{}
-7,TeBaMa,6519568,3,8467,4139,3190,0,977,161,0,0,0,0,938,4,0,39,111,0,0,0,0,0,0,0,"{""building"": 938, ""highway"": 39, ""surface"": 30, ""smoothness"": 1, ""source"": 1}","{""highway"": 111, ""surface"": 30, ""source"": 11, ""smoothness"": 11, ""building"": 4, ""oneway"": 2, ""ford"": 1, ""landuse"": 1}",{}
-8,DiahW IRM-ED,7561020,4,8082,5379,1440,0,1120,143,0,0,0,0,1119,127,0,1,8,0,0,0,0,2,0,0,"{""building"": 1119, ""amenity"": 2, ""religion"": 2, ""highway"": 1}","{""building"": 127, ""highway"": 8, ""name"": 4, ""import"": 2, ""source"": 2, ""is_in:state"": 1, ""place"": 1, ""motorcycle"": 1, ""surface"": 1, ""horse"": 1, ""maxspeed"": 1, ""oneway"": 1}",{}
-9,Kraan46,11628862,41,7699,3335,3272,0,686,391,0,15,0,0,681,131,0,0,1,0,0,0,0,0,0,0,"{""building"": 681, ""type"": 15}","{""building"": 131, ""source"": 2, ""highway"": 1}",{}
-10,Irfandi IRM-ED,17714747,19,7646,3686,2992,0,829,139,0,0,0,0,827,103,0,2,25,0,0,1,0,0,0,0,"{""building"": 827, ""highway"": 2, ""bridge"": 1, ""layer"": 1}","{""building"": 103, ""highway"": 25, ""motorcycle"": 10, ""natural"": 2, ""import"": 2, ""name"": 2, ""source"": 2, ""lanes"": 2, ""oneway"": 2, ""smoothness"": 2, ""surface"": 2, ""waterway"": 1, ""water"": 1}",{}
-11,Cole Myers,9099678,12,7561,1875,5028,0,295,363,0,0,0,0,295,25,0,0,9,0,0,0,0,0,1,0,"{""building"": 295, ""construction"": 9}","{""building"": 25, ""construction"": 10, ""highway"": 9, ""ford"": 6, ""amenity"": 1, ""name"": 1, ""surface"": 1}",{}
-12,Anisa IRM-ED,8072049,12,7532,6150,122,0,1254,6,0,0,0,0,1254,2,0,0,4,0,0,0,0,0,0,0,"{""building"": 1254}","{""highway"": 4, ""building"": 2, ""name"": 1, ""motorcycle"": 1}",{}
-13,Elyana IRM-ED,10910633,7,7036,3594,2644,0,649,149,0,0,0,0,642,111,0,7,28,0,0,0,0,0,0,0,"{""building"": 642, ""highway"": 7, ""tracktype"": 3}","{""building"": 111, ""highway"": 28, ""source"": 4, ""import"": 3, ""motorcycle"": 2, ""crossing"": 1, ""bridge"": 1, ""layer"": 1}",{}
-14,Qomar IRM-ED,9543905,10,6991,4642,1179,0,1138,32,0,0,0,0,1138,17,0,0,2,0,0,0,0,0,0,0,"{""building"": 1138}","{""building"": 17, ""highway"": 2, ""motorcar"": 1, ""motorcycle"": 1, ""import"": 1, ""source"": 1}",{}
-15,Fauzan IRM-ED,8954099,9,6987,5258,434,0,1252,43,0,0,0,0,1251,35,0,1,1,0,0,0,0,0,0,0,"{""building"": 1251, ""highway"": 1}","{""building"": 35, ""highway"": 1, ""import"": 1, ""source"": 1}",{}
-16,Annabara4,17546959,71,6814,5989,270,0,546,9,0,0,0,0,546,6,0,0,0,0,0,0,0,0,0,0,"{""building"": 546}","{""building"": 6}",{}
-17,Narindra Fidintsoa,7041772,19,6511,5663,322,0,498,28,0,0,0,0,334,0,0,164,26,0,0,0,0,0,0,0,"{""building"": 334, ""highway"": 164, ""place"": 1, ""source"": 1, ""surface"": 1}","{""highway"": 26, ""surface"": 16, ""source"": 15, ""landuse"": 1}",{}
-18,maperezb,18294319,64,5544,4794,0,0,750,0,0,0,0,0,750,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 750}",{},{}
-19,tonybendell,3620803,3,5436,1641,3275,0,332,188,0,0,0,0,328,104,0,4,62,0,0,1,0,0,0,0,"{""building"": 328, ""highway"": 4}","{""building"": 104, ""highway"": 62, ""landuse"": 5, ""layer"": 3, ""place"": 2, ""bridge"": 2, ""boat"": 1, ""name"": 1, ""waterway"": 1, ""width"": 1}",{}
-20,Talitha IRM-ED,9421520,15,5365,2450,2192,0,333,390,0,0,0,0,330,300,0,3,38,0,0,0,0,0,0,0,"{""building"": 330, ""highway"": 3, ""covered"": 1}","{""building"": 300, ""highway"": 38, ""motorcycle"": 7, ""import"": 4, ""source"": 4, ""maxspeed"": 2, ""name"": 2, ""surface"": 2, ""oneway"": 2}",{}
-21,Dary Raihanah IRM-ED,15053262,6,5160,1563,3195,0,155,247,0,0,0,0,141,197,0,14,27,0,0,1,0,0,0,0,"{""building"": 141, ""highway"": 14, ""bridge"": 1, ""layer"": 1}","{""building"": 197, ""highway"": 27, ""waterway"": 1, ""import"": 1, ""source"": 1}",{}
-22,Irma IRM-ED,13065690,17,5123,4178,11,0,931,2,0,1,0,0,931,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 931, ""type"": 1}","{""highway"": 2}",{}
-23,Marvin de Hont,6616734,9,4782,2933,1157,0,628,64,0,0,0,0,627,26,0,1,2,0,0,0,0,0,0,0,"{""building"": 627, ""highway"": 1}","{""building"": 26, ""highway"": 2, ""landuse"": 2}",{}
-24,Libor Bednarik,4355439,12,4670,3081,1222,0,363,4,0,0,0,0,363,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 363}","{""name"": 2, ""place"": 2, ""source"": 2, ""highway"": 2, ""surface"": 2, ""landuse"": 2}",{}
-25,Rizky IRM-ED,9421521,7,4347,1243,2717,0,278,109,0,0,0,0,278,100,0,0,7,0,0,0,0,0,0,0,"{""building"": 278}","{""building"": 100, ""highway"": 7, ""addr:city"": 1, ""addr:postcode"": 1, ""addr:street"": 1, ""building:levels"": 1, ""name"": 1}",{}
-26,osmtogo_mapper4,17967261,19,4072,2200,1299,0,469,104,0,0,0,0,450,49,0,19,42,0,0,0,0,0,0,0,"{""building"": 450, ""highway"": 19}","{""source"": 89, ""building"": 49, ""highway"": 42, ""surface"": 9, ""barrier"": 1}",{}
-27,Henk Kamphuis,12564859,28,3619,1555,1654,0,359,51,0,0,0,0,359,11,0,0,1,0,0,0,0,0,0,0,"{""building"": 359, ""abandoned"": 12}","{""building"": 11, ""source"": 2, ""highway"": 1}",{}
-28,Adrie Helpt,6599999,8,3587,3242,14,0,327,4,0,0,0,0,327,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 327}","{""highway"": 2, ""ref"": 2, ""surface"": 2, ""landuse"": 2}",{}
-29,hebolz,2249513,47,3491,692,2597,0,107,95,0,0,0,0,100,15,0,7,29,0,0,2,0,0,0,0,"{""building"": 100, ""highway"": 7}","{""highway"": 29, ""building"": 15, ""place"": 5, ""ID"": 2, ""waterway"": 2, ""fixme"": 1, ""boat"": 1, ""name"": 1, ""source"": 1, ""layer"": 1, ""intermittent"": 1, ""surface"": 1}",{}
-30,Alex_DSt,18349674,16,3425,2674,273,0,434,44,0,0,0,0,364,3,0,65,30,0,0,0,0,0,4,0,"{""building"": 364, ""highway"": 65, ""project:eurosha_2012"": 8, ""source"": 8, ""source:date"": 8, ""landuse"": 3, ""place"": 2, ""barrier"": 2}","{""highway"": 30, ""surface"": 17, ""tracktype"": 10, ""amenity"": 4, ""social_facility"": 4, ""building"": 3}",{}
-31,Lalit_IAAS,11589667,10,3384,1147,1920,0,159,157,0,0,1,0,154,46,0,5,22,0,0,4,0,0,0,0,"{""building"": 154, ""highway"": 5}","{""building"": 46, ""highway"": 22, ""lanes"": 12, ""name"": 10, ""landuse"": 4, ""waterway"": 4, ""route"": 4, ""layer"": 3, ""ref"": 3, ""ref:old"": 3, ""surface"": 3, ""oneway"": 3, ""source"": 3, ""bridge"": 2, ""bridge:structure"": 2, ""bicycle"": 2, ""foot"": 2, ""horse"": 2, ""crop"": 2}",{}
-32,reisir,18166894,5,3320,3057,0,0,263,0,0,0,0,0,258,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 258, ""landuse"": 5}",{},{}
-33,rrissiek,17889,11,3235,2994,10,0,226,5,0,0,0,0,208,0,0,18,4,0,0,1,0,0,0,0,"{""building"": 208, ""highway"": 18}","{""highway"": 4, ""source"": 1, ""waterway"": 1, ""surface"": 1}",{}
-34,Diana IRM-ED,8072061,8,3110,617,1595,0,79,819,0,0,0,0,79,769,0,0,30,0,0,0,0,0,0,0,"{""building"": 79}","{""building"": 769, ""highway"": 30, ""motorcycle"": 8, ""oneway"": 7, ""surface"": 5, ""import"": 4, ""source"": 4, ""lanes"": 3, ""smoothness"": 3, ""barrier"": 1, ""bridge"": 1, ""layer"": 1}",{}
-35,landscapemapper,220206,3,3042,1246,1458,0,254,84,0,0,0,0,180,4,0,72,29,0,0,0,0,0,0,0,"{""building"": 180, ""highway"": 72, ""tracktype"": 45, ""barrier"": 2}","{""highway"": 29, ""building"": 4, ""natural"": 2, ""railway"": 1, ""man_made"": 1, ""lanes"": 1, ""name"": 1, ""surface"": 1, ""source"": 1, ""service"": 1, ""tracktype"": 1}",{}
-36,Norike12,6486402,3,2941,2579,31,0,304,27,0,0,0,0,213,0,0,90,23,0,1,1,0,0,0,0,"{""building"": 213, ""highway"": 90, ""intermittent"": 1, ""waterway"": 1}","{""highway"": 23, ""surface"": 5, ""landuse"": 3, ""name"": 2, ""place"": 2, ""intermittent"": 1, ""waterway"": 1}",{}
-37,andraina,11974512,6,2933,2688,76,0,133,36,0,0,0,0,59,1,0,74,28,0,0,2,0,0,1,0,"{""highway"": 74, ""building"": 59}","{""highway"": 28, ""surface"": 3, ""name"": 2, ""waterway"": 2, ""lanes"": 2, ""oneway"": 2, ""amenity"": 1, ""place"": 1, ""population"": 1, ""wikidata"": 1, ""wikipedia"": 1, ""source"": 1, ""route"": 1, ""building"": 1}",{}
-38,hibagonsan,5939709,8,2927,2340,23,0,560,4,0,0,0,0,560,4,0,0,0,0,0,0,0,0,0,0,"{""building"": 560}","{""building"": 4}",{}
-39,Nyaega Orina,7574899,4,2847,737,1913,0,97,97,0,3,0,0,60,53,0,0,5,0,0,0,0,1,2,0,"{""building"": 60, ""roof:material"": 58, ""barrier"": 47, ""layer"": 5, ""location"": 5, ""generator:source"": 4, ""power"": 4, ""type"": 3, ""amenity"": 1, ""content"": 1, ""man_made"": 1}","{""building"": 53, ""roof:material"": 53, ""barrier"": 26, ""highway"": 5, ""surface"": 5, ""amenity"": 2}",{}
-40,Isaboke,10868348,13,2654,1460,965,0,114,115,0,0,0,0,67,101,0,19,6,0,0,0,0,8,0,0,"{""building"": 67, ""roof:material"": 53, ""barrier"": 31, ""highway"": 19, ""surface"": 17, ""amenity"": 8, ""fence_type"": 5, ""toilets:disposal"": 1, ""generator:source"": 1, ""layer"": 1, ""power"": 1}","{""building"": 101, ""roof:material"": 97, ""highway"": 6, ""surface"": 5, ""barrier"": 3, ""landuse"": 1}",{}
-41,onesimusGGA,13063544,3,2653,2152,36,0,465,0,0,0,0,0,465,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 465}",{},{}
-42,JohnW11,8285929,9,2631,1462,844,0,241,84,0,0,0,0,241,69,0,0,1,0,0,0,0,0,0,0,"{""building"": 241}","{""building"": 69, ""layer"": 8, ""source"": 2, ""highway"": 1, ""name"": 1, ""cables"": 1, ""power"": 1, ""voltage"": 1}",{}
-43,Peter Agenga,4570042,4,2546,866,1324,0,95,261,0,0,0,0,50,179,0,6,13,0,0,1,0,20,3,0,"{""barrier"": 55, ""building"": 50, ""roof:material"": 37, ""amenity"": 20, ""toilets:disposal"": 18, ""toilets:position"": 18, ""natural"": 16, ""material"": 8, ""highway"": 6, ""surface"": 6, ""content"": 5, ""man_made"": 5, ""layer"": 3, ""generator:source"": 2, ""location"": 2, ""power"": 2, ""wall"": 2, ""fence_type"": 1, ""construction"": 1}","{""building"": 179, ""roof:material"": 174, ""barrier"": 23, ""highway"": 13, ""surface"": 12, ""amenity"": 3, ""ford"": 1, ""intermittent"": 1, ""waterway"": 1, ""material"": 1, ""wall"": 1, ""fence_type"": 1, ""construction"": 1}",{}
-44,Tantri IRM-ED,10910640,10,2419,1743,256,0,411,9,0,0,0,0,411,6,0,0,3,0,0,0,0,0,0,0,"{""building"": 411}","{""building"": 6, ""highway"": 3}",{}
-45,MichaelNdaro,10868456,10,2414,928,1239,0,95,152,0,0,0,0,48,111,0,4,14,0,0,0,0,11,2,0,"{""building"": 48, ""roof:material"": 47, ""barrier"": 46, ""amenity"": 11, ""generator:source"": 11, ""level"": 11, ""location"": 11, ""power"": 11, ""highway"": 4, ""surface"": 4, ""material"": 3, ""fence_type"": 3}","{""building"": 111, ""roof:material"": 105, ""barrier"": 18, ""highway"": 14, ""surface"": 9, ""material"": 4, ""amenity"": 2, ""generator:source"": 1, ""layer"": 1, ""location"": 1, ""power"": 1}",{}
-46,Jan Erba,15466773,2,2402,1887,398,0,108,9,0,0,0,0,108,5,0,0,0,0,0,0,0,0,0,0,"{""building"": 108}","{""building"": 5}",{}
-47,ACTtamsumme,17837604,76,2389,1921,0,0,466,2,0,0,0,0,466,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 466}","{""highway"": 2}",{}
-48,user_5576,5576,8,2356,2173,1,0,172,10,0,0,0,0,29,0,0,20,4,0,0,0,0,0,0,0,"{""barrier"": 120, ""building"": 29, ""highway"": 20, ""surface"": 16, ""natural"": 3, ""water"": 3, ""area"": 2, ""intermittent"": 2}","{""barrier"": 5, ""highway"": 4, ""surface"": 2, ""attribution"": 1, ""source"": 1, ""tracktype"": 1, ""intermittent"": 1, ""natural"": 1, ""water"": 1}",{}
-49,youngmapper,13063701,2,2280,1844,29,0,404,3,0,0,0,0,404,1,0,0,2,0,0,0,0,0,0,0,"{""building"": 404}","{""highway"": 2, ""source"": 2, ""building"": 1}",{}
-50,Daveeed,14634663,37,2264,1814,0,0,450,0,0,0,0,0,450,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 450}",{},{}
-51,CKORR,17630525,5,2239,368,1722,0,32,117,0,0,0,0,32,43,0,0,0,0,0,0,0,0,0,0,"{""building"": 32, ""source"": 2}","{""building"": 43, ""source"": 34}",{}
-52,Haris IRM-ED,12027858,9,2179,499,1444,0,51,185,0,0,0,0,49,122,0,2,8,0,0,0,0,0,0,0,"{""building"": 49, ""highway"": 2}","{""building"": 122, ""highway"": 8}",{}
-53,Zh9567,9940138,1,2165,1680,42,0,436,7,0,0,0,0,436,7,0,0,0,0,0,0,0,0,0,0,"{""building"": 436, ""building:levels"": 33, ""name"": 1}","{""building"": 7, ""building:levels"": 7, ""name"": 5, ""source"": 3}",{}
-54,Patrik_B,10478691,1,2112,86,2014,0,11,1,0,0,0,0,11,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}","{""building"": 1}",{}
-55,vichada,2246826,1,2095,981,978,0,65,71,0,0,0,0,39,63,0,2,5,0,24,0,0,0,0,0,"{""building"": 39, ""intermittent"": 24, ""waterway"": 24, ""highway"": 2}","{""building"": 63, ""highway"": 5, ""surface"": 3, ""ref"": 1, ""landuse"": 1}",{}
-56,Johannes S Mungunda,16445279,4,2055,353,1577,0,78,47,0,0,0,0,78,14,0,0,3,0,0,0,0,0,0,0,"{""building"": 78, ""natural"": 8}","{""natural"": 14, ""building"": 14, ""highway"": 3, ""surface"": 2, ""crossing"": 1}",{}
-57,KingVik,7159298,24,2036,1169,529,0,104,234,0,0,0,0,53,184,0,35,40,0,6,5,0,0,0,0,"{""building"": 53, ""highway"": 35, ""landuse"": 9, ""waterway"": 6, ""ford"": 2, ""natural"": 1}","{""building"": 184, ""highway"": 40, ""surface"": 10, ""waterway"": 5, ""landuse"": 3}",{}
-58,anthaas,5438501,14,1897,875,867,0,103,52,0,0,0,0,100,22,0,2,13,0,0,1,0,0,1,0,"{""building"": 100, ""highway"": 2, ""landuse"": 1}","{""building"": 22, ""highway"": 13, ""landuse"": 5, ""amenity"": 1, ""name"": 1, ""addr:hamlet"": 1, ""building:levels"": 1, ""building:material"": 1, ""damage"": 1, ""damage:assessment"": 1, ""damage:event"": 1, ""damage:organization"": 1, ""damage:reconstruction"": 1, ""damage:review_date"": 1, ""damage:type"": 1, ""source:damage"": 1, ""source"": 1, ""layer"": 1, ""intermittent"": 1, ""seasonal"": 1, ""waterway"": 1}",{}
-59,Kicking Leaves,12405934,3,1881,1726,51,0,79,25,0,0,0,0,0,0,0,0,4,0,79,19,0,0,0,0,"{""seasonal"": 79, ""waterway"": 79, ""intermittent"": 78, ""ford"": 6}","{""waterway"": 19, ""ford"": 9, ""intermittent"": 9, ""seasonal"": 7, ""highway"": 4, ""name"": 2, ""name:source"": 2, ""source"": 2, ""surface"": 1}",{}
-60,DMcDowall,8815318,9,1874,1371,291,0,207,5,0,0,0,0,207,3,0,0,1,0,0,0,0,0,0,0,"{""building"": 207}","{""building"": 3, ""railway"": 2, ""highway"": 1, ""surface"": 1, ""landuse"": 1}",{}
-61,BRPS,18194384,7,1855,1724,38,0,93,0,0,0,0,0,93,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 93}",{},{}
-62,Eduard Rene,18240622,21,1781,1204,312,0,233,32,0,0,0,0,233,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 233}","{""building"": 2, ""addr:hamlet"": 1, ""building:levels"": 1, ""building:material"": 1, ""damage"": 1, ""damage:assessment"": 1, ""damage:event"": 1, ""damage:organization"": 1, ""damage:reconstruction"": 1, ""damage:review_date"": 1, ""damage:type"": 1, ""source:damage"": 1}",{}
-63,Indra Dewanto,17902439,1,1712,1230,158,0,287,37,0,0,0,0,287,0,0,0,3,0,0,0,0,0,0,0,"{""building"": 287}","{""highway"": 3, ""name"": 3, ""source"": 3}",{}
-64,Adam Fitzgerald (Linklaters),14475890,14,1658,1361,2,0,292,3,0,0,0,0,287,0,0,5,3,0,0,0,0,0,0,0,"{""building"": 287, ""highway"": 5}","{""highway"": 3, ""name"": 1, ""surface"": 1}",{}
-65,Makang,5943289,13,1654,1043,388,0,177,46,0,0,0,0,177,40,0,0,6,0,0,0,0,0,1,0,"{""building"": 177}","{""building"": 40, ""highway"": 6, ""amenity"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1}",{}
-66,JFL-75,13317783,9,1641,902,537,0,175,27,0,0,0,0,175,22,0,0,1,0,0,0,0,0,0,0,"{""building"": 175, ""construction"": 6}","{""building"": 22, ""highway"": 1, ""source"": 1, ""surface"": 1}",{}
-67,Gaurav Parajuli,8316170,2,1581,1398,3,0,174,6,0,0,0,0,151,1,0,3,3,0,0,1,0,0,0,0,"{""building"": 151, ""natural"": 18, ""water"": 5, ""highway"": 3, ""landuse"": 2}","{""highway"": 3, ""landuse"": 1, ""source:geometry"": 1, ""waterway"": 1, ""building"": 1, ""building:levels"": 1}",{}
-68,Ben Vanderford,17414246,17,1565,903,526,0,118,18,0,0,0,0,118,11,0,0,0,0,0,0,0,0,0,0,"{""building"": 118}","{""building"": 11}",{}
-69,nanou1,6486352,4,1547,1243,178,0,101,25,0,0,0,0,27,0,0,72,21,0,2,2,0,0,0,0,"{""highway"": 72, ""building"": 27, ""waterway"": 2}","{""highway"": 21, ""surface"": 5, ""tracktype"": 2, ""intermittent"": 2, ""waterway"": 2, ""lanes"": 1, ""oneway"": 1}",{}
-70,martinairmaps,3376734,16,1524,937,511,0,73,3,0,0,0,0,73,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 73}",{},{}
-71,clbaumgartner,15841292,8,1507,125,1312,0,3,67,0,0,0,0,0,5,0,3,45,0,0,1,0,0,0,0,"{""highway"": 3}","{""highway"": 45, ""building"": 5, ""import"": 5, ""source"": 5, ""landuse"": 4, ""name"": 1, ""name:uk"": 1, ""waterway"": 1, ""wikidata"": 1, ""wikipedia"": 1, ""place"": 1, ""surface"": 1}",{}
-72,rt23,18236061,4,1480,1214,3,0,258,5,0,0,0,0,254,4,0,0,1,0,0,0,0,0,0,0,"{""building"": 254, ""landuse"": 4}","{""building"": 4, ""highway"": 1, ""name"": 1, ""source"": 1}",{}
-73,majocimi,18356472,38,1465,1224,0,0,240,1,0,0,0,0,240,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 240}","{""highway"": 1}",{}
-74,Astrantia,18061361,4,1442,1031,224,0,179,8,0,0,0,0,179,5,0,0,0,0,0,0,0,0,0,0,"{""building"": 179}","{""building"": 5}",{}
-75,Safrano,6522497,4,1439,776,579,0,72,12,0,0,0,0,72,3,0,0,0,0,0,0,0,0,0,0,"{""building"": 72}","{""building"": 3}",{}
-76,vsmsherr,18216398,6,1400,1140,15,0,209,36,0,0,0,0,203,4,0,6,31,0,0,0,0,0,0,0,"{""building"": 203, ""layer"": 18, ""highway"": 6, ""name"": 4, ""name:ar"": 4, ""name:en"": 4, ""oneway"": 4, ""bridge"": 2, ""tunnel"": 1}","{""highway"": 31, ""layer"": 27, ""name"": 7, ""name:ar"": 7, ""name:en"": 7, ""oneway"": 7, ""addr:city"": 6, ""addr:city:en"": 6, ""addr:country"": 6, ""addr:district"": 6, ""addr:district:en"": 6, ""addr:housenumber"": 6, ""addr:postcode"": 6, ""addr:province"": 6, ""addr:province:en"": 6, ""building"": 4, ""addr:street"": 3, ""addr:street:en"": 3, ""addr:subdistrict"": 3, ""addr:subdistrict:en"": 3, ""addr:place"": 3, ""addr:place:en"": 3, ""addr:block"": 3, ""addr:block:en"": 3, ""foot"": 2, ""landuse"": 2, ""lanes"": 1, ""maxspeed"": 1, ""old_ref"": 1, ""place"": 1, ""source"": 1}",{}
-77,R@bina dhakal,17378030,33,1378,1134,18,0,222,4,0,0,0,0,222,4,0,0,0,0,0,0,0,0,0,0,"{""building"": 222}","{""building"": 4}",{}
-78,Hoque Srijan,17781977,8,1360,1002,124,0,226,8,0,0,0,0,226,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 226}","{""building"": 2}",{}
-79,anaigarq,17237300,1,1346,1042,36,0,260,8,0,0,0,0,260,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 260}",{},{}
-80,KellyHScott,18245599,34,1336,1086,0,0,249,1,0,0,0,0,249,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 249, ""layer"": 2}","{""landuse"": 1}",{}
-81,Mattheezus,15581158,44,1315,1052,0,0,263,0,0,0,0,0,263,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 263}",{},{}
-82,ElaJK123,17780149,9,1312,670,523,0,86,33,0,0,0,0,86,23,0,0,0,0,0,0,0,0,0,0,"{""building"": 86}","{""building"": 23, ""landuse"": 3, ""layer"": 1}",{}
-83,Puxan,5328434,26,1310,447,699,0,95,69,0,0,0,0,95,64,0,0,2,0,0,0,0,0,1,0,"{""building"": 95}","{""building"": 64, ""highway"": 2, ""amenity"": 1, ""religion"": 1, ""source"": 1, ""surface"": 1, ""landuse"": 1}",{}
-84,rob98122,17286379,8,1274,1042,4,0,226,2,0,0,0,0,226,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 226, ""layer"": 5}","{""building"": 1}",{}
-85,arvanameth,18335702,1,1256,272,915,0,66,3,0,0,0,0,65,2,0,0,0,0,0,0,0,0,2,0,"{""building"": 65, ""leisure"": 1, ""sport"": 1}","{""amenity"": 2, ""building"": 2, ""name"": 2, ""landuse"": 1}",{}
-86,Grannymeg,13361440,7,1246,1034,24,0,174,14,0,0,0,0,167,1,0,2,5,0,1,0,0,0,1,0,"{""building"": 167, ""highway"": 2, ""landuse"": 2, ""natural"": 2, ""waterway"": 1}","{""landuse"": 6, ""highway"": 5, ""maxspeed"": 1, ""amenity"": 1, ""name"": 1, ""religion"": 1, ""natural"": 1, ""building"": 1}",{}
-87,Calyppe,4839953,15,1235,607,459,0,134,35,0,0,0,0,134,16,0,0,5,0,0,0,0,0,0,0,"{""building"": 134}","{""building"": 16, ""highway"": 5, ""surface"": 2}",{}
-88,CamCamLR,18360412,42,1218,902,105,0,198,13,0,0,0,0,198,0,0,0,13,0,0,0,0,0,0,0,"{""building"": 198}","{""highway"": 13, ""surface"": 1}",{}
-89,Lingjun Dai,16657010,5,1204,1066,4,0,133,1,0,0,0,0,133,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 133}",{},{}
-90,rowsons37,18168620,15,1147,968,0,0,178,1,0,0,0,0,178,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 178}","{""landuse"": 1}",{}
-91,Reza1977,13352108,4,1139,709,256,0,173,1,0,0,0,0,173,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 173}","{""building"": 1}",{}
-92,remimage,3626326,21,1129,186,888,0,44,11,0,0,0,0,43,7,0,0,1,0,0,0,0,0,0,0,"{""building"": 43, ""leisure"": 1, ""sport"": 1}","{""building"": 7, ""highway"": 1, ""lanes"": 1, ""oneway"": 1, ""ref"": 1, ""surface"": 1}",{}
-93,ivyseal,17210145,13,1119,1013,1,0,78,27,0,0,0,0,0,0,0,78,22,0,0,0,0,0,0,0,"{""highway"": 78}","{""highway"": 22, ""landuse"": 5, ""surface"": 2, ""place"": 1, ""tracktype"": 1}",{}
-94,martien-176,9621269,3,1112,866,31,0,212,3,0,0,0,0,212,2,0,0,1,0,0,0,0,0,0,0,"{""building"": 212}","{""building"": 2, ""highway"": 1, ""motorcycle"": 1}",{}
-95,Genten85,11954122,6,1105,597,413,0,82,13,0,0,0,0,82,12,0,0,0,0,0,0,0,0,0,0,"{""building"": 82}","{""building"": 12}",{}
-96,MariusMllr,17708395,12,1105,820,84,0,191,10,0,0,0,0,191,0,0,0,0,0,0,0,0,0,1,0,"{""building"": 191}","{""amenity"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1}",{}
-97,MrRoturier,18360289,31,1058,847,19,0,192,0,0,0,0,0,192,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 192}",{},{}
-98,osmtogo_mapper1,17758689,6,1054,339,585,0,71,59,0,0,0,0,63,14,0,8,33,0,0,0,0,0,0,0,"{""building"": 63, ""highway"": 8, ""source"": 6}","{""source"": 46, ""highway"": 33, ""building"": 14, ""surface"": 1, ""tracktype"": 1, ""landuse"": 1}",{}
-99,WillBiggs,14510964,4,1046,844,0,0,202,0,0,0,0,0,202,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 202}",{},{}
-100,Kahina seba,18360339,30,1041,839,0,0,202,0,0,0,0,0,202,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 202}",{},{}
-101,maria!,17964931,164,977,813,0,0,164,0,0,0,0,0,164,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 164}",{},{}
-102,Edwright,18195603,1,973,624,219,0,87,43,0,0,0,0,87,4,0,0,0,0,0,0,0,0,0,0,"{""building"": 87, ""layer"": 1}","{""building"": 4}",{}
-103,ikky stick,18350792,3,957,827,0,0,128,2,0,0,0,0,71,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 71, ""natural"": 56, ""landuse"": 1}","{""highway"": 2}",{}
-104,Jim Bedient,17786100,3,930,349,483,0,44,54,0,0,0,0,44,35,0,0,0,0,0,0,0,0,0,0,"{""building"": 44}","{""building"": 35}",{}
-105,zoubinnaba,5113626,10,926,434,350,0,95,47,0,0,0,0,88,12,0,7,22,0,0,0,0,0,0,0,"{""building"": 88, ""highway"": 7, ""source"": 3}","{""source"": 31, ""highway"": 22, ""building"": 12, ""surface"": 4}",{}
-106,JYL45,3600936,20,908,361,453,0,68,26,0,0,0,0,66,18,0,0,5,0,2,1,0,0,0,0,"{""building"": 66, ""intermittent"": 2, ""source"": 2, ""source:link"": 2, ""waterway"": 2, ""layer"": 1, ""tunnel"": 1}","{""building"": 18, ""highway"": 5, ""lanes"": 2, ""surface"": 2, ""intermittent"": 1, ""source"": 1, ""source:link"": 1, ""waterway"": 1}",{}
-107,Araumar,18113433,5,867,708,0,0,159,0,0,0,0,0,159,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 159}",{},{}
-108,Stefanlr,18360301,33,862,661,47,0,152,2,0,0,0,0,152,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 152}","{""highway"": 2, ""surface"": 1}",{}
-109,jpportier,6522342,3,846,687,5,0,154,0,0,0,0,0,154,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 154}",{},{}
-110,Marie Moutard,18360397,33,834,605,93,0,135,1,0,0,0,0,135,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 135}","{""highway"": 1}",{}
-111,Smouser,12513117,17,829,665,0,0,163,1,0,0,0,0,163,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 163, ""layer"": 2}","{""highway"": 1, ""tracktype"": 1}",{}
-112,maschroder,11914521,3,829,409,300,0,90,30,0,0,0,0,90,4,0,0,0,0,0,0,0,0,0,0,"{""building"": 90}","{""building"": 4}",{}
-113,azamnawa,13913226,26,825,647,35,0,139,4,0,0,0,0,139,4,0,0,0,0,0,0,0,0,0,0,"{""building"": 139}","{""building"": 4}",{}
-114,Binisha21,17827219,9,803,343,386,0,37,37,0,0,0,0,29,1,0,5,1,0,0,3,0,0,0,0,"{""building"": 29, ""highway"": 5, ""landuse"": 2, ""natural"": 1}","{""landuse"": 22, ""natural"": 8, ""source"": 6, ""waterway"": 3, ""highway"": 1, ""water"": 1, ""building"": 1}",{}
-115,Selenouchee,18360333,25,792,569,83,0,135,5,0,0,0,0,135,0,0,0,5,0,0,0,0,0,0,0,"{""building"": 135}","{""highway"": 5, ""surface"": 2, ""lanes"": 1, ""name"": 1, ""ref"": 1}",{}
-116,Keren Wang'ombe,7216391,3,777,348,292,0,59,72,0,6,0,0,40,36,0,1,13,0,0,0,0,6,1,0,"{""building"": 40, ""roof:material"": 37, ""barrier"": 25, ""amenity"": 6, ""type"": 6, ""generator:source"": 5, ""layer"": 5, ""power"": 5, ""generator:place"": 3, ""material"": 2, ""location"": 2, ""fence_type"": 1, ""highway"": 1, ""surface"": 1}","{""building"": 36, ""roof:material"": 34, ""highway"": 13, ""surface"": 11, ""barrier"": 8, ""material"": 2, ""amenity"": 1}",{}
-117,Poutras_Loutras,18360297,25,747,618,18,0,108,3,0,0,0,0,108,2,0,0,1,0,0,0,0,0,0,0,"{""building"": 108}","{""building"": 2, ""highway"": 1, ""source"": 1, ""surface"": 1}",{}
-118,Julien_AFNEG,18360381,26,746,468,188,0,76,14,0,0,0,0,76,3,0,0,9,0,0,2,0,0,0,0,"{""building"": 76, ""layer"": 1}","{""highway"": 9, ""building"": 3, ""surface"": 2, ""name"": 2, ""source:name"": 2, ""waterway"": 2, ""source"": 1}",{}
-119,rocknpower,4794915,5,745,129,570,0,23,23,0,0,0,0,23,9,0,0,0,0,0,0,0,0,0,0,"{""building"": 23}","{""building"": 9}",{}
-120,utag,17608434,1,743,589,51,0,100,3,0,0,0,0,59,0,0,41,3,0,0,0,0,0,0,0,"{""building"": 59, ""highway"": 41}","{""highway"": 3, ""surface"": 2}",{}
-121,haabee,6518397,6,735,453,178,0,82,22,0,0,0,0,82,20,0,0,1,0,0,0,0,0,1,0,"{""building"": 82}","{""building"": 20, ""building:levels"": 16, ""height"": 16, ""name"": 11, ""tourism"": 5, ""addr:housenumber"": 3, ""addr:street"": 3, ""addr:city"": 2, ""addr:postcode"": 2, ""entrance"": 2, ""phone"": 1, ""website"": 1, ""amenity"": 1, ""area"": 1, ""highway"": 1}",{}
-122,LCecile,14819164,5,733,528,94,0,105,6,0,0,0,0,105,2,0,0,4,0,0,0,0,0,0,0,"{""building"": 105}","{""highway"": 4, ""motorcycle"": 2, ""building"": 2}",{}
-123,Mapping Buddy,18361759,7,728,590,1,0,137,0,0,0,0,0,137,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 137, ""name"": 3}",{},{}
-124,RossRchtr,18362317,1,715,653,14,0,48,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 48}",{},{}
-125,Deuckchung,8379329,2,710,396,213,0,88,13,0,0,0,0,88,12,0,0,1,0,0,0,0,0,0,0,"{""building"": 88}","{""building"": 12, ""highway"": 1}",{}
-126,Michel Bouillot,4942074,23,709,99,536,0,20,54,0,0,0,0,20,51,0,0,1,0,0,0,0,0,0,0,"{""building"": 20}","{""building"": 51, ""highway"": 1}",{}
-127,Chloe_Tsang,18006569,3,702,570,4,0,127,1,0,0,0,0,127,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 127}","{""highway"": 1}",{}
-128,Liselotte Brand,10693329,25,669,502,47,0,120,0,0,0,0,0,120,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 120}",{},{}
-129,TheJOSM1,7773796,6,669,501,70,0,93,5,0,0,0,0,92,1,0,1,4,0,0,0,0,0,0,0,"{""building"": 92, ""highway"": 1}","{""highway"": 4, ""building"": 1}",{}
-130,AnaCarolinatd,10403752,16,660,532,4,0,123,1,0,0,0,0,123,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 123}",{},{}
-131,gnoorsye,13993129,27,654,536,0,0,118,0,0,0,0,0,118,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 118}",{},{}
-132,RyanShaffer,18361325,1,649,527,0,0,121,1,0,0,0,0,119,0,0,2,1,0,0,0,0,0,0,0,"{""building"": 119, ""highway"": 2}","{""highway"": 1, ""import"": 1, ""source"": 1}",{}
-133,edircksen,6601365,4,641,137,464,0,21,19,0,0,0,0,21,12,0,0,7,0,0,0,0,0,0,0,"{""building"": 21}","{""building"": 12, ""highway"": 7, ""source"": 4}",{}
-134,peculiar theater,11880034,4,622,450,97,0,66,9,0,0,0,0,66,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 66}","{""building"": 1}",{}
-135,birgitt m,17722275,6,614,517,0,0,97,0,0,0,0,0,96,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 96, ""landuse"": 1}",{},{}
-136,Pichalupa,17681500,15,607,367,157,0,77,6,0,0,0,0,77,4,0,0,2,0,0,0,0,0,0,0,"{""building"": 77}","{""building"": 4, ""addr:hamlet"": 3, ""building:levels"": 3, ""building:material"": 3, ""damage"": 3, ""damage:assessment"": 3, ""damage:event"": 3, ""damage:organization"": 3, ""damage:reconstruction"": 3, ""damage:review_date"": 3, ""damage:type"": 3, ""source:damage"": 3, ""highway"": 2, ""source"": 2}",{}
-137,Beth Zorab,10051749,33,607,487,0,0,118,2,0,0,0,0,118,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 118}","{""highway"": 1, ""building"": 1}",{}
-138,S_Dhaliwal,18356411,19,606,359,177,0,51,19,0,0,0,0,45,1,0,4,2,0,0,0,0,0,0,0,"{""building"": 45, ""highway"": 4, ""place"": 2}","{""highway"": 2, ""building"": 1, ""attribution"": 1, ""source"": 1, ""surface"": 1, ""tracktype"": 1}",{}
-139,svalencia,13808147,8,603,126,442,0,29,6,0,0,0,0,29,4,0,0,2,0,0,0,0,0,0,0,"{""building"": 29}","{""building"": 4, ""highway"": 2, ""surface"": 1}",{}
-140,jennydelacruz,16984113,25,600,489,2,0,108,1,0,0,0,0,108,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 108}","{""highway"": 1}",{}
-141,Dame Aloïse,18360292,22,600,477,12,0,107,4,0,0,0,0,107,1,0,0,3,0,0,0,0,0,0,0,"{""building"": 107}","{""highway"": 3, ""source"": 3, ""surface"": 3, ""building"": 1}",{}
-142,Henk222,10855040,2,585,424,59,0,96,6,0,0,0,0,96,3,0,0,0,0,0,0,0,0,0,0,"{""building"": 96}","{""building"": 3}",{}
-143,Cville24,18000832,3,581,464,65,0,38,14,0,0,0,0,3,4,0,33,9,0,0,0,0,0,0,0,"{""highway"": 33, ""building"": 3, ""landuse"": 2, ""surface"": 1}","{""highway"": 9, ""surface"": 6, ""building"": 4, ""attribution"": 3, ""oneway"": 3, ""source"": 3, ""tracktype"": 3, ""landuse"": 1}",{}
-144,Shrestha Shristi,13253207,1,562,452,0,0,110,0,0,0,0,0,110,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 110}",{},{}
-145,Gabtav17,17208230,23,560,457,5,0,96,2,0,0,0,0,96,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 96}","{""highway"": 2}",{}
-146,Justin@Rocket,18244975,5,546,449,0,0,97,0,0,0,0,0,97,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 97}",{},{}
-147,SLWelch,18361749,15,546,454,1,0,89,2,0,0,0,0,89,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 89, ""layer"": 1}","{""highway"": 2}",{}
-148,Michael404,18349576,7,541,451,22,0,64,4,0,0,0,0,64,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 64, ""layer"": 2}","{""highway"": 1}",{}
-149,calee-okta,14839179,4,538,411,100,0,24,3,0,0,0,0,24,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 24}","{""building"": 2}",{}
-150,Melissa Yocom,18361192,1,533,425,1,0,107,0,0,0,0,0,107,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 107}",{},{}
-151,ngale06,11917349,2,531,442,4,0,80,5,0,0,0,0,80,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 80, ""layer"": 1}","{""landuse"": 4, ""building"": 1}",{}
-152,Brendan_egan,8922271,1,527,460,1,0,65,1,0,0,0,0,65,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 65}","{""highway"": 1, ""source"": 1}",{}
-153,Ernst-jan Henkens,632851,6,520,377,74,0,68,1,0,0,0,0,68,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 68}","{""building"": 1}",{}
-154,polydactylcats,15554075,3,520,356,81,0,80,3,0,0,0,0,75,0,0,5,2,0,0,0,0,0,0,0,"{""building"": 75, ""highway"": 5}","{""highway"": 2}",{}
-155,Gwen Taylor,17998075,6,509,402,11,0,94,2,0,0,0,0,94,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 94}",{},{}
-156,JD_Webster,10638424,1,495,296,124,0,67,8,0,0,0,0,67,8,0,0,0,0,0,0,0,0,0,0,"{""building"": 67}","{""building"": 8}",{}
-157,Anna_Panka,12951602,3,495,391,1,0,95,8,0,0,0,0,95,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 95}","{""landuse"": 7, ""building"": 1}",{}
-158,Giacomo Iuzzolino,9020056,14,495,248,155,0,62,30,0,0,0,0,62,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 62}",{},{}
-159,Frans S,1962399,4,491,430,36,0,16,9,0,0,0,0,8,0,0,7,5,0,0,0,0,0,0,0,"{""place"": 16, ""building"": 8, ""highway"": 7, ""landuse"": 1}","{""highway"": 5, ""landuse"": 3, ""tracktype"": 2, ""ford"": 1, ""surface"": 1}",{}
-160,Enderbyte99,11995748,3,488,456,0,0,25,7,0,0,0,0,0,0,0,25,5,0,0,0,0,0,0,0,"{""highway"": 25}","{""highway"": 5, ""surface"": 2, ""tracktype"": 2, ""landuse"": 2}",{}
-161,Arif Sunanto,10888572,1,477,411,1,0,64,1,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 48, ""leisure"": 16}","{""cables"": 1, ""circuits"": 1, ""operator"": 1, ""power"": 1, ""voltage"": 1}",{}
-162,Brad Adkins,18357567,4,475,379,15,0,72,9,0,0,0,0,69,8,0,1,1,0,0,0,0,0,0,0,"{""building"": 69, ""leisure"": 2, ""name"": 1, ""highway"": 1}","{""building"": 8, ""highway"": 1, ""oneway"": 1}",{}
-163,gourirv,4674741,3,470,376,11,0,82,1,0,0,0,0,82,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 82}","{""building"": 1}",{}
-164,flipsteen,12588056,3,462,230,161,0,55,16,0,0,0,0,55,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 55}",{},{}
-165,jdkhalek,18007367,2,461,286,147,0,19,9,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 19}",{},{}
-166,AMurphy13,18361190,7,461,387,1,0,71,2,0,0,0,0,69,0,0,2,2,0,0,0,0,0,0,0,"{""building"": 69, ""highway"": 2}","{""highway"": 2, ""import"": 1, ""source"": 1}",{}
-167,Mr_Underhill,8837060,2,458,77,371,0,8,2,0,0,0,0,8,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 8}","{""building"": 2}",{}
-168,MaxStocker,18243545,1,456,81,287,0,20,68,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 20}",{},{}
-169,whatmeinfallible,7150022,4,453,196,213,0,39,5,0,0,0,0,39,5,0,0,0,0,0,0,0,0,0,0,"{""building"": 39}","{""building"": 5}",{}
-170,nassanga,16983715,2,445,346,11,0,86,2,0,0,0,0,86,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 86}","{""AUTO_ID"": 1, ""highway"": 1, ""source"": 1, ""building"": 1}",{}
-171,AntSom,10545405,13,424,323,22,0,72,7,0,0,0,0,72,0,0,0,4,0,0,0,0,0,0,0,"{""building"": 72}","{""highway"": 4, ""surface"": 4}",{}
-172,Azam Hussain,73096,3,421,415,0,0,2,4,0,0,0,0,0,0,0,2,4,0,0,0,0,0,0,0,"{""highway"": 2}","{""highway"": 4}",{}
-173,galileo_01,8578202,5,416,110,267,0,24,15,0,0,0,0,24,9,0,0,2,0,0,0,0,0,0,0,"{""building"": 24}","{""building"": 9, ""highway"": 2}",{}
-174,Palolo,385046,8,406,275,72,0,52,7,0,0,0,0,48,0,0,1,7,0,0,0,0,2,0,0,"{""building"": 48, ""amenity"": 2, ""highway"": 1, ""leisure"": 1, ""sport"": 1}","{""highway"": 7, ""source"": 5, ""country"": 3, ""district"": 3, ""name"": 3, ""place"": 3, ""region"": 3, ""ward"": 3}",{}
-175,Natalia Santos,18351536,10,406,321,0,0,81,4,0,0,0,0,81,3,0,0,1,0,0,0,0,0,0,0,"{""building"": 81, ""layer"": 1}","{""building"": 3, ""highway"": 1, ""layer"": 1}",{}
-176,Valerie Galluzzi,10577552,21,403,326,0,0,77,0,0,0,0,0,77,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 77}",{},{}
-177,Rica Zamora Duchateau,3067760,2,402,313,51,0,31,7,0,0,0,0,0,0,0,31,5,0,0,1,0,0,0,0,"{""highway"": 31, ""ford"": 1, ""bridge"": 1, ""layer"": 1}","{""highway"": 5, ""source"": 3, ""ref"": 2, ""surface"": 2, ""name"": 1, ""name:en"": 1, ""waterway"": 1}",{}
-178,SandyAtlassian,12375265,7,400,320,0,0,80,0,0,0,0,0,80,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 80}",{},{}
-179,anonymous-hurricane,14565342,2,397,289,61,0,35,12,0,0,0,0,30,2,0,3,2,0,0,0,0,0,0,0,"{""building"": 30, ""highway"": 3, ""barrier"": 2}","{""highway"": 2, ""building"": 2}",{}
-180,JasperT27,14444026,3,391,313,3,0,67,8,0,0,0,0,67,1,0,0,4,0,0,0,0,0,0,0,"{""building"": 67, ""layer"": 3}","{""name"": 6, ""name:ar"": 6, ""name:en"": 6, ""highway"": 4, ""addr:postcode"": 2, ""place"": 2, ""landuse"": 2, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1, ""alt_name"": 1, ""alt_name:en"": 1, ""boundary"": 1, ""addr:city"": 1, ""building"": 1, ""building:levels"": 1}",{}
-181,AZFLMAN,18361278,2,387,304,0,0,74,9,0,0,0,0,74,3,0,0,6,0,0,0,0,0,0,0,"{""building"": 74, ""layer"": 1}","{""highway"": 6, ""building"": 3}",{}
-182,Qwajo OSM,4853701,1,367,58,283,0,10,16,0,0,0,0,10,16,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}","{""building"": 16}",{}
-183,yvobceph,18202858,9,356,289,0,0,67,0,0,0,0,0,67,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 67}",{},{}
-184,mtr03,17189807,3,353,281,0,0,69,3,0,0,0,0,69,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 69}","{""highway"": 2, ""surface"": 1}",{}
-185,Nicole-K,18322918,8,347,278,0,0,68,1,0,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 68}","{""landuse"": 1}",{}
-186,tx2ny,14432270,13,345,269,17,0,57,2,0,0,0,0,57,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 57}","{""highway"": 1, ""building"": 1}",{}
-187,Cirilo Amaral,15631413,2,336,300,0,0,34,2,0,0,0,0,22,0,0,12,2,0,0,0,0,0,0,0,"{""building"": 22, ""highway"": 12}","{""highway"": 2, ""surface"": 1}",{}
-188,Josh Bernasconi,18362311,3,335,302,0,0,33,0,0,0,0,0,33,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 33}",{},{}
-189,sab27,4367139,8,326,189,105,0,22,10,0,0,0,0,19,1,0,3,7,0,0,0,0,0,0,0,"{""building"": 19, ""highway"": 3}","{""highway"": 7, ""building"": 1}",{}
-190,eaheyman,18361821,15,325,267,0,0,58,0,0,0,0,0,58,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 58}",{},{}
-191,LaurenLedesma,2689125,9,323,227,46,0,49,1,0,0,0,0,49,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 49}","{""highway"": 1, ""surface"": 1}",{}
-192,Margot7308,17138270,4,322,256,12,0,54,0,0,0,0,0,54,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 54}",{},{}
-193,Dylan O,16226934,14,321,260,0,0,61,0,0,0,0,0,61,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 61}",{},{}
-194,XMr_AbrahamX,18360302,16,317,247,7,0,60,3,0,0,0,0,60,0,0,0,3,0,0,0,0,0,0,0,"{""building"": 60, ""layer"": 2}","{""highway"": 3}",{}
-195,VinkonaHB,11332293,6,316,175,110,0,28,3,0,0,0,0,24,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 24, ""landuse"": 4}","{""highway"": 2, ""landuse"": 1}",{}
-196,hayes9,10074697,4,301,16,278,0,2,5,0,0,0,0,2,5,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}","{""building"": 5}",{}
-197,JacquieM,10382496,1,301,246,0,0,52,3,0,0,0,0,52,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 52, ""layer"": 4}","{""highway"": 1, ""name"": 1, ""source"": 1, ""surface"": 1, ""building"": 1, ""landuse"": 1}",{}
-198,stephnwakonobi,16372603,56,298,242,0,0,56,0,0,0,0,0,56,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 56}",{},{}
-199,S2333,893026,10,291,218,23,0,47,3,0,0,0,0,47,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 47}","{""building"": 1, ""highway"": 1}",{}
-200,VishwaKirti,18361513,15,289,237,0,0,52,0,0,0,0,0,52,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 52}",{},{}
-201,SAATZ,16083311,1,283,247,0,0,34,2,0,0,0,0,34,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 34}","{""highway"": 2}",{}
-202,Timocarm,18361890,7,283,237,0,0,46,0,0,0,0,0,46,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 46}",{},{}
-203,nabillad,11751721,1,283,224,15,0,41,3,0,0,0,0,41,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 41}",{},{}
-204,ngumenawesamson,2623654,7,280,127,119,0,28,6,0,0,0,0,28,5,0,0,1,0,0,0,0,0,0,0,"{""building"": 28}","{""building"": 5, ""highway"": 1}",{}
-205,unen,584117,3,278,249,4,0,25,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 22, ""landuse"": 3}",{},{}
-206,emmarice,17478190,7,275,217,10,0,48,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 48}",{},{}
-207,Bogdan_42,18301034,9,273,225,0,0,48,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 48}",{},{}
-208,Balpreet Sidhu,15088315,9,273,237,0,0,36,0,0,0,0,0,36,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 36}",{},{}
-209,Jeffrey Neneman,18360877,8,270,209,12,0,47,2,0,0,0,0,46,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 46, ""landuse"": 1}",{},{}
-210,Nora_Day,12274023,5,269,214,6,0,48,1,0,0,0,0,47,0,0,1,1,0,0,0,0,0,0,0,"{""building"": 47, ""highway"": 1}","{""highway"": 1, ""surface"": 1}",{}
-211,danieali,18357091,7,262,216,0,0,46,0,0,0,0,0,46,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 46}",{},{}
-212,suri228,18182632,6,256,204,0,0,51,1,0,0,0,0,51,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 51}","{""highway"": 1, ""source"": 1, ""surface"": 1, ""tracktype"": 1}",{}
-213,Nicka87,18330680,3,254,194,7,0,46,7,0,0,0,0,44,0,0,0,2,0,0,0,0,2,0,0,"{""building"": 44, ""amenity"": 2, ""layer"": 1}","{""addr:country"": 3, ""addr:district"": 3, ""addr:district:en"": 3, ""addr:housenumber"": 3, ""addr:postcode"": 3, ""addr:province"": 3, ""addr:province:en"": 3, ""addr:street"": 3, ""addr:street:en"": 3, ""addr:subdistrict"": 3, ""addr:subdistrict:en"": 3, ""highway"": 2, ""footway"": 1}",{}
-214,Brianna Dyrdahl,18358366,7,250,212,0,0,38,0,0,0,0,0,38,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 38}",{},{}
-215,Hotspot Racer,11366982,1,249,38,199,0,10,2,0,0,0,0,10,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}","{""building"": 1}",{}
-216,Human1each,15653003,9,244,84,126,0,16,18,0,0,0,0,16,12,0,0,0,0,0,0,0,0,0,0,"{""building"": 16}","{""building"": 12}",{}
-217,spl07,18213249,1,242,195,0,0,47,0,0,0,0,0,47,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 47}",{},{}
-218,Michael CerXWQå,17935751,3,239,191,0,0,48,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 48}",{},{}
-219,Emmanuel Sagara,14569342,7,238,192,0,0,46,0,0,0,0,0,46,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 46}",{},{}
-220,sakkuri,18182002,8,232,186,0,0,46,0,0,0,0,0,46,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 46}",{},{}
-221,susarlag,13992911,2,219,176,0,0,43,0,0,0,0,0,43,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 43}",{},{}
-222,OSMCowboy,18256099,10,218,173,14,0,28,3,0,0,0,0,28,0,0,0,3,0,0,0,0,0,0,0,"{""building"": 28}","{""highway"": 3}",{}
-223,Mel Pahlek,18245526,2,215,175,0,0,39,1,0,0,0,0,39,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 39}",{},{}
-224,Geog 281 Hoffmeister Jen,18328648,4,214,209,0,0,3,2,0,0,0,0,0,0,0,3,2,0,0,0,0,0,0,0,"{""highway"": 3, ""surface"": 3, ""bicycle"": 2, ""foot"": 2, ""horse"": 2, ""motor_vehicle"": 2, ""natural"": 1, ""wetland"": 1}","{""highway"": 2, ""surface"": 2}",{}
-225,KarleneMM,17347542,5,211,172,0,0,39,0,0,0,0,0,39,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 39}",{},{}
-226,Myksk,18354635,1,210,40,150,0,10,10,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}",{},{}
-227,jbartolo773,6173377,6,208,136,52,0,8,12,0,0,0,0,8,4,0,0,0,0,0,0,0,0,0,0,"{""building"": 8}","{""building"": 4}",{}
-228,Alex2023,18184015,7,205,115,60,0,22,8,0,0,0,0,22,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 22, ""layer"": 1}","{""building"": 1}",{}
-229,Tengku Almira IRM-ED,17716288,8,204,96,83,0,17,8,0,0,0,0,17,3,0,0,1,0,0,0,0,0,0,0,"{""building"": 17}","{""landuse"": 4, ""building"": 3, ""highway"": 1}",{}
-230,parshrav,13993122,6,201,164,0,0,37,0,0,0,0,0,37,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 37}",{},{}
-231,JULI-BEST,17940668,37,196,157,0,0,39,0,0,0,0,0,39,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 39}",{},{}
-232,BrookeLierman,18007355,6,195,177,0,0,18,0,0,0,0,0,18,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 18}",{},{}
-233,mmahmud,3217737,6,194,99,64,0,22,9,0,0,0,0,22,8,0,0,0,0,0,0,0,0,0,0,"{""building"": 22, ""source"": 22}","{""building"": 8, ""source"": 6}",{}
-234,Noor Mahammed,17995302,38,190,152,0,0,38,0,0,0,0,0,38,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 38}",{},{}
-235,Snakej,18040441,2,184,154,0,0,30,0,0,0,0,0,30,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 30}",{},{}
-236,lalilnet,15499875,2,180,144,0,0,36,0,0,0,0,0,36,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 36}",{},{}
-237,Kenny-S,18330589,5,177,145,0,0,30,2,0,0,0,0,30,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 30}","{""highway"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1, ""building"": 1}",{}
-238,Sophie_GG,15779682,4,176,153,0,0,23,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 23}",{},{}
-239,smaptious,15166886,5,174,142,0,0,32,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 32}",{},{}
-240,ODULANA OLUWATOYIN,10483398,2,172,140,0,0,32,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 32}",{},{}
-241,Ashim Paudel,16378761,1,167,104,44,0,17,2,0,0,0,0,15,1,0,1,1,0,0,0,0,0,0,0,"{""building"": 15, ""highway"": 1, ""landuse"": 1}","{""building"": 1, ""highway"": 1}",{}
-242,MapRaySpex_Rachel,17498249,4,167,89,65,0,11,2,0,0,0,0,11,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}","{""building"": 1}",{}
-243,Daniil Sigalev,17606379,3,166,134,0,0,32,0,0,0,0,0,27,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 27, ""barrier"": 5}",{},{}
-244,Leeloo301,18359878,3,165,79,67,0,12,7,0,0,0,0,3,0,0,6,5,0,0,1,0,0,0,0,"{""highway"": 6, ""building"": 3, ""landuse"": 2, ""natural"": 1, ""barrier"": 1}","{""highway"": 5, ""boat"": 1, ""source"": 1, ""source:url"": 1, ""waterway"": 1, ""landuse"": 1}",{}
-245,markyfarbs,18361940,3,163,137,0,0,26,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 26}",{},{}
-246,philos0rpator,12375281,3,162,123,5,0,30,4,0,0,0,0,27,0,0,3,4,0,0,0,0,0,0,0,"{""building"": 27, ""highway"": 3, ""lanes"": 3}","{""highway"": 4, ""source"": 2, ""lanes"": 1}",{}
-247,GEOG281_Matthews_Lauren,18361931,1,161,111,14,0,27,9,0,0,0,0,24,3,0,0,4,0,0,0,0,0,0,0,"{""building"": 24, ""natural"": 3, ""layer"": 2}","{""name"": 5, ""name:ar"": 5, ""name:en"": 5, ""highway"": 4, ""building"": 3, ""boundary"": 2, ""place"": 2, ""addr:country"": 2, ""addr:district"": 2, ""addr:district:en"": 2, ""addr:housenumber"": 2, ""addr:postcode"": 2, ""addr:province"": 2, ""addr:province:en"": 2, ""addr:street"": 2, ""addr:street:en"": 2, ""addr:subdistrict"": 2, ""addr:subdistrict:en"": 2, ""building:levels"": 2, ""height"": 2, ""layer"": 1, ""source"": 1}",{}
-248,[DVHS] Joanne Cheong,15113451,7,159,103,38,0,14,4,0,0,0,0,14,4,0,0,0,0,0,0,0,0,0,0,"{""building"": 14}","{""building"": 4}",{}
-249,januwada,13911388,2,158,126,2,0,30,0,0,0,0,0,30,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 30}",{},{}
-250,pedr0faria,10482974,4,158,91,38,0,8,21,0,0,0,0,0,0,0,0,16,0,0,0,0,0,0,0,"{""barrier"": 8, ""place"": 2}","{""highway"": 16}",{}
-251,Lochan Pant,14854690,2,155,66,74,0,15,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 15}",{},{}
-252,Dibikshya Shrestha,16060450,1,154,123,16,0,15,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 12, ""natural"": 3, ""water"": 3}",{},{}
-253,NiCo1234isamazing,18319102,1,153,126,0,0,27,0,0,0,0,0,27,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 27}",{},{}
-254,Zjoia,18309768,10,151,121,0,0,30,0,0,0,0,0,30,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 30}",{},{}
-255,D4MSF,18332251,3,146,125,9,0,9,3,0,0,0,0,5,0,0,4,3,0,0,0,0,0,0,0,"{""building"": 5, ""highway"": 4}","{""highway"": 3}",{}
-256,Ainhoarp,18326750,13,143,115,0,0,24,4,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 13, ""natural"": 11}","{""landuse"": 3, ""name"": 3, ""name:ar"": 3, ""name:en"": 3, ""place"": 3, ""natural"": 1}",{}
-257,madhsais,13992905,2,142,116,0,0,26,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 26}",{},{}
-258,Zkwosch,108500,2,140,107,7,0,20,6,0,0,0,0,4,0,0,16,6,0,0,0,0,0,0,0,"{""highway"": 16, ""surface"": 14, ""building"": 4}","{""highway"": 6, ""name"": 3, ""surface"": 3, ""bicycle"": 2, ""foot"": 2, ""mtb:scale"": 1, ""width"": 1, ""ref"": 1}",{}
-259,hvanajak,13920098,10,139,112,0,0,27,0,0,0,0,0,27,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 27}",{},{}
-260,OceeDiTT,16372351,19,138,118,1,0,19,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 19, ""layer"": 1}",{},{}
-261,Wan Mastura,17860271,2,132,40,64,0,10,18,0,0,0,0,10,18,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}","{""building"": 18}",{}
-262,birdlymaps,16106861,4,131,109,0,0,22,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 22}",{},{}
-263,LawAng1,17263424,1,131,96,10,0,24,1,0,0,0,0,24,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 24}",{},{}
-264,xpurnach,14018945,3,131,107,0,0,24,0,0,0,0,0,24,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 24}",{},{}
-265,John McArdle,18351778,6,131,80,24,0,21,6,0,0,0,0,19,0,0,0,0,0,2,0,0,0,0,0,"{""building"": 19, ""waterway"": 2, ""name"": 1, ""layer"": 1}",{},{}
-266,sbfleisch,10074957,1,129,128,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,"{""highway"": 1, ""surface"": 1}",{},{}
-267,Zheng Lu,18361944,6,123,105,0,0,18,0,0,0,0,0,18,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 18}",{},{}
-268,nathantrello,14081366,4,122,109,0,0,13,0,0,0,0,0,10,0,0,3,0,0,0,0,0,0,0,0,"{""building"": 10, ""highway"": 3}",{},{}
-269,Daniel Specht,2393795,3,122,83,18,0,9,11,0,0,1,0,1,0,0,0,1,0,3,2,0,0,0,0,"{""landuse"": 5, ""waterway"": 3, ""building"": 1, ""layer"": 1}","{""natural"": 3, ""ref"": 2, ""waterway"": 2, ""highway"": 1, ""landuse"": 1, ""intermittent"": 1, ""name"": 1, ""route"": 1, ""type"": 1}",{}
-270,tabletennisfan,14335271,3,121,100,0,0,21,0,0,0,0,0,21,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 21}",{},{}
-271,Chizevefhlen,18172663,2,120,41,63,0,10,6,0,0,0,0,10,5,0,0,0,0,0,1,0,0,0,0,"{""building"": 10}","{""building"": 5, ""waterway"": 1}",{}
-272,malagasi,15499908,3,119,90,6,0,22,1,0,0,0,0,22,1,0,0,0,0,0,0,0,0,1,0,"{""building"": 22}","{""amenity"": 1, ""building"": 1, ""religion"": 1}",{}
-273,hvenkbhu,15499900,2,118,96,0,0,22,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 22}",{},{}
-274,Leoriversf,18255996,6,117,91,5,0,20,1,0,0,0,0,20,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 20}","{""highway"": 1}",{}
-275,Govinda Yadav,13252552,2,116,68,25,0,17,6,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 17}",{},{}
-276,AcrylicMOSM,13771513,7,114,75,19,0,18,2,0,0,0,0,18,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 18}","{""building"": 2}",{}
-277,theRonLewis,18361880,5,110,91,0,0,19,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 19}",{},{}
-278,JayRay53,18361132,5,110,87,0,0,23,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""landuse"": 20, ""building"": 3}",{},{}
-279,GaryAWS2023,18359851,2,110,87,0,0,22,1,0,0,0,0,22,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 22}","{""building"": 1}",{}
-280,Balu1521,18182682,5,108,86,0,0,22,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 22}",{},{}
-281,Shebs,16106877,9,108,88,0,0,20,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 20}",{},{}
-282,Wilmah,15656716,1,104,89,0,0,15,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 15}",{},{}
-283,MorganeMo,18283235,6,103,84,0,0,19,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 19}",{},{}
-284,goldfndr,7247,5,102,84,0,0,18,0,0,0,0,0,18,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 18}",{},{}
-285,Dante Schiavone-Delfino,14684381,3,100,80,0,0,20,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 20}",{},{}
-286,Kyle Salvado,18355080,4,96,25,61,0,6,4,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
-287,JillienB,18361270,10,95,76,0,0,19,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 19}",{},{}
-288,Ken Maier,14124341,8,94,78,0,0,15,1,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 15}","{""landuse"": 1}",{}
-289,Molly Thomas,17199881,2,93,76,0,0,17,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 17}",{},{}
-290,AmOosm,12950127,1,92,87,0,0,4,1,0,0,0,0,0,0,0,4,1,0,0,0,0,0,0,0,"{""highway"": 4}","{""highway"": 1, ""surface"": 1}",{}
-291,Allie_R,17997077,5,91,61,12,0,15,3,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 15}",{},{}
-292,Robbiegorn,17001680,1,90,60,16,0,13,1,0,0,0,0,13,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}","{""addr:city"": 14, ""addr:city:en"": 14, ""addr:country"": 14, ""addr:district"": 14, ""addr:district:en"": 14, ""addr:housenumber"": 14, ""addr:place"": 14, ""addr:place:en"": 14, ""addr:postcode"": 14, ""addr:province"": 14, ""addr:province:en"": 14, ""building"": 1, ""source"": 1}",{}
-293,Cait17,18351477,2,86,64,6,0,16,0,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 16}",{},{}
-294,JohnTrLe,18362152,1,83,71,0,0,12,0,0,0,0,0,8,0,0,4,0,0,0,0,0,0,0,0,"{""building"": 8, ""highway"": 4, ""oneway"": 2}",{},{}
-295,SamWilkes,18362486,2,81,66,0,0,14,1,0,0,0,0,12,0,0,0,1,0,0,0,0,1,0,0,"{""building"": 12, ""landuse"": 1, ""amenity"": 1}","{""highway"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1, ""oneway"": 1}",{}
-296,Kathyaus,1225312,1,81,23,15,0,3,40,0,0,0,0,0,0,0,3,36,0,0,0,0,0,0,0,"{""highway"": 3}","{""highway"": 36, ""ford"": 1}",{}
-297,Laura2022,15057339,6,80,69,0,0,11,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}",{},{}
-298,Mark Louie Ajoc,18358243,2,78,31,36,0,6,5,0,0,0,0,6,3,0,0,0,0,0,1,0,0,0,0,"{""building"": 6, ""name"": 4}","{""name"": 4, ""building"": 3, ""source"": 1, ""waterway"": 1}",{}
-299,Karl Vasquez,18358076,2,76,30,37,0,4,5,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""area"": 3, ""note"": 1, ""building"": 1}",{},{}
-300,AndrewAnzheS,18357458,2,73,57,0,0,13,3,0,0,0,0,5,0,0,8,3,0,0,0,0,0,0,0,"{""highway"": 8, ""building"": 5, ""natural"": 2, ""layer"": 1}","{""highway"": 3}",{}
-301,Ruqi C,17690196,5,72,62,0,0,10,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}",{},{}
-302,KiyoharuX,18357918,1,72,58,0,0,14,0,0,0,0,0,14,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 14}",{},{}
-303,HarrietMaps,8340309,1,71,58,0,0,13,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}",{},{}
-304,cartogravy,12781321,3,69,12,54,0,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
-305,marco443,1886646,2,69,22,43,0,3,1,0,0,0,0,3,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}","{""building"": 1}",{}
-306,Heterodyne,9531596,2,68,48,8,0,12,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 12}",{},{}
-307,jerryleung,18313976,4,67,49,4,0,12,2,0,0,0,0,12,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 12, ""layer"": 4}","{""building"": 2}",{}
-308,snakeplants,16106853,5,65,52,0,0,13,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}",{},{}
-309,YEMIA,10684748,2,65,52,0,0,13,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}",{},{}
-310,shirisan1,13920116,5,64,52,0,0,12,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 12}",{},{}
-311,Erick tamba,10570996,1,62,9,43,0,0,10,0,0,0,0,0,0,0,0,5,0,0,3,0,0,0,0,{},"{""highway"": 5, ""waterway"": 3, ""ref"": 1, ""natural"": 1, ""landuse"": 1}",{}
-312,Aarogya Pandey,11807790,4,62,46,6,0,8,2,0,0,0,0,7,0,0,1,2,0,0,0,0,0,0,0,"{""building"": 7, ""highway"": 1}","{""highway"": 2, ""surface"": 1}",{}
-313,Carmstr5,18329411,2,62,49,0,0,10,3,0,0,0,0,6,0,0,4,3,0,0,0,0,0,0,0,"{""building"": 6, ""highway"": 4, ""Parking"": 1, ""access"": 1}","{""highway"": 3, ""import"": 2, ""source"": 2}",{}
-314,Karimah Z,17702199,1,57,46,0,0,11,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}",{},{}
-315,Shaheen25,12627117,5,56,48,0,0,8,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 8}",{},{}
-316,Daisy739,17206713,1,55,45,0,0,10,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}",{},{}
-317,Georgina311022,17206744,1,55,43,1,0,10,1,0,0,0,0,10,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}","{""building"": 1}",{}
-318,Larry1234,8933181,1,52,42,0,0,10,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}",{},{}
-319,nicojp,2392478,3,49,11,35,0,2,1,0,0,0,0,2,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 2}","{""highway"": 1, ""lanes"": 1, ""surface"": 1}",{}
-320,Evaristo Isto,18004453,3,49,45,0,0,3,1,0,0,0,0,1,0,0,1,0,0,1,1,0,0,0,0,"{""name"": 3, ""access"": 1, ""foot"": 1, ""ford"": 1, ""highway"": 1, ""motor_vehicle"": 1, ""tracktype"": 1, ""layer"": 1, ""tunnel"": 1, ""waterway"": 1, ""building"": 1, ""building:levels"": 1}","{""waterway"": 1}",{}
-321,Andre Vaz,17992192,6,49,43,0,0,6,0,0,0,0,0,3,0,0,3,0,0,0,0,0,3,0,0,"{""name"": 6, ""amenity"": 3, ""building"": 3, ""building:levels"": 3, ""highway"": 3, ""surface"": 2, ""operator"": 1}",{},{}
-322,TenzinGenpo,15058023,2,48,39,0,0,9,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 9}",{},{}
-323,tsmky,18349663,2,47,38,0,0,9,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 9}",{},{}
-324,AquaticArmadillo,11225335,2,45,36,0,0,9,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 9}",{},{}
-325,thisissofia01,18326816,2,44,28,8,0,7,1,0,0,0,0,7,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 7}","{""building"": 1}",{}
-326,philiploves2map,18356689,1,43,38,0,0,5,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}",{},{}
-327,SBBaum,17279115,2,43,24,15,0,4,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
-328,GBGoiny,10616727,4,38,9,24,0,2,3,0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}","{""building"": 1}",{}
-329,adriana puricel,18322486,1,35,31,0,0,4,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
-330,Anjelina Singh,14478218,1,35,31,0,0,4,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
-331,A_rez,18345855,2,35,28,0,0,7,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 7}",{},{}
-332,ethandavis16,18306964,2,34,27,0,0,7,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 7, ""layer"": 1}",{},{}
-333,Jocelyn Souliere,15057471,1,31,24,0,0,7,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6, ""area"": 1}",{},{}
-334,Sofiaglt,18361956,1,30,27,0,0,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
-335,cartighe,18351423,6,30,24,0,0,6,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
-336,Arelys Segura,15157672,6,30,24,0,0,6,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""area"": 6, ""building"": 6}",{},{}
-337,birdlawyer,9461087,1,28,8,16,0,2,2,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
-338,erin_rose,18222016,1,27,22,0,0,5,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}",{},{}
-339,shakyatsuman,18361943,2,27,22,0,0,5,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}",{},{}
-340,Nabulo Carol,3520331,1,27,25,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,"{""access"": 2, ""highway"": 2, ""foot"": 1, ""incline"": 1}",{},{}
-341,Alasdair Hooper,18361974,5,26,21,0,0,5,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}",{},{}
-342,James Wilson08,17001728,1,22,14,5,0,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
-343,mike_edelson,6665566,2,22,16,5,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}","{""entrance"": 1}",{}
-344,Autumn160419,17206746,2,21,17,0,0,4,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
-345,heisenberg62,18313965,1,21,17,0,0,4,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
-346,FiorellaBeausangHunter,18345859,1,21,17,0,0,4,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
-347,GEOG281_HernandezJose,18329629,1,20,16,0,0,3,1,0,0,0,0,0,0,0,2,1,0,1,0,0,0,0,0,"{""name"": 3, ""highway"": 2, ""waterway"": 1, ""bridge"": 1, ""layer"": 1}","{""highway"": 1, ""name"": 1}",{}
-348,Rick Botero,18342565,3,19,8,8,0,2,1,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
-349,bellaroo,16754545,1,19,4,12,0,1,2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-350,Amit Bhatnagar,18352262,2,18,12,4,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
-351,samrat02,13255920,5,17,4,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"{""natural"": 4}",{},{}
-352,anna_teach_HOT,11874393,2,17,14,0,0,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
-353,GEOG281_Brouwer_Anneke,18329463,3,16,7,4,0,3,2,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,"{""natural"": 2, ""footway"": 1, ""highway"": 1}","{""highway"": 2, ""oneway"": 2, ""alt_name"": 1, ""alt_name:ar"": 1, ""alt_name:en"": 1, ""lanes"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1, ""surface"": 1}",{}
-354,AM555,18361069,2,15,12,0,0,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
-355,Kraja0107,14022943,1,15,12,0,0,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
-356,Sophieee251222,17206749,1,15,12,0,0,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
-357,iinasirkia,14046689,2,14,8,4,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
-358,Hari TN,11853008,1,13,0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{},{}
-359,ironalloy,12411427,1,12,10,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,"{""highway"": 1}","{""highway"": 1}",{}
-360,evanmurphyy,12674700,1,12,10,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
-361,SUDMHE,18181983,2,11,9,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
-362,Nicolelaine,2997398,2,10,8,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
-363,Eman Khalil 60,18359311,2,10,8,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
-364,36580,18361954,1,10,8,0,0,2,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
-365,Hooda_G,17554357,1,10,8,0,0,2,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""landuse"": 1, ""building"": 1}",{},{}
-366,Lafayette19,18362494,2,10,7,0,0,2,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1, ""natural"": 1}","{""natural"": 1}",{}
-367,LouiseM1990,18359847,1,7,6,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-368,SophieAxtens,18326825,1,6,5,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"{""landuse"": 1}",{},{}
-369,sigvoice,18345873,1,6,4,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-370,TrailJunkie,16754551,1,6,0,4,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{},{}
-371,Azlin Suhaimi,17397915,1,5,4,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-372,jakemcgowan,16617877,1,5,4,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-373,KristýnaH,10763164,1,5,4,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-374,HuangJingli,12149220,1,5,4,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-375,Matthieu Haasser,11130165,1,5,4,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-376,Hannah White-Dobbs,11180105,1,5,4,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-377,Kelvin Tei,18361290,1,5,4,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-378,JanButter,6522172,1,5,4,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
-379,GEOG281_Brock_Leinweber,18329488,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"{""man_made"": 1}",{},{}
+rank,name,uid,changesets,map_changes,nodes.create,nodes.modify,nodes.delete,ways.create,ways.modify,ways.delete,relations.create,relations.modify,relations.delete,poi.create,poi.modify,poi.delete,building.create,building.modify,building.delete,highway.create,highway.modify,highway.delete,waterway.create,waterway.modify,waterway.delete,amenity.create,amenity.modify,amenity.delete,tags_create,tags_modify,tags_delete
+1,Irfandi IRM-ED,17714747,22,18849,13573,2002,0,3173,101,0,0,0,0,0,0,0,3172,56,0,1,39,0,0,0,0,0,0,0,"{""building"": 3172, ""highway"": 1}","{""building"": 56, ""highway"": 39, ""import"": 9, ""source"": 9, ""natural"": 1}",{}
+2,DelawareWaterGap,10653308,28,12621,651,11280,0,138,552,0,0,0,0,0,0,0,138,546,0,0,1,0,0,0,0,0,0,0,"{""building"": 138}","{""building"": 546, ""layer"": 4, ""addr:street"": 2, ""highway"": 1, ""source"": 1}",{}
+3,nyainariantsoa,10732815,8,11528,10418,433,0,622,55,0,0,0,0,8,2,0,495,0,0,119,49,0,2,5,0,0,0,0,"{""building"": 495, ""highway"": 119, ""ford"": 8, ""natural"": 6, ""waterway"": 2, ""intermittent"": 1, ""seasonal"": 1, ""source"": 1, ""surface"": 1}","{""highway"": 49, ""surface"": 20, ""source"": 19, ""waterway"": 5, ""name"": 2, ""place"": 2, ""tracktype"": 2, ""lanes"": 1, ""oneway"": 1, ""smoothness"": 1, ""intermittent"": 1, ""seasonal"": 1}",{}
+4,Aglis IRM-ED,8072046,8,11074,8269,847,0,1901,57,0,0,0,0,0,0,0,1898,16,0,3,28,0,0,0,0,0,0,0,"{""building"": 1898, ""highway"": 3}","{""highway"": 28, ""building"": 16, ""import"": 2, ""source"": 2, ""motorcycle"": 1, ""surface"": 1}",{}
+5,Elyana IRM-ED,10910633,10,10716,5776,3481,0,1232,227,0,0,0,0,0,0,0,1232,181,0,0,35,0,0,0,0,0,0,0,"{""building"": 1232}","{""building"": 181, ""highway"": 35, ""motorcycle"": 4, ""surface"": 3, ""import"": 3, ""source"": 3, ""natural"": 2, ""name"": 1, ""condition"": 1, ""lanes"": 1}",{}
+6,TeBaMa,6519568,6,9863,3444,5417,0,824,177,0,0,1,0,1,1,0,797,8,0,27,61,0,0,1,0,0,0,0,"{""building"": 797, ""highway"": 27, ""surface"": 26, ""source"": 6, ""ford"": 5, ""narrow"": 2}","{""highway"": 61, ""surface"": 50, ""source"": 21, ""natural"": 9, ""building"": 8, ""intermittent"": 5, ""ford"": 4, ""landuse"": 3, ""narrow"": 3, ""water"": 2, ""bicycle"": 2, ""foot"": 2, ""barrier"": 1, ""waterway"": 1}",{}
+7,Qomar IRM-ED,9543905,11,9830,6443,1776,0,1576,35,0,0,0,0,0,0,0,1576,23,0,0,5,0,0,0,0,0,0,0,"{""building"": 1576}","{""building"": 23, ""highway"": 5, ""import"": 2, ""source"": 2, ""surface"": 1}",{}
+8,Anisa IRM-ED,8072049,13,9573,5713,2486,0,1216,158,0,0,0,0,0,0,0,1216,82,0,0,19,0,0,0,0,0,0,0,"{""building"": 1216}","{""building"": 82, ""highway"": 19, ""motorcycle"": 5, ""import"": 2, ""source"": 2}",{}
+9,ACTksantna,18334350,8,8161,6742,0,0,1419,0,0,0,0,0,0,0,0,1415,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1415, ""natural"": 4, ""layer"": 1}",{},{}
+10,Rizky IRM-ED,9421521,7,7773,3331,3578,0,736,128,0,0,0,0,0,0,0,735,125,0,1,2,0,0,0,0,0,0,0,"{""building"": 735, ""highway"": 1, ""surface"": 1}","{""building"": 125, ""layer"": 3, ""highway"": 2}",{}
+11,Rizki IRM-ED,17714670,5,7735,2078,4948,0,400,309,0,0,0,0,0,0,0,399,258,0,0,11,0,0,0,0,0,0,0,"{""building"": 399}","{""building"": 258, ""highway"": 11, ""import"": 2, ""source"": 2, ""motorcycle"": 1, ""oneway"": 1}",{}
+12,TibestiMountains,16853644,23,7195,1506,5260,0,222,207,0,0,0,0,0,0,0,222,207,0,0,0,0,0,0,0,0,0,0,"{""building"": 222}","{""building"": 207, ""source"": 7, ""layer"": 3}",{}
+13,Irma IRM-ED,13065690,17,7065,5670,52,0,1339,4,0,0,0,0,0,0,0,1336,1,0,3,3,0,0,0,0,0,0,0,"{""building"": 1336, ""highway"": 3}","{""highway"": 3, ""building"": 1}",{}
+14,Tom_HL,18192024,27,7014,3783,2308,0,654,269,0,0,0,0,0,0,0,654,23,0,0,0,0,0,0,0,0,0,0,"{""building"": 654}","{""building"": 23}",{}
+15,Talitha IRM-ED,9421520,19,6585,2164,3682,0,286,453,0,0,0,0,0,3,0,283,252,0,3,48,0,0,6,0,0,1,0,"{""building"": 283, ""highway"": 3, ""covered"": 1}","{""building"": 252, ""highway"": 48, ""motorcycle"": 13, ""name"": 11, ""oneway"": 9, ""waterway"": 6, ""import"": 4, ""source"": 4, ""ref"": 3, ""surface"": 2, ""railway"": 1, ""wikidata"": 1, ""amenity"": 1, ""bicycle"": 1, ""foot"": 1, ""horse"": 1, ""lanes"": 1, ""maxspeed"": 1}",{}
+16,Dary Raihanah IRM-ED,15053262,9,6376,2475,3170,0,203,528,0,0,0,0,2,7,0,186,417,0,13,76,0,0,1,0,0,5,0,"{""building"": 186, ""highway"": 13, ""leisure"": 4, ""covered"": 3, ""import"": 3, ""source"": 3, ""man_made"": 2, ""maxspeed"": 2, ""name"": 2, ""surface"": 2}","{""building"": 417, ""highway"": 76, ""name"": 17, ""motorcycle"": 9, ""addr:city"": 9, ""addr:postcode"": 9, ""addr:street"": 9, ""import"": 9, ""source"": 9, ""maxspeed"": 5, ""surface"": 5, ""amenity"": 5, ""oneway"": 5, ""tourism"": 3, ""lanes"": 2, ""building:levels"": 2, ""waterway"": 1, ""brand"": 1, ""government"": 1, ""office"": 1, ""phone"": 1, ""religion"": 1, ""cuisine"": 1, ""diet:halal"": 1}",{}
+17,snoguera1,18307869,97,6193,5019,210,0,917,47,0,0,0,0,0,0,0,917,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 917}",{},{}
+18,Haris IRM-ED,12027858,10,6121,2215,3210,0,345,351,0,0,0,0,0,1,0,341,218,0,4,33,0,0,0,0,0,2,0,"{""building"": 341, ""highway"": 4, ""access"": 1, ""oneway"": 1}","{""building"": 218, ""highway"": 33, ""access"": 4, ""import"": 3, ""source"": 3, ""amenity"": 2, ""religion"": 2, ""landuse"": 2, ""barrier"": 1, ""motorcycle"": 1, ""oneway"": 1, ""surface"": 1}",{}
+19,MagnusLi,18119824,35,5394,3312,1267,0,674,141,0,0,0,0,1,3,0,669,33,0,4,44,0,1,6,0,0,0,0,"{""building"": 669, ""highway"": 4, ""source"": 2, ""ford"": 1, ""intermittent"": 1, ""waterway"": 1}","{""highway"": 44, ""building"": 33, ""source"": 20, ""waterway"": 6, ""surface"": 4, ""name"": 3, ""place"": 3, ""comment"": 2, ""divipola"": 2, ""fixme"": 2, ""is_in"": 2, ""note"": 2, ""landuse"": 2, ""layer"": 2, ""ford"": 1, ""smoothness"": 1, ""intermittent"": 1}",{}
+20,DiahW IRM-ED,7561020,4,5087,2197,2298,0,398,194,0,0,0,0,0,0,0,396,174,0,2,9,0,0,0,0,0,0,0,"{""building"": 396, ""access"": 2, ""highway"": 2, ""covered"": 1}","{""building"": 174, ""highway"": 9, ""access"": 1, ""landuse"": 1}",{}
+21,Lalit_IAAS,11589667,17,5067,2212,2359,0,304,191,0,0,1,0,0,1,0,294,94,0,10,16,0,0,2,0,0,0,0,"{""building"": 294, ""highway"": 10}","{""building"": 94, ""highway"": 16, ""source"": 8, ""ref"": 4, ""landuse"": 4, ""name"": 2, ""waterway"": 2, ""lanes"": 2, ""place"": 1, ""ref:old"": 1, ""surface"": 1, ""network"": 1, ""route"": 1, ""type"": 1}",{}
+22,Diana IRM-ED,8072061,12,4804,2227,1395,0,447,735,0,0,0,0,0,0,0,443,618,0,4,87,0,0,0,0,0,0,0,"{""building"": 443, ""highway"": 4, ""motorcycle"": 2}","{""building"": 618, ""highway"": 87, ""motorcycle"": 33, ""name"": 9, ""layer"": 6, ""bridge"": 5, ""source"": 4, ""import"": 1, ""electrified"": 1, ""gauge"": 1, ""railway"": 1, ""usage"": 1, ""wikipedia"": 1, ""surface"": 1, ""tunnel"": 1}",{}
+23,maperezb,18294319,44,4677,4052,0,0,625,0,0,0,0,0,0,0,0,625,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 625}",{},{}
+24,Kraan46,11628862,27,4614,2094,1900,0,475,144,0,1,0,0,0,0,0,474,50,0,0,4,0,0,0,0,0,0,0,"{""building"": 474, ""type"": 1}","{""building"": 50, ""highway"": 4, ""surface"": 2, ""landuse"": 1}",{}
+25,Fauzan IRM-ED,8954099,15,3927,1813,1575,0,429,110,0,0,0,0,0,0,0,428,39,0,1,3,0,0,2,0,0,0,0,"{""building"": 428, ""highway"": 1}","{""building"": 39, ""highway"": 3, ""waterway"": 2, ""motor_vehicle"": 1, ""name"": 1, ""oneway"": 1}",{}
+26,onesimusGGA,13063544,2,3890,3178,33,0,675,4,0,0,0,0,0,0,0,675,3,0,0,1,0,0,0,0,0,0,0,"{""building"": 675}","{""building"": 3, ""highway"": 1}",{}
+27,Isaboke,10868348,14,3860,2660,983,0,134,83,0,0,0,0,28,0,0,101,47,0,5,6,0,0,0,0,2,0,0,"{""building"": 101, ""roof:material"": 72, ""barrier"": 43, ""natural"": 9, ""fence_type"": 7, ""highway"": 5, ""surface"": 4, ""amenity"": 2, ""generator:source"": 2, ""layer"": 2, ""power"": 2, ""toilets:disposal"": 1}","{""building"": 47, ""roof:material"": 41, ""highway"": 6, ""surface"": 5, ""landuse"": 3}",{}
+28,Cole Myers,9099678,11,3802,1177,2129,0,213,283,0,0,0,0,0,0,0,207,19,0,0,17,0,0,0,0,0,0,0,"{""building"": 207, ""man_made"": 6, ""construction"": 3}","{""building"": 19, ""highway"": 17, ""man_made"": 8, ""construction"": 6, ""landuse"": 3, ""surface"": 3, ""name"": 1}",{}
+29,Zh9567,9940138,3,3765,2647,108,0,967,43,0,0,0,0,0,0,0,967,39,0,0,0,0,0,0,0,0,0,0,"{""building"": 967}","{""building"": 39, ""leisure"": 2, ""surface"": 2, ""landuse"": 1}",{}
+30,j_over_here,18363767,16,3733,3001,141,0,580,11,0,0,0,0,0,0,0,580,8,0,0,3,0,0,0,0,0,0,0,"{""building"": 580, ""layer"": 10}","{""building"": 8, ""highway"": 3, ""name"": 2, ""source"": 2}",{}
+31,tonybendell,3620803,6,3693,1484,1749,0,298,162,0,0,0,0,0,0,0,292,98,0,5,45,0,0,0,0,0,0,0,"{""building"": 292, ""highway"": 5}","{""building"": 98, ""highway"": 45, ""landuse"": 4, ""place"": 3, ""maxspeed"": 1, ""ref"": 1, ""construction"": 1, ""layer"": 1}",{}
+32,Alex_DSt,18349674,33,3586,2842,414,0,308,22,0,0,0,0,14,0,0,260,1,0,27,13,0,0,0,0,0,1,0,"{""building"": 260, ""highway"": 27, ""landuse"": 20, ""place"": 15}","{""highway"": 13, ""surface"": 9, ""place"": 2, ""building"": 1, ""project:eurosha_2012"": 1, ""source"": 1, ""source:date"": 1, ""landuse"": 1, ""amenity"": 1, ""social_facility"": 1}",{}
+33,Tantri IRM-ED,10910640,15,3367,1769,1155,0,409,34,0,0,0,0,0,0,0,409,30,0,0,3,0,0,0,0,0,0,0,"{""building"": 409}","{""building"": 30, ""highway"": 3, ""motorcycle"": 2}",{}
+34,andraina,11974512,12,3301,3064,103,0,88,46,0,0,0,0,0,0,0,8,0,0,79,44,0,0,0,0,0,0,0,"{""highway"": 79, ""building"": 8, ""natural"": 1}","{""highway"": 44, ""surface"": 5, ""lanes"": 3, ""oneway"": 3, ""source"": 1}",{}
+35,youngmapper,13063701,2,3060,2532,38,0,490,0,0,0,0,0,0,0,0,490,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 490}",{},{}
+36,nanou1,6486352,4,2991,2461,188,0,310,32,0,0,0,0,1,1,0,165,0,0,134,31,0,11,1,0,0,0,0,"{""building"": 165, ""highway"": 134, ""waterway"": 11, ""intermittent"": 8, ""layer"": 3, ""tunnel"": 3, ""place"": 1}","{""highway"": 31, ""surface"": 16, ""source"": 4, ""place"": 1, ""waterway"": 1}",{}
+37,Shrestha Shristi,13253207,4,2710,1961,289,0,446,14,0,0,0,0,0,0,0,443,12,0,3,2,0,0,0,0,0,0,0,"{""building"": 443, ""highway"": 3, ""source"": 2, ""layer"": 1, ""tunnel"": 1}","{""building"": 12, ""highway"": 2, ""source"": 2, ""name"": 1}",{}
+38,majocimi,18356472,72,2629,2151,6,0,471,1,0,0,0,0,0,0,0,471,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 471}",{},{}
+39,JFL-75,13317783,3,2521,1437,601,0,339,144,0,0,0,0,0,0,0,339,5,0,0,1,0,0,0,0,0,0,0,"{""building"": 339, ""construction"": 8}","{""building"": 5, ""construction"": 2, ""highway"": 1, ""surface"": 1}",{}
+40,Araumar,18113433,9,2417,2026,0,0,391,0,0,0,0,0,0,0,0,391,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 391}",{},{}
+41,Palolo,385046,16,2376,1332,702,0,295,47,0,0,0,0,1,6,0,287,11,0,5,34,0,0,0,0,2,3,0,"{""building"": 287, ""highway"": 5, ""name"": 3, ""amenity"": 2, ""surface"": 2, ""place"": 1, ""name:en"": 1, ""leisure"": 1, ""sport"": 1, ""addr:street"": 1}","{""highway"": 34, ""source"": 25, ""surface"": 16, ""building"": 11, ""name"": 8, ""source:date"": 6, ""place"": 5, ""ward"": 5, ""country"": 4, ""district"": 4, ""region"": 4, ""amenity"": 3, ""addr:street"": 2, ""population"": 1, ""ref"": 1, ""tracktype"": 1}",{}
+42,JohnW11,8285929,5,2277,850,1184,0,144,99,0,0,0,0,0,2,0,144,92,0,0,1,0,0,0,0,0,0,0,"{""building"": 144}","{""building"": 92, ""power"": 4, ""layer"": 4, ""cables"": 2, ""circuits"": 2, ""frequency"": 2, ""voltage"": 2, ""highway"": 1, ""name"": 1, ""source"": 1}",{}
+43,birgitt m,17722275,14,2190,1929,4,0,256,1,0,0,0,0,0,0,0,254,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 254, ""landuse"": 2}",{},{}
+44,Grannymeg,13361440,9,2184,1843,88,0,207,46,0,0,0,0,1,0,0,158,1,0,19,18,0,9,3,0,1,1,0,"{""building"": 158, ""highway"": 19, ""landuse"": 14, ""waterway"": 9, ""natural"": 7, ""name"": 5, ""layer"": 5, ""lanes"": 4, ""maxspeed"": 4, ""ref"": 4, ""surface"": 4, ""bridge"": 2, ""tunnel"": 2, ""amenity"": 1, ""religion"": 1}","{""highway"": 18, ""landuse"": 16, ""maxspeed"": 3, ""waterway"": 3, ""name"": 2, ""natural"": 2, ""lanes"": 1, ""ref"": 1, ""surface"": 1, ""amenity"": 1, ""religion"": 1, ""building"": 1}",{}
+45,reisir,18166894,14,2158,1986,52,0,111,9,0,0,0,0,0,0,0,100,3,0,0,0,0,0,0,0,0,0,0,"{""building"": 100, ""landuse"": 11}","{""building"": 3}",{}
+46,vichada,2246826,1,2054,795,1098,0,53,108,0,0,0,0,0,0,0,38,84,0,5,3,0,10,6,0,0,0,0,"{""building"": 38, ""intermittent"": 10, ""waterway"": 10, ""highway"": 5}","{""building"": 84, ""intermittent"": 6, ""waterway"": 6, ""highway"": 3, ""surface"": 2, ""ref"": 1}",{}
+47,Erwinvanw,4579915,4,2027,993,830,0,130,74,0,0,0,0,0,0,0,130,39,0,0,0,0,0,0,0,0,0,0,"{""building"": 130, ""layer"": 8}","{""building"": 39, ""layer"": 3}",{}
+48,Vivek Dumre,13116824,9,1974,1463,203,0,289,19,0,0,0,0,0,0,0,288,9,0,1,3,0,0,0,0,0,0,0,"{""building"": 288, ""highway"": 1}","{""source"": 12, ""building"": 9, ""barrier"": 3, ""highway"": 3, ""landuse"": 1, ""name"": 1}",{}
+49,DMcDowall,8815318,9,1924,1582,87,0,251,4,0,0,0,0,0,0,0,251,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 251}","{""highway"": 1, ""landuse"": 1}",{}
+50,osmtogo_mapper4,17967261,6,1908,760,867,0,131,150,0,0,0,0,0,0,0,131,100,0,0,10,0,0,0,0,0,0,0,"{""building"": 131}","{""source"": 116, ""building"": 100, ""highway"": 10, ""surface"": 7, ""barrier"": 6}",{}
+51,Oluwafemi_Adeyemo,11432684,1,1876,1386,171,0,318,1,0,0,0,0,0,0,0,318,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 318}","{""building"": 1}",{}
+52,Safrano,6522497,10,1843,750,994,0,62,37,0,0,0,0,0,0,0,62,14,0,0,0,0,0,0,0,0,0,0,"{""building"": 62}","{""building"": 14, ""source"": 4}",{}
+53,remimage,3626326,9,1789,1236,332,0,158,63,0,0,0,0,0,0,0,158,63,0,0,0,0,0,0,0,0,0,0,"{""building"": 158}","{""building"": 63}",{}
+54,maria!,17964931,290,1752,1462,0,0,290,0,0,0,0,0,0,0,0,290,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 290}",{},{}
+55,OliviaHo,18287987,4,1744,1351,63,0,322,8,0,0,0,0,0,0,0,320,2,0,0,1,0,0,0,0,0,0,0,"{""building"": 320, ""landuse"": 1, ""leisure"": 1, ""sport"": 1}","{""landuse"": 3, ""building"": 2, ""highway"": 1, ""motorcar"": 1, ""motorcycle"": 1, ""name"": 1, ""building:levels"": 1}",{}
+56,Zo Xu,18355618,8,1732,1266,209,0,211,43,0,3,0,0,0,0,0,209,15,0,1,1,0,0,0,0,0,0,0,"{""building"": 209, ""type"": 3, ""layer"": 2, ""highway"": 1}","{""building"": 15, ""highway"": 1, ""landuse"": 1}",{}
+57,rocknpower,4794915,7,1712,1382,0,0,330,0,0,0,0,0,0,0,0,330,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 330}",{},{}
+58,Walter Mayeku,6201821,3,1701,910,606,0,97,88,0,0,0,0,22,0,0,77,31,0,6,3,0,0,0,0,12,0,0,"{""building"": 77, ""roof:material"": 76, ""barrier"": 13, ""amenity"": 12, ""natural"": 6, ""highway"": 6, ""surface"": 6, ""generator:source"": 5, ""location"": 5, ""power"": 5}","{""building"": 31, ""roof:material"": 31, ""highway"": 3, ""surface"": 3, ""barrier"": 2}",{}
+59,LCecile,14819164,9,1648,1279,92,0,270,7,0,0,0,0,0,0,0,270,1,0,0,6,0,0,0,0,0,0,0,"{""building"": 270}","{""highway"": 6, ""motorcycle"": 4, ""building"": 1}",{}
+60,Vik!,14348763,6,1642,370,1050,0,65,157,0,0,0,0,0,2,0,58,13,0,1,9,0,0,0,0,0,0,0,"{""building"": 58, ""landuse"": 5, ""leisure"": 1, ""highway"": 1}","{""building"": 13, ""highway"": 9, ""name"": 8, ""source"": 7, ""surface"": 5, ""landuse"": 4, ""alt_name"": 2, ""fixme"": 2, ""noexit"": 1, ""barrier"": 1}",{}
+61,Peter Agenga,4570042,3,1623,688,815,0,59,61,0,0,0,0,130,1,0,21,38,0,3,11,0,0,0,0,14,0,0,"{""natural"": 104, ""barrier"": 33, ""building"": 21, ""amenity"": 14, ""roof:material"": 12, ""material"": 10, ""generator:source"": 10, ""layer"": 10, ""location"": 10, ""power"": 10, ""toilets:disposal"": 9, ""toilets:position"": 9, ""wall"": 6, ""content"": 4, ""man_made"": 4, ""highway"": 3, ""surface"": 3, ""construction"": 3, ""fence_type"": 3}","{""building"": 38, ""roof:material"": 35, ""highway"": 11, ""surface"": 11, ""barrier"": 6, ""construction"": 2, ""landuse"": 1, ""fence_type"": 1}",{}
+62,Sekou Yaya Bah,7014296,4,1590,1480,17,0,90,3,0,0,0,0,0,0,0,88,0,0,0,3,0,2,0,0,0,0,0,"{""building"": 88, ""waterway"": 2}","{""highway"": 3}",{}
+63,Astatine,11969799,9,1479,1265,13,0,179,22,0,0,0,0,0,0,0,153,8,0,26,13,0,0,0,0,0,0,0,"{""building"": 153, ""highway"": 26}","{""highway"": 13, ""building"": 8, ""name"": 6, ""source"": 6, ""surface"": 2}",{}
+64,Silvio86,18344131,25,1448,1212,79,0,148,9,0,0,0,0,0,1,0,138,1,0,8,8,0,0,0,0,1,1,0,"{""building"": 138, ""name"": 13, ""highway"": 8, ""natural"": 2, ""amenity"": 1}","{""name"": 10, ""source"": 8, ""highway"": 8, ""maxspeed"": 6, ""surface"": 6, ""amenity"": 1, ""healthcare"": 1, ""_P_CODE_"": 1, ""place"": 1, ""building"": 1}",{}
+65,Harfeur,8837344,2,1414,1209,62,0,142,1,0,0,0,0,0,0,0,120,0,0,18,1,0,0,0,0,0,0,0,"{""building"": 120, ""highway"": 18, ""landuse"": 4}","{""highway"": 1, ""surface"": 1}",{}
+66,jaggededge,6345222,11,1344,336,905,0,78,25,0,0,0,0,0,0,0,78,24,0,0,0,0,0,0,0,0,0,0,"{""building"": 78}","{""building"": 24, ""layer"": 3}",{}
+67,AlecE,18362487,8,1329,1074,3,0,244,8,0,0,0,0,0,0,0,244,1,0,0,7,0,0,0,0,0,0,0,"{""building"": 244, ""layer"": 1, ""club"": 1}","{""highway"": 7, ""name"": 3, ""name:ar"": 3, ""name:en"": 3, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1, ""alt_name"": 1, ""alt_name:en"": 1, ""source"": 1, ""footway"": 1, ""oneway"": 1, ""building"": 1}",{}
+68,Ben Vanderford,17414246,10,1329,889,270,0,154,16,0,0,0,0,0,0,0,154,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 154}",{},{}
+69,Zkwosch,108500,14,1238,902,170,0,125,41,0,0,0,0,0,0,0,42,1,0,83,38,0,0,1,0,0,0,0,"{""highway"": 83, ""surface"": 51, ""building"": 42}","{""highway"": 38, ""surface"": 8, ""source"": 1, ""waterway"": 1, ""building"": 1}",{}
+70,Tom2A,18165642,14,1227,995,64,0,161,7,0,0,0,0,0,0,0,161,5,0,0,0,0,0,0,0,0,0,0,"{""building"": 161}","{""building"": 5}",{}
+71,pedr0faria,10482974,12,1201,296,774,0,35,96,0,0,0,0,0,0,0,10,0,0,25,31,0,0,0,0,0,0,0,"{""highway"": 25, ""building"": 10}","{""highway"": 31, ""landuse"": 2, ""noname"": 1}",{}
+72,Aarogya Pandey,11807790,7,1197,605,517,0,69,6,0,0,0,0,0,0,0,69,1,0,0,2,0,0,0,0,0,0,0,"{""building"": 69}","{""highway"": 2, ""building"": 1, ""surface"": 1, ""layer"": 1}",{}
+73,landscapemapper,220206,1,1149,525,473,0,114,37,0,0,0,0,1,1,0,91,8,0,22,9,0,0,0,0,0,0,0,"{""building"": 91, ""highway"": 22, ""tracktype"": 9, ""man_made"": 1, ""construction"": 1, ""construction:railway"": 1, ""construction:railway:etcs"": 1, ""gauge"": 1, ""railway"": 1, ""usage"": 1}","{""highway"": 9, ""building"": 8, ""man_made"": 1, ""construction"": 1, ""construction:railway"": 1, ""construction:railway:etcs"": 1, ""gauge"": 1, ""railway"": 1, ""usage"": 1, ""natural"": 1, ""lanes"": 1, ""name"": 1, ""name:en"": 1, ""oneway"": 1}",{}
+74,Titus Mulenga,15693878,2,1117,786,163,0,147,21,0,0,0,0,0,0,0,147,21,0,0,0,0,0,0,0,0,0,0,"{""building"": 147}","{""building"": 21, ""source"": 18}",{}
+75,Calyppe,4839953,10,1110,916,98,0,88,8,0,0,0,0,0,0,0,88,5,0,0,2,0,0,0,0,0,0,0,"{""building"": 88}","{""building"": 5, ""highway"": 2, ""surface"": 1}",{}
+76,[DVHS] Joanne Cheong,15113451,15,1104,530,479,0,55,40,0,0,0,0,0,0,0,55,39,0,0,0,0,0,0,0,0,0,0,"{""building"": 55}","{""building"": 39}",{}
+77,Astrantia,18061361,4,1104,113,953,0,13,25,0,0,0,0,0,0,0,13,23,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}","{""building"": 23}",{}
+78,oliveiramau,10408363,12,1092,638,352,0,70,32,0,0,0,0,83,0,0,64,16,0,0,1,0,0,0,0,0,0,0,"{""natural"": 89, ""building"": 64}","{""building"": 16, ""natural"": 3, ""landuse"": 2, ""name"": 2, ""fixme"": 1, ""source"": 1, ""highway"": 1}",{}
+79,spatrick14,18259368,34,1087,891,0,0,194,2,0,0,0,0,0,0,0,194,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 194}","{""highway"": 2}",{}
+80,JKerry,15222030,6,1018,227,633,0,50,108,0,0,0,0,0,0,0,50,11,0,0,1,0,0,0,0,0,0,0,"{""building"": 50}","{""building"": 11, ""highway"": 1}",{}
+81,ivyseal,17210145,9,1017,929,3,0,63,22,0,0,0,0,0,0,0,1,0,0,62,18,0,0,0,0,0,0,0,"{""highway"": 62, ""building"": 1}","{""highway"": 18, ""landuse"": 4, ""surface"": 1, ""fixme"": 1, ""source"": 1}",{}
+82,김진경,18350279,4,1014,880,0,0,130,4,0,0,0,0,0,0,0,129,1,0,0,1,0,0,1,0,0,0,0,"{""building"": 129, ""landuse"": 1}","{""waterway"": 1, ""highway"": 1, ""building"": 1}",{}
+83,julius ivan26,6410992,2,994,778,21,0,194,1,0,0,0,0,0,0,0,194,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 194}","{""building"": 1, ""source"": 1}",{}
+84,CKORR,17630525,14,989,348,518,0,49,74,0,0,0,0,0,0,0,16,13,0,0,0,0,0,0,0,0,0,0,"{""natural"": 33, ""building"": 16}","{""building"": 13}",{}
+85,MakeSense,11054896,47,978,792,0,0,183,3,0,0,0,0,0,0,0,183,1,0,0,2,0,0,0,0,0,0,0,"{""building"": 183}","{""highway"": 2, ""layer"": 1, ""building"": 1}",{}
+86,peculiar theater,11880034,17,949,501,341,0,94,13,0,0,0,0,0,0,0,91,9,0,0,0,0,0,0,0,0,0,0,"{""building"": 91, ""landuse"": 3}","{""building"": 9, ""landuse"": 1}",{}
+87,Qwajo OSM,4853701,9,941,119,738,0,20,64,0,0,0,0,0,0,0,20,59,0,0,4,0,0,0,0,0,0,0,"{""building"": 20}","{""building"": 59, ""highway"": 4, ""surface"": 4}",{}
+88,anthaas,5438501,6,941,181,661,0,29,70,0,0,0,0,0,0,0,29,55,0,0,1,0,0,0,0,0,0,0,"{""building"": 29}","{""building"": 55, ""highway"": 1}",{}
+89,zoubinnaba,5113626,5,934,375,421,0,81,57,0,0,0,0,0,1,0,81,22,0,0,9,0,0,0,0,0,0,0,"{""building"": 81}","{""source"": 30, ""building"": 22, ""highway"": 9, ""railway"": 1, ""surface"": 1}",{}
+90,ElaJK123,17780149,13,921,366,462,0,54,39,0,0,0,0,0,0,0,54,33,0,0,3,0,0,0,0,0,0,0,"{""building"": 54}","{""building"": 33, ""highway"": 3, ""source"": 2, ""name"": 1, ""admin_level"": 1, ""boundary"": 1, ""layer"": 1}",{}
+91,Jim Bedient,17786100,3,918,435,384,0,50,49,0,0,0,0,0,0,0,50,24,0,0,0,0,0,0,0,0,0,0,"{""building"": 50}","{""building"": 24}",{}
+92,Henk222,10855040,3,912,568,211,0,121,12,0,0,0,0,0,0,0,121,9,0,0,0,0,0,0,0,0,0,0,"{""building"": 121}","{""building"": 9}",{}
+93,Gaurav Parajuli,8316170,5,902,630,117,0,142,13,0,0,0,0,0,0,0,141,1,0,1,1,0,0,0,0,0,0,0,"{""building"": 141, ""highway"": 1}","{""landuse"": 5, ""source:geometry"": 2, ""building"": 1, ""natural"": 1, ""highway"": 1}",{}
+94,rrissiek,17889,5,901,549,267,0,74,11,0,0,0,0,0,1,0,66,0,0,7,5,0,1,0,0,0,0,0,"{""building"": 66, ""highway"": 7, ""intermittent"": 1, ""waterway"": 1}","{""highway"": 5, ""barrier"": 1, ""source"": 1}",{}
+95,Thomas Burke,17403493,4,884,424,311,0,85,64,0,0,0,0,0,0,0,85,4,0,0,2,0,0,0,0,0,0,0,"{""building"": 85, ""layer"": 5}","{""building"": 4, ""highway"": 2, ""layer"": 1}",{}
+96,martinairmaps,3376734,11,874,618,210,0,42,4,0,0,0,0,0,0,0,42,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 42}","{""landuse"": 1}",{}
+97,Robo Thug,12137200,2,837,395,310,0,67,65,0,0,0,0,0,0,0,67,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 67}","{""building"": 1, ""name"": 1, ""name:ar"": 1, ""source"": 1, ""tourism"": 1}",{}
+98,BRPS,18194384,7,827,667,59,0,100,1,0,0,0,0,0,0,0,100,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 100}",{},{}
+99,MeganMaps,17800485,2,827,320,373,0,80,54,0,0,0,0,0,0,0,80,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 80}","{""landuse"": 1, ""place"": 1}",{}
+100,Allison Ritchie,10518600,5,821,246,541,0,22,12,0,0,0,0,0,1,0,22,2,0,0,5,0,0,0,0,0,0,0,"{""building"": 22, ""source"": 1, ""addr:city"": 1, ""addr:city:en"": 1, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:place"": 1, ""addr:place:en"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""construction"": 1}","{""construction"": 5, ""highway"": 5, ""addr:city"": 2, ""addr:city:en"": 2, ""addr:country"": 2, ""addr:district"": 2, ""addr:district:en"": 2, ""addr:housenumber"": 2, ""addr:place"": 2, ""addr:place:en"": 2, ""addr:postcode"": 2, ""addr:province"": 2, ""addr:province:en"": 2, ""building"": 2}",{}
+101,Mwakisole Janeth E,11632336,19,812,656,0,0,156,0,0,0,0,0,0,0,0,156,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 156}",{},{}
+102,Ryan Coles,11910418,4,805,755,0,0,50,0,0,0,0,0,0,0,0,50,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 50}",{},{}
+103,Ernst-jan Henkens,632851,5,766,626,4,0,136,0,0,0,0,0,0,0,0,136,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 136}",{},{}
+104,Lonneke76,6518907,2,722,297,331,0,66,28,0,0,0,0,0,0,0,61,6,0,5,4,0,0,0,0,0,0,0,"{""building"": 61, ""highway"": 5}","{""building"": 6, ""highway"": 4, ""surface"": 3, ""ref"": 1}",{}
+105,Libor Bednarik,4355439,1,711,300,351,0,36,24,0,0,0,0,0,0,0,36,0,0,0,0,0,0,3,0,0,0,0,"{""building"": 36}","{""intermittent"": 3, ""seasonal"": 3, ""waterway"": 3, ""natural"": 2, ""water"": 2, ""name"": 1}",{}
+106,mmahmud,3217737,6,684,464,87,0,112,21,0,0,0,0,0,0,0,112,21,0,0,0,0,0,0,0,0,0,0,"{""building"": 112, ""source"": 112}","{""building"": 21, ""source"": 21}",{}
+107,brenna_t,18366819,2,678,568,4,0,105,1,0,0,0,0,0,0,0,105,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 105, ""layer"": 1}",{},{}
+108,D4MSF,18332251,1,675,31,632,0,6,6,0,0,0,0,0,0,0,6,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 6}","{""highway"": 1, ""surface"": 1, ""building"": 1}",{}
+109,David0312,18367648,2,669,485,76,0,92,16,0,0,0,0,0,0,0,92,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 92, ""name"": 3}",{},{}
+110,Adam Fitzgerald (Linklaters),14475890,6,655,537,0,0,118,0,0,0,0,0,0,0,0,115,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 115, ""natural"": 3}",{},{}
+111,Rupa Kemprai,17717148,3,651,551,0,0,100,0,0,0,0,0,0,0,0,100,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 100}",{},{}
+112,Nadinecallan,18365959,29,648,528,0,0,120,0,0,0,0,0,0,0,0,120,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 120, ""name"": 1}",{},{}
+113,b_rey952,12395643,2,643,602,0,0,32,9,0,0,0,0,1,0,0,0,0,0,32,5,0,0,4,0,0,0,0,"{""highway"": 32, ""ford"": 1}","{""highway"": 5, ""intermittent"": 4, ""waterway"": 4}",{}
+114,Rica Zamora Duchateau,3067760,6,626,592,2,0,29,3,0,0,0,0,24,0,0,0,0,0,23,2,0,6,1,0,0,0,0,"{""ford"": 24, ""highway"": 23, ""waterway"": 6}","{""highway"": 2, ""waterway"": 1}",{}
+115,Nicka87,18330680,6,605,487,1,0,114,3,0,0,0,0,0,0,0,109,2,0,0,1,0,0,0,0,3,0,0,"{""building"": 109, ""amenity"": 3, ""leisure"": 2, ""sport"": 2}","{""building"": 2, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1, ""access"": 1, ""highway"": 1}",{}
+116,jwalseth,1005381,4,561,338,136,0,59,28,0,0,0,0,0,1,0,49,5,0,6,10,0,2,2,0,0,1,0,"{""building"": 49, ""highway"": 6, ""industrial"": 2, ""landuse"": 2, ""layer"": 2, ""waterway"": 2, ""bridge"": 1, ""tunnel"": 1}","{""highway"": 10, ""building"": 5, ""landuse"": 3, ""waterway"": 2, ""amenity"": 1, ""name"": 1, ""natural"": 1}",{}
+117,edircksen,6601365,5,540,207,285,0,39,9,0,0,0,0,0,0,0,38,5,0,1,4,0,0,0,0,0,0,0,"{""building"": 38, ""highway"": 1}","{""building"": 5, ""highway"": 4, ""tracktype"": 2, ""source"": 2, ""bridge"": 1, ""layer"": 1}",{}
+118,Dugee,17869292,11,538,455,9,0,72,2,0,0,0,0,0,0,0,72,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 72, ""layer"": 1}","{""building"": 2}",{}
+119,Marvin de Hont,6616734,4,537,321,158,0,36,22,0,0,0,0,0,0,0,33,8,0,1,4,0,2,1,0,0,0,0,"{""building"": 33, ""waterway"": 2, ""highway"": 1}","{""building"": 8, ""landuse"": 5, ""highway"": 4, ""waterway"": 1}",{}
+120,Takayuki Kiyama,11494467,22,534,426,5,0,103,0,0,0,0,0,0,0,0,103,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 103}",{},{}
+121,Smouser,12513117,15,514,415,0,0,99,0,0,0,0,0,0,0,0,99,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 99}",{},{}
+122,Kicking Leaves,12405934,3,511,464,6,0,26,15,0,0,0,0,3,1,0,0,0,0,0,4,0,26,10,0,0,0,0,"{""waterway"": 26, ""intermittent"": 25, ""seasonal"": 25, ""ford"": 3}","{""waterway"": 10, ""intermittent"": 9, ""seasonal"": 9, ""highway"": 4, ""ford"": 1}",{}
+123,BaileyMcFadden52,17412175,5,511,461,4,0,40,6,0,0,0,0,16,0,0,0,0,0,31,6,0,0,0,0,0,0,0,"{""highway"": 31, ""place"": 17, ""area"": 8, ""barrier"": 8}","{""highway"": 6, ""surface"": 2}",{}
+124,EmmPha,9379761,12,499,409,0,0,90,0,0,0,0,0,0,0,0,90,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 90}",{},{}
+125,Anisa Dhakal,11171620,2,487,41,429,0,1,16,0,0,0,0,0,0,0,1,15,0,0,1,0,0,0,0,0,0,0,"{""building"": 1}","{""building"": 15, ""highway"": 1, ""ref"": 1, ""ref:old"": 1}",{}
+126,Tengku Almira IRM-ED,17716288,16,482,283,131,0,48,20,0,0,0,0,0,1,0,45,8,0,1,4,0,0,2,0,0,2,0,"{""building"": 45, ""electrified"": 2, ""gauge"": 2, ""name"": 2, ""railway"": 2, ""usage"": 2, ""wikipedia"": 2, ""highway"": 1, ""bridge"": 1, ""layer"": 1}","{""building"": 8, ""highway"": 4, ""amenity"": 2, ""name"": 2, ""religion"": 2, ""waterway"": 2, ""motorcycle"": 1, ""import"": 1, ""source"": 1, ""electrified"": 1, ""gauge"": 1, ""railway"": 1, ""usage"": 1, ""wikipedia"": 1}",{}
+127,Satya Surakasula,18349527,25,479,382,0,0,95,2,0,0,0,0,0,0,0,95,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 95, ""layer"": 1}","{""highway"": 2}",{}
+128,Priya H,17216143,2,477,407,24,0,39,7,0,0,0,0,0,0,0,23,1,0,4,1,0,2,0,0,0,0,0,"{""building"": 23, ""natural"": 10, ""water"": 9, ""highway"": 4, ""waterway"": 2}","{""highway"": 1, ""building"": 1}",{}
+129,Chasinthedream,18361263,4,476,267,168,0,29,12,0,0,0,0,0,0,0,29,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 29}",{},{}
+130,Catalina Horquin Aristegui,14448940,2,474,410,0,0,62,2,0,0,0,0,0,0,0,62,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 62}","{""natural"": 1, ""building"": 1}",{}
+131,Puxan,5328434,20,466,94,320,0,18,34,0,0,0,0,0,0,0,18,19,0,0,7,0,0,0,0,0,0,0,"{""building"": 18}","{""building"": 19, ""highway"": 7, ""landuse"": 3, ""layer"": 1}",{}
+132,Zander G,18145936,2,461,370,0,0,90,1,0,0,0,0,0,0,0,79,0,0,11,1,0,0,0,0,0,0,0,"{""building"": 79, ""highway"": 11}","{""highway"": 1, ""source"": 1}",{}
+133,Luna Asefaw,13959252,2,453,365,9,0,75,4,0,0,0,0,0,0,0,74,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 74, ""area"": 27}","{""highway"": 1, ""name"": 1, ""source"": 1, ""building"": 1}",{}
+134,SamWilkes,18362486,7,451,374,0,0,74,3,0,0,0,0,1,0,0,74,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 74, ""leisure"": 1, ""layer"": 1}","{""highway"": 2, ""man_made"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1}",{}
+135,Rosa Pepe,11701700,14,437,369,0,0,65,3,0,0,0,0,0,0,0,65,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 65}","{""landuse"": 1, ""building"": 1}",{}
+136,SAATZ,16083311,2,437,378,0,0,59,0,0,0,0,0,0,0,0,59,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 59}",{},{}
+137,Kmanasco,18259377,31,429,353,14,0,61,1,0,0,0,0,0,0,0,61,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 61}",{},{}
+138,Govinda Yadav,13252552,2,428,330,12,0,80,6,0,0,0,0,0,0,0,79,2,0,1,1,0,0,0,0,0,0,0,"{""building"": 79, ""highway"": 1}","{""landuse"": 2, ""building"": 2, ""highway"": 1, ""int_ref"": 1, ""name"": 1, ""name:de"": 1, ""name:en"": 1, ""name:es"": 1, ""name:fa"": 1, ""name:ks"": 1, ""name:ne"": 1, ""name:pl"": 1, ""name:ur"": 1, ""ref"": 1, ""ref:old"": 1}",{}
+139,KALUBA MICHEAL,4516666,3,424,104,294,0,23,3,0,0,0,0,0,0,0,21,2,0,2,1,0,0,0,0,0,0,0,"{""source"": 22, ""building"": 21, ""highway"": 2, ""Full_Plus_Code"": 1}","{""building"": 2, ""highway"": 1}",{}
+140,MariusMllr,17708395,9,422,308,16,0,98,0,0,0,0,0,0,0,0,98,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 98}",{},{}
+141,Deuckchung,8379329,2,421,142,226,0,29,24,0,0,0,0,0,0,0,29,5,0,0,7,0,0,0,0,0,0,0,"{""building"": 29}","{""highway"": 7, ""building"": 5, ""surface"": 1}",{}
+142,Serenavocado,13574778,6,406,329,4,0,72,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,{},"{""building"": 1}",{}
+143,rt23,18236061,1,402,332,0,0,70,0,0,0,0,0,0,0,0,70,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 70}",{},{}
+144,redosm01,1803111,4,388,314,31,0,42,1,0,0,0,0,0,0,0,42,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 42}",{},{}
+145,Rasmus Suominen,18359394,4,386,332,1,0,48,5,0,0,0,0,0,0,0,48,0,0,0,5,0,0,0,0,0,0,0,"{""building"": 48}","{""highway"": 5, ""name"": 5, ""name:ar"": 5, ""name:en"": 5, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1}",{}
+146,amitg83,17848093,10,384,307,0,0,75,2,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 1}","{""highway"": 1}",{}
+147,Helmisy,18359390,21,382,312,1,0,64,5,0,0,0,0,0,0,0,64,0,0,0,5,0,0,0,0,0,0,0,"{""building"": 64, ""layer"": 17}","{""highway"": 5, ""name"": 5, ""name:ar"": 5, ""name:en"": 5, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1, ""note"": 1, ""note:en"": 1}",{}
+148,Nyaega Orina,7574899,1,380,348,1,0,28,3,0,0,0,0,12,0,0,15,0,0,3,3,0,0,0,0,5,0,0,"{""barrier"": 17, ""building"": 15, ""roof:material"": 15, ""amenity"": 5, ""highway"": 3, ""surface"": 3}","{""highway"": 3, ""surface"": 3}",{}
+149,RandalRoot,17919453,2,370,312,6,0,50,2,0,0,0,0,0,1,0,50,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 50, ""layer"": 2}","{""addr:country"": 2, ""addr:district"": 2, ""addr:district:en"": 2, ""addr:housenumber"": 2, ""addr:postcode"": 2, ""addr:province"": 2, ""addr:province:en"": 2, ""addr:street"": 2, ""addr:street:en"": 2, ""addr:subdistrict"": 2, ""addr:subdistrict:en"": 2, ""highway"": 2, ""name"": 2, ""name:ar"": 2, ""name:en"": 2, ""layer"": 1}",{}
+150,MichaelNdaro,10868456,1,369,121,207,0,17,24,0,0,0,0,5,0,0,9,20,0,0,0,0,0,0,0,3,0,0,"{""building"": 9, ""roof:material"": 9, ""barrier"": 6, ""generator:source"": 4, ""level"": 4, ""location"": 4, ""power"": 4, ""amenity"": 3}","{""building"": 20, ""roof:material"": 16, ""barrier"": 4}",{}
+151,KellyHScott,18245599,22,359,293,0,0,66,0,0,0,0,0,0,0,0,66,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 66, ""layer"": 1}",{},{}
+152,Yazzer778,17545109,7,354,279,11,0,61,3,0,0,0,0,0,0,0,61,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 61}","{""highway"": 1, ""name"": 1, ""source"": 1, ""landuse"": 1, ""building"": 1}",{}
+153,MM155636,17579768,2,349,324,0,0,25,0,0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 25}",{},{}
+154,EsthersGeo,6532561,1,342,266,19,0,56,1,0,0,0,0,0,0,0,56,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 56}",{},{}
+155,_r4@k,18346707,15,339,241,39,0,52,7,0,0,0,0,0,0,0,52,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 52}","{""building"": 2}",{}
+156,Rebecca Shames,11097248,65,326,261,0,0,65,0,0,0,0,0,0,0,0,65,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 65}",{},{}
+157,Snakej,18040441,4,322,263,0,0,59,0,0,0,0,0,0,0,0,59,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 59}",{},{}
+158,UNGSC-isoipsa,10652094,1,322,245,51,0,13,13,0,0,0,0,8,1,0,0,0,0,10,8,0,0,0,0,0,0,0,"{""highway"": 10, ""place"": 8, ""landuse"": 3}","{""highway"": 8, ""place"": 1, ""surface"": 1, ""tracktype"": 1}",{}
+159,Ashim Paudel,16378761,2,321,154,141,0,25,1,0,0,0,0,0,0,0,24,0,0,1,1,0,0,0,0,0,0,0,"{""building"": 24, ""highway"": 1}","{""highway"": 1}",{}
+160,Söhmuel,18359383,13,317,245,28,0,39,5,0,0,0,0,0,4,0,36,3,0,0,1,0,0,0,0,3,0,0,"{""building"": 36, ""layer"": 6, ""amenity"": 3}","{""addr:country"": 5, ""addr:district"": 5, ""addr:district:en"": 5, ""addr:housenumber"": 5, ""addr:postcode"": 5, ""addr:province"": 5, ""addr:province:en"": 5, ""addr:street"": 5, ""addr:street:en"": 5, ""addr:subdistrict"": 5, ""addr:subdistrict:en"": 5, ""building"": 3, ""note"": 1, ""note:en"": 1, ""highway"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1, ""oneway"": 1}",{}
+161,R@bina dhakal,17378030,13,315,256,1,0,57,1,0,0,0,0,0,0,0,57,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 57}","{""building"": 1}",{}
+162,mitcho2013,4813258,2,309,257,0,0,51,1,0,0,0,0,0,0,0,51,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 51, ""layer"": 1}","{""area"": 1, ""name"": 1, ""name:en"": 1, ""name:ja"": 1, ""public_transport"": 1, ""railway"": 1, ""ref"": 1}",{}
+163,hibagonsan,5939709,3,303,234,11,0,56,2,0,0,0,0,0,0,0,56,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 56}","{""building"": 1}",{}
+164,Henk Kamphuis,12564859,2,294,76,184,0,16,18,0,0,0,0,0,0,0,16,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 16}","{""building"": 1}",{}
+165,Hkipel,17847867,12,280,226,0,0,54,0,0,0,0,0,0,0,0,54,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 54}",{},{}
+166,irish-monkey,10186228,1,278,245,0,0,26,7,0,0,0,0,0,0,0,26,3,0,0,4,0,0,0,0,0,0,0,"{""building"": 26}","{""highway"": 4, ""building"": 3, ""source"": 1}",{}
+167,EKOTAMIKE,2886200,2,275,229,6,0,39,1,0,0,0,0,0,0,0,39,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 39}",{},{}
+168,Awania Morish,9379491,5,272,124,118,0,24,6,0,0,0,0,0,0,0,23,5,0,1,1,0,0,0,0,0,0,0,"{""building"": 23, ""source"": 7, ""highway"": 1}","{""building"": 5, ""source:geometry"": 3, ""source:geometry:date"": 3, ""highway"": 1}",{}
+169,Kenny-S,18330589,9,271,217,0,0,53,1,0,0,0,0,0,0,0,52,0,0,0,1,0,0,0,0,1,0,0,"{""building"": 52, ""amenity"": 1}","{""highway"": 1}",{}
+170,MiRei,18364428,4,266,200,22,0,42,2,0,0,0,0,0,0,0,39,0,0,3,2,0,0,0,0,0,0,0,"{""building"": 39, ""highway"": 3}","{""highway"": 2, ""import"": 1, ""source"": 1}",{}
+171,Ekov2,15465677,7,264,206,24,0,29,5,0,0,0,0,0,0,0,22,4,0,1,1,0,0,0,0,0,0,0,"{""building"": 22, ""generator:method"": 6, ""generator:output:electricity"": 6, ""generator:source"": 6, ""generator:type"": 6, ""power"": 6, ""highway"": 1}","{""building"": 4, ""highway"": 1}",{}
+172,Pdog1634,18365970,5,261,207,4,0,48,2,0,0,0,0,0,0,0,48,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 48}","{""building"": 2}",{}
+173,Denise M Leigh,8989162,45,256,199,12,0,45,0,0,0,0,0,0,0,0,45,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 45}",{},{}
+174,Hari TN,11853008,1,255,109,117,0,24,5,0,0,0,0,0,0,0,24,3,0,0,1,0,0,0,0,0,0,0,"{""building"": 24}","{""building"": 3, ""highway"": 1, ""source"": 1}",{}
+175,Cory I,13771324,9,249,190,27,0,26,6,0,0,0,0,0,0,0,17,1,0,5,1,0,0,0,0,0,0,0,"{""building"": 17, ""highway"": 5, ""landuse"": 4}","{""access"": 1, ""highway"": 1, ""source"": 1, ""building"": 1}",{}
+176,D45H,18365987,1,246,144,58,0,25,19,0,0,0,0,0,0,0,20,5,0,5,5,0,0,0,0,0,0,0,"{""building"": 20, ""highway"": 5}","{""highway"": 5, ""building"": 5, ""landuse"": 1, ""place"": 1}",{}
+177,Jemimah Mukisa,12575202,6,243,243,0,0,0,0,0,0,0,0,242,0,0,177,0,0,0,0,0,0,0,0,0,0,0,"{""name"": 243, ""place"": 243, ""source"": 243, ""building"": 177, ""is:in_counrty"": 131}",{},{}
+178,marco443,1886646,10,241,77,134,0,17,13,0,0,0,0,0,0,0,17,7,0,0,0,0,0,0,0,0,0,0,"{""building"": 17}","{""building"": 7}",{}
+179,maferikotupi,2115804,2,236,148,51,0,27,10,0,0,0,0,0,0,0,20,0,0,6,2,0,0,1,0,0,0,0,"{""building"": 20, ""highway"": 6, ""landuse"": 1}","{""highway"": 2, ""access:conditional"": 1, ""description"": 1, ""seasonal"": 1, ""smoothness"": 1, ""surface"": 1, ""waterway"": 1}",{}
+180,Chase_1,17899603,1,236,189,4,0,43,0,0,0,0,0,0,0,0,43,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 43}",{},{}
+181,Pichalupa,17681500,6,231,177,17,0,35,2,0,0,0,0,0,0,0,35,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 35}","{""highway"": 1, ""source"": 1, ""building"": 1}",{}
+182,BlueberryA,7971386,8,230,184,0,0,44,2,0,0,0,0,0,0,0,44,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 44}","{""highway"": 2, ""surface"": 1}",{}
+183,rob98122,17286379,2,229,190,0,0,39,0,0,0,0,0,0,0,0,39,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 39}",{},{}
+184,Co Meijer,3410462,1,229,163,43,0,17,6,0,0,0,0,0,0,0,17,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 17}","{""landuse"": 1, ""building"": 1}",{}
+185,ppku,14057548,2,226,149,44,0,25,8,0,0,0,0,0,0,0,21,0,0,4,8,0,0,0,0,0,0,0,"{""building"": 21, ""highway"": 4, ""surface"": 4}","{""highway"": 8, ""surface"": 8}",{}
+186,patrick mbaya,6854898,1,226,121,70,0,28,7,0,0,0,0,0,0,0,28,0,0,0,5,0,0,0,0,0,0,0,"{""building"": 28}","{""highway"": 5, ""surface"": 5, ""landuse"": 1}",{}
+187,Boris Sky,18365978,8,225,188,0,0,37,0,0,0,0,0,0,0,0,37,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 37}",{},{}
+188,Assitan,15229575,2,213,171,0,0,42,0,0,0,0,0,0,0,0,42,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 42}",{},{}
+189,tx2ny,14432270,6,213,165,12,0,35,1,0,0,0,0,0,0,0,35,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 35}","{""building"": 1}",{}
+190,bcgrubbs,18225654,2,209,167,0,0,42,0,0,0,0,0,0,0,0,42,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 42}",{},{}
+191,Eetu Alanen,18359380,7,209,187,1,0,21,0,0,0,0,0,0,0,0,21,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 21, ""layer"": 3}","{""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:place"": 1, ""addr:place:en"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1}",{}
+192,Mukesh Thapa,11674386,6,206,195,1,0,5,5,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,"{""highway"": 5}","{""highway"": 5, ""surface"": 2}",{}
+193,milllaaaws,18363783,11,206,117,55,0,25,9,0,0,0,0,0,2,0,25,2,0,0,3,0,0,0,0,0,0,0,"{""building"": 25}","{""highway"": 3, ""name"": 3, ""name:ar"": 3, ""name:en"": 3, ""addr:country"": 2, ""addr:district"": 2, ""addr:district:en"": 2, ""addr:housenumber"": 2, ""addr:postcode"": 2, ""addr:province"": 2, ""addr:province:en"": 2, ""addr:street"": 2, ""addr:street:en"": 2, ""addr:subdistrict"": 2, ""addr:subdistrict:en"": 2, ""building"": 2}",{}
+194,Lapjun,16565889,1,205,154,30,0,10,11,0,0,0,0,4,0,0,0,0,0,10,8,0,0,0,0,0,0,0,"{""highway"": 10, ""surface"": 8, ""place"": 4}","{""highway"": 8, ""surface"": 3, ""access"": 2, ""foot"": 1, ""incline"": 1}",{}
+195,MeetaGC,18352081,5,205,167,0,0,36,2,0,0,0,0,0,0,0,31,0,0,5,2,0,0,0,0,0,0,0,"{""building"": 31, ""highway"": 5, ""layer"": 1}","{""highway"": 2}",{}
+196,Dieggo33,18359389,13,202,167,3,0,28,4,0,0,0,0,0,2,0,28,0,0,0,4,0,0,0,0,0,0,0,"{""building"": 28}","{""highway"": 4, ""name"": 4, ""name:ar"": 4, ""name:en"": 4, ""addr:country"": 3, ""addr:district"": 3, ""addr:district:en"": 3, ""addr:housenumber"": 3, ""addr:postcode"": 3, ""addr:province"": 3, ""addr:province:en"": 3, ""addr:street"": 3, ""addr:street:en"": 3, ""addr:subdistrict"": 3, ""addr:subdistrict:en"": 3, ""note"": 1, ""note:en"": 1}",{}
+197,Lochan Pant,14854690,6,201,56,131,0,7,7,0,0,0,0,0,0,0,7,7,0,0,0,0,0,0,0,0,0,0,"{""building"": 7}","{""building"": 7}",{}
+198,Eltsu,18359384,5,196,138,19,0,30,9,0,0,0,0,0,2,0,30,3,0,0,5,0,0,0,0,0,0,0,"{""building"": 30}","{""highway"": 5, ""name"": 5, ""name:ar"": 5, ""name:en"": 5, ""building"": 3, ""source"": 3, ""addr:country"": 2, ""addr:district"": 2, ""addr:district:en"": 2, ""addr:housenumber"": 2, ""addr:postcode"": 2, ""addr:province"": 2, ""addr:province:en"": 2, ""addr:street"": 2, ""addr:street:en"": 2, ""addr:subdistrict"": 2, ""addr:subdistrict:en"": 2}",{}
+199,Medora Benson,18347834,2,192,166,0,0,26,0,0,0,0,0,0,0,0,26,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 26}",{},{}
+200,Ranek,156121,4,192,34,145,0,7,6,0,0,0,0,0,0,0,6,3,0,1,1,0,0,0,0,0,0,0,"{""building"": 6, ""highway"": 1}","{""building"": 3, ""highway"": 1}",{}
+201,USTiwari,14029490,6,189,151,0,0,38,0,0,0,0,0,0,0,0,38,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 38}",{},{}
+202,Mutambala,15750748,1,187,18,156,0,1,12,0,0,0,0,0,0,0,1,6,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}","{""building"": 6}",{}
+203,Sarojpokhrel,10934301,2,185,154,16,0,14,1,0,0,0,0,0,0,0,10,1,0,4,0,0,0,0,0,0,0,0,"{""building"": 10, ""highway"": 4}","{""building"": 1}",{}
+204,Youdahe,13800693,6,184,149,12,0,22,1,0,0,0,0,0,0,0,21,1,0,1,0,0,0,0,0,0,0,0,"{""building"": 21, ""highway"": 1}","{""building"": 1, ""source"": 1}",{}
+205,RKML,18268078,6,184,154,0,0,30,0,0,0,0,0,0,0,0,30,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 30}",{},{}
+206,Greystoke69100,13032226,1,183,155,12,0,14,2,0,0,0,0,0,0,0,13,1,0,1,0,0,0,0,0,0,0,0,"{""building"": 13, ""highway"": 1, ""surface"": 1}","{""building"": 1}",{}
+207,Heterodyne,9531596,2,182,11,165,0,0,6,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,{},"{""building"": 6}",{}
+208,Sangeeta BC,13203366,1,181,144,1,0,36,0,0,0,0,0,0,0,0,36,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 36}",{},{}
+209,KF SF,13533001,4,177,145,0,0,31,1,0,0,0,0,0,0,0,31,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 31}","{""highway"": 1}",{}
+210,mandyhong,7731695,3,177,137,1,0,35,4,0,0,0,0,0,0,0,35,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 35}","{""highway"": 1, ""landuse"": 1}",{}
+211,KatQuan,18364366,2,176,148,0,0,28,0,0,0,0,0,0,0,0,28,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 28}",{},{}
+212,Conal Hughes,18365963,10,173,139,0,0,34,0,0,0,0,0,0,0,0,34,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 34}",{},{}
+213,Cirilo Amaral,15631413,2,173,152,0,0,18,3,0,0,0,0,0,0,0,6,0,0,12,3,0,0,0,0,0,0,0,"{""highway"": 12, ""source"": 7, ""building"": 6}","{""highway"": 3}",{}
+214,Aaron Gramlich,17868901,12,172,31,128,0,5,8,0,0,0,0,0,0,0,5,6,0,0,2,0,0,0,0,0,0,0,"{""building"": 5, ""layer"": 1}","{""building"": 6, ""highway"": 2, ""layer"": 2}",{}
+215,James Amattey,16288334,1,169,134,0,0,35,0,0,0,0,0,0,0,0,29,0,0,6,0,0,0,0,0,0,0,0,"{""source"": 34, ""building"": 29, ""highway"": 6}",{},{}
+216,Sundeep Vootla,18367378,8,160,118,8,0,30,4,0,0,0,0,0,0,0,22,2,0,0,2,0,0,0,0,0,0,0,"{""building"": 22, ""landuse"": 8}","{""highway"": 2, ""building"": 2, ""AND:importance_level"": 1, ""AND_a_nosr_r"": 1, ""source"": 1}",{}
+217,lilyg1,18366007,2,153,125,1,0,27,0,0,0,0,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 16, ""area"": 9}",{},{}
+218,Laurel_Mire,18366786,3,152,126,6,0,17,3,0,0,0,0,0,0,0,17,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 17}","{""highway"": 2, ""name"": 2, ""name:ar"": 2, ""name:en"": 2}",{}
+219,vk5366,18363780,8,151,119,4,0,27,1,0,0,0,0,0,0,0,27,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 27}","{""highway"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1}",{}
+220,sandra waniwroth,15919982,1,149,106,20,0,23,0,0,0,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 23, ""source"": 23}",{},{}
+221,Anoop4897,17869294,25,145,112,0,0,27,6,0,0,0,0,0,0,0,17,0,0,0,5,0,0,0,0,0,0,0,"{""building"": 17, ""area"": 8, ""landuse"": 7}","{""highway"": 5, ""cables"": 1, ""power"": 1, ""source"": 1, ""voltage"": 1}",{}
+222,ODULANA OLUWATOYIN,10483398,3,142,116,2,0,24,0,0,0,0,0,0,0,0,24,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 24}",{},{}
+223,Kaisukos,18363785,3,139,102,13,0,17,7,0,0,0,0,0,0,0,17,1,0,0,3,0,0,0,0,0,0,0,"{""building"": 17, ""layer"": 3}","{""highway"": 3, ""name"": 3, ""name:ar"": 3, ""name:en"": 3, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1, ""layer"": 1, ""building"": 1, ""height"": 1}",{}
+224,Simran9,18321851,2,137,112,0,0,25,0,0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 25}",{},{}
+225,John McArdle,18351778,11,128,117,0,0,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,0,0,0,"{""waterway"": 11}",{},{}
+226,1733ndke62,9178834,1,128,104,2,0,22,0,0,0,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 22}",{},{}
+227,VinkonaHB,11332293,4,127,43,71,0,10,3,0,0,0,0,0,0,0,10,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}","{""building"": 1}",{}
+228,Ilanck,18224767,6,127,102,0,0,23,2,0,0,0,0,0,0,0,23,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 23}","{""highway"": 2}",{}
+229,Saraswathi Paruchuri,18349835,12,118,95,0,0,23,0,0,0,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 23}",{},{}
+230,Lafayette19,18362494,23,114,90,1,0,23,0,0,0,0,0,0,0,0,22,0,0,1,0,0,0,0,0,0,0,0,"{""building"": 22, ""highway"": 1}",{},{}
+231,MorganeMo,18283235,8,111,90,0,0,21,0,0,0,0,0,0,0,0,21,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 21}",{},{}
+232,milliemt,18365671,3,111,90,0,0,21,0,0,0,0,0,0,0,0,21,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 21}",{},{}
+233,JacquieM,10382496,1,110,89,4,0,16,1,0,0,0,0,0,0,0,16,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 16}","{""highway"": 1, ""surface"": 1}",{}
+234,Manivannan Sugumar,17869239,9,109,86,0,0,23,0,0,0,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 23}",{},{}
+235,IsmatAlhassan,13947773,3,106,86,0,0,20,0,0,0,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 20}",{},{}
+236,stephnwakonobi,16372603,16,100,84,0,0,16,0,0,0,0,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 16}",{},{}
+237,Allie_R,17997077,3,95,76,0,0,19,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 19}",{},{}
+238,Frans S,1962399,8,93,46,16,0,5,26,0,0,0,0,7,8,0,0,1,0,3,20,0,0,1,0,0,0,0,"{""place"": 7, ""highway"": 3, ""landuse"": 2, ""surface"": 1}","{""highway"": 20, ""surface"": 7, ""ford"": 6, ""place"": 2, ""tracktype"": 2, ""source"": 1, ""landuse"": 1, ""bridge"": 1, ""layer"": 1, ""intermittent"": 1, ""waterway"": 1, ""path"": 1, ""building"": 1}",{}
+239,alfiebyrne,18365977,3,92,75,0,0,17,0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 17}",{},{}
+240,Arvind B,17869223,3,90,75,0,0,15,0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 15}",{},{}
+241,Bhavin Upadhyay,18265886,17,89,69,0,0,19,1,0,0,0,0,0,0,0,19,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 19, ""layer"": 1}","{""highway"": 1}",{}
+242,Joonatan2023,18359387,2,85,70,0,0,15,0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 15}",{},{}
+243,flipsteen,12588056,2,84,48,22,0,11,3,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}",{},{}
+244,haluk5,15859442,2,80,64,0,0,16,0,0,0,0,0,0,0,0,16,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 16}",{},{}
+245,SBBaum,17279115,1,80,53,16,0,11,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 10, ""leisure"": 1}",{},{}
+246,adechazal,12598514,2,76,68,1,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,"{""waterway"": 4, ""natural"": 3}",{},{}
+247,MarcusHPE,12128535,1,74,60,8,0,4,2,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
+248,Gwen Taylor,17998075,1,73,52,8,0,11,2,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}",{},{}
+249,ConnieMiller,18063382,1,70,58,0,0,12,0,0,0,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 12}",{},{}
+250,Santwest,18359386,3,67,58,1,0,8,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 8}","{""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1}",{}
+251,okkimus,18349306,2,65,48,6,0,10,1,0,0,0,0,0,0,0,9,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 9, ""landuse"": 1}","{""building"": 1}",{}
+252,Jeremie Ntumba,18365637,1,63,50,0,0,13,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}",{},{}
+253,Daniel Shaheen,18367395,1,61,50,0,0,11,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}",{},{}
+254,KarleneMM,17347542,1,60,48,0,0,12,0,0,0,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 12}",{},{}
+255,zjomaric,17491432,7,56,44,0,0,11,1,0,0,0,0,0,0,0,11,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 11}","{""highway"": 1, ""lanes"": 1, ""ref"": 1, ""sidewalk"": 1, ""smoothness"": 1, ""source"": 1, ""surface"": 1}",{}
+256,TPBJ24,18362710,5,56,47,0,0,8,1,0,0,0,0,0,0,0,7,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 7, ""landuse"": 1}","{""building"": 1}",{}
+257,pkodame,4556176,1,56,50,0,0,6,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
+258,Wistone Nkhoma,17081088,3,56,33,15,0,6,2,0,0,0,0,0,0,0,6,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 6}","{""highway"": 2}",{}
+259,Radhav,18365638,2,55,50,0,0,5,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}",{},{}
+260,imbaah,9567985,1,55,44,0,0,11,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}",{},{}
+261,dialloalpha,3713991,7,55,43,4,0,7,1,0,0,0,0,0,0,0,2,0,0,4,1,0,0,0,0,0,0,0,"{""highway"": 4, ""building"": 2, ""barrier"": 1}","{""highway"": 1}",{}
+262,samrat02,13255920,4,53,3,50,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"{""natural"": 3}",{},{}
+263,Erick tamba,10570996,2,53,13,13,0,5,21,0,1,0,0,0,1,0,2,0,0,0,16,0,0,2,0,0,0,0,"{""building"": 2, ""landuse"": 1, ""type"": 1}","{""highway"": 16, ""name"": 3, ""waterway"": 2, ""place"": 1, ""surface"": 1, ""natural"": 1}",{}
+264,Davo1,17175805,1,52,26,20,0,5,1,0,0,0,0,0,0,0,5,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}","{""building"": 1}",{}
+265,LHADDIE,16980420,1,52,42,0,0,10,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 10, ""source"": 10}",{},{}
+266,PrateekSGoyal,14191922,9,48,38,1,0,8,1,0,0,0,0,0,0,0,8,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 8}","{""building"": 1}",{}
+267,Baovola,3138746,1,48,42,0,0,6,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
+268,Jack Fell,11107120,1,47,42,0,0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"{""landuse"": 3}","{""landuse"": 2, ""name"": 2}",{}
+269,Balaji Selvaraj,17869290,2,47,40,0,0,7,0,0,0,0,0,0,0,0,5,0,0,2,0,0,0,0,0,0,0,0,"{""building"": 5, ""name"": 4, ""highway"": 2, ""motor_vehicle"": 2}",{},{}
+270,SurjeetDhillon,14191897,7,44,35,0,0,7,2,0,0,0,0,0,0,0,4,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 4, ""natural"": 2, ""water"": 2, ""name"": 1, ""landuse"": 1}","{""voltage"": 2, ""electrified"": 1, ""frequency"": 1, ""gauge"": 1, ""highway"": 1, ""passenger_lines"": 1, ""source"": 1, ""usage"": 1, ""cables"": 1, ""power"": 1}",{}
+271,Prabin KC,16481719,1,42,32,4,0,5,1,0,0,0,0,0,0,0,4,0,0,1,1,0,0,0,0,0,0,0,"{""building"": 4, ""highway"": 1}","{""highway"": 1}",{}
+272,Maria Pilatti,18365023,2,41,33,0,0,8,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 8}",{},{}
+273,Esmèe,14317182,3,40,32,0,0,8,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 8}",{},{}
+274,Lory H,18367600,1,40,38,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+275,svoruganti,17868981,9,39,30,0,0,9,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 9}",{},{}
+276,Meena Acharya,18079156,2,38,32,0,0,6,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
+277,Pius Gabula,6288218,1,36,20,12,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
+278,nibrande,5810664,6,35,24,6,0,5,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}",{},{}
+279,DanielB100,18364553,6,33,27,0,0,6,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
+280,Andrew Buckley,18365979,2,30,24,0,0,6,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
+281,Daniel Specht,2393795,2,30,27,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"{""landuse"": 1}","{""landuse"": 1}",{}
+282,KSchierman,14018323,1,28,24,0,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
+283,EVELYN NOMAYO,18365966,4,27,19,3,0,5,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5, ""layer"": 1}",{},{}
+284,eddie11,5010433,1,25,10,12,0,1,2,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}","{""building"": 2}",{}
+285,Kraja0107,14022943,1,21,16,0,0,4,1,0,0,0,0,0,0,0,4,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 4}","{""highway"": 1, ""surface"": 1}",{}
+286,ngumenawesamson,2623654,1,20,0,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{},{}
+287,AleksanteriLumiaho,18363754,2,19,16,0,0,3,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
+288,Anjelina Singh,14478218,1,18,16,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+289,omarselim,10996782,1,17,14,0,0,3,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3, ""source"": 3}",{},{}
+290,Memedum,18365019,2,16,14,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+291,GEOG281_Bonnville-Sexton_Kelly,18329457,1,15,13,0,0,2,0,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,2,0,0,"{""name"": 4, ""amenity"": 2, ""building"": 2, ""shop"": 1}",{},{}
+292,Katie Glencross,18366009,1,15,8,2,0,2,3,0,0,0,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 2}","{""highway"": 2, ""landuse"": 1}",{}
+293,OliverDyson19,13657541,3,15,12,0,0,3,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
+294,PlayzinhoAgro,10460642,1,13,1,6,0,0,6,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,{},"{""building"": 5, ""building:levels"": 5, ""height"": 5, ""addr:city"": 3, ""addr:housenumber"": 3, ""addr:postcode"": 3, ""addr:street"": 3, ""addr:suburb"": 3, ""pmfsefin:idedif"": 2, ""industrial"": 1, ""landuse"": 1, ""name"": 1}",{}
+295,mstrovarelli,11223608,2,12,10,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+296,asidxd,18364898,2,11,9,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+297,Sreekanth Kalluru,18267999,2,11,8,0,0,2,1,0,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}","{""building"": 1}",{}
+298,JCrozz44,18366032,1,11,9,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+299,madhsais,13992905,1,10,8,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+300,AKOUETE,4274094,2,10,8,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+301,gnoorsye,13993129,1,10,8,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+302,Awelewa,18361991,1,10,8,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+303,Thomas Pontzeele,14448995,1,9,7,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+304,Cathy Cribbin,18365958,1,8,6,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+305,Mia selimovic,18365603,1,7,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{},{}
+306,jakemcgowan,16617877,1,7,6,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
+307,ciara mcginn,18366003,1,5,4,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
+308,Jay Patel Harrogate,18366693,1,5,4,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
+309,Finley cox,13266339,1,5,3,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,"{""highway"": 1}","{""highway"": 1}",{}
+310,KiranMitra,12259357,1,5,4,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
+311,TejiriMaaro,18364269,1,4,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{},{}
+312,Naaktemolrat,7020527,1,3,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,{},"{""highway"": 1}",{}
+313,rickmansworth,11870569,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,{},"{""highway"": 1}",{}
