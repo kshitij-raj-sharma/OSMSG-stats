@@ -1,10 +1,10 @@
 name: Run Daily Report Hotosm Hashtag
 on:
-  schedule:
-    - cron: "0 6 * * *" # Run every day at 7 UTC
-  # push:
-  #   branches:
-  #     - master
+  # schedule:
+  #   - cron: "0 6 * * *" # Run every day at 7 UTC
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -20,9 +20,9 @@ jobs:
 
       - name: Install necessary dependecies
         run: |
-          pip install flare-floss
-          pip install -e . 
           pip install tweepy
+          pip install -r requirements.txt
+          pip install -e . 
 
       - name: Generate Daily Hashtag Stats
         run: |
