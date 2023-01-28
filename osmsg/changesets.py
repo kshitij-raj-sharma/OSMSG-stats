@@ -95,7 +95,14 @@ class ChangesetToolKit:
             end_date = last_run
             end_seq = current_sequence
         else:
-            end_seq = self.timestamp_to_sequence(end_date)
+            current_sequence, last_run = self.get_current_state()
+            if end_date > last_run:
+                print(
+                    f"End Date is not available on changeset server changing to latest available date {last_run} "
+                )
+                end_seq = current_sequence
+            else:
+                end_seq = self.timestamp_to_sequence(end_date)
         if start_seq >= end_seq:
             print("Already up-to-date.")
             sys.exit()

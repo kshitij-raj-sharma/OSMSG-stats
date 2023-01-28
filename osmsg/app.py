@@ -146,16 +146,24 @@ class ChangefileHandler(osmium.SimpleHandler):
 
     def node(self, n):
         if n.timestamp >= start_date_utc and n.timestamp <= end_date_utc:
-            calculate_stats(n.uid, n.user, n.changeset, n.version, n.tags, "nodes")
+            version = n.version
+            if n.deleted:
+                version = 0
+            calculate_stats(n.uid, n.user, n.changeset, version, n.tags, "nodes")
 
     def way(self, w):
         if w.timestamp >= start_date_utc and w.timestamp <= end_date_utc:
-
-            calculate_stats(w.uid, w.user, w.changeset, w.version, w.tags, "ways")
+            version = w.version
+            if w.deleted:
+                version = 0
+            calculate_stats(w.uid, w.user, w.changeset, version, w.tags, "ways")
 
     def relation(self, r):
         if r.timestamp >= start_date_utc and r.timestamp <= end_date_utc:
-            calculate_stats(r.uid, r.user, r.changeset, r.version, r.tags, "relations")
+            version = r.version
+            if r.deleted:
+                version = 0
+            calculate_stats(r.uid, r.user, r.changeset, version, r.tags, "relations")
 
 
 def process_changefiles(url):
@@ -500,6 +508,7 @@ def main():
         with concurrent.futures.ThreadPoolExecutor() as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list
             executor.map(process_changesets, changeset_download_urls)
+
         print("Changeset Processing Finished")
         end_date = strip_utc(
             Changeset.sequence_to_timestamp(changeset_end_seq), args.timezone
@@ -516,7 +525,7 @@ def main():
     ) = get_download_urls_changefiles(start_date, end_date, args.url, args.timezone)
     if server_ts < end_date:
         print(
-            "Warning : End date data is not available at server, Changing to latest available date "
+            f"Warning : End date data is not available at server, Changing to latest available date {server_ts}"
         )
         end_date = server_ts
         if start_date >= server_ts:
@@ -525,8 +534,8 @@ def main():
     global end_date_utc
     global start_date_utc
 
-    start_date_utc = start_date
-    end_date_utc = end_date
+    start_date_utc = start_date.astimezone(dt.timezone.utc)
+    end_date_utc = end_date.astimezone(dt.timezone.utc)
     temp_path = os.path.join(os.getcwd(), "temp/changefiles")
     if not os.path.exists(temp_path):
         os.makedirs(temp_path)
@@ -535,10 +544,12 @@ def main():
     with concurrent.futures.ThreadPoolExecutor() as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         executor.map(process_changefiles, download_urls)
+
+        executor.shutdown(wait=True)
     print("Changefiles Processing Finished")
     os.chdir(os.getcwd())
     shutil.rmtree("temp")
-    if len(users) > 1:
+    if len(users) >= 1:
         # print(users)
         if args.wild_tags:
             for user in users:
