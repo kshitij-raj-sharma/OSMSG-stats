@@ -59,28 +59,46 @@ def main():
 
     if args.tweet_last_week:
         if args.tweet_global:
-            api.update_status(
+            orginal_tweet = api.update_status(
                 status=f"Global Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Weekly/weekly_global_stats.csv #weeklystats #OpenStreetMap #global",
                 media_ids=[media.media_id],
             )
-
+            print(thread_summary)
+            thread_tweet = api.update_status(
+                status=thread_summary,
+                in_reply_to_status_id=orginal_tweet.id,
+            )
         else:
-            api.update_status(
+            orginal_tweet = api.update_status(
                 status=f"Nepal Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Weekly/weekly_nepal_stats.csv #weeklystats #OpenStreetMap #osmnepal",
                 media_ids=[media.media_id],
+            )
+            print(thread_summary)
+            thread_tweet = api.update_status(
+                status=thread_summary,
+                in_reply_to_status_id=orginal_tweet.id,
             )
         print("twitted")
     if args.tweet_last_month:
         if args.tweet_global:
-            api.update_status(
+            orginal_tweet = api.update_status(
                 status=f"Global Contributors Last Month\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Monthly/Monthly_global_stats.csv #monthlystats #OpenStreetMap #global",
                 media_ids=[media.media_id],
             )
-
+            print(thread_summary)
+            thread_tweet = api.update_status(
+                status=thread_summary,
+                in_reply_to_status_id=orginal_tweet.id,
+            )
         else:
-            api.update_status(
+            orginal_tweet = api.update_status(
                 status=f"Nepal Contributors This Month\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Monthly/Monthly_nepal_stats.csv #monthlystats #OpenStreetMap #osmnepal",
                 media_ids=[media.media_id],
+            )
+            print(thread_summary)
+            thread_tweet = api.update_status(
+                status=thread_summary,
+                in_reply_to_status_id=orginal_tweet.id,
             )
         print("twitted")
     if args.tweet_hotosm:
