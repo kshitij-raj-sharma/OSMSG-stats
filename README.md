@@ -56,20 +56,29 @@ It is a Simple python script processes osm files live and produces stats on the 
 
 1. It can Generate Stats on Country Level for countries . Countries are available in [here](./data/countries_un.csv)
 2. It can also take any other server replication changefile to extract stats (Tested with Geofabrik and Planet Replication)
-3. Can Generate hashtag statistics 
+3. Can Generate hashtag statistics
 4. Generates stats like this : or Visualize those as csv [here](./stats/)
 
 ```
 {"name":"username","uid":uid,"changesets":1,"nodes.create":1071,"nodes.modify":2100,"nodes.delete":0,"ways.create":146,"ways.modify":69,"ways.delete":0,"relations.create":0,"relations.modify":1,"relations.delete":0,"building.create":138,"building.modify":11,"building.delete":0,"highway.create":5,"highway.modify":49,"highway.delete":0,"waterway.create":0,"waterway.modify":4,"waterway.delete":0,"amenity.create":0,"amenity.modify":3,"amenity.delete":0,"landuse.create":3,"landuse.modify":1,"landuse.delete":0,"natural.create":0,"natural.modify":3,"natural.delete":0,"total_map_changes":3387}
 ```
+
 ### Example Commands
 
-- To extract stats for last day whole world :
+- To extract for specific date/time frame (extracts stats for 15 days custom date range):
+
 ```
-osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --wild_tags 
+osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv --start_date "2023-01-15 00:00:00+00:00" --end_date "2023-01-30 00:00:00+00:00" --tags 'building' 'highway' 'waterway' 'amenity' --name stats --wild_tags --force
+```
+
+- To extract stats for last day whole world :
+
+```
+osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --wild_tags
 ```
 
 - To extract stats of a country for last day (Supported countries are in [data/countries_un.csv](./data/countries_un.csv)):
+
 ```
 osmsg --url "https://planet.openstreetmap.org/replication/minute" --format csv --tags building highway waterway amenity --name stats --wild_tags --extract_last_day --country Nepal --name nepal_stats
 ```
@@ -77,14 +86,15 @@ osmsg --url "https://planet.openstreetmap.org/replication/minute" --format csv -
 - To get stat of Nepal for 2022 to now with geofabrik replication:
 
   Processing geofabrik country based osm change files are faster as they will have changes only for country and smaller in size
+
 ```
 osmsg --start_date 2022-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --name all_tags_stats --format csv
 ```
 
-
 Check more commands examples inside `stats/` `stats_metadata.json`
 
 ### Benchmarks :
+
 Speed depends upon no of cores available on your CPU .
 Generally on Normal i5 machine To process a year of data for country like Nepal it takes approx 3min .
 
@@ -99,15 +109,15 @@ pip install osmsg
 
 ### TIPS & Tricks of using OSMSG:
 
-OSMSG uses/supports sources , --url provided on argument will be used for osm changefiles  and for changeset it is default of planet replication/minute ( used for hashtag and country )
+OSMSG uses/supports sources , --url provided on argument will be used for osm changefiles and for changeset it is default of planet replication/minute ( used for hashtag and country )
 
-1. To process weekly / monthly or yearly stats , Using minute replication might take forever on small machines , You can use daily replication files ```/replication/day``` to process faster and avoid network download issues for small minute fiels 
+1. To process weekly / monthly or yearly stats , Using minute replication might take forever on small machines , You can use daily replication files `/replication/day` to process faster and avoid network download issues for small minute fiels
 
 2. If you are generating stats for specific timeframe , stick with minutely (Sometimes to reflect changes you made on stats , Planet may take few minutes)
 
 3. For hashtag stats , planet changeset minute replication is by default for now (Found only this reliable source , couldn't find daily/monthly replication files) , Generating daily/weekly is only feasible
 
-4. For Country stats , if you use the --country option : It will use the planet minutely changeset replication to determine the location of the cahngeset bbox centroid , which means to process larger time frame it might take time , to avoid this Use Geofabrik internal changefiles based on country , OSMSG Supports processing of those hence you can directly supply geofabrik changefiles url for country and produce yearly/monthly stats eg : 
+4. For Country stats , if you use the --country option : It will use the planet minutely changeset replication to determine the location of the cahngeset bbox centroid , which means to process larger time frame it might take time , to avoid this Use Geofabrik internal changefiles based on country , OSMSG Supports processing of those hence you can directly supply geofabrik changefiles url for country and produce yearly/monthly stats eg :
 
 ```
 osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv --extract_last_month --tags 'building' 'highway' 'waterway' 'amenity' --name last_month_stats  --wild_tags
