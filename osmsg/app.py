@@ -428,10 +428,18 @@ def main():
         type=int,
         help="No. of top rows to extract , to extract top 100 , pass 100",
     )
+    
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=None,
+        help="No. of Parallel workers to assign : Default is no of cpu available , Be aware to use this max no of workers may cause overuse of resources",
+    )
 
     parser.add_argument(
-        "--url", required=True, help="Your public Geofabrik Download URL "
+        "--url", default="https://planet.openstreetmap.org/replication/minute", help="Your public OSM Change Replication URL "
     )
+
     parser.add_argument("--extract_last_week", action="store_true", default=False)
     parser.add_argument("--extract_last_day", action="store_true", default=False)
     parser.add_argument("--extract_last_month", action="store_true", default=False)
@@ -554,7 +562,7 @@ def main():
     if (end_date - start_date).days > 1:
         if args.hashtags or args.country:
             print(
-                "Warning : Replication for Changeset is minutely , To process more than a day data it might take a while , Use --force to ignnore this warning"
+                "Warning : Replication for Changeset is minutely , To process more than a day data it might take a while , Use --force to ignore this warning"
             )
             if not args.force:
                 sys.exit()
@@ -570,7 +578,10 @@ def main():
         print(
             f"You have supplied start_date as : {start_date} and end_date as : {end_date} , Processing Changeset from {strip_utc(Changeset.sequence_to_timestamp(changeset_start_seq),args.timezone)} to {strip_utc(Changeset.sequence_to_timestamp(changeset_end_seq),args.timezone)}"
         )
-        with concurrent.futures.ThreadPoolExecutor() as executor:
+
+        max_workers = os.cpu_count() if not args.workers else args.workers 
+ 
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list
             executor.map(process_changesets, changeset_download_urls)
             # executor.shutdown(wait=True)
@@ -607,7 +618,7 @@ def main():
         os.makedirs(temp_path)
 
     # Use the ThreadPoolExecutor to download the images in parallel
-    with concurrent.futures.ThreadPoolExecutor() as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=os.cpu_count() if not args.workers else args.workers) as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         executor.map(process_changefiles, download_urls)
 
