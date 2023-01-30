@@ -96,8 +96,19 @@ pip install osmsg
 
 ### TIPS & Tricks of using OSMSG:
 
+OSMSG uses/supports sources , --url provided on argument will be used for osm changefiles  and for changeset it is default of planet replication/minute ( used for hashtag and country )
+
 1. To process weekly / monthly or yearly stats , Using minute replication might take forever on small machines , You can use daily replication files ```/replication/day``` to process faster and avoid network download issues for small minute fiels 
+
 2. If you are generating stats for specific timeframe , stick with minutely (Sometimes to reflect changes you made on stats , Planet may take few minutes)
+
+3. For hashtag stats , planet changeset minute replication is by default for now (Found only this reliable source , couldn't find daily/monthly replication files) , Generating daily/weekly is only feasible
+
+4. For Country stats , if you use the --country option : It will use the planet minutely changeset replication to determine the location of the cahngeset bbox centroid , which means to process larger time frame it might take time , to avoid this Use Geofabrik internal changefiles based on country , OSMSG Supports processing of those hence you can directly supply geofabrik changefiles url for country and produce yearly/monthly stats eg : 
+
+```
+osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv --extract_last_month --tags 'building' 'highway' 'waterway' 'amenity' --name last_month_stats  --wild_tags
+```
 
 ### OSM LOGIN info
 
