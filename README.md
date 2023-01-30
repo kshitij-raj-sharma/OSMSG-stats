@@ -24,9 +24,9 @@ pip install osmsg
 
 ```
 osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME] [--password PASSWORD] [--timezone {Nepal,UTC}]
-             [--name NAME] [--country COUNTRY] [--tags TAGS [TAGS ...]] [--hashtags HASHTAGS [HASHTAGS ...]] [--force] [--rows ROWS] --url URL
-             [--extract_last_week] [--extract_last_day] [--extract_last_month] [--extract_last_year] [--extract_last_hour] [--wild_tags]
-             [--exclude_date_in_name] [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
+             [--name NAME] [--country COUNTRY] [--tags TAGS [TAGS ...]] [--hashtags HASHTAGS [HASHTAGS ...]] [--force] [--rows ROWS]
+             [--workers WORKERS] [--url URL] [--extract_last_week] [--extract_last_day] [--extract_last_month] [--extract_last_year]
+             [--extract_last_hour] [--wild_tags] [--exclude_date_in_name] [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
              [--read_from_metadata READ_FROM_METADATA]
 ```
 
@@ -50,7 +50,9 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
                         Hashtags Statstics to Collect : List of hashtags , Limited until daily stats for now
   --force               Force for the Hashtag Replication fetch if it is greater than a day interval
   --rows ROWS           No. of top rows to extract , to extract top 100 , pass 100
-  --url URL             Your public Geofabrik Download URL
+  --workers WORKERS     No. of Parallel workers to assign : Default is no of cpu available , Be aware to use this max no of workers may cause
+                        overuse of resources
+  --url URL             Your public OSM Change Replication URL
   --extract_last_week
   --extract_last_day
   --extract_last_month
