@@ -32,7 +32,7 @@ jobs:
         # run: |
         #   osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --wild_tags
         run : |
-            osmsg --url "https://planet.openstreetmap.org/replication/minute" --format image csv --timezone Nepal --tags building highway waterway amenity --name stats --wild_tags --extract_last_week --country Nepal --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json
+            osmsg --url "https://planet.openstreetmap.org/replication/minute" --format image csv --timezone Nepal --tags building highway waterway amenity --name stats --wild_tags --extract_last_week --country Nepal --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --force
       
       - name: add stats to git
 
