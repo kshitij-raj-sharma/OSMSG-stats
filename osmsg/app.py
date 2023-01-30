@@ -222,7 +222,7 @@ class ChangefileHandler(osmium.SimpleHandler):
 def process_changefiles(url):
     # Check that the request was successful
     # Send a GET request to the URL
-    # print(f"Processing {url}")
+    print(f"Processing {url}")
 
     url_splitted_list = url.split("/")
     temp_path = os.path.join(os.getcwd(), "temp/changefiles")
@@ -258,7 +258,7 @@ def process_changefiles(url):
         shutil.copyfileobj(f_in, f_out)
 
     handler.apply_file(file_path[:-3])
-    # print(f"Finished {url}")
+    print(f"Finished {url}")
 
 
 def process_changesets(url):
