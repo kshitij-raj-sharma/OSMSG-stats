@@ -17,6 +17,7 @@ import pandas as pd
 import requests
 from osmium.replication.server import ReplicationServer
 from shapely.geometry import box
+from tqdm import tqdm
 
 from osmsg.utils import verify_me_osm
 
@@ -87,14 +88,14 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             "nodes": {"create": 0, "modify": 0, "delete": 0},
             "ways": {"create": 0, "modify": 0, "delete": 0},
             "relations": {"create": 0, "modify": 0, "delete": 0},
-            "poi": {"create": 0, "modify": 0},  # nodes that has tags
+            "poi": {"create": 0, "modify": 0, "delete": 0},  # nodes that has tags
         }
         if hashtags:
             users[user]["countries"] = hashtag_changesets[changeset]
 
         if tags_to_collect:
             for tag in tags_to_collect:
-                users[user][tag] = {"create": 0, "modify": 0}
+                users[user][tag] = {"create": 0, "modify": 0, "delete": 0}
         users_temp[user] = {"changesets": []}
         if changeset not in users_temp[user]["changesets"]:
             users_temp[user]["changesets"].append(changeset)
@@ -103,6 +104,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
         if wild_tags:
             users[user]["tags_create"] = {}
             users[user]["tags_modify"] = {}
+            users[user]["tags_delete"] = {}
 
             for tag, value in tags:
                 users[user][f"tags_{action}"][tag] = 1
@@ -164,23 +166,31 @@ class ChangesetHandler(osmium.SimpleHandler):
 
         if not country_check:  # hash tag not supplied
             if country:
-                bounds = str(c.bounds)
-                bbox_list = bounds.strip("()").split(" ")
-                minx, miny = bbox_list[0].split("/")
-                maxx, maxy = bbox_list[1].split("/")
-                bbox = box(float(minx), float(miny), float(maxx), float(maxy))
-                # Create a point for the centroid of the bounding box
-                centroid = bbox.centroid
-                intersected_rows = countries_df[countries_df.intersects(centroid)]
-                for i, row in intersected_rows.iterrows():
-                    if row["name"] == country:
-                        if c.id not in countries_changesets.keys():
-                            countries_changesets[c.id] = []
-                        if "comment" in c.tags:
-                            hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
-                            for tag in hashtags_comment:
-                                if tag not in countries_changesets[c.id]:
-                                    countries_changesets[c.id].append(tag)
+                if c.bounds:
+                    bounds = str(c.bounds)
+                    if "invalid" not in bounds:
+                        bbox_list = bounds.strip("()").split(" ")
+
+                        minx, miny = bbox_list[0].split("/")
+                        maxx, maxy = bbox_list[1].split("/")
+
+                        bbox = box(float(minx), float(miny), float(maxx), float(maxy))
+                        # Create a point for the centroid of the bounding box
+                        centroid = bbox.centroid
+                        intersected_rows = countries_df[
+                            countries_df.intersects(centroid)
+                        ]
+                        for i, row in intersected_rows.iterrows():
+                            if row["name"] == country:
+                                if c.id not in countries_changesets.keys():
+                                    countries_changesets[c.id] = []
+                                if "comment" in c.tags:
+                                    hashtags_comment = re.findall(
+                                        r"#[\w-]+", c.tags["comment"]
+                                    )
+                                    for tag in hashtags_comment:
+                                        if tag not in countries_changesets[c.id]:
+                                            countries_changesets[c.id].append(tag)
 
 
 class ChangefileHandler(osmium.SimpleHandler):
@@ -212,7 +222,7 @@ class ChangefileHandler(osmium.SimpleHandler):
 def process_changefiles(url):
     # Check that the request was successful
     # Send a GET request to the URL
-    print(f"Processing {url}")
+    # print(f"Processing {url}")
 
     url_splitted_list = url.split("/")
     temp_path = os.path.join(os.getcwd(), "temp/changefiles")
@@ -248,15 +258,14 @@ def process_changefiles(url):
         shutil.copyfileobj(f_in, f_out)
 
     handler.apply_file(file_path[:-3])
-    print(f"Finished {url}")
+    # print(f"Finished {url}")
 
 
 def process_changesets(url):
-    print(f"Processing {url}")
+    # print(f"Processing {url}")
     url_splitted_list = url.split("/")
     temp_path = os.path.join(os.getcwd(), "temp/changesets")
-    if not os.path.exists(temp_path):
-        os.makedirs(temp_path)
+
     file_path = os.path.join(
         temp_path,
         f"{url_splitted_list[-3]}_{url_splitted_list[-2]}_{url_splitted_list[-1]}",
@@ -279,7 +288,7 @@ def process_changesets(url):
         shutil.copyfileobj(f_in, f_out)
 
     handler.apply_file(file_path[:-3])
-    print(f"Finished {url}")
+    # print(f"Finished {url}")
 
 
 def get_download_urls_changefiles(
@@ -428,7 +437,7 @@ def main():
         type=int,
         help="No. of top rows to extract , to extract top 100 , pass 100",
     )
-    
+
     parser.add_argument(
         "--workers",
         type=int,
@@ -437,7 +446,9 @@ def main():
     )
 
     parser.add_argument(
-        "--url", default="https://planet.openstreetmap.org/replication/minute", help="Your public OSM Change Replication URL "
+        "--url",
+        default="https://planet.openstreetmap.org/replication/minute",
+        help="Your public OSM Change Replication URL ",
     )
 
     parser.add_argument("--extract_last_week", action="store_true", default=False)
@@ -579,11 +590,23 @@ def main():
             f"You have supplied start_date as : {start_date} and end_date as : {end_date} , Processing Changeset from {strip_utc(Changeset.sequence_to_timestamp(changeset_start_seq),args.timezone)} to {strip_utc(Changeset.sequence_to_timestamp(changeset_end_seq),args.timezone)}"
         )
 
-        max_workers = os.cpu_count() if not args.workers else args.workers 
- 
+        temp_path = os.path.join(os.getcwd(), "temp/changesets")
+        print(os.path.exists(temp_path))
+        if not os.path.exists(temp_path):
+            os.makedirs(temp_path)
+
+        max_workers = os.cpu_count() if not args.workers else args.workers
+
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list
-            executor.map(process_changesets, changeset_download_urls)
+            for _ in tqdm(
+                executor.map(process_changesets, changeset_download_urls),
+                total=len(changeset_download_urls),
+                unit_scale=True,
+                unit="changesets",
+                leave=True,
+            ):
+                pass
             # executor.shutdown(wait=True)
 
         print("Changeset Processing Finished")
@@ -618,9 +641,19 @@ def main():
         os.makedirs(temp_path)
 
     # Use the ThreadPoolExecutor to download the images in parallel
-    with concurrent.futures.ThreadPoolExecutor(max_workers=os.cpu_count() if not args.workers else args.workers) as executor:
+    with concurrent.futures.ThreadPoolExecutor(
+        max_workers=os.cpu_count() if not args.workers else args.workers
+    ) as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
-        executor.map(process_changefiles, download_urls)
+        # executor.map(process_changefiles, download_urls)
+        for _ in tqdm(
+            executor.map(process_changefiles, download_urls),
+            total=len(download_urls),
+            unit_scale=True,
+            unit="changefiles",
+            leave=True,
+        ):
+            pass
 
         # executor.shutdown(wait=True)
     print("Changefiles Processing Finished")
@@ -643,6 +676,15 @@ def main():
                     dict(
                         sorted(
                             users[user]["tags_modify"].items(),
+                            key=lambda item: item[1],
+                            reverse=True,
+                        )
+                    )
+                )
+                users[user]["tags_delete"] = json.dumps(
+                    dict(
+                        sorted(
+                            users[user]["tags_delete"].items(),
                             key=lambda item: item[1],
                             reverse=True,
                         )
@@ -675,7 +717,7 @@ def main():
             # Get the column names of the DataFrame
             cols = df.columns.tolist()
             # Identify the column names that you want to move
-            cols_to_move = ["tags_create", "tags_modify"]
+            cols_to_move = ["tags_create", "tags_modify", "tags_delete"]
             # Remove the columns to move from the list of column names
             cols = [col for col in cols if col not in cols_to_move]
             # Add the columns to move to the end of the list of column names
@@ -702,7 +744,7 @@ def main():
                 else df.head(100)
             )  # 100 as max rows for image format
             dfi.export(
-                df_img.drop(columns=["tags_create", "tags_modify"])
+                df_img.drop(columns=["tags_create", "tags_modify", "tags_delete"])
                 if args.wild_tags
                 else df_img,
                 f"{fname}.png",

@@ -27,5 +27,6 @@ setup(
         "Shapely",
         "geopandas",
         "dataframe-image",
+        "tqdm",
     ],
 )
