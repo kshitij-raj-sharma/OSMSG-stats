@@ -6,6 +6,20 @@ I tweet stats Every day/week/month for Global/Region and #hotosm hashtag at http
 
 Monitored Country's stats are available under `stats`, For now Monitored countries are : `Nepal` , weekly,monthly and yearly stats are stored in github and twitter for sure
 
+### Installation
+
+- Install [osmium](https://github.com/osmcode/pyosmium) lib on your machine
+
+```
+pip install osmium
+```
+
+- Instal osmsg
+
+```
+pip install osmsg
+```
+
 ### Usage:
 
 ```
@@ -93,19 +107,7 @@ osmsg --start_date 2022-01-01 --url "http://download.geofabrik.de/asia/nepal-upd
 
 Check more commands examples inside `stats/` `stats_metadata.json`
 
-### Benchmarks :
-
-Speed depends upon no of cores available on your CPU .
-Generally on Normal i5 machine To process a year of data for country like Nepal it takes approx 3min .
-
-Installation
-
-- Install [osmium](https://github.com/osmcode/pyosmium) lib
-- Instal osmsg
-
-```
-pip install osmsg
-```
+Now start generating stats with above sample commands
 
 ### TIPS & Tricks of using OSMSG:
 
@@ -122,6 +124,11 @@ OSMSG uses/supports sources , --url provided on argument will be used for osm ch
 ```
 osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv --extract_last_month --tags 'building' 'highway' 'waterway' 'amenity' --name last_month_stats  --wild_tags
 ```
+
+### Benchmarks :
+
+Speed depends upon no of cores available on your CPU .
+Generally on Normal i5 machine To process a year of data for country like Nepal it takes approx 3min .
 
 ### OSM LOGIN info
 
