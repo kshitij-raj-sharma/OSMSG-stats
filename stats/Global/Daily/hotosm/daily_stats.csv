@@ -1,185 +1,308 @@
-rank,name,uid,changesets,map_changes,countries,nodes.create,nodes.modify,nodes.delete,ways.create,ways.modify,ways.delete,relations.create,relations.modify,relations.delete,poi.create,poi.modify,building.create,building.modify,highway.create,highway.modify,waterway.create,waterway.modify,amenity.create,amenity.modify,tags_create,tags_modify
-1,anthaas,5438501,26,19063,"Chad,Angola,United Republic of Tanzania",11208,6080,350,1246,130,49,0,0,0,0,0,1240,118,0,0,0,0,0,0,"{""building"": 1240, ""landuse"": 6}","{""building"": 118, ""landuse"": 12}"
-2,TeBaMa,6519568,7,16024,Mali,5309,8477,269,1241,677,51,0,0,0,2,36,1162,535,79,136,0,1,0,1,"{""building"": 1162, ""highway"": 79, ""surface"": 76, ""source"": 3, ""tracktype"": 2, ""bridge"": 1, ""layer"": 1}","{""building"": 535, ""highway"": 136, ""surface"": 105, ""source"": 65, ""tracktype"": 33, ""ref"": 6, ""landuse"": 5, ""amenity"": 1, ""ferry"": 1, ""public_transport"": 1, ""entrance"": 1, ""place"": 1, ""intermittent"": 1, ""waterway"": 1}"
-3,ricaarre,18370529,75,7557,Zambia,5899,77,236,1275,11,59,0,0,0,0,0,1275,0,0,5,0,0,0,0,"{""building"": 1275}","{""landuse"": 6, ""highway"": 5, ""surface"": 1}"
-4,edircksen,6601365,7,6384,United Republic of Tanzania,1481,3821,526,254,190,110,0,0,2,0,0,253,168,1,18,0,0,0,0,"{""building"": 253, ""highway"": 1}","{""building"": 168, ""highway"": 18, ""source"": 12, ""surface"": 7, ""landuse"": 1, ""source:date"": 1}"
-5,mepng,14587553,6,6241,South Africa,2934,2041,369,522,293,82,0,0,0,0,0,522,290,0,3,0,0,0,0,"{""building"": 522}","{""building"": 290, ""highway"": 3, ""name"": 2, ""source"": 2, ""surface"": 2, ""lanes"": 1, ""ref"": 1, ""oneway"": 1, ""layer"": 1}"
-6,Adrie Helpt,6599999,15,5558,Angola,4986,22,4,541,4,1,0,0,0,0,0,538,0,0,2,0,0,0,0,"{""building"": 538, ""landuse"": 3}","{""highway"": 2, ""surface"": 2, ""landuse"": 2, ""source"": 1, ""ref"": 1}"
-7,osmtogo_mapper4,17967261,20,4857,Togo,2151,1405,649,433,160,59,0,0,0,0,2,418,119,15,41,0,0,0,1,"{""building"": 418, ""highway"": 15}","{""source"": 140, ""building"": 119, ""highway"": 41, ""surface"": 19, ""tracktype"": 5, ""name"": 3, ""man_made"": 1, ""amenity"": 1, ""religion"": 1, ""description"": 1, ""historic"": 1, ""barrier"": 1}"
-8,Marvin de Hont,6616734,11,4440,South Africa,2671,1022,172,486,54,33,2,0,0,0,0,486,49,0,2,0,0,0,0,"{""building"": 486, ""type"": 2, ""layer"": 1}","{""building"": 49, ""source"": 9, ""layer"": 3, ""highway"": 2, ""name"": 2, ""cables"": 1, ""circuits"": 1, ""frequency"": 1, ""operator"": 1, ""power"": 1, ""voltage"": 1}"
-9,Norike12,6486402,8,4422,Senegal,3132,626,265,307,61,31,0,0,0,0,2,148,32,156,20,2,1,0,0,"{""highway"": 156, ""building"": 148, ""intermittent"": 2, ""waterway"": 2, ""layer"": 1, ""tunnel"": 1, ""natural"": 1, ""surface"": 1}","{""building"": 32, ""highway"": 20, ""surface"": 7, ""place"": 2, ""name"": 1, ""source"": 1, ""intermittent"": 1, ""waterway"": 1, ""landuse"": 1}"
-10,Libor Bednarik,4355439,1,4032,Zimbabwe,873,2534,411,175,2,37,0,0,0,0,0,175,0,0,2,0,0,0,0,"{""building"": 175}","{""highway"": 2}"
-11,CKORR,17630525,55,3639,Nigeria,268,897,2007,45,29,393,0,0,0,0,0,45,28,0,0,0,0,0,0,"{""building"": 45}","{""building"": 28, ""source"": 4, ""frequency"": 1, ""power"": 1, ""voltage"": 1, ""layer"": 1}"
-12,tonybendell,3620803,7,3394,Tajikistan,1508,1353,100,305,114,13,0,0,1,0,0,302,84,3,25,0,0,0,0,"{""building"": 302, ""highway"": 3}","{""building"": 84, ""highway"": 25, ""landuse"": 4, ""place"": 2, ""foot"": 1, ""surface"": 1, ""layer"": 1, ""name"": 1}"
-13,Tom2A,18165642,17,3368,"Peru,Angola",2677,50,72,540,13,16,0,0,0,0,0,540,12,0,0,0,0,0,0,"{""building"": 540}","{""building"": 12, ""name"": 1, ""natural"": 1}"
-14,Vivek Dumre,13116824,10,3166,"Ecuador,Guinea,Namibia",1799,914,51,249,148,5,0,0,0,0,0,249,139,0,8,0,0,0,0,"{""building"": 249}","{""building"": 139, ""highway"": 8, ""surface"": 5, ""source"": 1, ""landuse"": 1}"
-15,peculiar theater,11880034,4,2807,Chad,1955,329,110,394,18,1,0,0,0,0,0,366,14,28,4,0,0,0,0,"{""building"": 366, ""highway"": 28, ""surface"": 28}","{""building"": 14, ""highway"": 4, ""surface"": 4, ""seasonal"": 2, ""tracktype"": 2, ""abandoned"": 2}"
-16,Lalit_IAAS,11589667,5,2778,Nepal,1240,777,439,197,51,70,0,4,0,0,3,192,37,5,10,0,0,0,3,"{""building"": 192, ""highway"": 5, ""noname"": 2, ""bridge"": 1, ""layer"": 1}","{""building"": 37, ""highway"": 10, ""ref"": 7, ""source"": 7, ""name"": 5, ""landuse"": 4, ""network"": 4, ""route"": 4, ""type"": 4, ""amenity"": 3, ""surface"": 3, ""addr:hamlet"": 2, ""name:ne"": 2, ""operator:type"": 2, ""ref:old"": 2, ""lanes"": 1, ""layer"": 1, ""distance"": 1, ""note"": 1}"
-17,Nick Grimes,17662762,13,2711,Nigeria,2253,0,32,420,0,6,0,0,0,0,0,420,0,0,0,0,0,0,0,"{""building"": 420}",{}
-18,Asparagus Gab,3305711,9,2637,South Africa,1971,266,8,362,28,2,0,0,0,0,0,362,28,0,0,0,0,0,0,"{""building"": 362}","{""building"": 28}"
-19,hel22,18352586,38,2586,"South Africa,Indonesia",1784,416,41,298,37,10,0,0,0,0,0,298,37,0,0,0,0,0,0,"{""building"": 298}","{""building"": 37}"
-20,Grannymeg,13361440,10,2435,Sri Lanka,2019,68,20,290,38,0,0,0,0,0,1,254,2,14,12,0,0,1,1,"{""building"": 254, ""natural"": 16, ""highway"": 14, ""landuse"": 5, ""amenity"": 1}","{""landuse"": 14, ""highway"": 12, ""maxspeed"": 6, ""name"": 6, ""natural"": 5, ""smoothness"": 3, ""building"": 2, ""man_made"": 1, ""amenity"": 1}"
-21,rauberdaniel,2982879,7,2417,United Republic of Tanzania,1180,284,534,279,7,133,0,0,0,0,0,273,2,6,5,0,0,0,0,"{""building"": 273, ""highway"": 6}","{""highway"": 5, ""building"": 2, ""surface"": 2, ""source"": 2}"
-22,j_over_here,18363767,7,2415,United Republic of Tanzania,1898,69,48,383,5,12,0,0,0,0,0,383,1,0,4,0,0,0,0,"{""building"": 383, ""layer"": 4}","{""highway"": 4, ""source"": 4, ""building"": 1}"
-23,Zh9567,9940138,3,2291,Malaysia,1550,90,11,564,76,0,0,0,0,0,2,564,76,0,0,0,0,4,1,"{""building"": 564, ""source"": 51, ""addr:housenumber"": 20, ""addr:street"": 20, ""building:levels"": 12, ""amenity"": 4, ""name"": 3, ""addr:city"": 2, ""addr:postcode"": 2, ""religion"": 2, ""addr:country"": 1, ""layer"": 1, ""name:zh"": 1}","{""building"": 76, ""addr:street"": 29, ""name"": 28, ""source"": 27, ""building:levels"": 24, ""name:en"": 23, ""name:ms"": 23, ""name:zh"": 23, ""smoking"": 22, ""name:zh-Hans"": 22, ""name:zh-Hant"": 22, ""addr:city"": 21, ""addr:postcode"": 21, ""wheelchair"": 21, ""addr:housenumber"": 7, ""brand"": 2, ""brand:wikidata"": 2, ""brand:wikipedia"": 2, ""shop"": 2, ""addr:country"": 1, ""currency:MYR"": 1, ""internet_access"": 1, ""opening_hours:covid19"": 1, ""operator"": 1, ""payment:coins"": 1, ""payment:mastercard"": 1, ""payment:notes"": 1, ""payment:visa"": 1, ""phone"": 1, ""website"": 1, ""leisure"": 1, ""sport"": 1, ""amenity"": 1, ""construction"": 1}"
-24,JFL-75,13317783,4,2281,United Republic of Tanzania,330,1564,239,69,24,55,0,0,0,0,0,69,20,0,4,0,0,0,0,"{""building"": 69, ""construction"": 6}","{""building"": 20, ""construction"": 7, ""highway"": 4, ""source"": 4}"
-25,onesimusGGA,13063544,1,2208,Nigeria,1731,99,0,369,7,0,2,0,0,0,0,367,6,0,1,0,0,0,0,"{""building"": 367, ""type"": 2}","{""building"": 6, ""highway"": 1}"
-26,Harfeur,8837344,3,2187,Nepal,1839,239,5,81,20,1,1,1,0,0,0,34,2,36,14,0,0,1,2,"{""highway"": 36, ""building"": 34, ""natural"": 10, ""amenity"": 1, ""name"": 1, ""type"": 1}","{""highway"": 14, ""ref"": 5, ""ref:old"": 5, ""surface"": 5, ""amenity"": 2, ""building"": 2, ""name"": 2, ""natural"": 2, ""source"": 1, ""network"": 1, ""route"": 1, ""type"": 1}"
-27,Safrano,6522497,6,2092,Botswana,1194,408,372,88,5,25,0,0,0,0,0,88,5,0,0,0,0,0,0,"{""building"": 88}","{""building"": 5}"
-28,vichada,2246826,1,2065,Zambia,1270,639,18,67,71,0,0,0,0,0,0,40,62,1,3,26,6,0,0,"{""building"": 40, ""intermittent"": 26, ""waterway"": 26, ""highway"": 1}","{""building"": 62, ""waterway"": 6, ""intermittent"": 5, ""highway"": 3, ""ref"": 1, ""surface"": 1}"
-29,Greystoke69100,13032226,3,2011,Zambia,1780,128,20,73,7,3,0,0,0,4,0,24,4,49,1,0,2,0,0,"{""highway"": 49, ""surface"": 49, ""building"": 24, ""ford"": 4}","{""building"": 4, ""intermittent"": 2, ""seasonal"": 2, ""waterway"": 2, ""highway"": 1, ""oneway"": 1, ""surface"": 1}"
-30,Irma IRM-ED,13065690,3,1951,Indonesia,1537,36,0,378,0,0,0,0,0,0,0,378,0,0,0,0,0,0,0,"{""building"": 378}",{}
-31,Isaboke,10868348,7,1810,Kenya,1097,233,288,88,49,55,0,0,0,46,0,45,39,0,4,0,0,6,1,"{""building"": 45, ""power"": 44, ""roof:material"": 44, ""generator:source"": 24, ""layer"": 23, ""barrier"": 21, ""natural"": 15, ""amenity"": 6, ""man_made"": 5, ""cables"": 5, ""toilets:disposal"": 4, ""material"": 4, ""location"": 1}","{""building"": 39, ""roof:material"": 34, ""highway"": 4, ""barrier"": 4, ""surface"": 2, ""landuse"": 1, ""amenity"": 1}"
-32,mmahmud,3217737,5,1722,United Republic of Tanzania,614,528,292,127,90,71,0,0,0,0,0,127,88,0,2,0,0,0,0,"{""building"": 127, ""source"": 127}","{""building"": 88, ""source"": 81, ""highway"": 2, ""surface"": 1}"
-33,remimage,3626326,10,1709,Nigeria,676,659,86,122,153,13,0,0,0,0,0,122,150,0,1,0,0,0,0,"{""building"": 122}","{""building"": 150, ""source"": 12, ""landuse"": 2, ""source:date"": 2, ""highway"": 1, ""surface"": 1}"
-34,Oluwafemi_Adeyemo,11432684,1,1690,Kenya,1175,236,1,276,2,0,0,0,0,0,0,276,2,0,0,0,0,0,0,"{""building"": 276}","{""building"": 2}"
-35,DMcDowall,8815318,6,1617,India,852,413,129,173,27,22,1,0,0,0,0,171,25,0,0,0,0,0,0,"{""building"": 171, ""type"": 1}","{""building"": 25, ""landuse"": 1}"
-36,Arie den Boon,11116458,19,1517,Democratic Republic of the Congo,156,1099,159,26,43,34,0,0,0,0,1,22,16,4,17,0,0,0,1,"{""building"": 22, ""highway"": 4, ""source"": 1}","{""highway"": 17, ""building"": 16, ""surface"": 10, ""barrier"": 3, ""layer"": 2, ""source"": 2, ""amenity"": 1}"
-37,spatrick14,18259368,59,1515,El Salvador,1238,0,0,275,2,0,0,0,0,0,0,275,0,0,1,0,0,0,0,"{""building"": 275}","{""cables"": 1, ""frequency"": 1, ""power"": 1, ""voltage"": 1, ""highway"": 1}"
-38,jwalseth,1005381,10,1448,Nepal,202,834,258,33,66,54,0,1,0,0,3,29,20,4,22,0,4,0,0,"{""building"": 29, ""highway"": 4}","{""highway"": 22, ""building"": 20, ""landuse"": 12, ""ford"": 4, ""natural"": 4, ""waterway"": 4, ""name"": 2, ""admin_level"": 1, ""boundary"": 1, ""type"": 1}"
-39,joschi81,22449,1,1442,Libyan Arab Jamahiriya,0,1442,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,{},"{""source"": 9, ""leisure"": 3, ""seamark:type"": 3, ""seamark:information"": 2, ""seamark:small_craft_facility:category"": 2, ""seamark:harbour:category"": 1}"
-40,rrissiek,17889,10,1361,"Nigeria,South Sudan",1198,58,0,95,10,0,0,0,0,0,0,83,6,12,4,0,0,0,0,"{""building"": 83, ""highway"": 12}","{""building"": 6, ""highway"": 4, ""name"": 1, ""ref"": 1, ""surface"": 1}"
-41,Henk Nugter,6522832,6,1257,Libyan Arab Jamahiriya,795,294,7,142,18,1,0,0,0,0,0,142,18,0,0,0,0,0,0,"{""building"": 142}","{""building"": 18}"
-42,KeevaG06,17485930,4,1243,Kenya,1011,0,0,232,0,0,0,0,0,0,0,232,0,0,0,0,0,0,0,"{""building"": 232}",{}
-43,ivyseal,17210145,20,1197,"Nepal,Libyan Arab Jamahiriya",951,44,13,159,27,3,0,0,0,0,0,124,3,35,17,0,0,0,1,"{""building"": 124, ""highway"": 35, ""layer"": 3}","{""highway"": 17, ""ref"": 5, ""name"": 3, ""building"": 3, ""landuse"": 3, ""office"": 2, ""UNOSAT:ref"": 1, ""admin_level"": 1, ""alt_name:en"": 1, ""boundary"": 1, ""land_area"": 1, ""name:ar"": 1, ""name:en"": 1, ""name:fr"": 1, ""source"": 1, ""ref:old"": 1, ""amenity"": 1}"
-44,Gaurav Parajuli,8316170,1,1192,Nepal,822,175,39,147,8,1,0,0,0,0,0,145,3,1,3,0,0,0,0,"{""building"": 145, ""natural"": 1, ""highway"": 1}","{""highway"": 3, ""building"": 3, ""natural"": 2, ""source"": 1}"
-45,NUNZIO PIZZINO,18367103,5,1180,Indonesia,984,0,0,194,2,0,0,0,0,0,0,187,0,0,0,0,0,0,0,"{""building"": 187, ""landuse"": 7}","{""cables"": 1, ""frequency"": 1, ""operator"": 1, ""power"": 1, ""voltage"": 1, ""wires"": 1, ""landuse"": 1}"
-46,Patrik_B,10478691,1,1172,Chad,969,0,0,203,0,0,0,0,0,0,0,202,0,0,0,0,0,0,0,"{""building"": 202, ""landuse"": 1}",{}
-47,fierymarigold,11917351,9,1171,South Africa,940,20,4,200,6,1,0,0,0,0,0,190,0,0,0,0,0,0,0,"{""building"": 190, ""leisure"": 10, ""layer"": 1}","{""landuse"": 6}"
-48,tommmmmy,14065803,6,1153,"South Africa,Nigeria",688,311,2,150,2,0,0,0,0,0,0,150,2,0,0,0,0,0,0,"{""building"": 150}","{""building"": 2}"
-49,Lapjun,16565889,3,1136,Somalia,861,20,64,153,29,9,0,0,0,8,2,0,0,38,29,0,0,0,0,"{""barrier"": 115, ""highway"": 38, ""surface"": 37, ""place"": 8}","{""highway"": 29, ""surface"": 25, ""place"": 2}"
-50,FabFlamingo,18132608,6,1130,Kenya,655,2,275,129,9,60,0,0,0,1,0,128,1,1,6,0,0,0,0,"{""building"": 128, ""highway"": 1, ""layer"": 1, ""landuse"": 1}","{""highway"": 6, ""landuse"": 2, ""layer"": 2, ""source"": 1, ""building"": 1}"
-51,oliveiramau,10408363,5,1064,Brazil,1038,0,1,25,0,0,0,0,0,108,0,0,0,0,0,0,0,0,0,"{""natural"": 134}",{}
-52,Dibikshya Shrestha,16060450,5,1041,Nepal,675,243,1,113,9,0,0,0,0,0,1,110,0,0,5,0,0,0,0,"{""building"": 110, ""natural"": 3}","{""highway"": 5, ""natural"": 3, ""ford"": 1, ""source:geometry"": 1, ""landuse"": 1}"
-53,manahel mahmedfaruok nazmi,16906094,5,1039,Algeria,611,270,41,93,19,5,0,0,0,0,0,93,8,0,9,0,0,0,2,"{""building"": 93}","{""highway"": 9, ""building"": 8, ""amenity"": 2, ""addr:city"": 1, ""addr:postcode"": 1, ""addr:street"": 1, ""name"": 1, ""name:ar"": 1, ""name:ber"": 1, ""name:en"": 1, ""name:fr"": 1, ""name:kab"": 1, ""operator"": 1, ""operator:ar"": 1, ""operator:wikidata"": 1, ""operator:wikipedia"": 1, ""operator:wikipedia:ar"": 1, ""phone"": 1, ""wikipedia:ar"": 1}"
-54,Chisom Okwuchi,10971400,1,996,Algeria,793,108,1,88,6,0,0,0,0,0,0,88,6,0,0,0,0,0,0,"{""building"": 88}","{""building"": 6}"
-55,ilyessem,5164102,4,992,Algeria,923,22,4,40,2,1,0,0,0,0,0,39,1,0,1,0,0,0,0,"{""building"": 39, ""barrier"": 1}","{""highway"": 1, ""building"": 1}"
-56,SiemG,6521504,2,986,Nepal,355,315,186,75,10,45,0,0,0,0,0,65,0,10,7,0,0,0,0,"{""building"": 65, ""highway"": 10}","{""highway"": 7, ""landuse"": 3}"
-57,Antimuonium,8536397,3,979,Nepal,739,158,21,47,9,5,0,0,0,0,0,30,0,8,6,0,1,0,0,"{""building"": 30, ""natural"": 9, ""highway"": 8, ""surface"": 2}","{""highway"": 6, ""natural"": 2, ""intermittent"": 1, ""waterway"": 1, ""ref"": 1, ""ref:old"": 1, ""surface"": 1}"
-58,EthanNutt,18141106,5,909,South Africa,698,16,40,136,9,10,0,0,0,47,0,123,5,13,4,0,0,0,0,"{""building"": 123, ""natural"": 47, ""highway"": 13, ""bridge"": 2, ""layer"": 2}","{""building"": 5, ""highway"": 4, ""name"": 3, ""source"": 3, ""surface"": 1}"
-59,Robin_Inness,18021343,2,907,Kenya,741,0,0,166,0,0,0,0,0,0,0,166,0,0,0,0,0,0,0,"{""building"": 166}",{}
-60,Aarogya Pandey,11807790,8,893,Algeria,736,22,0,135,0,0,0,0,0,0,0,135,0,0,0,0,0,0,0,"{""building"": 135}",{}
-61,clbaumgartner,15841292,7,883,Nigeria,673,70,88,8,35,9,0,0,0,0,0,0,0,8,31,0,4,0,0,"{""highway"": 8}","{""highway"": 31, ""surface"": 4, ""waterway"": 4}"
-62,Qwajo OSM,4853701,14,866,Guatemala,99,715,9,18,25,0,0,0,0,0,0,18,25,0,0,0,0,0,0,"{""building"": 18}","{""building"": 25}"
-63,Sabaakhavan,18347934,4,841,Kenya,704,0,0,134,3,0,0,0,0,0,0,128,0,6,3,0,0,0,0,"{""building"": 128, ""highway"": 6, ""layer"": 1}","{""highway"": 3}"
-64,EsthersGeo,6532561,2,834,Bangladesh,387,36,266,76,5,64,0,0,0,0,0,76,0,0,5,0,0,0,0,"{""building"": 76}","{""highway"": 5, ""surface"": 4}"
-65,Marasabessy,17208442,16,831,Indonesia,530,116,44,127,3,11,0,0,0,0,0,122,2,3,1,1,0,0,0,"{""building"": 122, ""highway"": 3, ""waterway"": 1, ""motorcycle"": 1, ""oneway"": 1}","{""building"": 2, ""highway"": 1}"
-66,martinairmaps,3376734,14,800,Lesotho,757,0,0,43,0,0,0,0,0,0,0,43,0,0,0,0,0,0,0,"{""building"": 43}",{}
-67,beigefalcon,18139337,4,785,Indonesia,606,44,0,134,1,0,0,0,0,0,0,134,0,0,1,0,0,0,0,"{""building"": 134}","{""highway"": 1}"
-68,tx2ny,14432270,16,781,El Salvador,527,94,41,103,12,4,0,0,0,0,0,103,11,0,1,0,0,0,0,"{""building"": 103}","{""building"": 11, ""highway"": 1, ""lanes"": 1, ""name"": 1, ""ref"": 1, ""surface"": 1}"
-69,sab27,4367139,6,774,"Burkina Faso,Nigeria",140,455,129,6,39,5,0,0,0,0,0,6,23,0,11,0,0,0,0,"{""building"": 6, ""construction"": 1}","{""building"": 23, ""highway"": 11, ""source"": 11, ""surface"": 4, ""landuse"": 3, ""natural"": 2}"
-70,sJJChandler,18341828,10,743,Egypt,563,34,4,138,3,1,0,0,0,0,26,138,0,0,3,0,0,0,0,"{""building"": 138}","{""addr:city"": 26, ""addr:city:en"": 26, ""addr:country"": 26, ""addr:district"": 26, ""addr:district:en"": 26, ""addr:housenumber"": 26, ""addr:place"": 26, ""addr:place:en"": 26, ""addr:postcode"": 26, ""addr:province"": 26, ""addr:province:en"": 26, ""addr:subdistrict"": 26, ""addr:subdistrict:en"": 26, ""highway"": 3}"
-71,Dudu Chen,18171356,2,728,Nigeria,575,25,18,106,3,1,0,0,0,0,0,103,1,3,2,0,0,0,0,"{""building"": 103, ""highway"": 3}","{""highway"": 2, ""source"": 1, ""surface"": 1, ""building"": 1}"
-72,EllaGeldard,11006063,4,727,"Colombia,Somalia",588,16,0,122,1,0,0,0,0,0,0,121,1,0,0,0,0,0,0,"{""building"": 121, ""leisure"": 1}","{""addr:street"": 1, ""building"": 1, ""source"": 1}"
-73,lp310,11917354,4,725,South Africa,605,0,0,119,1,0,0,0,0,0,0,119,1,0,0,0,0,0,0,"{""building"": 119}","{""building"": 1}"
-74,ArushiG,18367828,5,720,Kenya,524,19,0,139,38,0,0,0,0,5,0,28,0,116,35,0,0,0,0,"{""highway"": 116, ""building"": 28}","{""highway"": 35, ""surface"": 10, ""bicycle"": 3, ""foot"": 3, ""horse"": 3, ""motor_vehicle"": 3, ""note"": 3, ""natural"": 3}"
-75,rosemitf,18287732,5,719,"Sri Lanka,Kenya,Nigeria,Zambia",463,132,5,115,4,0,0,0,0,0,0,115,4,0,0,0,0,0,0,"{""building"": 115}","{""building"": 4}"
-76,AndrewAnzheS,18357458,2,704,Malawi,283,1,300,64,8,48,0,0,0,0,1,29,0,35,8,0,0,0,0,"{""highway"": 35, ""building"": 29, ""layer"": 1}","{""highway"": 8, ""natural"": 1}"
-77,eloisemorris398,18204245,4,694,"Kenya,Tajikistan,Egypt",563,1,0,129,1,0,0,0,0,0,0,129,0,0,1,0,0,0,1,"{""building"": 129}","{""addr:city"": 1, ""addr:street"": 1, ""amenity"": 1, ""atm"": 1, ""brand"": 1, ""brand:wikidata"": 1, ""brand:wikipedia"": 1, ""name"": 1, ""highway"": 1}"
-78,alibodas,11081854,5,683,United Republic of Tanzania,556,0,0,126,1,0,0,0,0,0,0,126,0,0,1,0,0,0,0,"{""building"": 126}","{""highway"": 1, ""source"": 1}"
-79,Nigel Garcia,10318253,2,679,Nigeria,521,13,31,110,0,4,0,0,0,0,0,110,0,0,0,0,0,0,0,"{""building"": 110}",{}
-80,Quwack Jones,16388127,6,671,Indonesia,523,25,3,115,5,0,0,0,0,0,0,115,0,0,5,0,0,0,0,"{""building"": 115, ""layer"": 6}","{""highway"": 5}"
-81,GreenWCGS,17534819,1,668,Indonesia,464,105,1,96,2,0,0,0,0,0,0,96,0,0,2,0,0,0,0,"{""building"": 96}","{""highway"": 2}"
-82,Lukas Nietfeld,18119641,10,645,South Africa,523,4,8,108,0,2,0,0,0,0,0,108,0,0,0,0,0,0,0,"{""building"": 108, ""layer"": 6}",{}
-83,Hoque Srijan,17781977,1,640,United Republic of Tanzania,536,0,0,104,0,0,0,0,0,0,0,104,0,0,0,0,0,0,0,"{""building"": 104}",{}
-84,surrli,11707954,2,636,Qatar,431,88,0,115,2,0,0,0,0,0,0,64,2,0,0,0,0,0,0,"{""building"": 64, ""barrier"": 51}","{""building"": 2, ""source"": 1}"
-85,Odang Udjur,18335689,1,608,Indonesia,391,110,4,99,2,1,1,0,0,0,0,100,1,0,0,0,0,0,0,"{""building"": 100, ""type"": 1}","{""building"": 1}"
-86,KSchierman,14018323,13,558,Egypt,403,53,15,82,3,2,0,0,0,0,0,79,3,3,0,0,0,0,0,"{""building"": 79, ""highway"": 3}","{""building"": 3}"
-87,Agghennes,384643,4,557,Zambia,133,156,199,16,8,45,0,0,0,0,0,16,7,0,0,0,0,0,0,"{""building"": 16}","{""building"": 7, ""landuse"": 1}"
-88,martien-176,9621269,4,549,"El Salvador,Indonesia",366,90,3,86,4,0,0,0,0,0,0,86,3,0,1,0,0,0,0,"{""building"": 86}","{""building"": 3, ""highway"": 1, ""surface"": 1}"
-89,Pavy_555,13339699,6,535,"Algeria,Mali,Bangladesh",419,38,5,69,3,1,0,0,0,0,0,65,3,0,0,0,0,0,0,"{""building"": 65, ""landuse"": 1}","{""building"": 3}"
-90,Chase_1,17899603,1,500,Angola,421,0,0,79,0,0,0,0,0,0,0,79,0,0,0,0,0,0,0,"{""building"": 79}",{}
-91,[DVHS] Joanne Cheong,15113451,9,500,South Africa,160,304,3,17,15,1,0,0,0,0,0,17,14,0,0,0,0,0,0,"{""building"": 17}","{""building"": 14, ""landuse"": 1}"
-92,Abuela1,16676139,3,472,"Arunachal Pradesh,India",406,5,0,61,0,0,0,0,0,0,0,53,0,0,0,0,0,0,0,"{""building"": 53, ""natural"": 6, ""landuse"": 2, ""layer"": 1}",{}
-93,Govinda Yadav,13252552,5,464,Nepal,355,18,0,89,2,0,0,0,0,0,0,89,1,0,0,0,0,0,0,"{""building"": 89}","{""building"": 1, ""intermittent"": 1, ""natural"": 1, ""water"": 1}"
-94,PraKH,11491881,2,453,Nepal,225,160,32,14,19,2,1,0,0,0,0,13,1,0,5,0,0,0,0,"{""building"": 13, ""landuse"": 2, ""type"": 1}","{""natural"": 6, ""landuse"": 5, ""highway"": 5, ""water"": 1, ""building"": 1}"
-95,Frans S,1962399,4,450,Bangladesh,0,186,213,0,1,50,0,0,0,0,0,0,0,0,1,0,0,0,0,{},"{""highway"": 1, ""name"": 1}"
-96,OllieBiggs2008,17506680,14,442,"Egypt,Tajikistan,Qatar",334,25,5,68,9,1,0,0,0,0,1,64,3,3,1,0,0,0,0,"{""building"": 64, ""highway"": 3, ""natural"": 1}","{""building"": 3, ""landuse"": 3, ""barrier"": 2, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:neighbourhood"": 1, ""addr:neighbourhood:en"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1, ""highway"": 1}"
-97,L de Groot,17283107,3,436,South Africa,352,0,0,84,0,0,0,0,0,0,0,84,0,0,0,0,0,0,0,"{""building"": 84}",{}
-98,Kmanasco,18259377,36,425,El Salvador,348,1,0,76,0,0,0,0,0,0,0,76,0,0,0,0,0,0,0,"{""building"": 76}",{}
-99,ashton360,17813354,22,410,El Salvador,332,0,8,68,0,2,0,0,0,0,0,68,0,0,0,0,0,0,0,"{""building"": 68, ""building:levels"": 1}",{}
-100,Sri Raini,18335691,3,405,,92,109,144,23,1,36,0,0,0,0,0,23,0,0,0,0,0,0,0,"{""building"": 23}","{""landuse"": 1}"
-101,Anna_Panka,12951602,4,405,"South Africa,Japan",326,21,0,53,5,0,0,0,0,0,0,52,1,0,0,0,0,0,2,"{""building"": 52, ""landuse"": 1}","{""amenity"": 2, ""parking"": 1, ""cables"": 1, ""frequency"": 1, ""operator"": 1, ""power"": 1, ""voltage"": 1, ""addr:city"": 1, ""addr:street"": 1, ""beds"": 1, ""email"": 1, ""emergency"": 1, ""fax"": 1, ""healthcare"": 1, ""healthcare:speciality"": 1, ""name"": 1, ""phone"": 1, ""wheelchair"": 1, ""building"": 1, ""landuse"": 1}"
-102,Heterodyne,9531596,2,400,Cameroon,22,350,16,0,8,4,0,0,0,0,0,0,8,0,0,0,0,0,0,{},"{""building"": 8}"
-103,flipsteen,12588056,1,394,Chad,230,1,91,46,0,26,0,0,0,0,0,46,0,0,0,0,0,0,0,"{""building"": 46}",{}
-104,adenbj,15214713,3,378,Democratic Republic of the Congo,233,78,6,49,9,1,2,0,0,0,0,48,7,0,1,0,0,0,1,"{""building"": 48, ""type"": 2}","{""building"": 7, ""name"": 3, ""source"": 2, ""office"": 2, ""highway"": 1, ""surface"": 1, ""amenity"": 1}"
-105,nachant,16992694,1,378,United Republic of Tanzania,94,44,185,18,1,36,0,0,0,0,0,18,1,0,0,0,0,0,0,"{""building"": 18}","{""building"": 1}"
-106,Mukesh Thapa,11674386,5,374,Egypt,298,6,0,69,1,0,0,0,0,0,0,69,1,0,0,0,0,0,0,"{""building"": 69}","{""building"": 1}"
-107,clairedelune,190626,1,373,Democratic Republic of the Congo,367,4,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,"{""waterway"": 1}","{""waterway"": 1}"
-108,marco443,1886646,8,367,India,114,197,18,28,7,3,0,0,0,0,0,28,6,0,1,0,0,0,0,"{""building"": 28}","{""building"": 6, ""highway"": 1, ""source"": 1, ""layer"": 1}"
-109,Serenavocado,13574778,7,354,"Kenya,Libyan Arab Jamahiriya,Qatar",291,0,0,63,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{}
-110,Lonneke76,6518907,3,346,Nepal,177,106,26,24,6,7,0,0,0,0,0,23,1,1,5,0,0,0,0,"{""building"": 23, ""highway"": 1}","{""highway"": 5, ""surface"": 1, ""building"": 1}"
-111,finnyboi,17752463,11,343,"Azerbaijan,U.K. of Great Britain and Northern Ireland,India,South Africa",262,2,12,58,7,2,0,0,0,0,0,58,4,0,1,0,0,0,0,"{""building"": 58, ""addr:housename"": 1, ""addr:street"": 1, ""name"": 1}","{""name"": 4, ""addr:postcode"": 4, ""building"": 4, ""landuse"": 2, ""barrier"": 1, ""highway"": 1, ""source"": 1}"
-112,ODULANA OLUWATOYIN,10483398,2,336,Kenya,272,0,1,63,0,0,0,0,0,0,0,63,0,0,0,0,0,0,0,"{""building"": 63}",{}
-113,Anisa Dhakal,11171620,1,320,Nepal,52,243,4,0,20,1,0,0,0,0,0,0,20,0,0,0,0,0,0,{},"{""building"": 20}"
-114,Alexander MacDonlad,14993620,1,319,Sri Lanka,137,83,59,26,0,14,0,0,0,0,0,26,0,0,0,0,0,0,0,"{""building"": 26}",{}
-115,Swift1666,18246382,1,310,South Africa,260,1,0,49,0,0,0,0,0,0,0,49,0,0,0,0,0,0,0,"{""building"": 49}",{}
-116,Malee's world,18218185,3,297,Côte d'Ivoire,224,9,3,51,10,0,0,0,0,0,0,21,2,30,8,0,0,0,0,"{""highway"": 30, ""building"": 21}","{""highway"": 8, ""building"": 2, ""surface"": 1}"
-117,Libithina,10458429,1,284,Bangladesh,222,22,1,36,3,0,0,0,0,0,0,35,1,0,2,0,0,0,0,"{""building"": 35, ""landuse"": 1}","{""highway"": 2, ""surface"": 2, ""building"": 1}"
-118,Genten85,11954122,7,280,Nigeria,209,12,9,45,2,3,0,0,0,0,0,42,0,3,2,0,0,0,0,"{""building"": 42, ""highway"": 3, ""surface"": 1}","{""highway"": 2}"
-119,Chohan-B,17001590,1,273,Libyan Arab Jamahiriya,227,0,0,46,0,0,0,0,0,0,0,46,0,0,0,0,0,0,0,"{""building"": 46}",{}
-120,Kicking Leaves,12405934,4,269,Botswana,166,35,27,36,2,3,0,0,0,0,0,35,0,0,0,0,0,0,0,"{""building"": 35, ""landuse"": 1, ""note"": 1}","{""man_made"": 2, ""note"": 2}"
-121,Fenr1s,17156824,1,269,Libyan Arab Jamahiriya,231,1,0,35,2,0,0,0,0,0,0,35,1,0,0,0,0,0,0,"{""building"": 35}","{""building"": 1}"
-122,Uncle Onka,11701156,5,265,Nepal,121,51,64,18,4,7,0,0,0,0,0,8,1,5,2,5,1,0,0,"{""building"": 8, ""waterway"": 5, ""highway"": 5, ""layer"": 1, ""tunnel"": 1}","{""highway"": 2, ""waterway"": 1, ""building"": 1}"
-123,Gustav Maps,14415655,4,247,Algeria,139,32,31,31,10,4,0,0,0,0,0,27,0,4,10,0,0,0,0,"{""building"": 27, ""highway"": 4}","{""highway"": 10, ""name"": 1}"
-124,Darragh2023,18139653,3,245,Namibia,183,1,24,29,2,6,0,0,0,1,0,29,2,0,0,0,0,0,0,"{""building"": 29, ""railway"": 1}","{""building"": 2}"
-125,BRPS,18194384,3,241,Sudan,194,2,0,45,0,0,0,0,0,0,0,45,0,0,0,0,0,0,0,"{""building"": 45}",{}
-126,Yan 8,14595854,6,231,Libyan Arab Jamahiriya,186,0,0,45,0,0,0,0,0,0,0,45,0,0,0,0,0,0,0,"{""building"": 45}",{}
-127,Calyppe,4839953,2,214,Nigeria,196,7,0,10,1,0,0,0,0,0,0,10,0,0,0,0,0,0,0,"{""building"": 10}","{""landuse"": 1, ""source"": 1}"
-128,afrizal tutupoho,18335743,1,206,Indonesia,164,1,0,41,0,0,0,0,0,0,0,41,0,0,0,0,0,0,0,"{""building"": 41, ""leisure"": 1, ""sport"": 1}",{}
-129,akraus02,18376039,1,205,Japan,181,0,0,21,3,0,0,0,0,0,0,10,0,8,1,0,0,0,0,"{""building"": 10, ""highway"": 8, ""landuse"": 3}","{""source"": 2, ""highway"": 1, ""natural"": 1, ""source_ref"": 1}"
-130,Daniel Specht,2393795,7,198,"India,Nepal",156,15,0,10,14,1,0,2,0,0,0,1,0,6,6,0,6,0,0,"{""highway"": 6, ""bridge"": 3, ""layer"": 3, ""electrified"": 2, ""frequency"": 2, ""gauge"": 2, ""passenger_lines"": 2, ""railway"": 2, ""usage"": 2, ""voltage"": 2, ""source"": 2, ""landuse"": 1, ""building"": 1}","{""waterway"": 6, ""highway"": 6, ""type"": 2, ""bridge"": 1, ""layer"": 1, ""electrified"": 1, ""frequency"": 1, ""gauge"": 1, ""passenger_lines"": 1, ""railway"": 1, ""usage"": 1, ""voltage"": 1, ""landuse"": 1, ""source"": 1, ""from"": 1, ""name"": 1, ""route"": 1, ""to"": 1}"
-131,Kukun Mishra,2969753,4,175,India,140,0,0,35,0,0,0,0,0,0,0,35,0,0,0,0,0,0,0,"{""building"": 35}",{}
-132,muecke73,6763313,7,172,Egypt,143,10,0,17,2,0,0,0,0,0,0,17,0,0,0,0,0,0,0,"{""building"": 17}","{""landuse"": 2, ""name"": 2, ""name:ar"": 2, ""name:en"": 2, ""place"": 2}"
-133,May Torres,14488288,2,170,Philippines,104,38,0,25,3,0,0,0,0,0,0,25,3,0,0,0,0,0,0,"{""building"": 25, ""addr:city"": 10, ""addr:postcode"": 10, ""addr:province"": 10}","{""addr:city"": 3, ""addr:postcode"": 3, ""addr:province"": 3, ""building"": 3}"
-134,zoubinnaba,5113626,2,169,Togo,19,97,39,2,8,4,0,0,0,0,0,1,0,1,6,0,0,0,0,"{""highway"": 1, ""source"": 1, ""surface"": 1, ""tracktype"": 1, ""building"": 1}","{""highway"": 6, ""source"": 5, ""barrier"": 2, ""surface"": 1, ""tracktype"": 1}"
-135,Samayeeta Singha,18369307,4,163,Bangladesh,158,0,0,4,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,"{""landuse"": 4}","{""highway"": 1, ""surface"": 1}"
-136,gail2022,17589917,5,162,Bangladesh,125,3,1,31,2,0,0,0,0,1,0,31,2,0,0,0,0,0,0,"{""building"": 31, ""railway"": 1}","{""building"": 2}"
-137,Ashim Paudel,16378761,1,153,Nepal,63,72,0,15,3,0,0,0,0,0,0,15,3,0,0,0,0,0,0,"{""building"": 15}","{""building"": 3}"
-138,Jorge MZH,18316341,2,139,Egypt,117,0,0,22,0,0,0,0,0,0,0,22,0,0,0,0,0,0,0,"{""building"": 22}",{}
-139,tjiagom,11460897,2,139,South Africa,95,26,0,17,1,0,0,0,0,0,0,17,1,0,0,0,0,0,0,"{""building"": 17, ""layer"": 1}","{""building"": 1}"
-140,omarselim,10996782,2,133,Egypt,120,0,0,13,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,"{""building"": 13, ""source"": 13}",{}
-141,emmarice,17478190,2,132,Nigeria,106,0,0,26,0,0,0,0,0,0,0,26,0,0,0,0,0,0,0,"{""building"": 26}",{}
-142,cyberchrime,12387497,1,132,Tajikistan,18,109,0,4,1,0,0,0,0,0,0,4,1,0,0,0,0,0,0,"{""building"": 4}","{""building"": 1}"
-143,Sleeveless Famine,17561378,4,130,Libyan Arab Jamahiriya,104,0,0,26,0,0,0,0,0,0,0,26,0,0,0,0,0,0,0,"{""building"": 26}",{}
-144,EsmeGould,17886006,2,126,Kenya,102,0,0,24,0,0,0,0,0,0,0,24,0,0,0,0,0,0,0,"{""building"": 24}",{}
-145,Ed Brealey,18043947,1,125,Libyan Arab Jamahiriya,100,0,0,25,0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,"{""building"": 25}",{}
-146,Dante Schiavone-Delfino,14684381,4,124,Libyan Arab Jamahiriya,100,0,0,24,0,0,0,0,0,0,0,24,0,0,0,0,0,0,0,"{""building"": 24}",{}
-147,Theo Austen,17564255,2,122,Kenya,99,4,0,15,4,0,0,0,0,0,0,9,0,3,3,0,0,0,0,"{""building"": 9, ""highway"": 3, ""landuse"": 3}","{""highway"": 3, ""landuse"": 1}"
-148,beri_ro,18375736,2,119,United Republic of Tanzania,101,0,0,18,0,0,0,0,0,0,0,18,0,0,0,0,0,0,0,"{""building"": 18}",{}
-149,Bobblepop21,11250976,9,118,El Salvador,97,0,0,21,0,0,0,0,0,0,0,21,0,0,0,0,0,0,0,"{""building"": 21}",{}
-150,Binisha21,17827219,3,118,Nepal,4,3,93,1,16,1,0,0,0,0,0,0,0,0,2,0,0,0,0,"{""natural"": 1}","{""natural"": 7, ""landuse"": 7, ""highway"": 2, ""name"": 1, ""name:en"": 1, ""ref"": 1, ""ref:old"": 1, ""surface"": 1, ""source"": 1, ""water"": 1}"
-151,Palolo,385046,6,115,United Republic of Tanzania,35,64,0,3,13,0,0,0,0,0,0,3,5,0,8,0,0,0,0,"{""building"": 3}","{""highway"": 8, ""source"": 8, ""building"": 5}"
-152,FajarMarssy,18335686,3,112,Indonesia,42,56,0,10,4,0,0,0,0,0,0,8,4,0,0,0,0,0,0,"{""building"": 8}","{""building"": 4}"
-153,Ashok Thakulla,10963925,2,105,Nepal,20,78,1,5,1,0,0,0,0,0,0,5,1,0,0,0,0,0,0,"{""building"": 5}","{""ford"": 1, ""building"": 1}"
-154,Snakej,18040441,3,102,United Republic of Tanzania,94,0,0,8,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,"{""building"": 8}",{}
-155,bgracek,11641821,2,94,South Africa,85,0,0,9,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,"{""building"": 9, ""layer"": 1}",{}
-156,Luke25,18139831,4,85,"Tajikistan,South Sudan",64,4,0,16,1,0,0,0,0,0,0,16,0,0,0,0,0,0,0,"{""building"": 16}","{""landuse"": 1, ""place"": 1}"
-157,Rohitrk29,18369300,2,82,"Bangladesh,Egypt",68,0,0,13,1,0,0,0,0,0,0,10,0,0,1,0,0,0,0,"{""building"": 10, ""landuse"": 3}","{""highway"": 1}"
-158,Wiwin Putnarubun,18332604,2,79,Indonesia,0,78,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,{},"{""bridge"": 1, ""bridge:structure"": 1, ""highway"": 1, ""layer"": 1}"
-159,Callum Munro,11360764,3,76,Libyan Arab Jamahiriya,61,0,0,15,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,"{""building"": 15}",{}
-160,willhalford,17425835,4,75,Egypt,65,0,0,10,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,"{""building"": 10}",{}
-161,shapez,14137582,2,75,"Kenya,Greece",42,22,1,7,3,0,0,0,0,0,0,6,0,1,3,0,0,0,0,"{""building"": 6, ""roof:colour"": 3, ""highway"": 1}","{""highway"": 3}"
-162,Pa-Do,1943353,1,70,South Africa,45,15,1,7,2,0,0,0,0,0,0,7,2,0,0,0,0,0,0,"{""building"": 7}","{""building"": 2}"
-163,Anjelina Singh,14478218,1,57,Nigeria,51,0,0,6,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,"{""building"": 6}",{}
-164,Pichalupa,17681500,2,56,United Republic of Tanzania,10,44,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 2}",{}
-165,Nyaega Orina,7574899,1,46,Kenya,44,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,"{""highway"": 1, ""surface"": 1}","{""highway"": 1, ""ref"": 1, ""surface"": 1}"
-166,frozenrabi,10459757,3,45,Nepal,19,17,1,4,4,0,0,0,0,0,0,4,0,0,1,0,0,0,0,"{""building"": 4}","{""natural"": 3, ""highway"": 1}"
-167,mitcho2013,4813258,1,45,Chad,39,0,0,6,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,"{""building"": 6}",{}
-168,Luke Matthews,12534769,3,45,El Salvador,21,20,0,2,2,0,0,0,0,0,0,2,0,0,2,0,0,0,0,"{""building"": 2}","{""highway"": 2, ""surface"": 2, ""name"": 1, ""oneway"": 1}"
-169,MM155636,17579768,1,42,Brazil,34,0,0,8,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,"{""building"": 8}",{}
-170,JanButter,6522172,2,41,,12,21,4,3,0,1,0,0,0,0,0,3,0,0,0,0,0,0,0,"{""building"": 3}",{}
-171,arvanameth,18335702,1,31,,12,16,0,3,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,"{""building"": 3}",{}
-172,laurents25,10651461,1,31,Egypt,28,1,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 2}","{""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1}"
-173,AKOUETE,4274094,2,30,India,24,0,0,6,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,"{""building"": 6}",{}
-174,NiCo1234isamazing,18319102,1,29,Nigeria,24,0,0,5,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,"{""building"": 4}",{}
-175,norma pattiwaellapia,18335692,4,25,Indonesia,16,0,4,4,0,1,0,0,0,0,0,4,0,0,0,0,0,0,0,"{""building"": 4}",{}
-176,KingVik,7159298,1,23,Nigeria,20,0,0,1,2,0,0,0,0,0,0,0,0,0,2,1,0,0,0,"{""waterway"": 1}","{""highway"": 2}"
-177,vivi nukuhaly,18335752,2,21,Indonesia,4,16,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 1}",{}
-178,Baovola,3138746,1,13,Libyan Arab Jamahiriya,12,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 1}",{}
-179,Elyanard,10239799,1,9,Indonesia,4,4,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 1}",{}
-180,boocha34,3637689,1,7,Lesotho,0,0,0,0,7,0,0,0,0,0,0,0,0,0,7,0,0,0,0,{},"{""highway"": 7, ""surface"": 6, ""bridge"": 3, ""layer"": 3, ""source"": 1}"
-181,jakemcgowan,16617877,1,5,South Africa,4,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 1}",{}
-182,D@vid89,17571353,1,5,Zambia,4,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 1}",{}
-183,Tagoytoy,17351993,1,4,Philippines,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{}
-184,Erick tamba,10570996,1,1,Nepal,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},"{""natural"": 1}"
+rank,name,uid,changesets,map_changes,countries,nodes.create,nodes.modify,nodes.delete,ways.create,ways.modify,ways.delete,relations.create,relations.modify,relations.delete,poi.create,poi.modify,poi.delete,building.create,building.modify,building.delete,highway.create,highway.modify,highway.delete,waterway.create,waterway.modify,waterway.delete,amenity.create,amenity.modify,amenity.delete,tags_create,tags_modify,tags_delete
+1,UPegasus,3442717,8,18582,South Africa,9989,1882,4465,1409,110,727,0,0,0,3,22,0,1388,56,0,17,71,0,0,0,0,0,0,0,"{""building"": 1388, ""layer"": 67, ""highway"": 17, ""leisure"": 3, ""building:part"": 3, ""power"": 1, ""construction"": 1, ""sport"": 1}","{""highway"": 71, ""building"": 56, ""name"": 18, ""source"": 11, ""surface"": 11, ""layer"": 11, ""power"": 4, ""voltage"": 2, ""access"": 2, ""ford"": 1, ""lanes"": 1, ""cables"": 1, ""circuits"": 1}",{}
+2,anthaas,5438501,24,16077,"Chad,Angola,Zimbabwe",7859,5504,1381,872,256,205,0,0,0,0,0,0,850,236,0,0,7,0,0,0,0,0,0,0,"{""building"": 850, ""landuse"": 22}","{""building"": 236, ""landuse"": 13, ""highway"": 7, ""surface"": 2, ""seasonal"": 1, ""tracktype"": 1, ""layer"": 1}",{}
+3,nyainariantsoa,10732815,8,12385,Senegal,10997,663,27,616,78,4,0,0,0,3,1,0,491,16,0,121,60,0,0,1,0,0,0,0,"{""building"": 491, ""highway"": 121, ""natural"": 4, ""ford"": 3, ""source"": 3, ""surface"": 3}","{""highway"": 60, ""source"": 27, ""surface"": 27, ""building"": 16, ""tracktype"": 2, ""name"": 1, ""place"": 1, ""boundary"": 1, ""waterway"": 1}",{}
+4,TeBaMa,6519568,7,11757,Mali,6218,3668,296,1478,26,69,2,0,0,0,2,0,1473,12,0,3,13,0,0,0,0,0,0,0,"{""building"": 1473, ""highway"": 3, ""surface"": 2, ""type"": 2}","{""highway"": 13, ""surface"": 12, ""building"": 12, ""source"": 3, ""tracktype"": 3, ""place"": 2, ""alt_name"": 1, ""name"": 1, ""nga:ufi"": 1, ""landuse"": 1}",{}
+5,snoguera1,18307869,78,10302,Zambia,8810,0,4,1485,2,1,0,0,0,0,0,0,1485,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 1485}","{""construction"": 1, ""highway"": 1, ""ref"": 1, ""surface"": 1}",{}
+6,ACTksantna,18334350,9,9659,Kenya,8045,0,0,1614,0,0,0,0,0,0,0,0,1606,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1606, ""natural"": 8, ""layer"": 1}",{},{}
+7,Dary Raihanah IRM-ED,15053262,7,9423,Indonesia,1204,7483,298,191,225,22,0,0,0,0,2,0,178,170,0,13,55,0,0,0,0,0,0,0,"{""building"": 178, ""highway"": 13, ""access"": 3, ""oneway"": 1, ""name"": 1}","{""building"": 170, ""highway"": 55, ""access"": 10, ""motorcycle"": 9, ""name"": 8, ""barrier"": 2, ""lanes"": 2, ""noname"": 2, ""motorcar"": 1, ""import"": 1, ""source"": 1}",{}
+8,Tom_HL,18192024,49,8970,"Angola,Chad,Democratic Republic of the Congo",6504,268,982,1027,4,185,0,0,0,0,0,0,1020,2,0,0,2,0,0,0,0,0,0,0,"{""building"": 1020, ""landuse"": 7}","{""highway"": 2, ""building"": 2, ""surface"": 1}",{}
+9,Tengku Almira IRM-ED,17716288,10,7450,Indonesia,523,6804,0,121,2,0,0,0,0,0,0,0,121,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 121}","{""building"": 2}",{}
+10,Libor Bednarik,4355439,8,7416,"Angola,Zimbabwe",5498,944,25,936,10,3,0,0,0,0,1,0,930,1,0,1,4,0,0,4,0,0,0,0,"{""building"": 930, ""landuse"": 5, ""highway"": 1}","{""highway"": 4, ""intermittent"": 4, ""seasonal"": 4, ""waterway"": 4, ""source"": 2, ""surface"": 2, ""ford"": 1, ""building"": 1, ""landuse"": 1}",{}
+11,Anisa IRM-ED,8072049,9,7097,Indonesia,3569,2161,446,674,153,94,0,0,0,0,0,0,674,147,0,0,6,0,0,0,0,0,0,0,"{""building"": 674}","{""building"": 147, ""highway"": 6, ""surface"": 1, ""oneway"": 1, ""layer"": 1}",{}
+12,Irfandi IRM-ED,17714747,17,7069,Indonesia,3806,2252,46,893,70,2,0,0,0,0,1,0,893,52,0,0,19,0,0,0,0,0,0,0,"{""building"": 893}","{""building"": 52, ""highway"": 19, ""import"": 1, ""source"": 1}",{}
+13,TibestiMountains,16853644,20,6946,South Africa,1425,5008,50,236,227,0,0,0,0,0,0,0,236,227,0,0,0,0,0,0,0,0,0,0,"{""building"": 236}","{""building"": 227, ""layer"": 8}",{}
+14,andraina,11974512,3,6900,Senegal,6257,180,21,296,144,2,0,0,0,0,1,0,30,0,0,266,137,0,0,3,0,0,0,0,"{""highway"": 266, ""building"": 30, ""source"": 2, ""surface"": 2}","{""highway"": 137, ""surface"": 35, ""source"": 18, ""tracktype"": 12, ""lanes"": 8, ""oneway"": 8, ""waterway"": 3, ""intermittent"": 2, ""ford"": 1, ""natural"": 1}",{}
+15,Jan Erba,15466773,5,6890,"Uganda,Niger",6165,184,157,370,5,9,0,0,0,0,0,0,370,4,0,0,1,0,0,0,0,0,0,0,"{""building"": 370}","{""building"": 4, ""highway"": 1, ""source"": 1}",{}
+16,Talitha IRM-ED,9421520,14,6644,Indonesia,2866,2636,299,497,298,48,0,0,0,0,1,0,495,251,0,2,47,0,0,0,0,0,0,0,"{""building"": 495, ""highway"": 2, ""import"": 1, ""source"": 1}","{""building"": 251, ""highway"": 47, ""import"": 9, ""source"": 9, ""oneway"": 4, ""noname"": 2, ""access"": 1, ""barrier"": 1, ""lanes"": 1, ""motorcycle"": 1}",{}
+17,maperezb,18294319,41,6635,Zambia,5777,0,0,858,0,0,0,0,0,0,0,0,858,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 858}",{},{}
+18,Rizki IRM-ED,17714670,4,6532,Indonesia,3205,2341,115,756,103,12,0,0,0,0,0,0,754,100,0,2,3,0,0,0,0,0,1,0,"{""building"": 754, ""highway"": 2, ""covered"": 1}","{""building"": 100, ""highway"": 3, ""motorcycle"": 1, ""addr:housenumber"": 1, ""addr:street"": 1, ""amenity"": 1, ""name"": 1, ""layer"": 1}",{}
+19,Norike12,6486402,5,6288,Senegal,5294,391,43,506,48,5,1,0,0,0,3,0,266,10,0,237,36,0,3,0,0,0,0,0,"{""building"": 266, ""highway"": 237, ""surface"": 3, ""intermittent"": 3, ""waterway"": 3, ""layer"": 1, ""tunnel"": 1, ""type"": 1}","{""highway"": 36, ""building"": 10, ""surface"": 9, ""place"": 3, ""name"": 2}",{}
+20,DiahW IRM-ED,7561020,6,6241,Indonesia,2439,2785,293,395,300,29,0,0,0,0,0,0,394,288,0,1,12,0,0,0,0,1,1,0,"{""building"": 394, ""amenity"": 1, ""name"": 1, ""highway"": 1}","{""building"": 288, ""highway"": 12, ""motorcycle"": 3, ""name"": 2, ""amenity"": 1, ""religion"": 1, ""surface"": 1, ""import"": 1, ""source"": 1}",{}
+21,Aglis IRM-ED,8072046,5,5842,Indonesia,1915,2426,835,374,175,117,0,0,0,0,0,0,371,170,0,3,5,0,0,0,0,0,0,0,"{""building"": 371, ""highway"": 3}","{""building"": 170, ""highway"": 5}",{}
+22,Qomar IRM-ED,9543905,10,5769,Indonesia,4210,325,1,1226,7,0,0,0,0,0,0,0,1226,3,0,0,4,0,0,0,0,0,0,0,"{""building"": 1226}","{""highway"": 4, ""building"": 3, ""motorcycle"": 2, ""name"": 1, ""access"": 1}",{}
+23,Alex_DSt,18349674,50,5373,"Kenya,South Sudan,Niger,Angola,Chad,Libyan Arab Jamahiriya",4636,190,3,539,4,1,0,0,0,0,0,0,524,1,0,8,3,0,0,0,0,0,0,0,"{""building"": 524, ""highway"": 8, ""landuse"": 7}","{""highway"": 3, ""lanes"": 1, ""surface"": 1, ""building"": 1}",{}
+24,Arie den Boon,11116458,21,5101,Democratic Republic of the Congo,358,4525,99,65,40,14,0,0,0,0,0,0,63,29,0,2,7,0,0,0,0,0,0,0,"{""building"": 63, ""highway"": 2}","{""building"": 29, ""highway"": 7, ""surface"": 5, ""source"": 4, ""landuse"": 3, ""natural"": 1, ""water"": 1, ""layer"": 1}",{}
+25,Awania Morish,9379491,12,5063,Uganda,1803,2815,35,371,33,5,1,0,0,0,0,0,351,18,0,19,15,0,0,0,0,1,0,0,"{""building"": 351, ""source"": 125, ""highway"": 19, ""addr:city"": 1, ""addr:street"": 1, ""amenity"": 1, ""name"": 1, ""opening_hours"": 1, ""type"": 1}","{""building"": 18, ""highway"": 15, ""name"": 4, ""source"": 2, ""surface"": 2, ""building:levels"": 2, ""addr:city"": 1, ""addr:division"": 1, ""addr:parish"": 1, ""addr:village"": 1, ""building:condition"": 1, ""building:material"": 1, ""building:roof"": 1, ""smoothness"": 1}",{}
+26,hebolz,2249513,37,5033,Democratic Republic of the Congo,243,851,3771,48,30,90,0,0,0,0,0,0,47,1,0,0,27,0,0,0,0,0,0,0,"{""building"": 47, ""fixme"": 1, ""landuse"": 1}","{""highway"": 27, ""natural"": 2, ""ID"": 1, ""intermittent"": 1, ""building"": 1}",{}
+27,nanou1,6486352,11,4921,Senegal,4222,150,21,468,60,0,0,0,0,3,0,0,235,0,0,232,53,0,1,4,0,0,0,0,"{""building"": 235, ""highway"": 232, ""place"": 3, ""surface"": 2, ""tracktype"": 2, ""bridge"": 1, ""layer"": 1, ""ford"": 1, ""intermittent"": 1, ""waterway"": 1}","{""highway"": 53, ""surface"": 17, ""source"": 8, ""tracktype"": 4, ""intermittent"": 4, ""waterway"": 4, ""landuse"": 3, ""lanes"": 1, ""oneway"": 1}",{}
+28,reisir,18166894,9,4879,Angola,4484,5,0,388,2,0,0,0,0,0,0,0,382,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 382, ""landuse"": 6}","{""landuse"": 2}",{}
+29,CKORR,17630525,115,4805,Nigeria,575,1689,1916,96,78,450,0,1,0,0,0,0,96,64,0,0,10,0,0,0,0,0,0,0,"{""building"": 96}","{""building"": 64, ""highway"": 10, ""surface"": 8, ""name"": 6, ""place"": 4, ""is_in:country"": 1, ""type"": 1}",{}
+30,AKE Amazan,1586794,10,4745,Togo,2627,885,479,602,67,85,0,0,0,0,1,0,590,41,0,12,17,0,0,3,0,0,0,0,"{""building"": 590, ""highway"": 12, ""abandoned:building"": 3, ""source"": 2, ""surface"": 2, ""bridge"": 1, ""layer"": 1, ""ref"": 1}","{""source"": 51, ""building"": 41, ""highway"": 17, ""surface"": 6, ""name"": 4, ""waterway"": 3, ""landuse"": 3, ""tracktype"": 2, ""entrance"": 1, ""ref"": 1, ""barrier"": 1, ""leisure"": 1, ""sport"": 1}",{}
+31,remimage,3626326,28,4732,"El Salvador,Niger,Nigeria",1157,3060,254,163,55,43,0,0,0,0,0,0,163,51,0,0,4,0,0,0,0,0,0,0,"{""building"": 163}","{""building"": 51, ""highway"": 4, ""surface"": 4, ""source"": 3, ""lanes"": 1, ""ref"": 1}",{}
+32,Marvin de Hont,6616734,11,4719,"South Africa,Malawi",3063,877,52,683,35,9,0,0,0,0,0,0,672,16,0,11,19,0,0,0,0,0,0,0,"{""building"": 672, ""highway"": 11}","{""highway"": 19, ""building"": 16, ""surface"": 6, ""ref"": 2, ""name"": 2}",{}
+33,landscapemapper,220206,9,4699,"India,Bangladesh",2366,459,1066,528,22,256,1,1,0,0,0,0,514,4,0,0,13,0,0,0,0,0,0,0,"{""building"": 514, ""landuse"": 13, ""type"": 1}","{""highway"": 13, ""source"": 11, ""landuse"": 4, ""building"": 4, ""natural"": 2, ""name"": 1, ""ref"": 1, ""type"": 1}",{}
+34,ricaarre,18370529,43,4586,Zambia,3229,7,488,742,0,120,0,0,0,0,0,0,742,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 742}",{},{}
+35,MagnusLi,18119824,20,4436,South Africa,2199,1670,101,251,202,13,0,0,0,0,0,0,251,200,0,0,2,0,0,0,0,0,0,0,"{""building"": 251}","{""building"": 200, ""source"": 177, ""highway"": 2, ""name"": 2, ""layer"": 1}",{}
+36,Safrano,6522497,9,4104,Botswana,1352,887,1641,108,17,99,0,0,0,0,0,0,108,17,0,0,0,0,0,0,0,0,0,0,"{""building"": 108}","{""building"": 17, ""source"": 4}",{}
+37,Irma IRM-ED,13065690,9,4034,Indonesia,3110,177,0,744,3,0,0,0,0,0,0,0,744,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 744}","{""landuse"": 1, ""name"": 1, ""highway"": 1, ""building"": 1}",{}
+38,Isaboke,10868348,15,3868,Kenya,1123,2659,7,65,13,1,0,0,0,22,80,0,10,2,0,11,9,0,0,0,0,20,61,0,"{""barrier"": 27, ""amenity"": 20, ""natural"": 17, ""highway"": 11, ""building"": 10, ""surface"": 9, ""roof:material"": 2, ""fence_type"": 2, ""man_made"": 1}","{""amenity"": 61, ""toilets:disposal"": 51, ""toilets:position"": 51, ""natural"": 16, ""highway"": 9, ""surface"": 7, ""barrier"": 3, ""crossing"": 2, ""location"": 2, ""man_made"": 2, ""building"": 2, ""roof:material"": 2, ""ref"": 2, ""material"": 1}",{}
+39,Narindra Fidintsoa,7041772,7,3846,Senegal,3309,226,40,254,16,1,0,0,0,1,0,0,94,0,0,158,15,0,2,0,0,0,0,0,"{""highway"": 158, ""building"": 94, ""surface"": 3, ""waterway"": 2, ""source"": 2, ""ford"": 1}","{""highway"": 15, ""surface"": 13, ""source"": 11, ""landuse"": 1}",{}
+40,Rizky IRM-ED,9421521,4,3816,Indonesia,2311,779,57,416,252,1,0,0,0,0,0,0,416,251,0,0,1,0,0,0,0,0,0,0,"{""building"": 416}","{""building"": 251, ""highway"": 1, ""motorcycle"": 1}",{}
+41,rrissiek,17889,11,3702,South Sudan,3104,96,182,278,18,24,0,0,0,0,0,0,239,0,0,37,15,0,0,0,0,0,1,0,"{""building"": 239, ""highway"": 37, ""surface"": 3, ""landuse"": 1, ""man_made"": 1, ""layer"": 1, ""source"": 1}","{""highway"": 15, ""source"": 5, ""name"": 2, ""surface"": 2, ""ref"": 1, ""layer"": 1, ""amenity"": 1, ""was:highway"": 1, ""landuse"": 1}",{}
+42,Diana IRM-ED,8072061,5,3630,Indonesia,1453,1744,72,208,145,8,0,0,0,0,0,0,206,142,0,2,3,0,0,0,0,0,0,0,"{""building"": 206, ""highway"": 2}","{""building"": 142, ""highway"": 3}",{}
+43,LCecile,14819164,13,3468,India,2714,143,0,607,4,0,0,0,0,0,0,0,607,0,0,0,4,0,0,0,0,0,0,0,"{""building"": 607}","{""highway"": 4}",{}
+44,JohnW11,8285929,3,3358,Chad,2051,914,54,327,7,5,0,0,0,0,0,0,316,4,0,8,2,0,0,0,0,0,0,0,"{""building"": 316, ""highway"": 8, ""landuse"": 3}","{""building"": 4, ""highway"": 2, ""seasonal"": 1, ""surface"": 1, ""landuse"": 1}",{}
+45,hel22,18352586,52,3304,South Africa,2238,605,37,368,49,7,0,0,0,0,0,0,368,48,0,0,0,0,0,0,0,0,0,0,"{""building"": 368}","{""building"": 48, ""layer"": 1, ""landuse"": 1}",{}
+46,zoubinnaba,5113626,16,3221,Togo,2506,53,49,581,26,5,1,0,0,0,0,0,565,1,0,15,24,0,0,0,0,0,0,0,"{""building"": 565, ""highway"": 15, ""type"": 1}","{""highway"": 24, ""source"": 21, ""surface"": 1, ""building"": 1}",{}
+47,Adrie Helpt,6599999,7,3171,Angola,2878,14,19,256,3,1,0,0,0,0,0,0,256,0,0,0,2,0,0,0,0,0,0,0,"{""building"": 256}","{""highway"": 2, ""ref"": 2, ""surface"": 2, ""landuse"": 1}",{}
+48,Kraan46,11628862,7,3170,"Kenya,Chad,Angola",2319,298,76,466,3,8,0,0,0,0,0,0,463,3,0,0,0,0,0,0,0,0,0,0,"{""building"": 463, ""landuse"": 3}","{""building"": 3}",{}
+49,Grannymeg,13361440,15,3041,Sri Lanka,2539,89,9,354,50,0,0,0,0,0,0,0,299,2,0,18,17,0,11,3,0,0,0,0,"{""building"": 299, ""highway"": 18, ""landuse"": 16, ""waterway"": 11, ""natural"": 10, ""layer"": 5, ""tunnel"": 5}","{""highway"": 17, ""landuse"": 15, ""natural"": 12, ""smoothness"": 7, ""waterway"": 3, ""surface"": 2, ""building"": 2, ""name"": 1, ""reservoir_type"": 1, ""water"": 1, ""maxspeed"": 1}",{}
+50,Vinndetta19,18043634,4,2954,Nigeria,2454,0,0,496,4,0,0,0,0,0,0,0,495,2,0,0,1,0,0,0,0,0,0,0,"{""building"": 495, ""landuse"": 1}","{""building"": 2, ""highway"": 1, ""surface"": 1, ""landuse"": 1}",{}
+51,Dani Rizky D,12694060,4,2872,Kenya,2393,0,0,475,4,0,0,0,0,0,0,0,472,0,0,3,4,0,0,0,0,0,0,0,"{""building"": 472, ""highway"": 3}","{""highway"": 4}",{}
+52,osmtogo_mapper1,17758689,30,2869,Togo,1768,480,148,373,92,8,0,0,0,0,0,0,326,37,0,47,55,0,0,0,0,0,0,0,"{""building"": 326, ""highway"": 47, ""source"": 6, ""surface"": 3}","{""source"": 68, ""highway"": 55, ""building"": 37, ""surface"": 12, ""tracktype"": 6, ""abandoned:building"": 1, ""ruins"": 1}",{}
+53,Haris IRM-ED,12027858,7,2834,Indonesia,1191,990,136,129,342,46,0,0,0,0,0,0,126,335,0,3,7,0,0,0,0,0,1,0,"{""building"": 126, ""highway"": 3}","{""building"": 335, ""highway"": 7, ""motorcycle"": 4, ""layer"": 2, ""addr:housenumber"": 1, ""addr:street"": 1, ""amenity"": 1, ""name"": 1}",{}
+54,Lalit_IAAS,11589667,7,2802,Nepal,1315,873,376,155,47,32,0,4,0,1,1,0,145,22,0,9,21,0,1,3,0,0,1,0,"{""building"": 145, ""highway"": 9, ""noname"": 2, ""name"": 1, ""place"": 1, ""waterway"": 1}","{""building"": 22, ""highway"": 21, ""ref"": 9, ""source"": 8, ""surface"": 4, ""network"": 4, ""route"": 4, ""type"": 4, ""name"": 3, ""ref:old"": 3, ""waterway"": 3, ""amenity"": 1, ""name:en"": 1, ""landuse"": 1, ""note"": 1}",{}
+55,JFL-75,13317783,14,2751,United Republic of Tanzania,937,1157,347,202,29,79,0,0,0,0,0,0,202,26,0,0,3,0,0,0,0,0,0,0,"{""building"": 202, ""construction"": 7}","{""building"": 26, ""source"": 8, ""highway"": 3, ""construction"": 1, ""surface"": 1}",{}
+56,birgitt m,17722275,13,2750,Angola,2415,1,0,333,1,0,0,0,0,0,0,0,333,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 333}","{""landuse"": 1}",{}
+57,Qwajo OSM,4853701,10,2699,"Togo,Guatemala",758,1608,87,165,72,9,0,0,0,0,0,0,163,59,0,2,11,0,0,0,0,0,0,0,"{""building"": 163, ""highway"": 2, ""source"": 2, ""surface"": 2, ""tracktype"": 2}","{""building"": 59, ""highway"": 11, ""source"": 11, ""surface"": 4, ""landuse"": 1, ""barrier"": 1}",{}
+58,clbaumgartner,15841292,12,2659,Nigeria,27,2245,268,2,88,29,0,0,0,0,0,0,0,11,0,2,77,0,0,0,0,0,0,0,"{""highway"": 2}","{""highway"": 77, ""surface"": 51, ""building"": 11, ""oneway"": 4, ""lanes"": 2, ""ref"": 1, ""layer"": 1}",{}
+59,DelawareWaterGap,10653308,29,2636,South Africa,305,1907,171,53,176,24,0,0,0,0,0,0,53,166,0,0,9,0,0,0,0,0,0,0,"{""building"": 53}","{""building"": 166, ""source"": 10, ""highway"": 9, ""name"": 9, ""layer"": 5, ""landuse"": 1}",{}
+60,onesimusGGA,13063544,1,2624,Nigeria,2176,2,0,446,0,0,0,0,0,0,0,0,446,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 446}",{},{}
+61,BlueberryA,7971386,58,2571,"Egypt,Rwanda,El Salvador,Kenya",1958,58,130,398,11,16,0,0,0,0,0,0,391,0,0,3,10,0,0,0,0,0,1,0,"{""building"": 391, ""landuse"": 4, ""highway"": 3, ""layer"": 2}","{""highway"": 10, ""surface"": 2, ""addr:city"": 1, ""addr:street"": 1, ""amenity"": 1, ""lanes"": 1, ""access"": 1}",{}
+62,Brooke Reichard,17074778,21,2455,Democratic Republic of the Congo,1128,1041,48,217,14,7,0,0,0,0,0,0,217,12,0,0,1,0,0,0,0,0,0,0,"{""building"": 217, ""layer"": 5}","{""building"": 12, ""highway"": 1, ""surface"": 1}",{}
+63,Shrestha Shristi,13253207,3,2423,South Africa,1984,4,0,435,0,0,0,0,0,0,0,0,435,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 435}",{},{}
+64,mcegan,16703904,78,2380,"Chad,El Salvador,Niger",1624,627,0,80,48,0,1,0,0,0,0,0,80,44,0,0,3,0,0,0,0,0,0,0,"{""building"": 80, ""type"": 1}","{""building"": 44, ""highway"": 3}",{}
+65,haabee,6518397,13,2380,South Africa,1155,542,380,190,40,73,0,0,0,0,0,0,188,36,0,2,4,0,0,0,0,0,0,0,"{""building"": 188, ""highway"": 2, ""layer"": 1}","{""building"": 36, ""highway"": 4, ""lanes"": 3, ""name"": 3, ""ref"": 3, ""source"": 3, ""surface"": 3, ""construction"": 2, ""oneway"": 2, ""turn:lanes"": 1}",{}
+66,Calyppe,4839953,16,2373,Nigeria,1780,289,79,195,18,12,0,0,0,0,0,0,195,10,0,0,8,0,0,0,0,0,0,0,"{""building"": 195}","{""building"": 10, ""highway"": 8, ""surface"": 3}",{}
+67,Fauzan IRM-ED,8954099,12,2370,Indonesia,918,1162,47,224,11,8,0,0,0,0,0,0,219,6,0,5,5,0,0,0,0,0,0,0,"{""building"": 219, ""highway"": 5, ""motorcycle"": 1}","{""building"": 6, ""highway"": 5, ""motorcycle"": 1}",{}
+68,Sudhasinghbhandari,10111738,11,2333,Nepal,1825,255,13,215,24,1,0,0,0,0,0,0,178,1,0,4,12,0,0,0,0,0,0,0,"{""building"": 178, ""landuse"": 29, ""highway"": 4, ""natural"": 4}","{""highway"": 12, ""natural"": 6, ""landuse"": 5, ""building"": 1}",{}
+69,Greystoke69100,13032226,2,2309,Zambia,1776,275,113,108,9,28,0,0,0,1,0,0,89,5,0,19,3,0,0,1,0,0,0,0,"{""building"": 89, ""highway"": 19, ""surface"": 19, ""ford"": 1}","{""building"": 5, ""highway"": 3, ""surface"": 3, ""intermittent"": 1, ""seasonal"": 1, ""waterway"": 1}",{}
+70,PlayzinhoAgro,10460642,26,2187,Brazil,219,255,449,52,1103,85,0,10,14,50,4,0,18,1066,0,64,44,0,0,0,0,0,0,0,"{""highway"": 64, ""crossing"": 29, ""footway"": 27, ""building"": 18, ""direction"": 16, ""building:levels"": 16, ""height"": 16, ""natural"": 15, ""noexit"": 2, ""leisure"": 2, ""industrial"": 1, ""landuse"": 1, ""alt_name"": 1, ""name"": 1, ""surface"": 1, ""service"": 1}","{""building:levels"": 1071, ""height"": 1071, ""building"": 1066, ""pmfsefin:idedif"": 647, ""addr:city"": 428, ""addr:housenumber"": 428, ""addr:postcode"": 428, ""addr:street"": 428, ""addr:suburb"": 428, ""highway"": 44, ""name"": 33, ""surface"": 13, ""type"": 10, ""alt_name"": 8, ""building:part"": 5, ""cycleway:left"": 3, ""oneway:bicycle"": 3, ""noexit"": 2, ""lanes"": 2, ""footway"": 2, ""direction"": 1, ""crossing"": 1}",{}
+71,Aarogya Pandey,11807790,14,2096,Algeria,1540,114,107,266,21,48,0,0,0,0,1,0,266,20,0,0,1,0,0,0,0,0,0,0,"{""building"": 266}","{""building"": 20, ""railway"": 1, ""highway"": 1}",{}
+72,vichada,2246826,1,2073,Zambia,1255,642,40,67,65,4,0,0,0,0,0,0,34,57,0,5,2,0,28,6,0,0,0,0,"{""building"": 34, ""intermittent"": 28, ""waterway"": 28, ""highway"": 5}","{""building"": 57, ""intermittent"": 6, ""waterway"": 6, ""highway"": 2, ""ref"": 1, ""surface"": 1}",{}
+73,EsthersGeo,6532561,8,2055,Bangladesh,972,70,650,200,1,162,0,0,0,0,0,0,199,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 199, ""natural"": 1}","{""highway"": 1, ""name"": 1, ""surface"": 1}",{}
+74,Tom2A,18165642,26,1928,Peru,779,41,633,340,18,117,0,0,0,0,0,0,340,17,0,0,1,0,0,0,0,0,0,0,"{""building"": 340}","{""building"": 17, ""highway"": 1, ""oneway"": 1}",{}
+75,Hamid Reza Zamanian,17665445,5,1902,United Republic of Tanzania,1395,297,1,208,1,0,0,0,0,0,0,0,208,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 208}","{""building"": 1}",{}
+76,Louremar Pono,18376960,10,1889,Philippines,870,510,254,130,68,57,0,0,0,0,1,0,130,67,0,0,0,0,0,0,0,0,0,0,"{""building"": 130}","{""building"": 67, ""addr:province"": 44, ""addr:city"": 39, ""addr:postcode"": 36, ""landuse"": 1, ""source"": 1}",{}
+77,TimFin1111,18357098,5,1851,Chad,1685,11,1,153,1,0,0,0,0,0,0,0,153,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 153}","{""building"": 1}",{}
+78,Vivek Dumre,13116824,6,1840,"Guinea,Namibia",1423,54,118,226,6,13,0,0,0,0,0,0,226,1,0,0,5,0,0,0,0,0,0,0,"{""building"": 226}","{""highway"": 5, ""source"": 2, ""building"": 1}",{}
+79,hoshimachi,18376950,6,1830,Philippines,661,133,718,140,1,177,0,0,0,0,0,0,140,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 140, ""name"": 1}","{""building"": 1, ""name"": 1}",{}
+80,KlausiKlausewitz,3590711,17,1801,Lebanon,765,843,68,79,42,4,0,0,0,0,0,0,66,29,0,13,12,0,0,0,0,0,0,0,"{""building"": 66, ""highway"": 13}","{""building"": 29, ""highway"": 12, ""name"": 4, ""name:en"": 4, ""surface"": 1, ""admin_level"": 1, ""boundary"": 1}",{}
+81,Oluwafemi_Adeyemo,11432684,3,1789,Kenya,611,1020,11,135,10,2,0,0,0,0,0,0,135,10,0,0,0,0,0,0,0,0,0,0,"{""building"": 135}","{""building"": 10}",{}
+82,Chisom Okwuchi,10971400,1,1773,Kenya,887,617,54,185,19,11,0,0,0,0,0,0,181,17,0,4,2,0,0,0,0,0,0,0,"{""building"": 181, ""highway"": 4}","{""building"": 17, ""highway"": 2, ""name"": 1}",{}
+83,GBGoiny,10616727,3,1747,Chad,638,923,84,79,3,20,0,0,0,0,0,0,79,3,0,0,0,0,0,0,0,0,0,0,"{""building"": 79}","{""building"": 3}",{}
+84,Meztly888,17951814,21,1733,Zambia,1504,0,4,224,0,1,0,0,0,0,0,0,224,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 224}",{},{}
+85,jhonreyclaro,18343720,3,1728,Philippines,773,466,206,174,61,48,0,0,0,0,0,0,174,57,0,0,4,0,0,0,0,0,0,0,"{""building"": 174, ""layer"": 24}","{""building"": 57, ""addr:province"": 45, ""addr:city"": 40, ""layer"": 18, ""addr:postcode"": 11, ""highway"": 4}",{}
+86,Peter Agenga,4570042,2,1719,Kenya,734,662,59,115,138,11,0,0,0,70,0,0,95,120,0,10,15,0,0,0,0,33,1,0,"{""building"": 95, ""roof:material"": 68, ""natural"": 34, ""amenity"": 33, ""toilets:disposal"": 25, ""toilets:position"": 25, ""highway"": 10, ""surface"": 8, ""generator:source"": 7, ""location"": 7, ""power"": 7, ""barrier"": 4, ""layer"": 4, ""construction"": 4, ""lamp_mount"": 2, ""lamp_type"": 2, ""content"": 2, ""man_made"": 2, ""material"": 2, ""fence_type"": 2}","{""building"": 120, ""roof:material"": 119, ""highway"": 15, ""surface"": 15, ""content"": 1, ""man_made"": 1, ""material"": 1, ""barrier"": 1, ""fence_type"": 1, ""amenity"": 1}",{}
+87,vsmsherr,18216398,9,1636,Egypt,1340,5,1,273,16,1,0,0,0,0,2,0,273,0,0,0,16,0,0,0,0,0,0,0,"{""building"": 273, ""layer"": 9}","{""highway"": 16, ""layer"": 9, ""addr:city"": 3, ""addr:city:en"": 3, ""addr:country"": 3, ""addr:district"": 3, ""addr:district:en"": 3, ""addr:housenumber"": 3, ""addr:postcode"": 3, ""addr:province"": 3, ""addr:province:en"": 3, ""addr:place"": 2, ""addr:place:en"": 2, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1, ""surface"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1, ""oneway"": 1}",{}
+88,Dante Schiavone-Delfino,14684381,31,1602,"Libyan Arab Jamahiriya,Rwanda",1287,0,0,315,0,0,0,0,0,0,0,0,315,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 315}",{},{}
+89,chien12,18343545,20,1580,,207,1144,89,16,124,0,0,0,0,0,0,0,16,120,0,0,3,0,0,0,0,0,0,0,"{""building"": 16}","{""building"": 120, ""addr:city"": 114, ""addr:postcode"": 114, ""addr:province"": 114, ""fixme"": 3, ""highway"": 3}",{}
+90,anaigarq,17237300,2,1579,Zambia,1270,0,4,304,0,1,0,0,0,0,0,0,304,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 304}",{},{}
+91,Walter Mayeku,6201821,7,1563,Kenya,861,423,81,101,93,4,0,0,0,69,1,0,69,76,0,1,15,0,3,0,0,22,0,0,"{""roof:material"": 69, ""building"": 69, ""natural"": 29, ""barrier"": 24, ""amenity"": 22, ""power"": 17, ""generator:source"": 9, ""location"": 9, ""man_made"": 3, ""waterway"": 3, ""landuse"": 1, ""layer"": 1, ""tunnel"": 1, ""fence_type"": 1, ""highway"": 1, ""surface"": 1}","{""building"": 76, ""roof:material"": 75, ""highway"": 15, ""surface"": 14, ""barrier"": 3, ""noname"": 1}",{}
+92,Mlordel14,18343543,15,1562,Philippines,468,877,70,108,23,16,0,0,0,0,0,0,108,21,0,0,2,0,0,0,0,0,0,0,"{""building"": 108}","{""building"": 21, ""addr:city"": 18, ""addr:postcode"": 18, ""addr:province"": 18, ""highway"": 2, ""fixme"": 1, ""source"": 1, ""service"": 1}",{}
+93,Tantri IRM-ED,10910640,11,1556,Indonesia,327,1099,19,64,47,0,0,0,0,0,0,0,64,46,0,0,1,0,0,0,0,0,0,0,"{""building"": 64}","{""building"": 46, ""highway"": 1}",{}
+94,SUPER HEROS 67,12190699,7,1508,El Salvador,299,764,308,43,37,57,0,0,0,0,0,0,42,27,0,1,10,0,0,0,0,0,0,0,"{""building"": 42, ""highway"": 1}","{""building"": 27, ""highway"": 10, ""surface"": 6, ""source"": 4, ""lanes"": 2, ""ref"": 2}",{}
+95,Jean LUQUET,6274896,34,1506,El Salvador,891,304,67,213,18,13,0,0,0,0,0,0,213,6,0,0,10,0,0,2,0,0,0,0,"{""building"": 213}","{""highway"": 10, ""building"": 6, ""surface"": 2, ""name"": 2, ""source:name"": 2, ""waterway"": 2}",{}
+96,Gaurav Parajuli,8316170,3,1503,"Nepal,Indonesia",1039,219,17,210,15,3,0,0,0,1,0,0,200,2,0,6,7,0,1,2,0,0,0,0,"{""building"": 200, ""highway"": 6, ""natural"": 3, ""ford"": 1, ""waterway"": 1, ""bridge"": 1, ""layer"": 1}","{""highway"": 7, ""landuse"": 4, ""waterway"": 2, ""source:geometry"": 2, ""building"": 2, ""name"": 1, ""source"": 1, ""noname"": 1}",{}
+97,Elyana IRM-ED,10910633,6,1493,Indonesia,174,1039,182,22,50,25,1,0,0,0,1,0,16,30,0,5,20,0,0,0,0,0,0,0,"{""building"": 16, ""highway"": 5, ""type"": 1}","{""building"": 30, ""highway"": 20, ""import"": 3, ""source"": 3, ""railway"": 1, ""name"": 1, ""motorcycle"": 1}",{}
+98,osmtogo_mapper4,17967261,7,1462,Togo,317,895,115,44,88,3,0,0,0,0,0,0,44,82,0,0,3,0,0,0,0,0,0,0,"{""building"": 44}","{""building"": 82, ""source"": 59, ""highway"": 3, ""barrier"": 3, ""surface"": 2}",{}
+99,Marius Van Nieuwenhuyse,2989429,7,1455,Libyan Arab Jamahiriya,857,328,79,156,28,7,0,0,0,0,0,0,91,5,0,13,19,0,0,0,0,0,0,0,"{""building"": 91, ""barrier"": 25, ""landuse"": 23, ""highway"": 13, ""access"": 6, ""natural"": 2, ""leisure"": 2}","{""highway"": 19, ""building"": 5, ""access"": 3, ""oneway"": 2, ""surface"": 2, ""natural"": 2, ""landuse"": 2}",{}
+100,lea_b14,14769927,35,1440,El Salvador,1021,136,37,239,5,2,0,0,0,0,0,0,239,3,0,0,2,0,0,0,0,0,0,0,"{""building"": 239}","{""building"": 3, ""highway"": 2, ""source"": 2, ""surface"": 2}",{}
+101,Wan Mastura,17860271,5,1428,Malaysia,562,428,267,129,0,42,0,0,0,0,0,0,129,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 129, ""building:levels"": 8}",{},{}
+102,Ernst-jan Henkens,632851,5,1425,Democratic Republic of the Congo,1066,132,12,211,1,3,0,0,0,0,0,0,211,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 211}","{""highway"": 1, ""surface"": 1}",{}
+103,stephaniejurialausa,18376961,8,1421,Philippines,578,143,457,90,43,110,0,0,0,0,2,0,90,25,0,0,12,0,0,0,0,0,0,0,"{""building"": 90}","{""building"": 25, ""highway"": 12, ""name"": 11, ""addr:city"": 10, ""addr:province"": 7, ""oneway"": 6, ""surface"": 6, ""addr:postcode"": 5, ""landuse"": 5, ""source"": 3, ""lanes"": 3, ""noname"": 2, ""bicycle"": 2, ""denomination"": 2, ""addr:street"": 1, ""opening_hours"": 1, ""shop"": 1, ""entrance"": 1, ""service"": 1, ""designation"": 1, ""nat_name"": 1, ""ref"": 1, ""short_name"": 1, ""industrial"": 1, ""operator"": 1, ""access"": 1, ""cycleway"": 1, ""horse"": 1, ""crossing"": 1, ""footway"": 1, ""barrier"": 1, ""religion"": 1, ""motorcycle"": 1}",{}
+104,Astatine,11969799,15,1412,"India,Bangladesh",1209,18,12,159,11,3,0,0,0,0,0,0,148,6,0,11,5,0,0,0,0,0,0,0,"{""building"": 148, ""highway"": 11}","{""building"": 6, ""highway"": 5, ""ref"": 1, ""source"": 1}",{}
+105,D4MSF,18332251,5,1409,"Nigeria,Kenya",1301,0,0,105,3,0,0,0,0,0,0,0,85,0,0,20,3,0,0,0,0,0,0,0,"{""building"": 85, ""highway"": 20}","{""highway"": 3, ""AUTO_ID"": 1, ""source"": 1}",{}
+106,Genten85,11954122,19,1394,Nigeria,719,519,19,108,29,0,0,0,0,0,0,0,101,16,0,7,13,0,0,0,0,0,0,0,"{""building"": 101, ""highway"": 7, ""surface"": 2}","{""building"": 16, ""highway"": 13, ""surface"": 2}",{}
+107,rob98122,17286379,9,1351,South Africa,1131,4,0,212,4,0,0,0,0,0,0,0,212,1,0,0,0,0,0,0,0,59,0,0,"{""building"": 212, ""amenity"": 59, ""layer"": 6}","{""landuse"": 3, ""building"": 1}",{}
+108,Lewis Horne,18378565,7,1339,South Africa,1105,8,0,219,7,0,0,0,0,0,0,0,218,2,0,0,4,0,0,0,0,0,0,0,"{""building"": 218, ""natural"": 1}","{""highway"": 4, ""name"": 2, ""source"": 2, ""building"": 2, ""cables"": 1, ""circuits"": 1, ""frequency"": 1, ""power"": 1, ""voltage"": 1}",{}
+109,Henk Kamphuis,12564859,10,1274,Democratic Republic of the Congo,443,369,305,84,15,58,0,0,0,0,0,0,84,12,0,0,3,0,0,0,0,0,0,0,"{""building"": 84, ""abandoned"": 11}","{""building"": 12, ""abandoned"": 5, ""highway"": 3, ""source"": 1}",{}
+110,Astrantia,18061361,5,1228,South Africa,786,281,2,146,13,0,0,0,0,0,0,0,146,13,0,0,0,0,0,0,0,0,0,0,"{""building"": 146}","{""building"": 13}",{}
+111,Keren Wang'ombe,7216391,16,1218,"Kenya,United Republic of Tanzania",564,464,90,38,54,8,0,0,0,10,0,0,26,32,0,6,19,0,1,1,0,6,0,0,"{""building"": 26, ""roof:material"": 20, ""natural"": 7, ""amenity"": 6, ""highway"": 6, ""surface"": 5, ""barrier"": 3, ""intermittent"": 1, ""waterway"": 1, ""construction"": 1}","{""building"": 32, ""roof:material"": 28, ""highway"": 19, ""surface"": 17, ""landuse"": 2, ""ref"": 2, ""construction"": 1, ""intermittent"": 1, ""waterway"": 1}",{}
+112,maria!,17964931,182,1209,Nigeria,1027,0,0,182,0,0,0,0,0,0,0,0,182,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 182}",{},{}
+113,Ben Vanderford,17414246,13,1204,United Republic of Tanzania,1002,12,0,190,0,0,0,0,0,0,0,0,190,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 190}",{},{}
+114,jaggededge,6345222,7,1169,South Africa,51,1048,27,9,34,0,0,0,0,0,0,0,9,34,0,0,0,0,0,0,0,0,0,0,"{""building"": 9}","{""building"": 34, ""layer"": 2}",{}
+115,RoshelynYeri,18377002,13,1151,Philippines,477,400,113,103,31,27,0,0,0,0,0,0,103,27,0,0,3,0,0,0,0,0,1,0,"{""building"": 103}","{""building"": 27, ""addr:city"": 22, ""addr:postcode"": 22, ""addr:province"": 22, ""highway"": 3, ""name"": 3, ""shop"": 1, ""amenity"": 1, ""atm"": 1, ""fixme"": 1, ""source"": 1}",{}
+116,Erika García,17622439,6,1144,Kenya,936,0,0,203,5,0,0,0,0,0,0,0,194,0,0,9,5,0,0,0,0,0,0,0,"{""building"": 194, ""highway"": 9}","{""highway"": 5}",{}
+117,Kathryn Branham,15010341,5,1121,South Africa,724,170,75,135,0,17,0,0,0,0,0,0,135,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 135}",{},{}
+118,xetamatecs,18376948,11,1112,Philippines,273,455,212,46,81,45,0,0,0,0,0,0,46,71,0,0,9,0,0,0,0,0,0,0,"{""building"": 46}","{""building"": 71, ""addr:city"": 49, ""addr:postcode"": 49, ""addr:province"": 49, ""highway"": 9, ""fixme"": 6, ""source"": 4, ""layer"": 1}",{}
+119,Nyaega Orina,7574899,3,1100,Kenya,493,390,47,67,90,1,12,0,0,22,0,0,55,78,0,0,3,0,0,0,0,22,0,0,"{""building"": 55, ""roof:material"": 54, ""amenity"": 22, ""generator:source"": 17, ""layer"": 17, ""location"": 17, ""power"": 17, ""type"": 12, ""barrier"": 3}","{""building"": 78, ""roof:material"": 77, ""highway"": 3, ""surface"": 3, ""barrier"": 1}",{}
+120,[DVHS] Joanne Cheong,15113451,19,1080,South Africa,569,408,5,77,21,0,0,0,0,0,0,0,77,17,0,0,3,0,0,0,0,0,0,0,"{""building"": 77}","{""building"": 17, ""highway"": 3, ""landuse"": 1}",{}
+121,Lapjun,16565889,1,1027,Somalia,874,4,24,121,2,2,0,0,0,2,0,0,0,0,0,27,2,0,0,0,0,0,0,0,"{""barrier"": 94, ""highway"": 27, ""surface"": 27, ""place"": 2}","{""highway"": 2, ""surface"": 1}",{}
+122,Smouser,12513117,22,1017,El Salvador,818,0,7,191,0,1,0,0,0,0,0,0,191,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 191}",{},{}
+123,AKOUETE,4274094,22,993,El Salvador,204,585,114,41,45,4,0,0,0,0,0,0,41,41,0,0,4,0,0,0,0,0,0,0,"{""building"": 41}","{""building"": 41, ""highway"": 4}",{}
+124,mjtars,18377078,3,978,Philippines,472,124,235,82,8,57,0,0,0,0,0,0,82,7,0,0,1,0,0,0,0,0,0,0,"{""building"": 82}","{""addr:city"": 7, ""addr:province"": 7, ""building"": 7, ""addr:postcode"": 2, ""building_1"": 1, ""layer"": 1, ""highway"": 1}",{}
+125,Lorymel,18343548,3,963,Philippines,486,166,157,97,21,36,0,0,0,0,0,0,97,13,0,0,8,0,0,0,0,0,0,0,"{""building"": 97, ""layer"": 1}","{""building"": 13, ""addr:city"": 10, ""addr:postcode"": 10, ""addr:province"": 10, ""highway"": 8}",{}
+126,Pening,17980387,3,960,Indonesia,575,229,31,112,6,7,0,0,0,0,0,0,111,5,0,1,1,0,0,0,0,0,0,0,"{""building"": 111, ""highway"": 1}","{""building"": 5, ""highway"": 1, ""oneway"": 1}",{}
+127,samrat02,13255920,5,955,Nepal,35,903,7,8,0,2,0,0,0,1,3,0,8,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 8, ""natural"": 1}","{""ford"": 3}",{}
+128,ella_phillips,18378579,4,938,South Africa,699,6,91,111,8,23,0,0,0,0,0,0,111,6,0,0,0,0,0,0,0,0,0,0,"{""building"": 111, ""layer"": 1}","{""building"": 6, ""landuse"": 2}",{}
+129,quennay24,18343547,11,933,,303,519,16,64,31,0,0,0,0,0,1,0,64,23,0,0,8,0,0,0,0,0,0,0,"{""building"": 64}","{""building"": 23, ""addr:city"": 17, ""addr:postcode"": 17, ""addr:province"": 17, ""highway"": 8, ""fixme"": 7, ""source"": 2, ""name"": 2, ""landuse"": 1}",{}
+130,Govinda Yadav,13252552,5,927,Nepal,652,21,72,162,2,18,0,0,0,0,0,0,161,0,0,0,0,0,0,0,0,1,0,0,"{""building"": 161, ""amenity"": 1, ""bus"": 1, ""public_transport"": 1}","{""natural"": 1, ""landuse"": 1}",{}
+131,JYL45,3600936,28,883,El Salvador,576,161,11,122,11,2,0,0,0,0,0,0,122,6,0,0,5,0,0,0,0,0,0,0,"{""building"": 122}","{""building"": 6, ""highway"": 5, ""lanes"": 1, ""name"": 1, ""ref"": 1, ""surface"": 1}",{}
+132,rufa :),17449482,13,880,El Salvador,833,0,0,47,0,0,0,0,0,0,0,0,47,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 47}",{},{}
+133,DMcDowall,8815318,4,875,India,339,300,120,71,19,25,1,0,0,0,0,0,70,18,0,0,0,0,0,0,0,0,0,0,"{""building"": 70, ""type"": 1}","{""building"": 18, ""landuse"": 1}",{}
+134,kkoo116116,18353926,1,870,Malawi,475,140,142,67,11,35,0,0,0,0,0,0,37,1,0,30,9,0,0,1,0,0,0,0,"{""building"": 37, ""highway"": 30}","{""highway"": 9, ""waterway"": 1, ""building"": 1}",{}
+135,jwalseth,1005381,1,853,Nepal,156,450,165,32,15,35,0,0,0,0,0,0,32,8,0,0,5,0,0,0,0,0,0,0,"{""building"": 32}","{""building"": 8, ""highway"": 5, ""landuse"": 2, ""ref"": 1}",{}
+136,KyloGlenn138,18378575,109,851,South Africa,740,2,0,108,1,0,0,0,0,0,0,0,108,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 108}","{""building"": 1}",{}
+137,peculiar theater,11880034,14,849,Niger,676,0,75,79,0,19,0,0,0,0,0,0,79,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 79}",{},{}
+138,Forgoodmap!,7274889,4,828,"Bangladesh,India",489,205,18,103,11,2,0,0,0,0,0,0,103,7,0,0,3,0,0,0,0,0,0,0,"{""building"": 103}","{""building"": 7, ""highway"": 3, ""surface"": 3, ""layer"": 2, ""note"": 1}",{}
+139,Qaiser Hussain M,18203031,18,822,United Republic of Tanzania,662,5,4,149,1,1,0,0,0,0,0,0,149,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 149}","{""building"": 1}",{}
+140,R@bina dhakal,17378030,40,806,Nepal,641,16,0,149,0,0,0,0,0,0,0,0,149,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 149}",{},{}
+141,Quwack Jones,16388127,7,802,Indonesia,627,28,8,134,5,0,0,0,0,0,0,0,134,0,0,0,5,0,0,0,0,0,0,0,"{""building"": 134, ""layer"": 1}","{""highway"": 5, ""import"": 2, ""source"": 2}",{}
+142,beri_ro,18375736,7,798,Libyan Arab Jamahiriya,682,0,0,115,1,0,0,0,0,0,0,0,115,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 115}","{""building"": 1}",{}
+143,mmahmud,3217737,3,794,United Republic of Tanzania,238,292,125,50,61,25,2,0,1,0,0,0,50,59,0,0,0,0,0,0,0,0,0,0,"{""building"": 50, ""source"": 50, ""type"": 2}","{""building"": 59, ""source"": 54}",{}
+144,Bori4,18347936,7,787,Nigeria,623,6,3,93,62,0,0,0,0,9,1,0,9,14,0,87,29,0,0,0,0,0,1,0,"{""highway"": 87, ""surface"": 9, ""building"": 9, ""crossing"": 7, ""layer"": 7, ""cables"": 6, ""frequency"": 6, ""voltage"": 6, ""foot"": 5, ""bridge"": 5, ""landuse"": 4, ""bicycle"": 3, ""horse"": 3, ""railway"": 2, ""access"": 2, ""motor_vehicle"": 2, ""lanes"": 2, ""tactile_paving"": 1, ""footway"": 1, ""width"": 1, ""oneway"": 1}","{""highway"": 29, ""surface"": 19, ""landuse"": 16, ""building"": 14, ""oneway"": 7, ""name"": 4, ""cables"": 3, ""frequency"": 3, ""voltage"": 3, ""railway"": 2, ""power"": 2, ""addr:housenumber"": 1, ""addr:street"": 1, ""amenity"": 1, ""fixme"": 1, ""height"": 1, ""image"": 1, ""image:url"": 1, ""office"": 1, ""usage"": 1, ""lanes"": 1}",{}
+145,abdul_4ts,13733526,2,786,Ghana,227,426,55,42,27,6,1,0,2,0,0,0,33,24,0,0,3,0,0,0,0,0,0,0,"{""building"": 33, ""barrier"": 7, ""natural"": 1, ""type"": 1}","{""building"": 24, ""addr:city"": 21, ""highway"": 3, ""source"": 2}",{}
+146,Matthieu Haasser,11130165,21,785,El Salvador,574,67,9,130,4,1,0,0,0,0,0,0,130,2,0,0,2,0,0,0,0,0,0,0,"{""building"": 130}","{""highway"": 2, ""building"": 2, ""source"": 1, ""surface"": 1}",{}
+147,rosemitf,18287732,7,779,"Guinea,Colombia,India,Sri Lanka,Uganda,Zambia",428,222,2,88,39,0,0,0,0,0,0,0,88,39,0,0,0,0,0,0,0,0,1,0,"{""building"": 88}","{""building"": 39, ""amenity"": 1, ""name"": 1}",{}
+148,MakeSense,11054896,38,770,El Salvador,625,0,0,143,2,0,0,0,0,0,0,0,143,1,0,0,1,0,0,0,0,0,0,0,"{""building"": 143}","{""highway"": 1, ""building"": 1}",{}
+149,VinkonaHB,11332293,8,767,"Lebanon,Syrian Arab Republic,Angola",266,117,312,57,1,14,0,0,0,0,0,0,53,0,0,2,1,0,0,0,0,0,0,0,"{""building"": 53, ""highway"": 2, ""leisure"": 1, ""sport"": 1, ""landuse"": 1}","{""highway"": 1}",{}
+150,Adam Fitzgerald (Linklaters),14475890,7,740,Brazil,593,24,0,120,3,0,0,0,0,4,0,0,119,2,0,0,1,0,0,0,0,0,0,0,"{""building"": 119, ""natural"": 5}","{""building"": 2, ""highway"": 1, ""name"": 1, ""surface"": 1}",{}
+151,RachGlasgow,18380569,5,740,Egypt,646,0,0,91,3,0,0,0,0,0,0,0,52,2,0,0,1,0,0,0,0,0,0,0,"{""building"": 52, ""natural"": 39, ""layer"": 1}","{""building"": 2, ""highway"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1, ""oneway"": 1}",{}
+152,Philippe Sampont,196026,25,734,El Salvador,509,97,28,86,11,3,0,0,0,0,0,0,84,5,0,2,6,0,0,0,0,0,0,0,"{""building"": 84, ""highway"": 2}","{""highway"": 6, ""building"": 5}",{}
+153,christianleeyabenz,18376949,1,727,Philippines,385,11,177,76,4,74,0,0,0,0,0,0,76,2,0,0,1,0,0,0,0,0,0,0,"{""building"": 76}","{""addr:city"": 2, ""addr:province"": 2, ""building"": 2, ""highway"": 1, ""source"": 1, ""is_in:city"": 1, ""is_in:village"": 1, ""landuse"": 1, ""name"": 1, ""place"": 1}",{}
+154,Eduard Rene,18240622,7,716,"Chad,United Republic of Tanzania",379,139,102,68,2,26,0,0,0,0,0,0,66,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 66, ""landuse"": 2}","{""landuse"": 1, ""building"": 1}",{}
+155,Mercy14846,9449463,2,702,Algeria,604,5,0,87,2,0,4,0,0,0,0,0,85,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 85, ""type"": 4}","{""building"": 2}",{}
+156,Sarojpokhrel,10934301,3,689,Nepal,556,13,0,117,3,0,0,0,0,0,0,0,115,0,0,2,3,0,0,0,0,0,0,0,"{""building"": 115, ""highway"": 2}","{""highway"": 3, ""surface"": 1}",{}
+157,martien-176,9621269,4,677,"El Salvador,Indonesia",245,328,18,39,46,1,0,0,0,0,0,0,39,46,0,0,0,0,0,0,0,0,0,0,"{""building"": 39}","{""building"": 46}",{}
+158,Alicemac,18378602,4,669,South Africa,534,18,18,87,8,4,0,0,0,0,0,0,87,3,0,0,1,0,0,0,0,0,0,0,"{""building"": 87, ""layer"": 2}","{""landuse"": 4, ""building"": 3, ""highway"": 1, ""name"": 1, ""source"": 1}",{}
+159,Ireneeom,18259307,3,668,Malaysia,539,0,0,129,0,0,0,0,0,0,0,0,129,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 129}",{},{}
+160,shela005,18343552,4,666,Philippines,259,191,118,60,8,30,0,0,0,0,0,0,60,8,0,0,0,0,0,0,0,0,0,0,"{""building"": 60, ""name"": 1}","{""addr:city"": 8, ""addr:postcode"": 8, ""addr:province"": 8, ""building"": 8}",{}
+161,Anna_Panka,12951602,1,655,Kenya,524,0,0,131,0,0,0,0,0,0,0,0,131,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 131}",{},{}
+162,Zh9567,9940138,1,644,Malaysia,358,80,5,170,29,2,0,0,0,2,1,0,164,17,0,6,12,0,0,0,0,0,1,0,"{""building"": 164, ""highway"": 6, ""oneway"": 5, ""name"": 2, ""railway"": 2, ""horse"": 1, ""source"": 1, ""surface"": 1, ""turn:lanes:backward"": 1, ""turn:lanes:forward"": 1}","{""building"": 17, ""highway"": 12, ""oneway"": 10, ""surface"": 10, ""name"": 7, ""source"": 7, ""lanes"": 5, ""turn:lanes:forward"": 5, ""horse"": 4, ""note"": 3, ""service"": 2, ""divider"": 2, ""turn:lanes:backward"": 2, ""amenity"": 1, ""dispensing"": 1, ""healthcare"": 1, ""lanes:forward"": 1, ""divider:material"": 1, ""turn:lanes"": 1, ""fixme"": 1}",{}
+163,ivyseal,17210145,11,643,Nepal,481,58,5,74,24,1,0,0,0,0,0,0,45,0,0,29,23,0,0,0,0,0,0,0,"{""building"": 45, ""highway"": 29}","{""highway"": 23, ""ref"": 3, ""name"": 2, ""oneway"": 1, ""ref:old"": 1, ""access_status"": 1, ""condition"": 1, ""lanes"": 1, ""maxspeed"": 1, ""project:url"": 1, ""source"": 1, ""start_chainage"": 1, ""surface"": 1, ""survey:date"": 1, ""survey:year"": 1, ""width"": 1, ""width:ROW"": 1, ""width:shoulder"": 1, ""landuse"": 1}",{}
+164,ODULANA OLUWATOYIN,10483398,1,636,Kenya,475,46,6,106,3,0,0,0,0,0,0,0,106,3,0,0,0,0,0,0,0,0,0,0,"{""building"": 106}","{""building"": 3}",{}
+165,Palolo,385046,10,626,United Republic of Tanzania,251,302,3,46,24,0,0,0,0,0,4,0,23,3,0,3,11,0,0,0,0,6,6,0,"{""building"": 23, ""leisure"": 13, ""sport"": 13, ""amenity"": 6, ""name"": 4, ""highway"": 3, ""natural"": 1, ""water"": 1, ""source"": 1}","{""name"": 11, ""highway"": 11, ""source"": 7, ""amenity"": 6, ""place"": 4, ""building"": 3, ""population"": 2, ""surface"": 2, ""leisure"": 2, ""sport"": 2, ""ward"": 1, ""office"": 1, ""name:en"": 1, ""landuse"": 1}",{}
+166,Eleonora Easter Henny,5286300,2,623,Indonesia,243,240,68,44,19,9,0,0,0,0,0,0,44,17,0,0,1,0,0,0,0,0,1,0,"{""building"": 44}","{""building"": 17, ""highway"": 1, ""import"": 1, ""source"": 1, ""amenity"": 1, ""name"": 1, ""religion"": 1, ""landuse"": 1}",{}
+167,Alpeshnp,18349286,19,617,El Salvador,487,0,4,124,1,1,0,0,0,0,0,0,124,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 124}","{""highway"": 1}",{}
+168,jbartolo773,6173377,6,609,Libyan Arab Jamahiriya,204,362,19,17,6,1,0,0,0,0,0,0,17,4,0,0,2,0,0,0,0,0,0,0,"{""building"": 17}","{""building"": 4, ""highway"": 2, ""surface"": 1}",{}
+169,jrbarnett65,18347915,1,595,Kenya,510,0,0,83,2,0,0,0,0,0,0,0,79,0,0,4,2,0,0,0,0,0,0,0,"{""building"": 79, ""highway"": 4}","{""highway"": 2}",{}
+170,ldsan,18380543,3,594,Egypt,550,7,0,31,6,0,0,0,0,0,1,0,30,2,0,0,3,0,0,0,0,0,0,0,"{""building"": 30, ""natural"": 1}","{""highway"": 3, ""name"": 3, ""name:ar"": 3, ""name:en"": 3, ""building"": 2, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""addr:street"": 1, ""addr:street:en"": 1, ""addr:subdistrict"": 1, ""addr:subdistrict:en"": 1, ""oneway"": 1, ""surface"": 1, ""layer"": 1, ""landuse"": 1}",{}
+171,Dibikshya Shrestha,16060450,4,594,Nepal,438,65,0,88,3,0,0,0,0,0,0,0,77,1,0,3,2,0,0,0,0,0,0,0,"{""building"": 77, ""natural"": 8, ""highway"": 3, ""source:geometry"": 1}","{""highway"": 2, ""source:geometry"": 1, ""building"": 1}",{}
+172,CharliMiller,18378581,4,592,South Africa,495,1,5,87,3,1,0,0,0,0,0,0,87,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 87}","{""landuse"": 2, ""highway"": 1}",{}
+173,Chase_1,17899603,12,589,Angola,497,4,1,86,1,0,0,0,0,0,0,0,84,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 84, ""landuse"": 2}","{""building"": 1}",{}
+174,martinairmaps,3376734,12,555,Lesotho,525,0,0,30,0,0,0,0,0,0,0,0,30,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 30}",{},{}
+175,Gonkerola,18378605,5,555,South Africa,443,5,0,96,11,0,0,0,0,0,0,0,96,6,0,0,0,0,0,0,0,0,0,0,"{""building"": 96}","{""building"": 6, ""landuse"": 5}",{}
+176,LaineyB,18378591,4,552,South Africa,417,35,1,94,5,0,0,0,0,0,0,0,94,3,0,0,0,0,0,0,0,0,0,0,"{""building"": 94}","{""building"": 3, ""cables"": 1, ""circuits"": 1, ""power"": 1, ""voltage"": 1, ""landuse"": 1}",{}
+177,arshakerbrown,4854510,5,551,"Nigeria,Nepal,Chad",61,445,17,10,18,0,0,0,0,0,0,0,10,15,0,0,2,0,0,0,0,0,0,0,"{""building"": 10}","{""building"": 15, ""highway"": 2, ""landuse"": 1, ""source"": 1, ""source:date"": 1}",{}
+178,Gwen Taylor,17998075,6,544,El Salvador,447,0,0,97,0,0,0,0,0,0,0,0,97,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 97}",{},{}
+179,Asparagus Gab,3305711,3,533,South Africa,401,28,18,73,10,3,0,0,0,0,0,0,73,10,0,0,0,0,0,0,0,0,0,0,"{""building"": 73}","{""building"": 10}",{}
+180,nassanga,16983715,3,526,Algeria,414,37,14,51,4,2,4,0,0,0,0,0,44,1,0,0,3,0,0,0,0,0,0,0,"{""building"": 44, ""type"": 4}","{""highway"": 3, ""building"": 1}",{}
+181,Tomatoe79,18378582,7,512,South Africa,410,2,0,94,6,0,0,0,0,0,0,0,94,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 94}","{""cables"": 2, ""circuits"": 2, ""frequency"": 2, ""power"": 2, ""voltage"": 2, ""building"": 2, ""landuse"": 2, ""operator"": 1}",{}
+182,flipsteen,12588056,2,510,Nigeria,182,254,28,41,1,4,0,0,0,0,0,0,41,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 41}","{""building"": 1}",{}
+183,evanmurphyy,12674700,5,499,"Egypt,El Salvador,Namibia",400,0,0,99,0,0,0,0,0,0,0,0,99,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 99}",{},{}
+184,Jozissomolo,14673242,1,487,South Africa,39,403,31,7,4,3,0,0,0,0,0,0,6,3,0,0,1,0,0,0,0,0,0,0,"{""building"": 6, ""haghway"": 1}","{""building"": 3, ""highway"": 1, ""lanes"": 1, ""surface"": 1}",{}
+185,surrli,11707954,4,480,Qatar,321,71,0,86,2,0,0,0,0,1,0,0,35,2,0,1,0,0,0,0,0,0,0,0,"{""barrier"": 51, ""building"": 35, ""highway"": 1}","{""building"": 2, ""source"": 2}",{}
+186,Issy Pegge,17847012,5,473,Namibia,373,6,0,91,3,0,0,0,0,0,0,0,91,3,0,0,0,0,0,0,0,0,0,0,"{""building"": 91}","{""building"": 3}",{}
+187,Neville Jarvis,18378566,8,468,South Africa,378,5,0,79,6,0,0,0,0,0,0,0,79,1,0,0,2,0,0,0,0,0,0,0,"{""building"": 79}","{""highway"": 2, ""cables"": 2, ""circuits"": 2, ""frequency"": 2, ""operator"": 2, ""power"": 2, ""voltage"": 2, ""name"": 1, ""source"": 1, ""landuse"": 1, ""building"": 1}",{}
+188,Mnova33,10935412,5,451,Egypt,348,31,4,60,8,0,0,0,0,0,1,0,60,3,0,0,2,0,0,0,0,0,0,0,"{""building"": 60}","{""leisure"": 3, ""building"": 3, ""source"": 3, ""addr:country"": 2, ""addr:district"": 2, ""addr:district:en"": 2, ""addr:housenumber"": 2, ""addr:postcode"": 2, ""addr:province"": 2, ""addr:province:en"": 2, ""addr:street"": 2, ""addr:street:en"": 2, ""addr:subdistrict"": 2, ""addr:subdistrict:en"": 2, ""highway"": 2, ""name"": 2, ""name:ar"": 1, ""name:en"": 1}",{}
+189,marco443,1886646,13,443,India,160,224,13,38,6,2,0,0,0,0,0,0,38,6,0,0,0,0,0,0,0,0,0,0,"{""building"": 38}","{""building"": 6}",{}
+190,LauraLevin91,18378576,7,440,South Africa,306,40,0,71,23,0,0,0,0,0,0,0,71,23,0,0,0,0,0,0,0,0,0,0,"{""building"": 71}","{""building"": 23, ""source"": 1}",{}
+191,rowsons37,18168620,11,439,Zambia,358,1,0,80,0,0,0,0,0,0,0,0,80,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 80}",{},{}
+192,MichaelNdaro,10868456,6,437,Kenya,279,71,47,22,8,10,0,0,0,26,0,0,16,2,0,6,6,0,0,0,0,0,0,0,"{""natural"": 26, ""building"": 16, ""roof:material"": 16, ""highway"": 6, ""surface"": 6}","{""highway"": 6, ""surface"": 6, ""building"": 2, ""roof:material"": 2}",{}
+193,Balu1521,18182682,13,429,El Salvador,339,0,0,88,2,0,0,0,0,0,0,0,88,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 88}","{""building"": 1}",{}
+194,redosm01,1803111,5,419,Niger,342,4,5,67,0,1,0,0,0,0,0,0,67,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 67}",{},{}
+195,Letwin,15108780,5,408,"Burkina Faso,Chad,Zimbabwe",274,32,4,62,35,1,0,0,0,0,0,0,62,32,0,0,2,0,0,0,0,0,0,0,"{""building"": 62, ""layer"": 1}","{""building"": 32, ""building:levels"": 31, ""building:material"": 31, ""roof:levels"": 31, ""roof:shape"": 31, ""source"": 31, ""wheelchair"": 6, ""addr:housenumber"": 4, ""highway"": 2, ""was:building"": 1, ""addr:unit"": 1, ""layer"": 1, ""surface"": 1}",{}
+196,Erwinvanw,4579915,2,391,South Africa,279,21,27,58,1,5,0,0,0,0,0,0,58,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 58, ""layer"": 1}","{""building"": 1}",{}
+197,Zo Xu,18355618,4,371,"Egypt,Indonesia,South Africa",310,0,4,55,1,1,0,0,0,0,0,0,55,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 55, ""layer"": 1}","{""building"": 1}",{}
+198,Sangeeta BC,13203366,1,367,Nepal,269,32,0,64,2,0,0,0,0,0,0,0,64,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 64}","{""landuse"": 1, ""building"": 1}",{}
+199,aturk,13792140,14,360,"Zambia,El Salvador",259,7,24,63,1,6,0,0,0,0,0,0,63,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 63}","{""building"": 1}",{}
+200,fatoumata 1 sylla,10795973,3,357,Guinea,317,2,8,18,11,1,0,0,0,0,0,0,11,0,0,2,0,0,5,11,0,0,0,0,"{""building"": 11, ""waterway"": 5, ""highway"": 2}","{""waterway"": 11}",{}
+201,pedr0faria,10482974,13,357,"Togo,Guinea,Libyan Arab Jamahiriya,South Sudan,Niger,Angola",308,15,0,31,3,0,0,0,0,0,0,0,29,0,0,0,0,0,0,2,0,0,0,0,"{""building"": 29, ""landuse"": 2}","{""name"": 2, ""waterway"": 2}",{}
+202,Pichalupa,17681500,8,350,United Republic of Tanzania,282,0,0,68,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 68, ""layer"": 1}",{},{}
+203,Bengeber143,16730340,4,343,Philippines,90,215,8,16,13,1,0,0,0,0,0,0,16,12,0,0,1,0,0,0,0,0,0,0,"{""building"": 16}","{""building"": 12, ""addr:province"": 7, ""addr:city"": 4, ""addr:postcode"": 4, ""highway"": 1}",{}
+204,Takayuki Kiyama,11494467,19,340,El Salvador,270,5,0,64,1,0,0,0,0,0,0,0,64,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 64}","{""highway"": 1, ""surface"": 1}",{}
+205,Ashim Paudel,16378761,2,326,Nepal,244,21,0,61,0,0,0,0,0,0,0,0,61,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 61}",{},{}
+206,Satya Surakasula,18349527,17,317,El Salvador,258,0,0,59,0,0,0,0,0,0,0,0,59,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 59, ""layer"": 1}",{},{}
+207,troystar,18378568,3,316,South Africa,263,5,0,46,2,0,0,0,0,0,0,0,46,0,0,0,1,0,0,1,0,0,0,0,"{""building"": 46}","{""highway"": 1, ""name"": 1, ""source"": 1, ""surface"": 1, ""waterway"": 1}",{}
+208,Dimos_B,17049110,2,315,Bangladesh,29,228,38,5,7,8,0,0,0,0,0,0,5,6,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}","{""building"": 6, ""natural"": 1, ""water"": 1}",{}
+209,yvobceph,18202858,12,313,Zambia,250,0,0,62,1,0,0,0,0,0,0,0,62,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 62, ""layer"": 1}","{""landuse"": 1}",{}
+210,Daniel Specht,2393795,9,310,Nepal,157,24,50,27,37,10,5,0,0,2,0,0,2,4,0,3,13,0,3,6,0,0,0,0,"{""landuse"": 13, ""type"": 5, ""highway"": 3, ""waterway"": 3, ""ford"": 2, ""layer"": 2, ""tunnel"": 2, ""building"": 2, ""natural"": 1}","{""highway"": 13, ""landuse"": 6, ""waterway"": 6, ""building"": 4, ""natural"": 3, ""ref"": 1, ""layer"": 1, ""construction"": 1, ""ford"": 1}",{}
+211,Lochan Pant,14854690,7,303,South Africa,128,150,0,24,1,0,0,0,0,0,0,0,24,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 24}","{""building"": 1}",{}
+212,Jplaxx,18343595,1,287,,145,69,31,29,6,7,0,0,0,0,0,0,29,6,0,0,0,0,0,0,0,0,0,0,"{""building"": 29}","{""addr:city"": 6, ""addr:postcode"": 6, ""addr:province"": 6, ""building"": 6}",{}
+213,Emily_123,14994205,6,282,South Africa,219,0,0,54,9,0,0,0,0,0,0,0,54,7,0,0,0,0,0,0,0,0,0,0,"{""building"": 54, ""layer"": 6}","{""building"": 7, ""landuse"": 2}",{}
+214,KrishaTX,18380556,2,275,Egypt,232,0,0,39,4,0,0,0,0,0,0,0,39,0,0,0,4,0,0,0,0,0,0,0,"{""building"": 39}","{""highway"": 4, ""name"": 3, ""name:ar"": 3, ""name:en"": 3, ""access"": 1}",{}
+215,jacob2121,18380555,4,268,Egypt,222,0,0,45,1,0,0,0,0,0,0,0,45,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 45}","{""highway"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1}",{}
+216,EthanRaJohnson,10313346,26,266,El Salvador,215,0,0,51,0,0,0,0,0,0,0,0,51,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 51}",{},{}
+217,Heterodyne,9531596,2,259,Cameroon,80,143,12,16,6,2,0,0,0,0,0,0,16,6,0,0,0,0,0,0,0,0,0,0,"{""building"": 16}","{""building"": 6}",{}
+218,tx2ny,14432270,6,255,El Salvador,152,67,0,31,5,0,0,0,0,0,0,0,31,5,0,0,0,0,0,0,0,0,0,0,"{""building"": 31}","{""building"": 5}",{}
+219,osmtogo_mapper3,17967251,5,253,Togo,202,0,4,46,0,1,0,0,0,0,0,0,46,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 46}",{},{}
+220,pkodame,4556176,2,250,Qatar,202,0,0,48,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 48}",{},{}
+221,mrodrigo,18381380,2,249,Philippines,195,15,0,36,3,0,0,0,0,0,1,0,36,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 36, ""addr:city"": 1, ""addr:housenumber"": 1, ""addr:postcode"": 1, ""addr:street"": 1, ""name"": 1}","{""name"": 2, ""building"": 2, ""place"": 1, ""landuse"": 1, ""shop"": 1, ""addr:postcode"": 1, ""addr:street"": 1, ""building:levels"": 1}",{}
+222,Sekou Yaya Bah,7014296,3,246,Guinea,197,23,0,12,14,0,0,0,0,0,0,0,4,0,0,1,12,0,7,2,0,0,0,0,"{""waterway"": 7, ""building"": 4, ""layer"": 3, ""highway"": 1}","{""highway"": 12, ""source"": 2, ""waterway"": 2, ""note"": 1}",{}
+223,ngale06,11917349,1,234,Kenya,189,0,0,44,1,0,0,0,0,0,0,0,44,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 44, ""layer"": 1}","{""building"": 1}",{}
+224,BRPS,18194384,1,230,Sudan,166,6,20,33,0,5,0,0,0,0,0,0,33,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 33}",{},{}
+225,Wilmah,15656716,1,227,South Africa,177,20,0,28,2,0,0,0,0,0,0,0,28,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 28, ""layer"": 1}","{""name"": 1, ""place"": 1, ""highway"": 1}",{}
+226,Snakej,18040441,1,225,United Republic of Tanzania,186,0,0,39,0,0,0,0,0,0,0,0,39,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 39}",{},{}
+227,sam_fred,10777085,9,214,El Salvador,172,0,0,42,0,0,0,0,0,0,0,0,42,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 42}",{},{}
+228,kjarvelainen,10178354,12,208,El Salvador,170,0,0,37,1,0,0,0,0,0,0,0,37,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 37}","{""highway"": 1, ""surface"": 1}",{}
+229,Anna Alanko,18379895,7,199,El Salvador,161,0,0,37,1,0,0,0,0,0,0,0,35,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 35, ""area"": 1, ""description"": 1}","{""highway"": 1, ""surface"": 1}",{}
+230,LiAng104,12060828,1,190,Libyan Arab Jamahiriya,152,0,0,38,0,0,0,0,0,0,0,0,38,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 38}",{},{}
+231,Maitrivaca,18378631,23,185,South Africa,162,0,0,23,0,0,0,0,0,0,0,0,23,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 23}",{},{}
+232,knconnelly,12258686,4,181,Philippines,148,0,0,32,1,0,0,0,0,0,0,0,32,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 32}","{""fixme"": 1, ""highway"": 1}",{}
+233,erin_rose,18222016,3,180,El Salvador,147,0,0,33,0,0,0,0,0,0,0,0,33,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 33}",{},{}
+234,Kicking Leaves,12405934,3,179,Botswana,66,19,74,13,0,7,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}",{},{}
+235,Suemaps,11167387,2,175,Chad,130,24,0,21,0,0,0,0,0,0,0,0,21,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 21}",{},{}
+236,Puxan,5328434,9,169,Sudan,76,68,3,17,5,0,0,0,0,0,0,0,17,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 17}","{""building"": 2}",{}
+237,Frans S,1962399,7,167,"Somalia,Mali",118,4,24,2,19,0,0,0,0,1,1,0,0,0,0,0,18,0,0,0,0,0,0,0,"{""landuse"": 2, ""place"": 1}","{""highway"": 18, ""surface"": 16, ""tracktype"": 6, ""attribution"": 5, ""source"": 5, ""fixme"": 4, ""ford"": 1, ""landuse"": 1}",{}
+238,Reshi M,17553594,1,167,United Republic of Tanzania,138,0,0,29,0,0,0,0,0,0,0,0,29,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 29}",{},{}
+239,JULI-BEST,17940668,6,166,"Egypt,Algeria",129,0,4,32,0,1,0,0,0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 32}",{},{}
+240,Lana Goodera,17913345,2,166,Egypt,145,0,0,20,1,0,0,0,0,0,0,0,19,0,0,0,1,0,0,0,0,0,0,0,"{""building"": 19, ""layer"": 3, ""natural"": 1}","{""highway"": 1, ""name"": 1, ""name:ar"": 1, ""name:en"": 1}",{}
+241,the_future_is_asdf,18369651,2,161,Rwanda,139,0,0,22,0,0,0,0,0,0,0,0,22,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 22}",{},{}
+242,bgracek,11641821,2,161,South Africa,90,17,37,10,3,4,0,0,0,0,0,0,10,3,0,0,0,0,0,0,0,0,0,0,"{""building"": 10, ""layer"": 3}","{""building"": 3, ""layer"": 1}",{}
+243,LikiCarolina,16260275,2,155,United Republic of Tanzania,120,8,0,27,0,0,0,0,0,0,0,0,27,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 27}",{},{}
+244,Abuela1,16676139,7,153,"Arunachal Pradesh,India",118,8,0,27,0,0,0,0,0,0,0,0,20,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 20, ""natural"": 6, ""landuse"": 1}",{},{}
+245,gourirv,4674741,3,145,United Republic of Tanzania,110,12,0,21,2,0,0,0,0,0,0,0,21,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 21}","{""building"": 2}",{}
+246,mflorshe,18380790,3,140,"Nigeria,Sri Lanka",115,0,0,24,1,0,0,0,0,0,0,0,23,0,0,1,0,0,0,0,0,0,0,0,"{""building"": 23, ""man_made"": 2, ""highway"": 1}","{""landuse"": 1, ""name"": 1}",{}
+247,Rebecca Shames,11097248,27,135,El Salvador,107,0,0,27,1,0,0,0,0,0,0,0,27,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 27}","{""building"": 1}",{}
+248,henkp-hot,6539537,7,118,Malawi,51,41,5,10,11,0,0,0,0,0,0,0,3,1,0,7,10,0,0,0,0,0,0,0,"{""highway"": 7, ""building"": 3}","{""highway"": 10, ""building"": 1}",{}
+249,Nelson Alex,15412806,4,116,United Republic of Tanzania,46,8,46,5,2,9,0,0,0,0,0,0,5,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}","{""building"": 2}",{}
+250,kmlukens5,17053628,1,115,South Sudan,104,0,0,11,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}",{},{}
+251,THE_Chanye,15905762,1,111,Libyan Arab Jamahiriya,98,0,0,13,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}",{},{}
+252,EKOTAMIKE,2886200,1,108,Libyan Arab Jamahiriya,88,0,4,15,0,1,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 15}",{},{}
+253,Rilie,18287972,2,106,"Kenya,Japan",91,1,0,10,4,0,0,0,0,5,0,0,5,0,0,3,3,0,0,1,0,0,0,0,"{""building"": 5, ""natural"": 4, ""highway"": 3, ""landuse"": 2, ""leisure"": 1}","{""highway"": 3, ""access"": 1, ""layer"": 1, ""name"": 1, ""name:ja"": 1, ""note"": 1, ""note:ja"": 1, ""source"": 1, ""source_ref"": 1, ""waterway"": 1, ""cables"": 1, ""circuits"": 1, ""frequency"": 1, ""power"": 1, ""voltage"": 1}",{}
+254,Phoebegoodale,17504167,3,100,"Egypt,Chad",76,0,0,21,3,0,0,0,0,0,0,0,2,0,0,0,3,0,0,0,0,0,0,0,"{""landuse"": 19, ""building"": 2}","{""highway"": 3}",{}
+255,LilJones,18381155,1,97,Libyan Arab Jamahiriya,87,0,0,9,1,0,0,0,0,0,0,0,9,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 9}","{""building"": 1}",{}
+256,MariVillasBR,18381278,1,96,Brazil,83,0,0,13,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}",{},{}
+257,KTB100,18347929,1,94,Ethiopia,75,0,0,19,0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,1,0,0,"{""building"": 15, ""landuse"": 3, ""amenity"": 1}",{},{}
+258,masse_BKG,16057666,5,93,"Lebanon,Syrian Arab Republic,Indonesia,Japan",78,0,0,15,0,0,0,0,0,0,0,0,12,0,0,2,0,0,0,0,0,0,0,0,"{""building"": 12, ""highway"": 2, ""surface"": 2, ""landuse"": 1}",{},{}
+259,Olufemimide,10205518,1,91,Egypt,70,4,0,17,0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 17}",{},{}
+260,LawAng1,17263424,1,88,Libyan Arab Jamahiriya,70,0,0,18,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 18}",{},{}
+261,MathildeZgler,17422483,9,83,"Indonesia,El Salvador,Arunachal Pradesh",64,0,0,16,3,0,0,0,0,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 12, ""landuse"": 4}","{""natural"": 2, ""boundary"": 1}",{}
+262,Guntuka Reddy,18349834,4,79,El Salvador,64,0,0,15,0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 15, ""layer"": 3}",{},{}
+263,Engr Suacillo,18378171,1,76,Philippines,0,76,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{},{}
+264,jakemcgowan,16617877,1,76,South Africa,61,0,0,15,0,0,0,0,0,0,0,0,15,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 15}",{},{}
+265,Varsha Kumaran,17285995,3,75,Kenya,66,0,0,8,1,0,0,0,0,0,0,0,5,0,0,3,1,0,0,0,0,0,0,0,"{""building"": 5, ""highway"": 3}","{""highway"": 1}",{}
+266,Ester Miglio,18379928,3,73,Chad,57,0,0,14,2,0,0,0,0,0,0,0,14,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 14}","{""building"": 2}",{}
+267,Catjacket,8339689,1,68,Libyan Arab Jamahiriya,56,1,0,11,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}",{},{}
+268,Talasila,18349912,13,65,El Salvador,52,0,0,13,0,0,0,0,0,0,0,0,13,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 13}",{},{}
+269,Anjelina Singh,14478218,1,65,Nigeria,57,0,0,8,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 8}",{},{}
+270,KarleneMM,17347542,4,56,El Salvador,45,0,0,11,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 11}",{},{}
+271,ACHaig,18113187,1,55,Egypt,39,5,0,10,1,0,0,0,0,0,0,0,10,1,0,0,0,0,0,0,0,0,0,0,"{""building"": 10}","{""addr:city"": 1, ""addr:city:en"": 1, ""addr:country"": 1, ""addr:district"": 1, ""addr:district:en"": 1, ""addr:housenumber"": 1, ""addr:place"": 1, ""addr:place:en"": 1, ""addr:postcode"": 1, ""addr:province"": 1, ""addr:province:en"": 1, ""building"": 1}",{}
+272,joschi81,22449,1,55,Libyan Arab Jamahiriya,40,4,4,6,0,1,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
+273,ctmccalla,18188587,1,52,Kenya,7,42,0,0,3,0,0,0,0,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,{},"{""building"": 2, ""highway"": 1, ""surface"": 1}",{}
+274,Mike Hastings,11325775,3,51,El Salvador,33,0,9,7,0,2,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 7}",{},{}
+275,ngumenawesamson,2623654,1,46,Uganda,20,8,11,5,0,2,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}",{},{}
+276,nabillad,11751721,1,44,Egypt,42,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+277,Sabaakhavan,18347934,3,42,Kenya,35,0,0,7,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 7}",{},{}
+278,bcgrubbs,18225654,2,40,Brazil,32,0,0,8,0,0,0,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 8}",{},{}
+279,bridgetk4,18380950,5,39,Burkina Faso,29,3,1,5,0,1,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}",{},{}
+280,Denrazir,13076013,1,38,Philippines,13,17,4,2,2,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}","{""building"": 2, ""addr:city"": 1, ""addr:postcode"": 1, ""addr:province"": 1}",{}
+281,Erick tamba,10570996,2,37,Nepal,1,1,0,0,35,0,0,0,0,0,0,0,0,0,0,0,34,0,0,0,0,0,0,0,{},"{""highway"": 34, ""surface"": 2, ""natural"": 1, ""landuse"": 1}",{}
+282,earthoxygen,18216301,2,37,Libyan Arab Jamahiriya,30,0,0,7,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 7}",{},{}
+283,RemoteCMeijer,10741854,1,35,Kenya,29,0,0,6,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
+284,Marco1990,16420026,4,35,Libyan Arab Jamahiriya,24,0,4,6,0,1,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
+285,Rosa Pepe,11701700,2,29,El Salvador,24,0,0,5,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 5}",{},{}
+286,sorayayeganehhh,17553643,1,29,Chad,23,0,0,6,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 6}",{},{}
+287,Cirilo Amaral,15631413,1,28,Brazil,24,0,0,3,1,0,0,0,0,0,0,0,0,0,0,3,1,0,0,0,0,0,0,0,"{""highway"": 3}","{""highway"": 1, ""surface"": 1}",{}
+288,frozenrabi,10459757,2,27,Nepal,22,0,0,5,0,0,0,0,0,0,0,0,4,0,0,1,0,0,0,0,0,0,0,0,"{""building"": 4, ""highway"": 1}",{},{}
+289,youngmapper,13063701,1,22,Nigeria,18,0,0,4,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 4}",{},{}
+290,Ziyue_Shang,15375192,2,17,Chad,14,0,0,3,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
+291,KingVik,7159298,1,15,Nigeria,13,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,{},"{""highway"": 2}",{}
+292,Émilie-Larose,18381116,1,15,South Africa,12,0,0,3,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 3}",{},{}
+293,Sourav Shil Shuvo,17249123,1,12,Bangladesh,6,4,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,{},"{""building"": 1}",{}
+294,dialloalpha,3713991,2,12,Senegal,10,0,0,2,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,"{""highway"": 2}",{},{}
+295,jessicaplante01,14516865,1,12,South Africa,10,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+296,Mylia,17423930,2,12,"Egypt,Indonesia",10,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+297,Bond0007,18378584,2,11,South Africa,8,1,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2, ""layer"": 1}",{},{}
+298,Larry1234,8933181,1,11,Bangladesh,8,0,0,2,1,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}","{""landuse"": 1}",{}
+299,LPA Erstein,18312828,2,10,South Africa,8,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+300,SwarnAlisa,17094924,1,9,Bangladesh,7,0,0,2,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 2}",{},{}
+301,omarselim,10996782,1,7,Egypt,4,2,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1, ""source"": 1}",{},{}
+302,MeetaGC,18352081,1,5,El Salvador,4,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
+303,D_Flawless,18253246,1,5,Lesotho,4,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
+304,Gaisie,14915632,1,5,Algeria,4,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,"{""building"": 1}",{},{}
+305,Marina Nørlyng,12851656,1,4,Democratic Republic of the Congo,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{},{}
+306,RayAgu,18135205,1,4,Nigeria,0,0,3,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,{},{},{}
+307,CarloDumanglas,18377117,1,3,Philippines,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,{},"{""name"": 3, ""waterway"": 1, ""landuse"": 1, ""highway"": 1}",{}
