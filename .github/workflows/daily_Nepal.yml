@@ -1,10 +1,10 @@
 name: Run Daily Report Nepal
 on:
-  schedule:
-    - cron: "0 6 * * *" # Run every day at 6 UTC
-  # push:
-  #   branches:
-  #     - master
+  # schedule:
+  #   - cron: "0 6 * * *" # Run every day at 6 UTC
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -35,9 +35,9 @@ jobs:
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         # run: |
         #    osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --timezone Nepal --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Daily/stats_metadata.json --wild_tags
-        run : |
+        run: |
           osmsg --url "https://planet.openstreetmap.org/replication/minute" --format image csv --timezone Nepal --tags building highway waterway amenity --name stats --wild_tags --extract_last_day --country Nepal --name stats --read_from_metadata stats/Nepal/Daily/stats_metadata.json
-      
+
       - name: add stats to git
 
         run: |

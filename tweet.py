@@ -45,6 +45,20 @@ def main():
         # Get the attribute of first row
         summary_text = f"User {df.loc[0, 'name']} tops table with {df.loc[0, 'map_changes']} map changes, Followed by {df.loc[1, 'name']} - {df.loc[1, 'map_changes']} & {df.loc[2, 'name']} - {df.loc[2, 'map_changes']}"
         thread_summary = f"{len(df)} Users made {df['changesets'].sum()} changesets with {df['map_changes'].sum()} map changes. They created {df['nodes.create'].sum()} nodes , {df['ways.create'].sum()} ways & {df['relations.create'].sum()} relations, Including {df['building.create'].sum()} buildings, {df['highway.create'].sum()} highways, {df['waterway.create'].sum()} waterways & {df['amenity.create'].sum()} amenities. Users also modified {df['nodes.modify'].sum()} nodes, {df['ways.modify'].sum()} ways & {df['relations.modify'].sum()} relations"
+
+        trending_countries = ""
+        trending_hashtags = ""
+        # Check if the 'hashtags' column exists in the dataframe
+        if "hashtags" in df.columns:
+            # Use value_counts on the result of str.split and then use head(3) to get the top three most frequent elements
+            top_three = df["hashtags"].str.split(",").explode().value_counts().head(3)
+
+            # Format the output as a string
+            trending_hashtags = f"Top three trending hashtags based on no of users contributed are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
+        if "countries" in df.columns:
+            top_three = df["countries"].str.split(",").explode().value_counts().head(3)
+            trending_countries = f"Top three trending countries based on no of users contributed are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
+
     filename = os.path.basename(first_file)
 
     lstfile = filename.split("_")
@@ -110,6 +124,11 @@ def main():
             status=thread_summary,
             in_reply_to_status_id=orginal_tweet.id,
         )
+        if trending_hashtags or trending_countries:
+            thread_tweet_2 = api.update_status(
+                status=trending_hashtags + trending_countries,
+                in_reply_to_status_id=orginal_tweet.id,
+            )
 
     if args.tweet_last_day:
         if args.tweet_global:
@@ -121,6 +140,11 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
             )
+            if trending_hashtags or trending_countries:
+                thread_tweet_2 = api.update_status(
+                    status=trending_hashtags + trending_countries,
+                    in_reply_to_status_id=orginal_tweet.id,
+                )
         else:
             orginal_tweet = api.update_status(
                 status=f"Nepal Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Daily/daily_nepal_stats.csv #dailystats #OpenStreetMap #osmnepal",
@@ -131,6 +155,11 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
             )
+            if trending_hashtags or trending_countries:
+                thread_tweet_2 = api.update_status(
+                    status=trending_hashtags + trending_countries,
+                    in_reply_to_status_id=orginal_tweet.id,
+                )
 
 
 if __name__ == "__main__":
