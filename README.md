@@ -111,7 +111,7 @@ osmsg  --url "http://download.geofabrik.de/asia/nepal-updates" --format csv --st
   Processing geofabrik country based osm change files are faster as they will have changes only for country and smaller in size
 
 ```
-osmsg --start_date 2022-01-01 --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --name all_tags_stats --format csv
+osmsg --start_date "2022-01-01 00:00:00+00:00" --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --name all_tags_stats --format csv
 ```
 
 Check more commands examples inside `stats/` `stats_metadata.json`
