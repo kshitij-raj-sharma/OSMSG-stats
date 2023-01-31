@@ -148,21 +148,24 @@ class ChangesetHandler(osmium.SimpleHandler):
                         hashtag_changesets[c.id] = []
                     # get bbox
                     bounds = str(c.bounds)
-                    bbox_list = bounds.strip("()").split(" ")
-                    minx, miny = bbox_list[0].split("/")
-                    maxx, maxy = bbox_list[1].split("/")
-                    bbox = box(float(minx), float(miny), float(maxx), float(maxy))
-                    # Create a point for the centroid of the bounding box
-                    centroid = bbox.centroid
-                    intersected_rows = countries_df[countries_df.intersects(centroid)]
-                    for i, row in intersected_rows.iterrows():
-                        if row["name"] not in hashtag_changesets[c.id]:
-                            if country:
-                                country_check = True
-                                if row["name"] == country:
+                    if "invalid" not in bounds:
+                        bbox_list = bounds.strip("()").split(" ")
+                        minx, miny = bbox_list[0].split("/")
+                        maxx, maxy = bbox_list[1].split("/")
+                        bbox = box(float(minx), float(miny), float(maxx), float(maxy))
+                        # Create a point for the centroid of the bounding box
+                        centroid = bbox.centroid
+                        intersected_rows = countries_df[
+                            countries_df.intersects(centroid)
+                        ]
+                        for i, row in intersected_rows.iterrows():
+                            if row["name"] not in hashtag_changesets[c.id]:
+                                if country:
+                                    country_check = True
+                                    if row["name"] == country:
+                                        hashtag_changesets[c.id].append(row["name"])
+                                else:
                                     hashtag_changesets[c.id].append(row["name"])
-                            else:
-                                hashtag_changesets[c.id].append(row["name"])
 
         if not country_check:  # hash tag not supplied
             if country:
@@ -596,6 +599,7 @@ def main():
             os.makedirs(temp_path)
 
         max_workers = os.cpu_count() if not args.workers else args.workers
+        print(f"Using {max_workers} Threads")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list

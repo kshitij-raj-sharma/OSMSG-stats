@@ -1,10 +1,10 @@
 name: Run Daily Report Hotosm Hashtag
 on:
-  schedule:
-    - cron: "0 6 * * *" # Run every day at 7 UTC
-  # push:
-  #   branches:
-  #     - master
+  # schedule:
+  #   - cron: "0 6 * * *" # Run every day at 7 UTC
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
