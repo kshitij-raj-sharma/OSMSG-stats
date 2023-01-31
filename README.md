@@ -14,7 +14,7 @@ Monitored Country's stats are available under `stats`, For now Monitored countri
 pip install osmium
 ```
 
-- Instal osmsg
+- Install osmsg
 
 ```
 pip install osmsg
