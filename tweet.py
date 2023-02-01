@@ -51,13 +51,21 @@ def main():
         # Check if the 'hashtags' column exists in the dataframe
         if "hashtags" in df.columns:
             # Use value_counts on the result of str.split and then use head(3) to get the top three most frequent elements
-            top_three = df["hashtags"].str.split(",").explode().value_counts().head(3)
+            if args.tweet_hotosm:
+                top_three = df["hashtags"].str.split(",").explode()
+                top_three = (
+                    top_three[top_three.str.contains("hotosm")].value_counts().head(3)
+                )
+            else:
+                top_three = (
+                    df["hashtags"].str.split(",").explode().value_counts().head(3)
+                )
 
             # Format the output as a string
-            trending_hashtags = f"Top three trending hashtags based on no of users contributed are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
+            trending_hashtags = f"Top three trending hashtags for those stats are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
         if "countries" in df.columns:
             top_three = df["countries"].str.split(",").explode().value_counts().head(3)
-            trending_countries = f"Top three trending countries based on no of users contributed are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
+            trending_countries = f" & Top three trending countries based on no of users contributed are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
 
     filename = os.path.basename(first_file)
 
