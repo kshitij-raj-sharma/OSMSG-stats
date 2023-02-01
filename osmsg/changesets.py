@@ -26,24 +26,9 @@ class ChangesetToolKit:
             int((timestamp - last_run).total_seconds() / 60) + current_sequence
         )
         # timestamp of sequnce should always be lesser than supplied timestamp
-        difference = timestamp - self.sequence_to_timestamp(desired_sequence)
-
-        if self.sequence_to_timestamp(desired_sequence) > timestamp:
-            while difference.days != 1:
-                desired_sequence = (
-                    desired_sequence - 360 if difference >= 2 else 60
-                )  # if difference bigger than or equal to  2 day  reduce almost 6 hour else reduce 1 hour
-                difference = timestamp - self.sequence_to_timestamp(desired_sequence)
-
-        if (
-            difference.days > 1
-        ):  # supplied timestamp is higher and captured is lower so increase the sequence
-            while difference.days() != 1:
-                desired_sequence = (
-                    desired_sequence + 360 if difference >= 2 else 60
-                )  # if difference bigger than or equal to  2 day  reduce almost 6 hour else reduce 1 hour
-                difference = timestamp + self.sequence_to_timestamp(desired_sequence)
-
+        # timestamp means user supplied time
+        if desired_sequence >= current_sequence:
+            desired_sequence = current_sequence
         return desired_sequence
 
     def get_diff_url(self, sequence):
@@ -90,6 +75,13 @@ class ChangesetToolKit:
     def get_download_urls(self, start_date, end_date=None):
         download_urls = []
         start_seq = self.timestamp_to_sequence(start_date)
+        start_seq_time = self.sequence_to_timestamp(start_seq)
+        if (start_date - start_seq_time).days != 1:
+            # difference should be a day difference to calculate accurate changeset stats
+            if start_date > start_seq_time:
+                start_seq = (
+                    start_seq + int((start_date - start_seq_time).total_seconds() / 60)
+                ) - 360  # go 6 hours back
         if not end_date:
             current_sequence, last_run = self.get_current_state()
             end_date = last_run
@@ -103,6 +95,15 @@ class ChangesetToolKit:
                 end_seq = current_sequence
             else:
                 end_seq = self.timestamp_to_sequence(end_date)
+                end_seq_time = self.sequence_to_timestamp(end_seq)
+                end_seq = (
+                    end_seq + int((end_seq_time - end_date).total_seconds() / 60)
+                ) + 360  # go 6 hours ahead
+                if (
+                    end_seq > current_sequence
+                ):  # if it exceeds more than 6 hours keep current one
+                    end_seq = current_sequence
+
         if start_seq >= end_seq:
             print("Already up-to-date.")
             sys.exit()

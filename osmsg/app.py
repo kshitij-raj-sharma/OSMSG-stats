@@ -452,7 +452,7 @@ def main():
         "--hashtags",
         nargs="+",
         type=str,
-        help="Hashtags Statstics to Collect : List of hashtags , Limited until daily stats for now , Only lookups if hashtag is contained on the string , not a exact string lookup on beta",
+        help="Hashtags Statistics to Collect : List of hashtags , Limited until daily stats for now , Only lookups if hashtag is contained on the string , not a exact string lookup on beta",
     )
     parser.add_argument(
         "--force",
@@ -658,9 +658,9 @@ def main():
             # executor.shutdown(wait=True)
 
         print("Changeset Processing Finished")
-        end_date = strip_utc(
-            Changeset.sequence_to_timestamp(changeset_end_seq), args.timezone
-        )
+        end_seq_timestamp = Changeset.sequence_to_timestamp(changeset_end_seq)
+        if end_date > end_seq_timestamp:
+            end_date = strip_utc(end_seq_timestamp, args.timezone)
 
     print("Changefiles : Generating Download Urls")
     (
