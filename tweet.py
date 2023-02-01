@@ -81,6 +81,7 @@ def main():
             thread_tweet = api.update_status(
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
+                auto_populate_reply_metadata=True,
             )
         else:
             orginal_tweet = api.update_status(
@@ -91,6 +92,7 @@ def main():
             thread_tweet = api.update_status(
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
+                auto_populate_reply_metadata=True,
             )
         print("twitted")
     if args.tweet_last_month:
@@ -103,6 +105,7 @@ def main():
             thread_tweet = api.update_status(
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
+                auto_populate_reply_metadata=True,
             )
         else:
             orginal_tweet = api.update_status(
@@ -113,6 +116,7 @@ def main():
             thread_tweet = api.update_status(
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
+                auto_populate_reply_metadata=True,
             )
         print("twitted")
     if args.tweet_hotosm:
@@ -123,11 +127,13 @@ def main():
         thread_tweet = api.update_status(
             status=thread_summary,
             in_reply_to_status_id=orginal_tweet.id,
+            auto_populate_reply_metadata=True,
         )
         if trending_hashtags or trending_countries:
             thread_tweet_2 = api.update_status(
                 status=trending_hashtags + trending_countries,
-                in_reply_to_status_id=orginal_tweet.id,
+                in_reply_to_status_id=thread_tweet.id,
+                auto_populate_reply_metadata=True,
             )
 
     if args.tweet_last_day:
@@ -139,11 +145,13 @@ def main():
             thread_tweet = api.update_status(
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
+                auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
                 thread_tweet_2 = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=orginal_tweet.id,
+                    in_reply_to_status_id=thread_tweet.id,
+                    auto_populate_reply_metadata=True,
                 )
         else:
             orginal_tweet = api.update_status(
@@ -154,11 +162,13 @@ def main():
             thread_tweet = api.update_status(
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
+                auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
                 thread_tweet_2 = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=orginal_tweet.id,
+                    in_reply_to_status_id=thread_tweet.id,
+                    auto_populate_reply_metadata=True,
                 )
 
 
