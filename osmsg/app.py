@@ -58,7 +58,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
         if changeset not in users_temp[user]["changesets"]:
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
-        if hashtags:
+        if hashtags or include_changeset_meta:
             for ch in hashtag_changesets[changeset]["countries"]:
                 if ch not in users[user]["countries"]:
                     users[user]["countries"].append(ch)
@@ -95,7 +95,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             "relations": {"create": 0, "modify": 0, "delete": 0},
             "poi": {"create": 0, "modify": 0, "delete": 0},  # nodes that has tags
         }
-        if hashtags:
+        if hashtags or include_changeset_meta:
             users[user]["countries"] = hashtag_changesets[changeset]["countries"]
             users[user]["hashtags"] = hashtag_changesets[changeset]["hashtags"]
 
@@ -123,7 +123,9 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
 
 
 def calculate_stats(user, uname, changeset, version, tags, osm_type):
-    if (hashtags and country) or hashtags:  # intersect with changesets
+    if (
+        (hashtags and country) or hashtags or include_changeset_meta
+    ):  # intersect with changesets
         if (
             len(hashtag_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
@@ -147,43 +149,49 @@ class ChangesetHandler(osmium.SimpleHandler):
 
     def changeset(self, c):
         country_check = False
+        run_hashtag_check_logic = False
+        if include_changeset_meta:
+            if "comment" in c.tags:
+                run_hashtag_check_logic = True
         if hashtags:
             if "comment" in c.tags:
                 if any(elem.lower() in c.tags["comment"].lower() for elem in hashtags):
-                    if c.id not in hashtag_changesets.keys():
-                        hashtag_changesets[c.id] = {"hashtags": [], "countries": []}
-                    # get bbox
-                    bounds = str(c.bounds)
-                    if "invalid" not in bounds:
-                        bbox_list = bounds.strip("()").split(" ")
-                        minx, miny = bbox_list[0].split("/")
-                        maxx, maxy = bbox_list[1].split("/")
-                        bbox = box(float(minx), float(miny), float(maxx), float(maxy))
-                        # Create a point for the centroid of the bounding box
-                        centroid = bbox.centroid
-                        intersected_rows = countries_df[
-                            countries_df.intersects(centroid)
-                        ]
-                        hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
-                        for hash_tag in hashtags_comment:
-                            if hash_tag not in hashtag_changesets[c.id]["hashtags"]:
-                                hashtag_changesets[c.id]["hashtags"].append(hash_tag)
-                        for i, row in intersected_rows.iterrows():
-                            if row["name"] not in hashtag_changesets[c.id]["countries"]:
-                                if country:
-                                    country_check = True
-                                    if row["name"] == country:
-                                        hashtag_changesets[c.id]["countries"].append(
-                                            row["name"]
-                                        )
-                                else:
+                    run_hashtag_check_logic = True
+
+        if run_hashtag_check_logic:
+            if c.id not in hashtag_changesets.keys():
+                hashtag_changesets[c.id] = {"hashtags": [], "countries": []}
+                # get bbox
+                bounds = str(c.bounds)
+                if "invalid" not in bounds:
+                    bbox_list = bounds.strip("()").split(" ")
+                    minx, miny = bbox_list[0].split("/")
+                    maxx, maxy = bbox_list[1].split("/")
+                    bbox = box(float(minx), float(miny), float(maxx), float(maxy))
+                    # Create a point for the centroid of the bounding box
+                    centroid = bbox.centroid
+                    intersected_rows = countries_df[countries_df.intersects(centroid)]
+                    hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
+                    for hash_tag in hashtags_comment:
+                        if hash_tag not in hashtag_changesets[c.id]["hashtags"]:
+                            hashtag_changesets[c.id]["hashtags"].append(hash_tag)
+                    for i, row in intersected_rows.iterrows():
+                        if row["name"] not in hashtag_changesets[c.id]["countries"]:
+                            if country:
+                                country_check = True
+                                if row["name"] == country:
                                     hashtag_changesets[c.id]["countries"].append(
                                         row["name"]
                                     )
+                            else:
+                                hashtag_changesets[c.id]["countries"].append(
+                                    row["name"]
+                                )
 
         if not country_check:  # hash tag not supplied
-            if country:
-                if c.bounds:
+
+            if c.bounds:
+                if country:
                     bounds = str(c.bounds)
                     if "invalid" not in bounds:
                         bbox_list = bounds.strip("()").split(" ")
@@ -198,6 +206,7 @@ class ChangesetHandler(osmium.SimpleHandler):
                             countries_df.intersects(centroid)
                         ]
                         for i, row in intersected_rows.iterrows():
+
                             if row["name"] == country:
                                 if c.id not in countries_changesets.keys():
                                     countries_changesets[c.id] = []
@@ -476,6 +485,13 @@ def main():
     parser.add_argument("--extract_last_hour", action="store_true", default=False)
 
     parser.add_argument(
+        "--include_changeset_meta",
+        help="Include hashtag and country informations on the stats. It forces script to process changeset replciation , Careful to use this since changeset replication is minutely",
+        action="store_true",
+        default=False,
+    )
+
+    parser.add_argument(
         "--wild_tags",
         action="store_true",
         help="Extract statistics of all of the unique tags and its count",
@@ -530,6 +546,12 @@ def main():
         if not countries_df["name"].isin([args.country]).any():
             print("Country doesn't exists : Refer to data/countries_un.csv name column")
             sys.exit()
+    if args.include_changeset_meta:
+        if args.hashtags or args.country:
+            assert (
+                args.include_changeset_meta
+            ), "You can not use include changeset meta option along with hashtags/country"
+
     start_time = time.time()
 
     global additional_tags
@@ -537,11 +559,15 @@ def main():
     global wild_tags
     global hashtags
     global country
+    global include_changeset_meta
+
     wild_tags = args.wild_tags
     additional_tags = args.tags
     hashtags = args.hashtags
     country = args.country
     cookies = None
+    include_changeset_meta = args.include_changeset_meta
+
     if "geofabrik" in args.url.lower():
         if args.username is None:
             args.username = os.environ.get("OSM_USERNAME")
@@ -595,8 +621,9 @@ def main():
             )
             if not args.force:
                 sys.exit()
+    print(f"Supplied start_date: {start_date} and end_date: {end_date}")
 
-    if args.hashtags or args.country:
+    if args.hashtags or args.country or args.include_changeset_meta:
 
         Changeset = ChangesetToolKit()
         (
@@ -605,7 +632,7 @@ def main():
             changeset_end_seq,
         ) = Changeset.get_download_urls(start_date, end_date)
         print(
-            f"You have supplied start_date as : {start_date} and end_date as : {end_date} , Processing Changeset from {strip_utc(Changeset.sequence_to_timestamp(changeset_start_seq),args.timezone)} to {strip_utc(Changeset.sequence_to_timestamp(changeset_end_seq),args.timezone)}"
+            f"Processing Changeset from {strip_utc(Changeset.sequence_to_timestamp(changeset_start_seq),args.timezone)} to {strip_utc(Changeset.sequence_to_timestamp(changeset_end_seq),args.timezone)}"
         )
 
         temp_path = os.path.join(os.getcwd(), "temp/changesets")
@@ -711,7 +738,7 @@ def main():
                 )
         df = pd.json_normalize(list(users.values()))
 
-        if hashtags:
+        if hashtags or include_changeset_meta:
             df["countries"] = df["countries"].apply(lambda x: ",".join(map(str, x)))
 
         df = df.assign(
@@ -744,7 +771,7 @@ def main():
             # Reindex the DataFrame with the new order of column names
             df = df.reindex(columns=cols)
 
-        if country or hashtags:
+        if country or hashtags or include_changeset_meta:
             df["hashtags"] = df["hashtags"].apply(lambda x: ",".join(map(str, x)))
             column_to_move = "hashtags"
             df = df.assign(**{column_to_move: df.pop(column_to_move)})
