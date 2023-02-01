@@ -39,7 +39,9 @@ hashtag_changesets = {}
 countries_changesets = {}
 
 # read the GeoJSON file
-countries_df = gpd.read_file("data/countries_un.geojson")
+countries_df = gpd.read_file(
+    "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries_un.geojson"
+)
 
 
 def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
@@ -261,7 +263,6 @@ def process_changefiles(url):
         shutil.copyfileobj(f_in, f_out)
 
     handler.apply_file(file_path[:-3])
-    print(f"Finished {url}")
 
 
 def process_changesets(url):
@@ -343,7 +344,8 @@ def get_download_urls_changefiles(
             last_ts = end_date
 
     print(
-        f"You have supplied {start_date} : {seq} to {last_ts} : {last_seq} . Latest Server Fetched is : {server_seq} & {in_local_timezone(server_ts,timezone)} on {base_url}\nGoing from {seq_to_timestamp(repl.get_state_url(seq), timezone)} to {seq_to_timestamp(repl.get_state_url(last_seq), timezone)}"
+        # f"You have supplied {start_date} : {seq} to {last_ts} : {last_seq} . Latest Server Fetched is : {server_seq} & {in_local_timezone(server_ts,timezone)} on {base_url}\n
+        f"Processing Changefiles from {seq_to_timestamp(repl.get_state_url(seq), timezone)} to {seq_to_timestamp(repl.get_state_url(last_seq), timezone)}"
     )
 
     if seq >= last_seq:
@@ -645,9 +647,9 @@ def main():
         os.makedirs(temp_path)
 
     # Use the ThreadPoolExecutor to download the images in parallel
-    with concurrent.futures.ThreadPoolExecutor(
-        max_workers=os.cpu_count() if not args.workers else args.workers
-    ) as executor:
+    max_workers = os.cpu_count() if not args.workers else args.workers
+    print(f"Using {max_workers} Threads")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         # executor.map(process_changefiles, download_urls)
         for _ in tqdm(
