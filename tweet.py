@@ -65,7 +65,7 @@ def main():
             trending_hashtags = f"Top three trending hashtags for those stats are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
         if "countries" in df.columns:
             top_three = df["countries"].str.split(",").explode().value_counts().head(3)
-            trending_countries = f" & Top three trending countries based on no of users contributed are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
+            trending_countries = f" & Top three countries based on no of users contributed are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
 
     filename = os.path.basename(first_file)
 

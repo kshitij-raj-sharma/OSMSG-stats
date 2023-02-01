@@ -84,18 +84,18 @@ It is a Simple python script processes osm files live and produces stats on the 
 - To extract stats of last_hour for whole_world Using Planet Replication
 
 ```
-osmsg --url "https://planet.openstreetmap.org/replication/minute" --format csv --tags building highway waterway amenity --name stats --wild_tags --extract_last_hour  --name nepal_stats
+osmsg --url "https://planet.openstreetmap.org/replication/minute" --format csv --tags building highway waterway amenity --name stats --wild_tags --extract_last_hour
 ```
 
 In order to extract for specific country just add --country with country name as in [data/countries_un.csv](./data/countries_un.csv) for eg : For Nepal : `--country Nepal`
 
-- To extract stats for last day whole world :
+- To extract stats for last day whole world with all the tags and specified stat :
 
 ```
-osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --wild_tags
+osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv --extract_last_day --name stats --wild_tags
 ```
 
-add --country to extract specific country
+If you wish to have tags with specific count for key you can include them as `--tags "building" "highway" ` & add --country to extract specific country
 
 - To extract specific country with Geofabrik URL (extracts stats for 15 days custom date range)
 
@@ -103,7 +103,7 @@ add --country to extract specific country
 export OSM_USERNAME="yourusername"
 export OSM_PASSWORD="yourpassword"
 
-osmsg  --url "http://download.geofabrik.de/asia/nepal-updates" --format csv --start_date "2023-01-15 00:00:00+00:00" --end_date "2023-01-30 00:00:00+00:00" --tags 'building' 'highway' 'waterway' 'amenity' --name stats --wild_tags
+osmsg  --url "http://download.geofabrik.de/asia/nepal-updates" --format csv --start_date "2023-01-15 00:00:00+00:00" --end_date "2023-01-30 00:00:00+00:00" --name all_tags_stats --wild_tags
 ```
 
 - To get stat of Nepal for 2022 to now with geofabrik replication:
@@ -111,7 +111,7 @@ osmsg  --url "http://download.geofabrik.de/asia/nepal-updates" --format csv --st
   Processing geofabrik country based osm change files are faster as they will have changes only for country and smaller in size
 
 ```
-osmsg --start_date "2022-01-01 00:00:00+00:00" --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity' --name all_tags_stats --format csv
+osmsg --start_date "2022-01-01 00:00:00+00:00" --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity'  --format csv
 ```
 
 Check more commands examples inside `stats/` `stats_metadata.json`
