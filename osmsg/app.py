@@ -68,18 +68,21 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
 
         users[user][osm_type][action] += 1
         if osm_type == "nodes" and tags:
-            users[user]["poi"][action] += 1
+            if action != "delete":
+                users[user]["poi"][action] += 1
         if wild_tags:
             for key, value in tags:
-                if key in users[user][f"tags_{action}"]:
-                    users[user][f"tags_{action}"][key] += 1
-                else:
-                    users[user][f"tags_{action}"][key] = 1
+                if action != "delete":  # we don't need deleted tags
+                    if key in users[user][f"tags_{action}"]:
+                        users[user][f"tags_{action}"][key] += 1
+                    else:
+                        users[user][f"tags_{action}"][key] = 1
 
         if tags_to_collect:
-            for tag in tags_to_collect:
-                if tag in tags:
-                    users[user][tag][action] += 1
+            if action != "delete":  # we don't need deleted tags
+                for tag in tags_to_collect:
+                    if tag in tags:
+                        users[user][tag][action] += 1
         if country:
             for ch in countries_changesets[changeset]:
                 if ch not in users[user]["hashtags"]:
@@ -93,7 +96,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             "nodes": {"create": 0, "modify": 0, "delete": 0},
             "ways": {"create": 0, "modify": 0, "delete": 0},
             "relations": {"create": 0, "modify": 0, "delete": 0},
-            "poi": {"create": 0, "modify": 0, "delete": 0},  # nodes that has tags
+            "poi": {"create": 0, "modify": 0},  # nodes that has tags
         }
         if hashtags or include_changeset_meta:
             users[user]["countries"] = hashtag_changesets[changeset]["countries"]
@@ -101,7 +104,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
 
         if tags_to_collect:
             for tag in tags_to_collect:
-                users[user][tag] = {"create": 0, "modify": 0, "delete": 0}
+                users[user][tag] = {"create": 0, "modify": 0}
         users_temp[user] = {"changesets": []}
         if changeset not in users_temp[user]["changesets"]:
             users_temp[user]["changesets"].append(changeset)
@@ -110,7 +113,6 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
         if wild_tags:
             users[user]["tags_create"] = {}
             users[user]["tags_modify"] = {}
-            users[user]["tags_delete"] = {}
 
             for tag, value in tags:
                 users[user][f"tags_{action}"][tag] = 1
@@ -450,7 +452,7 @@ def main():
         "--hashtags",
         nargs="+",
         type=str,
-        help="Hashtags Statstics to Collect : List of hashtags , Limited until daily stats for now",
+        help="Hashtags Statstics to Collect : List of hashtags , Limited until daily stats for now , Only lookups if hashtag is contained on the string , not a exact string lookup on beta",
     )
     parser.add_argument(
         "--force",
@@ -727,15 +729,7 @@ def main():
                         )
                     )
                 )
-                users[user]["tags_delete"] = json.dumps(
-                    dict(
-                        sorted(
-                            users[user]["tags_delete"].items(),
-                            key=lambda item: item[1],
-                            reverse=True,
-                        )
-                    )
-                )
+
         df = pd.json_normalize(list(users.values()))
 
         if hashtags or include_changeset_meta:
@@ -763,7 +757,7 @@ def main():
             # Get the column names of the DataFrame
             cols = df.columns.tolist()
             # Identify the column names that you want to move
-            cols_to_move = ["tags_create", "tags_modify", "tags_delete"]
+            cols_to_move = ["tags_create", "tags_modify"]
             # Remove the columns to move from the list of column names
             cols = [col for col in cols if col not in cols_to_move]
             # Add the columns to move to the end of the list of column names
@@ -790,7 +784,7 @@ def main():
                 else df.head(100)
             )  # 100 as max rows for image format
             dfi.export(
-                df_img.drop(columns=["tags_create", "tags_modify", "tags_delete"])
+                df_img.drop(columns=["tags_create", "tags_modify"])
                 if args.wild_tags
                 else df_img,
                 f"{fname}.png",
