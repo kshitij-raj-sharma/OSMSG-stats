@@ -81,7 +81,7 @@ class ChangesetToolKit:
             if start_date > start_seq_time:
                 start_seq = (
                     start_seq + int((start_date - start_seq_time).total_seconds() / 60)
-                ) - 360  # go 6 hours back
+                ) - 60  # go 1 hours back
         if not end_date:
             current_sequence, last_run = self.get_current_state()
             end_date = last_run
@@ -98,7 +98,7 @@ class ChangesetToolKit:
                 end_seq_time = self.sequence_to_timestamp(end_seq)
                 end_seq = (
                     end_seq + int((end_seq_time - end_date).total_seconds() / 60)
-                ) + 360  # go 6 hours ahead
+                ) + 60  # go 1 hours ahead
                 if (
                     end_seq > current_sequence
                 ):  # if it exceeds more than 6 hours keep current one

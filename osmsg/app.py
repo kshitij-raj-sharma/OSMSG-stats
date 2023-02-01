@@ -59,12 +59,15 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
         if hashtags or include_changeset_meta:
-            for ch in hashtag_changesets[changeset]["countries"]:
-                if ch not in users[user]["countries"]:
-                    users[user]["countries"].append(ch)
-            for ch in hashtag_changesets[changeset]["hashtags"]:
-                if ch not in users[user]["hashtags"]:
-                    users[user]["hashtags"].append(ch)
+            try:
+                for ch in hashtag_changesets[changeset]["countries"]:
+                    if ch not in users[user]["countries"]:
+                        users[user]["countries"].append(ch)
+                for ch in hashtag_changesets[changeset]["hashtags"]:
+                    if ch not in users[user]["hashtags"]:
+                        users[user]["hashtags"].append(ch)
+            except:
+                pass
 
         users[user][osm_type][action] += 1
         if osm_type == "nodes" and tags:
@@ -99,8 +102,14 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             "poi": {"create": 0, "modify": 0},  # nodes that has tags
         }
         if hashtags or include_changeset_meta:
-            users[user]["countries"] = hashtag_changesets[changeset]["countries"]
-            users[user]["hashtags"] = hashtag_changesets[changeset]["hashtags"]
+            users[user]["countries"] = []
+            users[user]["hashtags"] = []
+
+            try:
+                users[user]["countries"] = hashtag_changesets[changeset]["countries"]
+                users[user]["hashtags"] = hashtag_changesets[changeset]["hashtags"]
+            except:
+                pass
 
         if tags_to_collect:
             for tag in tags_to_collect:
@@ -125,9 +134,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
 
 
 def calculate_stats(user, uname, changeset, version, tags, osm_type):
-    if (
-        (hashtags and country) or hashtags or include_changeset_meta
-    ):  # intersect with changesets
+    if (hashtags and country) or hashtags:  # intersect with changesets
         if (
             len(hashtag_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
@@ -327,14 +334,14 @@ def get_download_urls_changefiles(
     # Gets sequence id using timestamp we get from osm api using pyosmium tool
     seq = repl.timestamp_to_sequence(start_date)
     # going one step back to cover all changes only if it is not already behind
-    if (
-        scan_early_seq
-        or (start_date - seq_to_timestamp(repl.get_state_url(seq), timezone)).days < 1
-    ):
-        print(
-            f"Initial fetched difference is {(seq_to_timestamp(repl.get_state_url(seq), timezone) - start_date).days} Hence , Reducing Sequence to Cover all Changes"
-        )
-        seq = seq - 1
+    start_seq_time = seq_to_timestamp(repl.get_state_url(seq), timezone)
+    if scan_early_seq or (start_date - start_seq_time).days < 1:
+        if "minute" in base_url:
+            seq = (
+                seq + int((start_date - start_seq_time).total_seconds() / 60)
+            ) - 60  # go 1 hours ahead
+        else:
+            seq = seq - 1
 
     start_seq = seq
     start_seq_url = repl.get_state_url(start_seq)
@@ -356,16 +363,24 @@ def get_download_urls_changefiles(
     server_seq, server_ts = state_info
     server_ts = server_ts.astimezone(dt.timezone.utc)
     last_seq = server_seq
-    last_ts = server_ts
     if end_date:
         end_date_seq = repl.timestamp_to_sequence(end_date)
-        if end_date_seq:
-            if end_date_seq < last_seq:
-                # get one step ahead to cover all
-                last_seq = end_date_seq + 1
-            else:
-                last_seq = end_date_seq
-            last_ts = end_date
+        last_seq = end_date_seq
+        if "minute" in base_url:
+            last_seq = (
+                last_seq
+                + int(
+                    (
+                        seq_to_timestamp(repl.get_state_url(end_date_seq), timezone)
+                        - end_date
+                    ).total_seconds()
+                    / 60
+                )
+            ) + 60  # go 1 hours ahead
+        else:
+            last_seq += 1
+        if last_seq >= server_seq:
+            last_seq = server_seq
 
     print(
         # f"You have supplied {start_date} : {seq} to {last_ts} : {last_seq} . Latest Server Fetched is : {server_seq} & {in_local_timezone(server_ts,timezone)} on {base_url}\n
