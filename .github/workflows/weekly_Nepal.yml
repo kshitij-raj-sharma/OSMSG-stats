@@ -2,9 +2,9 @@ name: Run Weekly Report Nepal
 on:
   schedule:
     - cron: "0 0 * * MON" # Run every Monday
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -29,10 +29,10 @@ jobs:
         env: #assign variables
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
-        # run: |
-        #   osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --wild_tags
         run: |
-          osmsg --url "https://planet.openstreetmap.org/replication/day" --format image csv --tags building highway waterway amenity --name stats --wild_tags --extract_last_week --country Nepal --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --force
+          osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --wild_tags --include_changeset_meta
+        # run: |
+        #   osmsg --url "https://planet.openstreetmap.org/replication/day" --format image csv --tags building highway waterway amenity --name stats --wild_tags --extract_last_week --country Nepal --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --force
 
       - name: add stats to git
 
