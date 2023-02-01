@@ -227,7 +227,8 @@ class ChangefileHandler(osmium.SimpleHandler):
 def process_changefiles(url):
     # Check that the request was successful
     # Send a GET request to the URL
-    print(f"Processing {url}")
+    if "minute" not in url:
+        print(f"Processing {url}")
 
     url_splitted_list = url.split("/")
     temp_path = os.path.join(os.getcwd(), "temp/changefiles")
