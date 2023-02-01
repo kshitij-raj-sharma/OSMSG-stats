@@ -59,9 +59,12 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
         if hashtags:
-            for ch in hashtag_changesets[changeset]:
+            for ch in hashtag_changesets[changeset]["countries"]:
                 if ch not in users[user]["countries"]:
                     users[user]["countries"].append(ch)
+            for ch in hashtag_changesets[changeset]["hashtags"]:
+                if ch not in users[user]["hashtags"]:
+                    users[user]["hashtags"].append(ch)
 
         users[user][osm_type][action] += 1
         if osm_type == "nodes" and tags:
@@ -93,7 +96,8 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             "poi": {"create": 0, "modify": 0, "delete": 0},  # nodes that has tags
         }
         if hashtags:
-            users[user]["countries"] = hashtag_changesets[changeset]
+            users[user]["countries"] = hashtag_changesets[changeset]["countries"]
+            users[user]["hashtags"] = hashtag_changesets[changeset]["hashtags"]
 
         if tags_to_collect:
             for tag in tags_to_collect:
@@ -147,7 +151,7 @@ class ChangesetHandler(osmium.SimpleHandler):
             if "comment" in c.tags:
                 if any(elem.lower() in c.tags["comment"].lower() for elem in hashtags):
                     if c.id not in hashtag_changesets.keys():
-                        hashtag_changesets[c.id] = []
+                        hashtag_changesets[c.id] = {"hashtags": [], "countries": []}
                     # get bbox
                     bounds = str(c.bounds)
                     if "invalid" not in bounds:
@@ -160,14 +164,22 @@ class ChangesetHandler(osmium.SimpleHandler):
                         intersected_rows = countries_df[
                             countries_df.intersects(centroid)
                         ]
+                        hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
+                        for hash_tag in hashtags_comment:
+                            if hash_tag not in hashtag_changesets[c.id]["hashtags"]:
+                                hashtag_changesets[c.id]["hashtags"].append(hash_tag)
                         for i, row in intersected_rows.iterrows():
-                            if row["name"] not in hashtag_changesets[c.id]:
+                            if row["name"] not in hashtag_changesets[c.id]["countries"]:
                                 if country:
                                     country_check = True
                                     if row["name"] == country:
-                                        hashtag_changesets[c.id].append(row["name"])
+                                        hashtag_changesets[c.id]["countries"].append(
+                                            row["name"]
+                                        )
                                 else:
-                                    hashtag_changesets[c.id].append(row["name"])
+                                    hashtag_changesets[c.id]["countries"].append(
+                                        row["name"]
+                                    )
 
         if not country_check:  # hash tag not supplied
             if country:
@@ -732,7 +744,7 @@ def main():
             # Reindex the DataFrame with the new order of column names
             df = df.reindex(columns=cols)
 
-        if country:
+        if country or hashtags:
             df["hashtags"] = df["hashtags"].apply(lambda x: ",".join(map(str, x)))
             column_to_move = "hashtags"
             df = df.assign(**{column_to_move: df.pop(column_to_move)})
