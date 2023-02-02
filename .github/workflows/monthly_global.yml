@@ -2,9 +2,9 @@ name: Run Monthly Report Global
 on:
   schedule:
     - cron: "0 0 1 * *" # every month at day 1 00
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
 jobs:
   issue:
     runs-on: ubuntu-latest

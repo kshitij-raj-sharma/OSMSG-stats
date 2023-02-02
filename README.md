@@ -26,8 +26,8 @@ pip install osmsg
 osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME] [--password PASSWORD] [--timezone {Nepal,UTC}]
              [--name NAME] [--country COUNTRY] [--tags TAGS [TAGS ...]] [--hashtags HASHTAGS [HASHTAGS ...]] [--force] [--rows ROWS]
              [--workers WORKERS] [--url URL] [--extract_last_week] [--extract_last_day] [--extract_last_month] [--extract_last_year]
-             [--extract_last_hour] [--wild_tags] [--exclude_date_in_name] [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
-             [--read_from_metadata READ_FROM_METADATA]
+             [--extract_last_hour] [--include_changeset_meta] [--wild_tags] [--exclude_date_in_name]
+             [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]] [--read_from_metadata READ_FROM_METADATA]
 ```
 
 ### Options:
@@ -47,7 +47,8 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
   --tags TAGS [TAGS ...]
                         Additional stats to collect : List of tags key
   --hashtags HASHTAGS [HASHTAGS ...]
-                        Hashtags Statstics to Collect : List of hashtags , Limited until daily stats for now
+                        Hashtags Statistics to Collect : List of hashtags , Limited until daily stats for now , Only lookups if hashtag is
+                        contained on the string , not a exact string lookup on beta
   --force               Force for the Hashtag Replication fetch if it is greater than a day interval
   --rows ROWS           No. of top rows to extract , to extract top 100 , pass 100
   --workers WORKERS     No. of Parallel workers to assign : Default is no of cpu available , Be aware to use this max no of workers may cause
@@ -58,6 +59,9 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
   --extract_last_month
   --extract_last_year
   --extract_last_hour
+  --include_changeset_meta
+                        Include hashtag and country informations on the stats. It forces script to process changeset replciation , Careful to use
+                        this since changeset replication is minutely
   --wild_tags           Extract statistics of all of the unique tags and its count
   --exclude_date_in_name
                         By default from and to date will be added to filename , You can skip this behaviour with this option
