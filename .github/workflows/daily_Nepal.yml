@@ -61,4 +61,4 @@ jobs:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --tweet_last_day --git $commit_id
+          python tweet.py --tweet_last_day --tweet_nepal --git $commit_id
