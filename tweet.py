@@ -54,13 +54,18 @@ def main():
         if "hashtags" in df.columns:
             # Use value_counts on the result of str.split and then use head(3) to get the top three most frequent elements
             if args.tweet_hotosm:
-                top_three = df["hashtags"].str.split(",").explode()
+                top_three = df["hashtags"].str.split(",").explode().dropna()
                 top_three = (
                     top_three[top_three.str.contains("hotosm")].value_counts().head(3)
                 )
             else:
                 top_three = (
-                    df["hashtags"].str.split(",").explode().value_counts().head(3)
+                    df["hashtags"]
+                    .str.split(",")
+                    .explode()
+                    .dropna()
+                    .value_counts()
+                    .head(3)
                 )
 
             # Format the output as a string
