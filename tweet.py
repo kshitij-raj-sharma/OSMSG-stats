@@ -15,6 +15,8 @@ def main():
     parser.add_argument("--tweet_last_year", action="store_true", default=False)
     parser.add_argument("--tweet_global", action="store_true", default=False)
     parser.add_argument("--tweet_hotosm", action="store_true", default=False)
+    parser.add_argument("--tweet_nepal", action="store_true", default=False)
+
     parser.add_argument(
         "--git",
         default=None,
