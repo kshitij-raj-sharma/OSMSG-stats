@@ -2,9 +2,9 @@ name: Run Weekly Report Hotosm Hashtag
 on:
   schedule:
     - cron: "0 0 * * MON" # Run every Monday
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -34,11 +34,11 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          cp *.csv stats/hotosm/Weekly/hotosm/weekly_stats.csv
-          cp stats_metadata.json stats/hotosm/Weekly/hotosm/stats_metadata.json
+          cp *.csv stats/hotosm/Weekly/weekly_stats.csv
+          cp stats_metadata.json stats/hotosm/Weekly/stats_metadata.json
 
-          git add -f stats/hotosm/Weekly/hotosm/weekly_stats.csv
-          git add -f stats/hotosm/Weekly/hotosm/stats_metadata.json
+          git add -f stats/hotosm/Weekly/weekly_stats.csv
+          git add -f stats/hotosm/Weekly/stats_metadata.json
           git commit -m "Updated Weekly hotosm stats"
           git push
 
