@@ -1,1 +1,8 @@
-{"command": "/opt/hostedtoolcache/Python/3.8.16/x64/bin/osmsg --url http://download.geofabrik.de/asia/nepal-updates --username Kshitijraj Sharma --password *** --format image csv --extract_last_month --tags building highway waterway amenity --name stats --read_from_metadata stats/Nepal/Monthly/stats_metadata.json --wild_tags --include_changeset_meta", "source": "http://download.geofabrik.de/asia/nepal-updates", "start_date": "2022-12-31 00:00:00+00:00", "start_seq": "3086 = 2022-12-29 21:21:39+00:00", "end_date": "2023-01-30 23:54:00+00:00", "end_seq": "3119 = 2023-01-31 21:21:21+00:00"}
+{
+    "command": "/opt/hostedtoolcache/Python/3.8.16/x64/bin/osmsg --url http://download.geofabrik.de/asia/nepal-updates --username Kshitijraj Sharma --password *** --format image csv --extract_last_month --tags building highway waterway amenity --name stats --read_from_metadata stats/Nepal/Monthly/stats_metadata.json --wild_tags --include_changeset_meta",
+    "source": "http://download.geofabrik.de/asia/nepal-updates",
+    "start_date": "2022-12-31 00:00:00+00:00",
+    "start_seq": "3086 = 2022-12-29 21:21:39+00:00",
+    "end_date": "2022-12-31 00:00:00+00:00",
+    "end_seq": "3119 = 2023-01-31 21:21:21+00:00"
+}

@@ -2,9 +2,9 @@ name: Run Monthly Report Nepal
 on:
   schedule:
     - cron: "0 5 1 * *" # every month at day 1 05
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
