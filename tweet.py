@@ -81,6 +81,12 @@ def main():
 
     lstfile = filename.split("_")
 
+    with open(f"meta.md", "w", encoding="utf-8") as file:
+        file.write(
+            f"Last Update : Stats From {lstfile[1]} to {lstfile[2][:-4]}\n {summary_text}\n{thread_summary}\n{trending_hashtags}\n{trending_countries}"
+        )
+    print("Readme Created")
+
     try:
         api.verify_credentials()
         print("Authentication OK")
