@@ -26,7 +26,7 @@ jobs:
 
       - name: Generate Daily Hashtag Stats
         run: |
-          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --wild_tags --read_from_metadata stats/Global/Daily/hotosm/stats_metadata.json --hashtags hotosm
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --extract_last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --wild_tags --read_from_metadata stats/hotosm/Daily/stats_metadata.json --hashtags hotosm
 
       - name: add stats to git
 
@@ -34,11 +34,11 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          cp *.csv stats/Global/Daily/hotosm/daily_stats.csv
-          cp stats_metadata.json stats/Global/Daily/hotosm/stats_metadata.json
+          cp *.csv stats/Global/hotosm/Daily/daily_stats.csv
+          cp stats_metadata.json stats/hotosm/Daily/stats_metadata.json
 
-          git add -f stats/Global/Daily/hotosm/daily_stats.csv
-          git add -f stats/Global/Daily/hotosm/stats_metadata.json
+          git add -f stats/hotosm/Daily/daily_stats.csv
+          git add -f stats/hotosm/Daily/stats_metadata.json
           git commit -m "Updated Daily hotosm stats"
           git push
 
@@ -52,3 +52,7 @@ jobs:
         run: |
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_hotosm --tweet_last_day --git $commit_id
+          mv meta.md stats/hotosm/Daily/README.md
+          git add -f stats/hotosm/Daily/README.md
+          git commit -m "Updated Readme Daily Hotosm"
+          git push
