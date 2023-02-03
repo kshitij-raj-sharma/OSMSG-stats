@@ -65,3 +65,7 @@ jobs:
         run: |
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_week --tweet_global --git $commit_id
+          mv meta.md stats/Global/Weekly/README.md
+          git add -f stats/Global/Weekly/README.md
+          git commit -m "Updated Readme Weekly Global"
+          git push

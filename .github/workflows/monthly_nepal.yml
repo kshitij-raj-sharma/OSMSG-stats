@@ -61,3 +61,7 @@ jobs:
         run: |
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_month --tweet_nepal --git $commit_id
+          mv meta.md stats/Nepal/Monthly/README.md
+          git add -f stats/Nepal/Monthly/README.md
+          git commit -m "Updated Readme Monthly Nepal"
+          git push
