@@ -1,8 +1,8 @@
 ### Last Update :
 
-### Stats From 2023-02-03 00:00:00+00:00 to 2023-02-04 00:00:00+00:00
+### Stats From 2023-02-04 00:00:00+00:00 to 2023-02-05 00:00:00+00:00
 
-User Tetzemann82 tops table with 93431 map changes, Followed by Fizzie41 - 92499 & DOPSS - 63619
-- 5696 Users made 38649 changesets with 3493610 map changes. They created 2167750 nodes , 263415 ways & 3395 relations, Including 166912 buildings, 62025 highways, 4994 waterways & 7922 amenities. Users also modified 521938 nodes, 191743 ways & 8182 relations
-- Top three trending hashtags for those stats are #adt : 176, #maproulette : 98 & #missingmaps : 81
--  & Top three countries based on no of users contributed are Germany : 765, United States of America : 617 & France : 391
+User ChillyDL tops table with 44899 map changes, Followed by Keith Helbley - 43312 & kutukola - 40272
+- 4803 Users made 32633 changesets with 2800043 map changes. They created 1685537 nodes , 202220 ways & 3594 relations, Including 117937 buildings, 48395 highways, 4314 waterways & 8480 amenities. Users also modified 480725 nodes, 201038 ways & 7772 relations
+- Top three trending hashtags for those stats are #missingmaps : 45, #maproulette : 38 & #adt : 22
+-  & Top three countries based on no of users contributed are Germany : 808, United States of America : 489 & France : 364
