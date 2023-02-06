@@ -660,17 +660,17 @@ def main():
         max_workers = os.cpu_count() if not args.workers else args.workers
         print(f"Using {max_workers} Threads")
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # Use `map` to apply the `download_image` function to each element in the `urls` list
-            for _ in tqdm(
-                executor.map(process_changesets, changeset_download_urls),
-                total=len(changeset_download_urls),
-                unit_scale=True,
-                unit="changesets",
-                leave=True,
-            ):
-                pass
-            # executor.shutdown(wait=True)
+        # with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        #     # Use `map` to apply the `download_image` function to each element in the `urls` list
+        #     for _ in tqdm(
+        #         executor.map(process_changesets, changeset_download_urls),
+        #         total=len(changeset_download_urls),
+        #         unit_scale=True,
+        #         unit="changesets",
+        #         leave=True,
+        #     ):
+        #         pass
+        #     # executor.shutdown(wait=True)
 
         print("Changeset Processing Finished")
         end_seq_timestamp = Changeset.sequence_to_timestamp(changeset_end_seq)
@@ -699,6 +699,7 @@ def main():
 
     start_date_utc = start_date.astimezone(dt.timezone.utc)
     end_date_utc = end_date.astimezone(dt.timezone.utc)
+    print(f"Final UTC Date time to filter stats : {start_date_utc} to {end_date_utc}")
     temp_path = os.path.join(os.getcwd(), "temp/changefiles")
     if not os.path.exists(temp_path):
         os.makedirs(temp_path)
@@ -785,8 +786,8 @@ def main():
             column_to_move = "hashtags"
             df = df.assign(**{column_to_move: df.pop(column_to_move)})
 
-        start_date = in_local_timezone(start_date, args.timezone)
-        end_date = in_local_timezone(end_date, args.timezone)
+        start_date = in_local_timezone(start_date_utc, args.timezone)
+        end_date = in_local_timezone(end_date_utc, args.timezone)
 
         fname = f"{args.name}_{start_date}_{end_date}"
         if args.exclude_date_in_name:
