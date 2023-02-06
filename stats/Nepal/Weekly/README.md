@@ -1,6 +1,8 @@
-### Weekly User Contributions Report for Nepal
+### Last Update :
 
-It includes all tags contribution Count. 
-- Download Latest Report from [here](https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/stats/Nepal/Weekly/weekly_nepal_stats.csv) Right click on the page and hit ```save as``` or hit ```ctrl+s``` 
-- Learn About the Metadata of Latest Report from [here](./stats_metadata.json))
-- Access Historical Reports from [here](https://github.com/kshitijrajsharma/OSMSG/commits/master/stats/Nepal/Weekly/weekly_nepal_stats.csv) , Nagivate to the specific date you want to download and hit ```raw``` and save it on your machine
+### Stats From 2023-01-28 23:35:32+00:00 to 2023-02-04 21:21:21+00:00
+
+User seichter tops table with 41042 map changes, Followed by Heinz_V - 23534 & Nirmala Rawat - 21391
+- 176 Users made 2294 changesets with 308223 map changes. They created 224410 nodes , 29279 ways & 34 relations, Including 26304 buildings, 1704 highways, 142 waterways & 43 amenities. Users also modified 48536 nodes, 4356 ways & 62 relations
+- Top three trending hashtags for those stats are #osmnepal : 31, #osmnepal-project-5 : 21 & #OSAC : 21
+- 
