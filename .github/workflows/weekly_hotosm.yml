@@ -1,7 +1,7 @@
 name: Run Weekly Report Hotosm Hashtag
 on:
   schedule:
-    - cron: "0 0 * * MON" # Run every Monday
+    - cron: "0 2 * * MON" # Run every Monday at 2 
   # push:
   #   branches:
   #     - master
