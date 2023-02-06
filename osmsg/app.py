@@ -660,17 +660,17 @@ def main():
         max_workers = os.cpu_count() if not args.workers else args.workers
         print(f"Using {max_workers} Threads")
 
-        # with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        #     # Use `map` to apply the `download_image` function to each element in the `urls` list
-        #     for _ in tqdm(
-        #         executor.map(process_changesets, changeset_download_urls),
-        #         total=len(changeset_download_urls),
-        #         unit_scale=True,
-        #         unit="changesets",
-        #         leave=True,
-        #     ):
-        #         pass
-        #     # executor.shutdown(wait=True)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Use `map` to apply the `download_image` function to each element in the `urls` list
+            for _ in tqdm(
+                executor.map(process_changesets, changeset_download_urls),
+                total=len(changeset_download_urls),
+                unit_scale=True,
+                unit="changesets",
+                leave=True,
+            ):
+                pass
+            # executor.shutdown(wait=True)
 
         print("Changeset Processing Finished")
         end_seq_timestamp = Changeset.sequence_to_timestamp(changeset_end_seq)
