@@ -1,7 +1,8 @@
-### Weekly User Contributions Report Globally
+### Last Update :
 
-It includes all tags contribution Count  for top 1000 Users , (You can run the tool itself to Generate full Report , Command is Printed on ```metadata.json```)
+### Stats From 2023-01-29 00:00:00+00:00 to 2023-02-04 23:14:10+00:00
 
-- Download Latest Report from [here](https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/stats/Global/Weekly/weekly_global_stats.csv) , Right click on the page and hit ```save as``` or hit ```ctrl+s``` 
-- Learn About the Metadata of Latest Report from [here](./stats_metadata.json))
-- Access Historical Reports from [here](https://github.com/kshitijrajsharma/OSMSG/commits/master/stats/Global/Weekly/weekly_global_stats.csv) , Nagivate to the specific date you want to download and hit ```raw``` and save it on your machine
+User Solarisphere tops table with 684245 map changes, Followed by SherbetS_Import - 651103 & Fizzie41 - 268862
+- 17861 Users made 266412 changesets with 24148942 map changes. They created 15350002 nodes , 1715807 ways & 26711 relations, Including 981127 buildings, 428729 highways, 41813 waterways & 62354 amenities. Users also modified 3683872 nodes, 1421433 ways & 57907 relations
+- Top three trending hashtags for those stats are #missingmaps : 283, #maproulette : 254 & #adt : 230
+-  & Top three countries based on no of users contributed are Germany : 2724, United States of America : 1897 & France : 1358
