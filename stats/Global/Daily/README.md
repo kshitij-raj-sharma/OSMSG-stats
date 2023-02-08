@@ -1,8 +1,8 @@
 ### Last Update :
 
-### Stats From 2023-02-06 00:00:00+00:00 to 2023-02-07 00:00:00+00:00
+### Stats From 2023-02-07 00:00:00+00:00 to 2023-02-08 00:00:00+00:00
 
-User SherbetS_Import tops table with 695543 map changes, Followed by Wilmer Osario - 249521 & Malek7 - 119271
-- 6502 Users made 44609 changesets with 5151893 map changes. They created 3508183 nodes , 350747 ways & 5141 relations, Including 213363 buildings, 65530 highways, 6440 waterways & 7219 amenities. Users also modified 652156 nodes, 191346 ways & 7984 relations
-- Top three trending hashtags for those stats are #yercizenler : 552, #TürkiyeEQ060223 : 552 & #hotosm-project-14218 : 498
--  & Top three countries based on no of users contributed are Germany : 773, United States of America : 757 & Turkey : 614
+User Tetzemann82 tops table with 51035 map changes, Followed by Moreorless - 41003 & dodiksetiawan - 25203
+- 6728 Users made 48473 changesets with 4247360 map changes. They created 2784301 nodes , 371840 ways & 3052 relations, Including 254928 buildings, 79588 highways, 4837 waterways & 6747 amenities. Users also modified 592090 nodes, 229479 ways & 8239 relations
+- Top three trending hashtags for those stats are #TürkiyeEQ060223 : 913, #yercizenler : 912 & #hotosm-project-14219 : 537
+-  & Top three countries based on no of users contributed are Turkey : 1016, Germany : 749 & United States of America : 717
