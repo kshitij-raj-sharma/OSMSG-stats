@@ -1,8 +1,8 @@
 ### Last Update :
 
-### Stats From 2023-02-06 00:00:00+00:00 to 2023-02-07 00:00:00+00:00
+### Stats From 2023-02-07 00:00:00+00:00 to 2023-02-08 00:00:00+00:00
 
-User MagnusLi tops table with 12468 map changes, Followed by nyainariantsoa - 12187 & hmdgms - 11794
-- 860 Users made 6432 changesets with 939252 map changes. They created 683116 nodes , 114645 ways & 50 relations, Including 103443 buildings, 10728 highways, 88 waterways & 12 amenities. Users also modified 99543 nodes, 11018 ways & 17 relations
-- Top three trending hashtags for those stats are #hotosm-project-14218 : 498, #hotosm-project-14219 : 43 & #hotosm-project-12597 : 25
--  & Top three countries based on no of users contributed are Turkey : 551, El Salvador : 46 & Indonesia : 42
+User penom tops table with 19175 map changes, Followed by Narindra Fidintsoa - 15227 & berkintansu - 15134
+- 1201 Users made 10965 changesets with 1463725 map changes. They created 1064541 nodes , 172112 ways & 62 relations, Including 147488 buildings, 23427 highways, 268 waterways & 34 amenities. Users also modified 153084 nodes, 18648 ways & 41 relations
+- Top three trending hashtags for those stats are #hotosm-project-14219 : 537, #hotosm-project-14218 : 415 & #hotosm-project-14220 : 121
+-  & Top three countries based on no of users contributed are Turkey : 929, Philippines : 36 & Rwanda : 28
