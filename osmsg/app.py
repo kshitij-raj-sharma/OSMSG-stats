@@ -813,15 +813,7 @@ def main():
             #     file.write(json.dumps(users))
             df.to_json(f"{fname}.json", orient="records")
         if "csv" in args.format:
-            # create a dataframe with the start date information
-            start_date_df = pd.DataFrame({'start_date': [start_date]})
-
-            # create a dataframe with the end date information
-            end_date_df = pd.DataFrame({'end_date': [end_date]})
-
-            # concatenate the date dataframes with the original dataframe
-            result = pd.concat([start_date_df, end_date_df, df], ignore_index=True)
-            result.to_csv(f"{fname}.csv", index=False)
+            df.to_csv(f"{fname}.csv", index=False)
         if "excel" in args.format:
             df.to_excel(f"{fname}.xlsx", index=False)
         if "text" in args.format:
