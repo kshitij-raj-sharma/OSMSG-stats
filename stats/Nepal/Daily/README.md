@@ -1,8 +1,8 @@
 ### Last Update :
 
-### Stats From 2023-02-09 03:06:13+05:45 to 2023-02-10 03:07:02+05:45
+### Stats From 2023-02-10 03:07:02+05:45 to 2023-02-11 03:06:10+05:45
 
-71 Users made 332.0 changesets with 17194.0 map changes.
-- nan tops table with nan changes, Followed by nan & Manisha Gharti Magar. Users created 11767.0 nodes , 1524.0 ways & 1.0 relations, Including 1304.0 buildings, 86.0 highways, 16.0 waterways. Users also modified 3635.0 nodes, 259.0 ways & 8.0 relations
-- Top three trending hashtags for those stats are #youthmappers : 22, #gesan : 17 & #GESAN : 12
+66 Users made 267 changesets with 26495 map changes.
+- Raj khadka tops table with 5223 changes, Followed by Prabin KC & Umesh Marseni. Users created 14777 nodes , 2489 ways & 0 relations, Including 2240 buildings, 121 highways, 0 waterways. Users also modified 8972 nodes, 252 ways & 5 relations
+- Top three trending hashtags for those stats are #youthmappers : 16, #gesan : 12 & #nptrain : 6
 - 
