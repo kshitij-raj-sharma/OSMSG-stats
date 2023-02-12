@@ -813,7 +813,11 @@ def main():
             #     file.write(json.dumps(users))
             df.to_json(f"{fname}.json", orient="records")
         if "csv" in args.format:
-            df.to_csv(f"{fname}.csv", index=False)
+            # Add the start_date and end_date columns to the DataFrame
+            csv_df= df
+            csv_df['start_date'] = start_date_utc
+            csv_df['end_date'] = end_date_utc
+            csv_df.to_csv(f"{fname}.csv", index=False)
         if "excel" in args.format:
             df.to_excel(f"{fname}.xlsx", index=False)
         if "text" in args.format:
