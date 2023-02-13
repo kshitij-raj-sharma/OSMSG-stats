@@ -63,6 +63,7 @@ jobs:
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_day --tweet_nepal --git $commit_id
           mv meta.md stats/Nepal/Daily/README.md
+          mv *.png stats/Nepal/Daily/charts/
           git add -f stats/Nepal/Daily/README.md
           git commit -m "Updated Readme Daily Nepal"
           git push

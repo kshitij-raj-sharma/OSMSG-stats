@@ -53,6 +53,7 @@ jobs:
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_hotosm --tweet_last_day --git $commit_id
           mv meta.md stats/hotosm/Daily/README.md
+          mv *.png stats/hotosm/Daily/charts/
           git add -f stats/hotosm/Daily/README.md
           git commit -m "Updated Readme Daily Hotosm"
           git push

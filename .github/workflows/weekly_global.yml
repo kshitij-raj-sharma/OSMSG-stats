@@ -31,15 +31,6 @@ jobs:
         run: |
           osmsg --url "https://planet.openstreetmap.org/replication/day" --format csv image --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Global/Weekly/stats_metadata.json --wild_tags --include_changeset_meta
 
-      - name: Tweet Stats
-        env: #assign variables
-          API_KEY: ${{ secrets.API_KEY }}
-          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
-        run: |
-          python tweet.py --tweet_last_week --tweet_global
 
       - name: Upload stats to Github
         run: |
@@ -66,6 +57,7 @@ jobs:
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_week --tweet_global --git $commit_id
           mv meta.md stats/Global/Weekly/README.md
+          mv *.png stats/Global/Weekly/charts/
           git add -f stats/Global/Weekly/README.md
           git commit -m "Updated Readme Weekly Global"
           git push

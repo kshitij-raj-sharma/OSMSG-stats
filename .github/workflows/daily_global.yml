@@ -56,6 +56,7 @@ jobs:
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_day --tweet_global --git $commit_id
           mv meta.md stats/Global/Daily/README.md
+          mv *.png stats/Global/Daily/charts/
           git add -f stats/Global/Daily/README.md
           git commit -m "Updated Readme Daily Global"
           git push

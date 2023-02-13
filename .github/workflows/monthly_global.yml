@@ -61,6 +61,7 @@ jobs:
         run: |
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_month --tweet_global --git $commit_id
+          mv *.png stats/Global/Monthly/charts/
           mv meta.md stats/Global/Monthly/README.md
           git add -f stats/Global/Monthly/README.md
           git commit -m "Updated Readme Monthly Global"

@@ -8,3 +8,6 @@ tabulate
 Shapely
 geopandas
 tqdm
+seaborn
+matplotlib
+humanize
