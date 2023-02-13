@@ -303,6 +303,8 @@ def main():
 
         # read the .csv file and store it in a DataFrame
         df = pd.read_csv(csv_file)
+        if args.tweet_nepal:
+            df = df.drop('countries', axis=1)
         create_charts(df)
 
         # Get the attribute of first row
@@ -389,7 +391,7 @@ def main():
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=thread_tweet.id,
+                    in_reply_to_status_id=[thread_tweet.id],
                     auto_populate_reply_metadata=True,
                 )
 
@@ -408,7 +410,7 @@ def main():
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=thread_tweet.id,
+                    in_reply_to_status_id=[thread_tweet.id],
                     auto_populate_reply_metadata=True,
                 )
         if args.tweet_nepal:
@@ -426,7 +428,7 @@ def main():
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=thread_tweet.id,
+                    in_reply_to_status_id=[thread_tweet.id],
                     auto_populate_reply_metadata=True,
                 )
         print("twitted")
@@ -472,7 +474,7 @@ def main():
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=thread_tweet.id,
+                    in_reply_to_status_id=[thread_tweet.id],
                     auto_populate_reply_metadata=True,
                 )
         if args.tweet_global:
@@ -489,7 +491,7 @@ def main():
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=thread_tweet.id,
+                    in_reply_to_status_id=[thread_tweet.id],
                     auto_populate_reply_metadata=True,
                 )
         if args.tweet_nepal:
@@ -507,7 +509,7 @@ def main():
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=thread_tweet.id,
+                    in_reply_to_status_id=[thread_tweet.id],
                     auto_populate_reply_metadata=True,
                 )
 
@@ -516,7 +518,7 @@ def main():
         #     chart_media = api.media_upload(file_path)
         #     thread_tweet = api.update_status(
         #                 status="",
-        #                 in_reply_to_status_id=thread_tweet.id,
+        #                 in_reply_to_status_id=[thread_tweet.id],
         #                 media_ids=[chart_media.media_id],
         #                 auto_populate_reply_metadata=True,
         #             )
