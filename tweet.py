@@ -43,7 +43,7 @@ def create_charts(df):
 
     sns.set(style="darkgrid")
 
-    fig, ax = plt.subplots(figsize=(20, 10))
+    fig, ax = plt.subplots(figsize=(15,15))
 
     create_bar = ax.bar(index, create, bar_width, label="Create", color="g")
     modify_bar = ax.bar(
@@ -117,7 +117,7 @@ def create_charts(df):
 
         # Plot the data as a bar chart using seaborn
         sns.set(style="darkgrid")
-        fig, ax = plt.subplots(figsize=(20, 10))
+        fig, ax = plt.subplots(figsize=(15,15))
         ax = sns.barplot(x=grouped.index, y=grouped.values)
 
         font = fm.FontProperties(family="Arial", size=8)
@@ -161,7 +161,7 @@ def create_charts(df):
 
         # Plot the data as a bar chart using seaborn
         sns.set(style="darkgrid")
-        fig, ax = plt.subplots(figsize=(20, 10))
+        fig, ax = plt.subplots(figsize=(15,15))
         ax = sns.barplot(x=grouped.index, y=grouped.values)
 
         font = fm.FontProperties(family="Arial", size=8)
@@ -189,24 +189,24 @@ def create_charts(df):
         # count the total number of each tag type (create/modify)
         data = defaultdict(int)
         for i, row in df.iterrows():
-            tags_create = eval(row["tags_create"])
-            tags_modify = eval(row["tags_modify"])
+            tags_create = eval(row['tags_create'])
+            tags_modify = eval(row['tags_modify'])
             for k, v in tags_create.items():
-                data[k + " (create)"] += v
+                data[k + ' (create)'] += v
             for k, v in tags_modify.items():
-                data[k + " (modify)"] += v
+                data[k + ' (modify)'] += v
 
-        # sort the data by values and get the top 20
-        top_data = dict(sorted(data.items(), key=lambda x: x[1], reverse=True)[:20])
+        # sort the data by values and get the top 10
+        top_data = dict(sorted(data.items(), key=lambda x: x[1], reverse=True)[:10])
 
         # separate the "create" and "modify" values into two separate dictionaries
         create_data = {}
         modify_data = {}
         for k, v in top_data.items():
-            if "create" in k:
-                create_data[k.split(" (")[0]] = v
+            if 'create' in k:
+                create_data[k.split(' (')[0]] = v
             else:
-                modify_data[k.split(" (")[0]] = v
+                modify_data[k.split(' (')[0]] = v
 
         # Set the style of the plot using seaborn
         sns.set(style="darkgrid")
@@ -221,48 +221,43 @@ def create_charts(df):
         x_pos = np.arange(len(keys))
 
         # Create the figure and axis object
-        fig, ax = plt.subplots(figsize=(20, 10))
+        fig, ax = plt.subplots(figsize=(15, 15))
 
         # Plot the create data
-        ax.bar(
-            x_pos,
-            [create_data.get(k, 0) for k in keys],
-            bar_width,
-            color="b",
-            label="Create",
-        )
+        bar1 = ax.bar(x_pos, [create_data.get(k, 0) for k in keys], bar_width, color='b', label='Create')
+        for i, bar in enumerate(bar1):
+            height = bar.get_height()
+            ax.annotate(f"{humanize.intword(height)}",
+                        xy=(bar.get_x() + bar.get_width() / 2, height),
+                        xytext=(0, 3),  # 3 points vertical offset
+                        textcoords="offset points",
+                        ha='center', color='gray',va='bottom')
 
         # Plot the modify data
-        ax.bar(
-            x_pos + bar_width,
-            [modify_data.get(k, 0) for k in keys],
-            bar_width,
-            color="r",
-            label="Modify",
-        )
+        bar2 = ax.bar(x_pos + bar_width, [modify_data.get(k, 0) for k in keys], bar_width, color='r', label='Modify')
+        for i, bar in enumerate(bar2):
+            height = bar.get_height()
+            ax.annotate(f"{humanize.intword(height)}",
+                        xy=(bar.get_x() + bar.get_width() / 2, height),
+                        xytext=(0, 3),  # 3 points vertical offset
+                        textcoords="offset points",
+                        ha='center', color='gray', va='bottom')
 
         # Set the x-axis labels
         ax.set_xticks(x_pos + bar_width / 2)
         ax.set_xticklabels(keys, rotation=90, fontsize=12)
 
         # Set the axis labels and title
-        ax.set(
-            xlabel="Top 20 OSM Tags",
-            ylabel="Count",
-            title=f"Tags Creation/ Modification Distribution : From {start_date} to {end_date}",
-        )
+        ax.set(xlabel="Top 10 OSM Tags", ylabel="Count", title=f"Tags Creation/ Modification Distribution : From {start_date} to {end_date}")
+
 
         # Add the legend
         ax.legend()
 
+
         # Format the y-axis with a log scale and comma separated values
         # ax.set_yscale("log")
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
-
-        # Adjust the layout of the plot
-        # plt.tight_layout()
-
-        # Show the plot
         plt.savefig("tags.png")
 
 
