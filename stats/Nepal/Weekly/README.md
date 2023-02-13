@@ -1,8 +1,8 @@
 ### Last Update :
 
-### Stats From 2023-01-28 23:35:32+00:00 to 2023-02-04 22:55:55+00:00
+### Stats From 2023-02-04 22:55:55+00:00 to 2023-02-12 00:00:00+00:00
 
-User seichter tops table with 41509 map changes, Followed by Heinz_V - 23535 & Nirmala Rawat - 21391
-- 176 Users made 2295 changesets with 308731 map changes. They created 224624 nodes , 29288 ways & 34 relations, Including 26304 buildings, 1704 highways, 149 waterways & 43 amenities. Users also modified 48758 nodes, 4377 ways & 62 relations
-- Top three trending hashtags for those stats are #osmnepal : 31, #osmnepal-project-5 : 21 & #OSAC : 21
+164 Users made 1387 changesets with 167523 map changes.
+- Manisha Gharti Magar tops table with 25035 changes, Followed by Heinz_V & seichter. Users created 118246 nodes , 14136 ways & 31 relations, Including 12387 buildings, 792 highways, 135 waterways. Users also modified 32583 nodes, 2277 ways & 45 relations
+- Top three trending hashtags for those stats are #youthmappers : 31, #gesan : 27 & #osmnepal : 21
 - 
