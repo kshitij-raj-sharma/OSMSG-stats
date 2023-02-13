@@ -362,13 +362,20 @@ def main():
     except:
         print("Error during authentication")
 
-    media = api.media_upload(first_file)
+    all_files = os.listdir(os.getcwd())
+    media_ids = []
+
+    chart_png_files = [f for f in all_files if f.endswith(".png")]
+    for chart in chart_png_files:
+        file_path = os.path.join(os.getcwd(), chart)
+        chart_media = api.media_upload(file_path)
+        media_ids.append(chart_media.media_id)
 
     if args.tweet_last_week:
         if args.tweet_hotosm:
             orginal_tweet = api.update_status(
                 status=f"HOTOSM Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/hotosm/Weekly/weekly_stats.csv #dailystats @hotosm #OpenStreetMap",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             thread_tweet = api.update_status(
                 status=thread_summary,
@@ -376,15 +383,16 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
+
         if args.tweet_global:
             orginal_tweet = api.update_status(
                 status=f"Global Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Weekly/weekly_global_stats.csv #weeklystats #OpenStreetMap #global",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -393,7 +401,7 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
@@ -401,7 +409,7 @@ def main():
         if args.tweet_nepal:
             orginal_tweet = api.update_status(
                 status=f"Nepal Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Weekly/weekly_nepal_stats.csv #weeklystats #gischat #OpenStreetMap #osmnepal",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -410,7 +418,7 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
@@ -420,7 +428,7 @@ def main():
         if args.tweet_global:
             orginal_tweet = api.update_status(
                 status=f"Global Contributors Last Month\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Monthly/Monthly_global_stats.csv #monthlystats #gischat #OpenStreetMap #global",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -431,7 +439,7 @@ def main():
         if args.tweet_nepal:
             orginal_tweet = api.update_status(
                 status=f"Nepal Contributors This Month\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Monthly/Monthly_nepal_stats.csv #monthlystats #gischat #OpenStreetMap #osmnepal",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -445,7 +453,7 @@ def main():
         if args.tweet_hotosm:
             orginal_tweet = api.update_status(
                 status=f"HOTOSM Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/hotosm/Daily/daily_stats.csv #dailystats @hotosm #gischat #OpenStreetMap",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             thread_tweet = api.update_status(
                 status=thread_summary,
@@ -453,7 +461,7 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
@@ -461,7 +469,7 @@ def main():
         if args.tweet_global:
             orginal_tweet = api.update_status(
                 status=f"Global Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Daily/daily_global_stats.csv #dailystats #gischat #OpenStreetMap #global",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             thread_tweet = api.update_status(
                 status=thread_summary,
@@ -469,7 +477,7 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
@@ -477,7 +485,7 @@ def main():
         if args.tweet_nepal:
             orginal_tweet = api.update_status(
                 status=f"Nepal Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Daily/daily_nepal_stats.csv #dailystats #gischat #OpenStreetMap #osmnepal",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -486,11 +494,21 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
+
+        # for chart in chart_png_files:
+        #     file_path = os.path.join(os.getcwd(), chart)
+        #     chart_media = api.media_upload(file_path)
+        #     thread_tweet = api.update_status(
+        #                 status="",
+        #                 in_reply_to_status_id=thread_tweet.id,
+        #                 media_ids=[chart_media.media_id],
+        #                 auto_populate_reply_metadata=True,
+        #             )
 
 
 if __name__ == "__main__":
