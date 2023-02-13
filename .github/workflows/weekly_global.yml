@@ -2,9 +2,9 @@ name: Run Weekly Report Global
 on:
   schedule:
     - cron: "0 0 * * MON" # Run every Monday
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
