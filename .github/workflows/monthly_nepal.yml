@@ -65,5 +65,6 @@ jobs:
           mv meta.md stats/Nepal/Monthly/README.md
           mv *.png stats/Nepal/Monthly/charts/
           git add -f stats/Nepal/Monthly/README.md
+          git add -f stats/Nepal/Monthly/charts/
           git commit -m "Updated Readme Monthly Nepal"
           git push

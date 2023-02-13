@@ -2,9 +2,9 @@ name: Run Daily Report Nepal
 on:
   schedule:
     - cron: "0 6 * * *" # Run every day at 6 UTC
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -66,5 +66,6 @@ jobs:
           mv meta.md stats/Nepal/Daily/README.md
           mv *.png stats/Nepal/Daily/charts/
           git add -f stats/Nepal/Daily/README.md
+          git add -f stats/Nepal/Daily/charts/
           git commit -m "Updated Readme Daily Nepal"
           git push

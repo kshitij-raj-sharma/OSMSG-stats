@@ -59,5 +59,6 @@ jobs:
           mv meta.md stats/Global/Weekly/README.md
           mv *.png stats/Global/Weekly/charts/
           git add -f stats/Global/Weekly/README.md
+          git add -f stats/Global/Weekly/charts/
           git commit -m "Updated Readme Weekly Global"
           git push

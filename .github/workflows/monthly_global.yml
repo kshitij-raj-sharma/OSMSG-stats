@@ -65,5 +65,6 @@ jobs:
           mv *.png stats/Global/Monthly/charts/
           mv meta.md stats/Global/Monthly/README.md
           git add -f stats/Global/Monthly/README.md
+          git add -f stats/Global/Monthly/charts/
           git commit -m "Updated Readme Monthly Global"
           git push

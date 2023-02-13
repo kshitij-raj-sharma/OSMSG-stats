@@ -56,5 +56,6 @@ jobs:
           mv meta.md stats/hotosm/Daily/README.md
           mv *.png stats/hotosm/Daily/charts/
           git add -f stats/hotosm/Daily/README.md
+          git add -f stats/hotosm/Daily/charts/
           git commit -m "Updated Readme Daily Hotosm"
           git push

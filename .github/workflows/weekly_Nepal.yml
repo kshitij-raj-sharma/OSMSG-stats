@@ -63,5 +63,6 @@ jobs:
           mv meta.md stats/Nepal/Weekly/README.md
           mv *.png stats/Nepal/Weekly/charts/
           git add -f stats/Nepal/Weekly/README.md
+          git add -f stats/hotosm/Weekly/charts/
           git commit -m "Updated Readme Weekly Nepal"
           git push
