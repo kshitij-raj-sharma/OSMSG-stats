@@ -1,7 +1,7 @@
 name: Run Weekly Report Hotosm Hashtag
 on:
   schedule:
-    - cron: "0 2 * * MON" # Run every Monday at 2 
+    - cron: "0 2 * * MON" # Run every Monday at 2
   # push:
   #   branches:
   #     - master
@@ -23,6 +23,7 @@ jobs:
           pip install flare-floss
           pip install -e . 
           pip install tweepy
+          pip install -r requirements.txt
 
       - name: Generate Weekly Hashtag Stats
         run: |

@@ -23,6 +23,7 @@ jobs:
           pip install flare-floss
           pip install -e . 
           pip install tweepy
+          pip install -r requirements.txt
 
       - name: Generate Weekly Stats
 
@@ -64,4 +65,3 @@ jobs:
           git add -f stats/Nepal/Weekly/README.md
           git commit -m "Updated Readme Weekly Nepal"
           git push
-

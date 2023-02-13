@@ -23,6 +23,7 @@ jobs:
           pip install flare-floss
           pip install -e . 
           pip install tweepy
+          pip install -r requirements.txt
 
       - name: Generate Weekly Stats
         env: #assign variables
@@ -30,7 +31,6 @@ jobs:
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
           osmsg --url "https://planet.openstreetmap.org/replication/day" --format csv image --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Global/Weekly/stats_metadata.json --wild_tags --include_changeset_meta
-
 
       - name: Upload stats to Github
         run: |

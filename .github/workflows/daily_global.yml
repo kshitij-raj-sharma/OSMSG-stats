@@ -2,9 +2,9 @@ name: Run Daily Report Global
 on:
   schedule:
     - cron: "0 7 * * *" # Run every day at 7 UTC
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -23,6 +23,7 @@ jobs:
           pip install flare-floss
           pip install -e . 
           pip install tweepy
+          pip install -r requirements.txt
 
       - name: Generate Daily Stats
         env: #assign variables
