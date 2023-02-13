@@ -365,11 +365,14 @@ def main():
     all_files = os.listdir(os.getcwd())
     media_ids = []
 
-    chart_png_files = [f for f in all_files if f.endswith(".png")]
+    chart_png_files = [
+        f for f in all_files if f.endswith(".png") and not f.startswith("stats")
+    ]
     for chart in chart_png_files:
         file_path = os.path.join(os.getcwd(), chart)
         chart_media = api.media_upload(file_path)
         media_ids.append(chart_media.media_id)
+    first_media = api.media_upload(first_file)
 
     if args.tweet_last_week:
         if args.tweet_hotosm:
@@ -381,6 +384,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
+                media_ids=first_media.media_id,
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
@@ -399,6 +403,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
+                media_ids=first_media.media_id,
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
@@ -416,6 +421,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
+                media_ids=first_media.media_id,
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
@@ -435,6 +441,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
+                media_ids=first_media.media_id,
             )
         if args.tweet_nepal:
             orginal_tweet = api.update_status(
@@ -446,6 +453,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
+                media_ids=first_media.media_id,
             )
         print("twitted")
 
@@ -459,6 +467,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
+                media_ids=first_media.media_id,
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
@@ -475,6 +484,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
+                media_ids=first_media.media_id,
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
@@ -492,6 +502,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
+                media_ids=first_media.media_id,
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
