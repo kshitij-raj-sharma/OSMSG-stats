@@ -386,12 +386,12 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
-                media_ids=first_media.media_id,
+                media_ids=[first_media.media_id],
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=[thread_tweet.id],
+                    in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
 
@@ -405,12 +405,12 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
-                media_ids=first_media.media_id,
+                media_ids=[first_media.media_id],
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=[thread_tweet.id],
+                    in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
         if args.tweet_nepal:
@@ -423,12 +423,12 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
-                media_ids=first_media.media_id,
+                media_ids=[first_media.media_id],
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=[thread_tweet.id],
+                    in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
         print("twitted")
@@ -443,7 +443,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
-                media_ids=first_media.media_id,
+                media_ids=[first_media.media_id],
             )
         if args.tweet_nepal:
             orginal_tweet = api.update_status(
@@ -455,7 +455,7 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
-                media_ids=first_media.media_id,
+                media_ids=[first_media.media_id],
             )
         print("twitted")
 
@@ -469,12 +469,12 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
-                media_ids=first_media.media_id,
+                media_ids=[first_media.media_id],
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=[thread_tweet.id],
+                    in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
         if args.tweet_global:
@@ -486,12 +486,12 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
-                media_ids=first_media.media_id,
+                media_ids=[first_media.media_id],
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=[thread_tweet.id],
+                    in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
         if args.tweet_nepal:
@@ -504,12 +504,12 @@ def main():
                 status=thread_summary,
                 in_reply_to_status_id=orginal_tweet.id,
                 auto_populate_reply_metadata=True,
-                media_ids=first_media.media_id,
+                media_ids=[first_media.media_id],
             )
             if trending_hashtags or trending_countries:
                 thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
-                    in_reply_to_status_id=[thread_tweet.id],
+                    in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
 
@@ -518,7 +518,7 @@ def main():
         #     chart_media = api.media_upload(file_path)
         #     thread_tweet = api.update_status(
         #                 status="",
-        #                 in_reply_to_status_id=[thread_tweet.id],
+        #                 in_reply_to_status_id=thread_tweet.id,
         #                 media_ids=[chart_media.media_id],
         #                 auto_populate_reply_metadata=True,
         #             )
