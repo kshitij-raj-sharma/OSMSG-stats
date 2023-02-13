@@ -1,9 +1,269 @@
 import argparse
 import json
 import os
+from collections import defaultdict
 
+import humanize
+import matplotlib.font_manager as fm
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import numpy as np
 import pandas as pd
+import seaborn as sns
 import tweepy
+
+
+def create_charts(df):
+    ### osm changes block
+    # Get the sum of all the create, modify, and delete values
+    nodes_create = df["nodes.create"].sum()
+    nodes_modify = df["nodes.modify"].sum()
+    nodes_delete = df["nodes.delete"].sum()
+    ways_create = df["ways.create"].sum()
+    ways_modify = df["ways.modify"].sum()
+    ways_delete = df["ways.delete"].sum()
+    relations_create = df["relations.create"].sum()
+    relations_modify = df["relations.modify"].sum()
+    relations_delete = df["relations.delete"].sum()
+
+    # Extract the start and end dates from the dataframe
+    start_date = df["start_date"][0]
+    end_date = df["end_date"][0]
+
+    # Create the bar chart
+
+    create = [nodes_create, ways_create, relations_create]
+
+    modify = [nodes_modify, ways_modify, relations_modify]
+
+    delete = [nodes_delete, ways_delete, relations_delete]
+
+    bar_width = 0.25
+    index = [1, 2, 3]
+
+    sns.set(style="darkgrid")
+
+    fig, ax = plt.subplots(figsize=(20, 10))
+
+    create_bar = ax.bar(index, create, bar_width, label="Create", color="g")
+    modify_bar = ax.bar(
+        [i + bar_width for i in index], modify, bar_width, label="Modify", color="b"
+    )
+    delete_bar = ax.bar(
+        [i + 2 * bar_width for i in index], delete, bar_width, label="Delete", color="r"
+    )
+
+    ax.set_xlabel("Elements")
+    ax.set_ylabel("Count")
+    ax.set_title(f"OSM Changes : From {start_date} to {end_date}")
+    ax.set_xticks([i + bar_width for i in index])
+    ax.set_xticklabels(["Nodes", "Ways", "Relations"])
+    ax.legend()
+
+    # Add count labels
+    for i in range(len(create)):
+        ax.text(
+            index[i] - 0.1,
+            create[i],
+            humanize.intword(create[i]),
+            ha="left",
+            color="gray",
+            va="bottom",
+        )
+        ax.text(
+            index[i] + bar_width - 0.1,
+            modify[i],
+            humanize.intword(modify[i]),
+            ha="left",
+            color="gray",
+            va="bottom",
+        )
+        ax.text(
+            index[i] + 2 * bar_width - 0.1,
+            delete[i],
+            humanize.intword(delete[i]),
+            ha="left",
+            color="gray",
+            va="bottom",
+        )
+
+    # ax.set_yscale("symlog")
+    ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ",")))
+
+    plt.savefig("osm_changes.png")
+
+    #### Countries block
+    if "countries" in df.columns:
+
+        # Split the countries column into multiple rows, one for each country
+        split_df = (
+            df["countries"]
+            .str.split(",", expand=True)
+            .stack()
+            .reset_index(level=1, drop=True)
+            .rename("countries")
+        )
+
+        # Create a new dataframe with the split countries data
+        new_df = split_df.to_frame().join(df[["name"]]).reset_index(drop=True)
+
+        # Group the data by country and count the number of users for each country
+        grouped = (
+            new_df.groupby("countries")["name"].count().sort_values(ascending=False)
+        )
+
+        # Show only the top 20 countries
+        grouped = grouped.head(20)
+
+        # Plot the data as a bar chart using seaborn
+        sns.set(style="darkgrid")
+        fig, ax = plt.subplots(figsize=(20, 10))
+        ax = sns.barplot(x=grouped.index, y=grouped.values)
+
+        font = fm.FontProperties(family="Arial", size=8)
+        # Add the count labels to the bars
+        for i, v in enumerate(grouped.values):
+            ax.text(i, v + 10, str(v), color="gray", fontproperties=font, va="bottom")
+
+        ax.set(
+            xlabel="Top 20 Countries Contributed",
+            ylabel="User Count",
+            title=f"Users Per Country : from {start_date} to {end_date}",
+        )
+        plt.xticks(rotation=90, fontsize=12)
+
+        ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
+
+        plt.savefig("users_per_country.png")
+
+    ##### hashtag block
+    if "hashtags" in df.columns:
+
+        # Split the countries column into multiple rows, one for each country
+        split_df = (
+            df["hashtags"]
+            .str.split(",", expand=True)
+            .stack()
+            .reset_index(level=1, drop=True)
+            .rename("hashtags")
+        )
+
+        # Create a new dataframe with the split countries data
+        new_df = split_df.to_frame().join(df[["name"]]).reset_index(drop=True)
+
+        # Group the data by country and count the number of users for each country
+        grouped = (
+            new_df.groupby("hashtags")["name"].count().sort_values(ascending=False)
+        )
+
+        # Show only the top 20 countries
+        grouped = grouped.head(20)
+
+        # Plot the data as a bar chart using seaborn
+        sns.set(style="darkgrid")
+        fig, ax = plt.subplots(figsize=(20, 10))
+        ax = sns.barplot(x=grouped.index, y=grouped.values)
+
+        font = fm.FontProperties(family="Arial", size=8)
+        # Add the count labels to the bars
+        for i, v in enumerate(grouped.values):
+            ax.text(i, v + 10, str(v), color="gray", fontproperties=font, va="bottom")
+
+        # Extract the start and end dates from the dataframe
+        start_date = df["start_date"][0]
+        end_date = df["end_date"][0]
+
+        ax.set(
+            xlabel="Top 20 Hashtags",
+            ylabel="User Count",
+            title=f"Users Per Hashtag : From {start_date} to {end_date}",
+        )
+        plt.xticks(rotation=90, fontsize=12)
+
+        ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
+
+        plt.savefig("users_per_hashtag.png")
+
+    if "tags_create" in df.columns and "tags_modify" in df.columns:
+        ### tag block
+        # count the total number of each tag type (create/modify)
+        data = defaultdict(int)
+        for i, row in df.iterrows():
+            tags_create = eval(row["tags_create"])
+            tags_modify = eval(row["tags_modify"])
+            for k, v in tags_create.items():
+                data[k + " (create)"] += v
+            for k, v in tags_modify.items():
+                data[k + " (modify)"] += v
+
+        # sort the data by values and get the top 20
+        top_data = dict(sorted(data.items(), key=lambda x: x[1], reverse=True)[:20])
+
+        # separate the "create" and "modify" values into two separate dictionaries
+        create_data = {}
+        modify_data = {}
+        for k, v in top_data.items():
+            if "create" in k:
+                create_data[k.split(" (")[0]] = v
+            else:
+                modify_data[k.split(" (")[0]] = v
+
+        # Set the style of the plot using seaborn
+        sns.set(style="darkgrid")
+
+        # Get all the unique keys
+        keys = set(create_data.keys()).union(set(modify_data.keys()))
+
+        # Initialize the bar width
+        bar_width = 0.4
+
+        # Initialize the x-axis position
+        x_pos = np.arange(len(keys))
+
+        # Create the figure and axis object
+        fig, ax = plt.subplots(figsize=(20, 10))
+
+        # Plot the create data
+        ax.bar(
+            x_pos,
+            [create_data.get(k, 0) for k in keys],
+            bar_width,
+            color="b",
+            label="Create",
+        )
+
+        # Plot the modify data
+        ax.bar(
+            x_pos + bar_width,
+            [modify_data.get(k, 0) for k in keys],
+            bar_width,
+            color="r",
+            label="Modify",
+        )
+
+        # Set the x-axis labels
+        ax.set_xticks(x_pos + bar_width / 2)
+        ax.set_xticklabels(keys, rotation=90, fontsize=12)
+
+        # Set the axis labels and title
+        ax.set(
+            xlabel="Top 20 OSM Tags",
+            ylabel="Count",
+            title=f"Tags Creation/ Modification Distribution : From {start_date} to {end_date}",
+        )
+
+        # Add the legend
+        ax.legend()
+
+        # Format the y-axis with a log scale and comma separated values
+        # ax.set_yscale("log")
+        ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
+
+        # Adjust the layout of the plot
+        # plt.tight_layout()
+
+        # Show the plot
+        plt.savefig("tags.png")
 
 
 def main():
@@ -43,6 +303,7 @@ def main():
 
         # read the .csv file and store it in a DataFrame
         df = pd.read_csv(csv_file)
+        create_charts(df)
 
         # Get the attribute of first row
         summary_text = f"{len(df)} Users made {df['changesets'].sum()} changesets with {df['map_changes'].sum()} map changes."
@@ -88,6 +349,10 @@ def main():
         file.write(f"- {thread_summary}\n")
         file.write(f"- {trending_hashtags}\n")
         file.write(f"- {trending_countries}\n")
+        file.write("![Alt text](./charts/osm_changes.png) \n")
+        file.write("![Alt text](./charts/users_per_hashtag.png) \n")
+        file.write("![Alt text](./charts/users_per_country.png) \n")
+        file.write("![Alt text](./charts/tags.png) \n")
 
     print("Readme Created")
 
@@ -97,13 +362,20 @@ def main():
     except:
         print("Error during authentication")
 
-    media = api.media_upload(first_file)
+    all_files = os.listdir(os.getcwd())
+    media_ids = []
+
+    chart_png_files = [f for f in all_files if f.endswith(".png")]
+    for chart in chart_png_files:
+        file_path = os.path.join(os.getcwd(), chart)
+        chart_media = api.media_upload(file_path)
+        media_ids.append(chart_media.media_id)
 
     if args.tweet_last_week:
         if args.tweet_hotosm:
             orginal_tweet = api.update_status(
                 status=f"HOTOSM Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/hotosm/Weekly/weekly_stats.csv #dailystats @hotosm #OpenStreetMap",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             thread_tweet = api.update_status(
                 status=thread_summary,
@@ -111,15 +383,16 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
+
         if args.tweet_global:
             orginal_tweet = api.update_status(
                 status=f"Global Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Weekly/weekly_global_stats.csv #weeklystats #OpenStreetMap #global",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -128,7 +401,7 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
@@ -136,7 +409,7 @@ def main():
         if args.tweet_nepal:
             orginal_tweet = api.update_status(
                 status=f"Nepal Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Weekly/weekly_nepal_stats.csv #weeklystats #gischat #OpenStreetMap #osmnepal",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -145,7 +418,7 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
@@ -155,7 +428,7 @@ def main():
         if args.tweet_global:
             orginal_tweet = api.update_status(
                 status=f"Global Contributors Last Month\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Monthly/Monthly_global_stats.csv #monthlystats #gischat #OpenStreetMap #global",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -166,7 +439,7 @@ def main():
         if args.tweet_nepal:
             orginal_tweet = api.update_status(
                 status=f"Nepal Contributors This Month\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Monthly/Monthly_nepal_stats.csv #monthlystats #gischat #OpenStreetMap #osmnepal",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -180,7 +453,7 @@ def main():
         if args.tweet_hotosm:
             orginal_tweet = api.update_status(
                 status=f"HOTOSM Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/hotosm/Daily/daily_stats.csv #dailystats @hotosm #gischat #OpenStreetMap",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             thread_tweet = api.update_status(
                 status=thread_summary,
@@ -188,7 +461,7 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
@@ -196,7 +469,7 @@ def main():
         if args.tweet_global:
             orginal_tweet = api.update_status(
                 status=f"Global Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Daily/daily_global_stats.csv #dailystats #gischat #OpenStreetMap #global",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             thread_tweet = api.update_status(
                 status=thread_summary,
@@ -204,7 +477,7 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
@@ -212,7 +485,7 @@ def main():
         if args.tweet_nepal:
             orginal_tweet = api.update_status(
                 status=f"Nepal Contributors Last Day\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Nepal/Daily/daily_nepal_stats.csv #dailystats #gischat #OpenStreetMap #osmnepal",
-                media_ids=[media.media_id],
+                media_ids=media_ids,
             )
             print(thread_summary)
             thread_tweet = api.update_status(
@@ -221,11 +494,21 @@ def main():
                 auto_populate_reply_metadata=True,
             )
             if trending_hashtags or trending_countries:
-                thread_tweet_2 = api.update_status(
+                thread_tweet = api.update_status(
                     status=trending_hashtags + trending_countries,
                     in_reply_to_status_id=thread_tweet.id,
                     auto_populate_reply_metadata=True,
                 )
+
+        # for chart in chart_png_files:
+        #     file_path = os.path.join(os.getcwd(), chart)
+        #     chart_media = api.media_upload(file_path)
+        #     thread_tweet = api.update_status(
+        #                 status="",
+        #                 in_reply_to_status_id=thread_tweet.id,
+        #                 media_ids=[chart_media.media_id],
+        #                 auto_populate_reply_metadata=True,
+        #             )
 
 
 if __name__ == "__main__":
