@@ -43,7 +43,7 @@ def create_charts(df):
 
     sns.set(style="darkgrid")
 
-    fig, ax = plt.subplots(figsize=(15,15))
+    fig, ax = plt.subplots(figsize=(20,20))
 
     create_bar = ax.bar(index, create, bar_width, label="Create", color="g")
     modify_bar = ax.bar(
@@ -67,7 +67,7 @@ def create_charts(df):
             create[i],
             humanize.intword(create[i]),
             ha="left",
-            color="gray",
+            color="#2B1B17",
             va="bottom",
         )
         ax.text(
@@ -75,7 +75,7 @@ def create_charts(df):
             modify[i],
             humanize.intword(modify[i]),
             ha="left",
-            color="gray",
+            color="#2B1B17",
             va="bottom",
         )
         ax.text(
@@ -83,7 +83,7 @@ def create_charts(df):
             delete[i],
             humanize.intword(delete[i]),
             ha="left",
-            color="gray",
+            color="#2B1B17",
             va="bottom",
         )
 
@@ -117,13 +117,13 @@ def create_charts(df):
 
         # Plot the data as a bar chart using seaborn
         sns.set(style="darkgrid")
-        fig, ax = plt.subplots(figsize=(15,15))
+        fig, ax = plt.subplots(figsize=(20,20))
         ax = sns.barplot(x=grouped.index, y=grouped.values)
 
         font = fm.FontProperties(family="Arial", size=8)
         # Add the count labels to the bars
         for i, v in enumerate(grouped.values):
-            ax.text(i, v + 10, str(v), color="gray", fontproperties=font, va="bottom")
+            ax.text(i, v + 10, str(v), color="#2B1B17", fontproperties=font, va="bottom")
 
         ax.set(
             xlabel="Top 20 Countries Contributed",
@@ -161,13 +161,13 @@ def create_charts(df):
 
         # Plot the data as a bar chart using seaborn
         sns.set(style="darkgrid")
-        fig, ax = plt.subplots(figsize=(15,15))
+        fig, ax = plt.subplots(figsize=(20,20))
         ax = sns.barplot(x=grouped.index, y=grouped.values)
 
         font = fm.FontProperties(family="Arial", size=8)
         # Add the count labels to the bars
         for i, v in enumerate(grouped.values):
-            ax.text(i, v + 10, str(v), color="gray", fontproperties=font, va="bottom")
+            ax.text(i, v + 10, str(v), color="#2B1B17", fontproperties=font, va="bottom")
 
         # Extract the start and end dates from the dataframe
         start_date = df["start_date"][0]
@@ -231,7 +231,7 @@ def create_charts(df):
                         xy=(bar.get_x() + bar.get_width() / 2, height),
                         xytext=(0, 3),  # 3 points vertical offset
                         textcoords="offset points",
-                        ha='center', color='gray',va='bottom')
+                        ha='center', color='#2B1B17',va='bottom')
 
         # Plot the modify data
         bar2 = ax.bar(x_pos + bar_width, [modify_data.get(k, 0) for k in keys], bar_width, color='r', label='Modify')
@@ -241,7 +241,7 @@ def create_charts(df):
                         xy=(bar.get_x() + bar.get_width() / 2, height),
                         xytext=(0, 3),  # 3 points vertical offset
                         textcoords="offset points",
-                        ha='center', color='gray', va='bottom')
+                        ha='center', color='#2B1B17', va='bottom')
 
         # Set the x-axis labels
         ax.set_xticks(x_pos + bar_width / 2)

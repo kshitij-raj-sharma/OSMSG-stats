@@ -2,9 +2,9 @@ name: Run Weekly Report Hotosm Hashtag
 on:
   schedule:
     - cron: "0 2 * * MON" # Run every Monday at 2
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
