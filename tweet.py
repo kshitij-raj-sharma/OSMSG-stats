@@ -5,6 +5,15 @@ import os
 import pandas as pd
 import tweepy
 
+import pandas as pd
+import matplotlib.pyplot as plt
+from collections import defaultdict
+import numpy as np
+import seaborn as sns
+import matplotlib.ticker as ticker
+import matplotlib.font_manager as fm
+import humanize
+
 def create_charts(df):
 #### Countries block 
     if 'countries' in df.columns:
