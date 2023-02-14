@@ -1,10 +1,12 @@
 ### Last Update :
 
-### Stats From 2023-02-12 00:00:00+00:00 to 2023-02-13 00:00:00+00:00
+### Stats From 2023-02-13 00:00:00+00:00 to 2023-02-14 00:00:00+00:00
 
-
-5767 Users made 39327 changesets with 3699261 map changes.
-- NKA tops table with 87888 changes, Followed by matheusgomesms-import & vaibhavnz. Users created 2395231 nodes , 317691 ways & 5775 relations, Including 207314 buildings, 58827 highways, 5984 waterways. Users also modified 514132 nodes, 236028 ways & 7828 relations
-- Top three trending hashtags for those stats are #TürkiyeEQ060223 : 609, #turkey : 341 & #turkiye : 341
--  & Top three countries based on no of users contributed are Germany : 934, Turkey : 512 & United States of America : 492
-
+6769 Users made 46800 changesets with 4162852 map changes.
+- Solarisphere tops table with 163154 changes, Followed by NKA & PlayzinhoAgro-imports. Users created 2655113 nodes , 337092 ways & 3624 relations, Including 220642 buildings, 68794 highways, 8898 waterways. Users also modified 663634 nodes, 239416 ways & 9443 relations
+- Top three trending hashtags for those stats are #TürkiyeEQ060223 : 825, #turkiye : 429 & #turkey : 428
+-  & Top three countries based on no of users contributed are Germany : 830, United States of America : 696 & Turkey : 643
+![Alt text](./charts/osm_changes.png) 
+![Alt text](./charts/users_per_hashtag.png) 
+![Alt text](./charts/users_per_country.png) 
+![Alt text](./charts/tags.png) 
