@@ -128,7 +128,7 @@ def create_charts(df):
         ax.set(
             xlabel="Top 20 Countries Contributed",
             ylabel="User Count",
-            title=f"Users Per Country : from {start_date} to {end_date}",
+            title=f"Contributors per Country : from {start_date} to {end_date}",
         )
         plt.xticks(rotation=90, fontsize=12)
 
@@ -176,7 +176,7 @@ def create_charts(df):
         ax.set(
             xlabel="Top 20 Hashtags",
             ylabel="User Count",
-            title=f"Users Per Hashtag : From {start_date} to {end_date}",
+            title=f"Contributors Per Hashtag : From {start_date} to {end_date}",
         )
         plt.xticks(rotation=90, fontsize=12)
 
