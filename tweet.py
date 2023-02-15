@@ -90,7 +90,7 @@ def create_charts(df):
     # ax.set_yscale("symlog")
     ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ",")))
 
-    plt.savefig("osm_changes.png")
+    plt.savefig("osm_changes.png",bbox_inches='tight')
 
     #### Countries block
     if "countries" in df.columns:
@@ -134,7 +134,7 @@ def create_charts(df):
 
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
 
-        plt.savefig("users_per_country.png")
+        plt.savefig("users_per_country.png",bbox_inches='tight')
 
     ##### hashtag block
     if "hashtags" in df.columns:
@@ -182,7 +182,7 @@ def create_charts(df):
 
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
 
-        plt.savefig("users_per_hashtag.png")
+        plt.savefig("users_per_hashtag.png",bbox_inches='tight')
 
     if "tags_create" in df.columns and "tags_modify" in df.columns:
         ### tag block
@@ -258,7 +258,7 @@ def create_charts(df):
         # Format the y-axis with a log scale and comma separated values
         # ax.set_yscale("log")
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
-        plt.savefig("tags.png")
+        plt.savefig("tags.png",bbox_inches='tight')
 
 
 def main():
