@@ -74,12 +74,13 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             if action != "delete":
                 users[user]["poi"][action] += 1
         if all_tags:
-            for key, value in tags:
-                if action != "delete":  # we don't need deleted tags
-                    if key in users[user][f"tags_{action}"]:
-                        users[user][f"tags_{action}"][key] += 1
-                    else:
-                        users[user][f"tags_{action}"][key] = 1
+            if tags:
+                for key, value in tags:
+                    if action != "delete":  # we don't need deleted tags
+                        if key in users[user][f"tags_{action}"]:
+                            users[user][f"tags_{action}"][key] += 1
+                        else:
+                            users[user][f"tags_{action}"][key] = 1
 
         if tags_to_collect:
             if action != "delete":  # we don't need deleted tags
@@ -122,9 +123,9 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
         if all_tags:
             users[user]["tags_create"] = {}
             users[user]["tags_modify"] = {}
-
-            for tag, value in tags:
-                users[user][f"tags_{action}"][tag] = 1
+            if tags:
+                for tag, value in tags:
+                    users[user][f"tags_{action}"][tag] = 1
         if tags_to_collect:
             for tag in tags_to_collect:
                 if tag in tags:
