@@ -80,7 +80,7 @@ It is a Simple python script processes osm files live and produces stats on the 
 2. It can also take any other server replication changefile to extract stats (Tested with Geofabrik and Planet Replication)
 3. Can Generate hashtag statistics
 4. Supports multiple output formats , Visualize Automatic Stats Being Genarated [here](./stats/)
-5. It can create summary charts automatically along with stats , Visualize them [here] (./stats/Global/Daily/)
+5. It can create summary charts automatically along with stats , Visualize them [here](./stats/Global/Daily/)
 6. Can generate stats for any custom timestamp provided
 
 ```
