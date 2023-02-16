@@ -77,7 +77,8 @@ It is a Simple python script processes osm files live and produces stats on the 
 1. It can Generate Stats on Country Level for countries . Countries are available in [here](./data/countries_un.csv)
 2. It can also take any other server replication changefile to extract stats (Tested with Geofabrik and Planet Replication)
 3. Can Generate hashtag statistics
-4. Generates stats like this : or Visualize those as csv [here](./stats/)
+4. Supports multiple output formats , Visualize Automatic Stats Being Genarated [here](./stats/)
+5. It can create summary charts automatically along with stats , Visualize them [here] (./stats/Global/Daily/)
 
 ```
 {"name":"username","uid":uid,"changesets":1,"nodes.create":1071,"nodes.modify":2100,"nodes.delete":0,"ways.create":146,"ways.modify":69,"ways.delete":0,"relations.create":0,"relations.modify":1,"relations.delete":0,"building.create":138,"building.modify":11,"building.delete":0,"highway.create":5,"highway.modify":49,"highway.delete":0,"waterway.create":0,"waterway.modify":4,"waterway.delete":0,"amenity.create":0,"amenity.modify":3,"amenity.delete":0,"landuse.create":3,"landuse.modify":1,"landuse.delete":0,"natural.create":0,"natural.modify":3,"natural.delete":0,"total_map_changes":3387}
