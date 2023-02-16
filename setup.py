@@ -28,5 +28,8 @@ setup(
         "geopandas",
         "dataframe-image",
         "tqdm",
+        "seaborn",
+        "matplotlib",
+        "humanize",
     ],
 )

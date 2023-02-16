@@ -30,7 +30,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --url "https://planet.openstreetmap.org/replication/day" --format csv image --extract_last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Global/Weekly/stats_metadata.json --wild_tags --include_changeset_meta
+          osmsg --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Global/Weekly/stats_metadata.json --all_tags --changeset
 
       - name: Upload stats to Github
         run: |

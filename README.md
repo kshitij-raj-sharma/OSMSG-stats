@@ -25,8 +25,8 @@ pip install osmsg
 ```
 osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME] [--password PASSWORD] [--timezone {Nepal,UTC}]
              [--name NAME] [--country COUNTRY] [--tags TAGS [TAGS ...]] [--hashtags HASHTAGS [HASHTAGS ...]] [--force] [--rows ROWS]
-             [--workers WORKERS] [--url URL] [--extract_last_week] [--extract_last_day] [--extract_last_month] [--extract_last_year]
-             [--extract_last_hour] [--include_changeset_meta] [--wild_tags] [--exclude_date_in_name]
+             [--workers WORKERS] [--url URL] [--last_week] [--last_day] [--last_month] [--last_year]
+             [--last_hour] [--changeset] [--all_tags] [--exclude_date_in_name]
              [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]] [--read_from_metadata READ_FROM_METADATA]
 ```
 
@@ -54,15 +54,15 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
   --workers WORKERS     No. of Parallel workers to assign : Default is no of cpu available , Be aware to use this max no of workers may cause
                         overuse of resources
   --url URL             Your public OSM Change Replication URL
-  --extract_last_week
-  --extract_last_day
-  --extract_last_month
-  --extract_last_year
-  --extract_last_hour
-  --include_changeset_meta
+  --last_week
+  --last_day
+  --last_month
+  --last_year
+  --last_hour
+  --changeset
                         Include hashtag and country informations on the stats. It forces script to process changeset replciation , Careful to use
                         this since changeset replication is minutely
-  --wild_tags           Extract statistics of all of the unique tags and its count
+  --all_tags           Extract statistics of all of the unique tags and its count
   --exclude_date_in_name
                         By default from and to date will be added to filename , You can skip this behaviour with this option
   --format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]
@@ -88,7 +88,7 @@ It is a Simple python script processes osm files live and produces stats on the 
 - To extract stats of last_hour for whole_world Using Planet Replication
 
 ```
-osmsg --url "https://planet.openstreetmap.org/replication/minute" --format csv --tags building highway waterway amenity --name stats --wild_tags --extract_last_hour
+osmsg --url "https://planet.openstreetmap.org/replication/minute" --format csv --tags building highway waterway amenity --name stats --all_tags --last_hour
 ```
 
 In order to extract for specific country just add --country with country name as in [data/countries_un.csv](./data/countries_un.csv) for eg : For Nepal : `--country Nepal`
@@ -96,7 +96,7 @@ In order to extract for specific country just add --country with country name as
 - To extract stats for last day whole world with all the tags and specified stat :
 
 ```
-osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv --extract_last_day --name stats --wild_tags
+osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv --last_day --name stats --all_tags
 ```
 
 If you wish to have tags with specific count for key you can include them as `--tags "building" "highway" ` & add --country to extract specific country
@@ -107,7 +107,7 @@ If you wish to have tags with specific count for key you can include them as `--
 export OSM_USERNAME="yourusername"
 export OSM_PASSWORD="yourpassword"
 
-osmsg  --url "http://download.geofabrik.de/asia/nepal-updates" --format csv --start_date "2023-01-15 00:00:00+00:00" --end_date "2023-01-30 00:00:00+00:00" --name all_tags_stats --wild_tags
+osmsg  --url "http://download.geofabrik.de/asia/nepal-updates" --format csv --start_date "2023-01-15 00:00:00+00:00" --end_date "2023-01-30 00:00:00+00:00" --name all_tags_stats --all_tags
 ```
 
 - To get stat of Nepal for 2022 to now with geofabrik replication:
@@ -135,7 +135,7 @@ OSMSG uses/supports sources , --url provided on argument will be used for osm ch
 4. For Country stats , if you use the --country option : It will use the planet minutely changeset replication to determine the location of the cahngeset bbox centroid , which means to process larger time frame it might take time , to avoid this Use Geofabrik internal changefiles based on country , OSMSG Supports processing of those hence you can directly supply geofabrik changefiles url for country and produce yearly/monthly stats eg :
 
 ```
-osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv --extract_last_month --tags 'building' 'highway' 'waterway' 'amenity' --name last_month_stats  --wild_tags
+osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv --last_month --tags 'building' 'highway' 'waterway' 'amenity' --name last_month_stats  --all_tags
 ```
 
 ### Benchmarks :

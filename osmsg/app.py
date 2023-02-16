@@ -19,7 +19,7 @@ from osmium.replication.server import ReplicationServer
 from shapely.geometry import box
 from tqdm import tqdm
 
-from osmsg.utils import verify_me_osm
+from osmsg.utils import create_charts, verify_me_osm
 
 from .changefiles import (
     get_prev_hour,
@@ -58,7 +58,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
         if changeset not in users_temp[user]["changesets"]:
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
-        if hashtags or include_changeset_meta:
+        if hashtags or changeset:
             try:
                 for ch in hashtag_changesets[changeset]["countries"]:
                     if ch not in users[user]["countries"]:
@@ -73,7 +73,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
         if osm_type == "nodes" and tags:
             if action != "delete":
                 users[user]["poi"][action] += 1
-        if wild_tags:
+        if all_tags:
             for key, value in tags:
                 if action != "delete":  # we don't need deleted tags
                     if key in users[user][f"tags_{action}"]:
@@ -101,7 +101,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             "relations": {"create": 0, "modify": 0, "delete": 0},
             "poi": {"create": 0, "modify": 0},  # nodes that has tags
         }
-        if hashtags or include_changeset_meta:
+        if hashtags or changeset:
             users[user]["countries"] = []
             users[user]["hashtags"] = []
 
@@ -119,7 +119,7 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
         users[user][osm_type][action] = 1
-        if wild_tags:
+        if all_tags:
             users[user]["tags_create"] = {}
             users[user]["tags_modify"] = {}
 
@@ -159,7 +159,7 @@ class ChangesetHandler(osmium.SimpleHandler):
     def changeset(self, c):
         country_check = False
         run_hashtag_check_logic = False
-        if include_changeset_meta:
+        if changeset:
             if "comment" in c.tags:
                 run_hashtag_check_logic = True
         if hashtags:
@@ -495,21 +495,27 @@ def main():
         help="Your public OSM Change Replication URL ",
     )
 
-    parser.add_argument("--extract_last_week", action="store_true", default=False)
-    parser.add_argument("--extract_last_day", action="store_true", default=False)
-    parser.add_argument("--extract_last_month", action="store_true", default=False)
-    parser.add_argument("--extract_last_year", action="store_true", default=False)
-    parser.add_argument("--extract_last_hour", action="store_true", default=False)
+    parser.add_argument("--last_week", action="store_true", default=False)
+    parser.add_argument("--last_day", action="store_true", default=False)
+    parser.add_argument("--last_month", action="store_true", default=False)
+    parser.add_argument("--last_year", action="store_true", default=False)
+    parser.add_argument("--last_hour", action="store_true", default=False)
+    parser.add_argument(
+        "--charts",
+        action="store_true",
+        help="Exports Summary Charts along with stats",
+        default=False,
+    )
 
     parser.add_argument(
-        "--include_changeset_meta",
+        "--changeset",
         help="Include hashtag and country informations on the stats. It forces script to process changeset replciation , Careful to use this since changeset replication is minutely",
         action="store_true",
         default=False,
     )
 
     parser.add_argument(
-        "--wild_tags",
+        "--all_tags",
         action="store_true",
         help="Extract statistics of all of the unique tags and its count",
         default=False,
@@ -526,7 +532,7 @@ def main():
         "--format",
         nargs="+",
         choices=["csv", "json", "excel", "image", "text"],
-        default="json",
+        default="csv",
         help="Stats output format",
     )
     parser.add_argument(
@@ -542,11 +548,11 @@ def main():
 
     if not args.start_date:
         if (
-            args.extract_last_week
-            or args.extract_last_day
-            or args.extract_last_month
-            or args.extract_last_year
-            or args.extract_last_hour
+            args.last_week
+            or args.last_day
+            or args.last_month
+            or args.last_year
+            or args.last_hour
         ):
             pass
         else:
@@ -563,27 +569,27 @@ def main():
         if not countries_df["name"].isin([args.country]).any():
             print("Country doesn't exists : Refer to data/countries_un.csv name column")
             sys.exit()
-    if args.include_changeset_meta:
+    if args.changeset:
         if args.hashtags or args.country:
             assert (
-                args.include_changeset_meta
+                args.changeset
             ), "You can not use include changeset meta option along with hashtags/country"
 
     start_time = time.time()
 
     global additional_tags
     global cookies
-    global wild_tags
+    global all_tags
     global hashtags
     global country
-    global include_changeset_meta
+    global changeset
 
-    wild_tags = args.wild_tags
+    all_tags = args.all_tags
     additional_tags = args.tags
     hashtags = args.hashtags
     country = args.country
     cookies = None
-    include_changeset_meta = args.include_changeset_meta
+    changeset = args.changeset
 
     if "geofabrik" in args.url.lower():
         if args.username is None:
@@ -598,18 +604,18 @@ def main():
         cookies = auth(args.username, args.password)
     print("Script Started")
 
-    if args.extract_last_hour:
+    if args.last_hour:
         start_date, end_date = get_prev_hour(args.timezone)
 
-    if args.extract_last_year:
+    if args.last_year:
         start_date, end_date = get_prev_year_dates(args.timezone)
 
-    if args.extract_last_month:
+    if args.last_month:
         start_date, end_date = previous_month(args.timezone)
 
-    if args.extract_last_day:
+    if args.last_day:
         start_date, end_date = previous_day(args.timezone)
-    if args.extract_last_week:
+    if args.last_week:
         start_date, end_date = previous_week(args.timezone)
 
     if args.read_from_metadata:
@@ -640,7 +646,7 @@ def main():
                 sys.exit()
     print(f"Supplied start_date: {start_date} and end_date: {end_date}")
 
-    if args.hashtags or args.country or args.include_changeset_meta:
+    if args.hashtags or args.country or args.changeset:
 
         Changeset = ChangesetToolKit()
         (
@@ -725,7 +731,7 @@ def main():
     shutil.rmtree("temp")
     if len(users) >= 1:
         # print(users)
-        if args.wild_tags:
+        if args.all_tags:
             for user in users:
                 users[user]["tags_create"] = json.dumps(
                     dict(
@@ -748,7 +754,7 @@ def main():
 
         df = pd.json_normalize(list(users.values()))
 
-        if hashtags or include_changeset_meta:
+        if hashtags or changeset:
             df["countries"] = df["countries"].apply(lambda x: ",".join(map(str, x)))
 
         df = df.assign(
@@ -769,7 +775,7 @@ def main():
         if args.rows:
             df = df.head(args.rows)
         print(df)
-        if args.wild_tags:
+        if args.all_tags:
             # Get the column names of the DataFrame
             cols = df.columns.tolist()
             # Identify the column names that you want to move
@@ -781,7 +787,7 @@ def main():
             # Reindex the DataFrame with the new order of column names
             df = df.reindex(columns=cols)
 
-        if country or hashtags or include_changeset_meta:
+        if country or hashtags or changeset:
             df["hashtags"] = df["hashtags"].apply(lambda x: ",".join(map(str, x)))
             column_to_move = "hashtags"
             df = df.assign(**{column_to_move: df.pop(column_to_move)})
@@ -801,7 +807,7 @@ def main():
             )  # 100 as max rows for image format
             dfi.export(
                 df_img.drop(columns=["tags_create", "tags_modify"])
-                if args.wild_tags
+                if args.all_tags
                 else df_img,
                 f"{fname}.png",
                 max_cols=-1,
@@ -814,12 +820,15 @@ def main():
             df.to_json(f"{fname}.json", orient="records")
         if "csv" in args.format:
             # Add the start_date and end_date columns to the DataFrame
-            csv_df= df
-            csv_df['start_date'] = start_date_utc
-            csv_df['end_date'] = end_date_utc
+            csv_df = df
+            csv_df["start_date"] = start_date_utc
+            csv_df["end_date"] = end_date_utc
             csv_df.to_csv(f"{fname}.csv", index=False)
         if "excel" in args.format:
             df.to_excel(f"{fname}.xlsx", index=False)
+
+        if args.charts:
+            create_charts(df)
         if "text" in args.format:
             text_output = df.to_markdown(tablefmt="grid", index=False)
             with open(f"{fname}.txt", "w", encoding="utf-8") as file:
