@@ -305,20 +305,23 @@ def create_charts(df):
     ##### hashtag block
     if "hashtags" in df.columns:
 
-        # Split the countries column into multiple rows, one for each country
+        # Split the hashtags column into multiple rows, one for each hashtag
         split_df = (
             df["hashtags"]
             .str.split(",", expand=True)
             .stack()
             .reset_index(level=1, drop=True)
             .rename("hashtags")
-            .dropna()
+            .reset_index()
         )
 
-        # Create a new dataframe with the split countries data
-        new_df = split_df.to_frame().join(df[["name"]]).reset_index(drop=True)
+        # Drop rows where the value of the "hashtags" column is empty or NaN
+        split_df = split_df[split_df["hashtags"].notna() & (split_df["hashtags"] != "")]
 
-        # Group the data by country and count the number of users for each country
+        # Create a new dataframe with the split hashtag data
+        new_df = df.merge(split_df)
+
+        # Group the data by hashtags and count the number of users for each hashtag
         grouped = (
             new_df.groupby("hashtags")["name"].count().sort_values(ascending=False)
         )

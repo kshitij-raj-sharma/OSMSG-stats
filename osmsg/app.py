@@ -159,12 +159,21 @@ class ChangesetHandler(osmium.SimpleHandler):
     def changeset(self, c):
         country_check = False
         run_hashtag_check_logic = False
-        if changeset:
+        if changeset and not hashtags:
             if "comment" in c.tags:
                 run_hashtag_check_logic = True
         if hashtags:
             if "comment" in c.tags:
-                if any(elem.lower() in c.tags["comment"].lower() for elem in hashtags):
+                if exact_lookup:
+                    hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
+                    if any(
+                        elem.lower() in map(str.lower, hashtags_comment)
+                        for elem in hashtags
+                    ):
+                        run_hashtag_check_logic = True
+                elif any(
+                    elem.lower() in c.tags["comment"].lower() for elem in hashtags
+                ):
                     run_hashtag_check_logic = True
 
         if run_hashtag_check_logic:
@@ -506,6 +515,12 @@ def main():
         help="Exports Summary Charts along with stats",
         default=False,
     )
+    parser.add_argument(
+        "--exact_lookup",
+        action="store_true",
+        help="Exact lookup for hashtags to match exact hashtag supllied , without this hashtag search will search for the existence of text on hashtags and comments",
+        default=False,
+    )
 
     parser.add_argument(
         "--changeset",
@@ -583,6 +598,7 @@ def main():
     global hashtags
     global country
     global changeset
+    global exact_lookup
 
     all_tags = args.all_tags
     additional_tags = args.tags
@@ -590,6 +606,7 @@ def main():
     country = args.country
     cookies = None
     changeset = args.changeset
+    exact_lookup = args.exact_lookup
 
     if "geofabrik" in args.url.lower():
         if args.username is None:
