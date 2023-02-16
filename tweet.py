@@ -123,7 +123,7 @@ def create_charts(df):
         font = fm.FontProperties(family="Arial", size=8)
         # Add the count labels to the bars
         for i, v in enumerate(grouped.values):
-            ax.text(i, v + 10, str(v), color="#2B1B17", fontproperties=font, va="bottom")
+            ax.text(i, v + 0.05, str(v), color="#2B1B17", fontproperties=font, va="bottom")
 
         ax.set(
             xlabel="Top 20 Countries Contributed",
@@ -167,7 +167,7 @@ def create_charts(df):
         font = fm.FontProperties(family="Arial", size=8)
         # Add the count labels to the bars
         for i, v in enumerate(grouped.values):
-            ax.text(i, v + 10, str(v), color="#2B1B17", fontproperties=font, va="bottom")
+            ax.text(i, v + 0.05, str(v), color="#2B1B17", fontproperties=font, va="bottom")
 
         # Extract the start and end dates from the dataframe
         start_date = df["start_date"][0]
