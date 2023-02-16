@@ -25,9 +25,9 @@ pip install osmsg
 ```
 osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME] [--password PASSWORD] [--timezone {Nepal,UTC}]
              [--name NAME] [--country COUNTRY] [--tags TAGS [TAGS ...]] [--hashtags HASHTAGS [HASHTAGS ...]] [--force] [--rows ROWS]
-             [--workers WORKERS] [--url URL] [--last_week] [--last_day] [--last_month] [--last_year]
-             [--last_hour] [--changeset] [--all_tags] [--exclude_date_in_name]
-             [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]] [--read_from_metadata READ_FROM_METADATA]
+             [--workers WORKERS] [--url URL] [--last_week] [--last_day] [--last_month] [--last_year] [--last_hour] [--charts] [--exact_lookup]
+             [--changeset] [--all_tags] [--exclude_date_in_name] [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
+             [--read_from_metadata READ_FROM_METADATA]
 ```
 
 ### Options:
@@ -35,8 +35,8 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
 ```
   -h, --help            show this help message and exit
   --start_date START_DATE
-                        Start date in the format YYYY-MM-DD HH:M:Sz , inlcude "" in timestamp eg: 2023-01-28 17:43:09+05:45
-  --end_date END_DATE   End date in the format YYYY-MM-DD HH:M:Sz , include "" in timestamp eg:2023-01-28 17:43:09+05:45
+                        Start date in the format YYYY-MM-DD HH:M:Sz eg: 2023-01-28 17:43:09+05:45
+  --end_date END_DATE   End date in the format YYYY-MM-DD HH:M:Sz eg: 2023-01-28 17:43:09+05:45
   --username USERNAME   Your OSM Username : Only required for Geofabrik Internal Changefiles
   --password PASSWORD   Your OSM Password : Only required for Geofabrik Internal Changefiles
   --timezone {Nepal,UTC}
@@ -54,15 +54,17 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
   --workers WORKERS     No. of Parallel workers to assign : Default is no of cpu available , Be aware to use this max no of workers may cause
                         overuse of resources
   --url URL             Your public OSM Change Replication URL
-  --last_week
-  --last_day
-  --last_month
-  --last_year
-  --last_hour
-  --changeset
-                        Include hashtag and country informations on the stats. It forces script to process changeset replciation , Careful to use
-                        this since changeset replication is minutely
-  --all_tags           Extract statistics of all of the unique tags and its count
+  --last_week           Extract stats for last week
+  --last_day            Extract Stats for last day
+  --last_month          Extract Stats for last Month
+  --last_year           Extract stats for last year
+  --last_hour           Extract stats for Last hour
+  --charts              Exports Summary Charts along with stats
+  --exact_lookup        Exact lookup for hashtags to match exact hashtag supllied , without this hashtag search will search for the existence
+                        of text on hashtags and comments
+  --changeset           Include hashtag and country informations on the stats. It forces script to process changeset replciation , Careful to
+                        use this since changeset replication is minutely
+  --all_tags            Extract statistics of all of the unique tags and its count
   --exclude_date_in_name
                         By default from and to date will be added to filename , You can skip this behaviour with this option
   --format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]
