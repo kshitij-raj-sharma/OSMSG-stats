@@ -1,10 +1,10 @@
 ### Last Update :
 
-### Stats From 2023-02-14 03:06:25+05:45 to 2023-02-15 03:06:09+05:45
+### Stats From 2023-02-15 03:06:09+05:45 to 2023-02-16 03:06:24+05:45
 
-45 Users made 150 changesets with 32494 map changes.
-- DiahW IRM-ED tops table with 8760 changes, Followed by Heinz_V & Fadlilaa IRM-RV. Users created 20830 nodes , 1788 ways & 0 relations, Including 1577 buildings, 161 highways, 10 waterways. Users also modified 9393 nodes, 479 ways & 4 relations
-- Top three trending hashtags for those stats are #AtlasChecks : 11, #maproulette : 11 & #geoneer : 6
+47 Users made 193 changesets with 33324 map changes.
+- Nirmala Rawat tops table with 11546 changes, Followed by seichter & Lalit_IAAS. Users created 20952 nodes , 3875 ways & 1 relations, Including 3704 buildings, 94 highways, 39 waterways. Users also modified 8051 nodes, 442 ways & 3 relations
+- Top three trending hashtags for those stats are #maproulette : 11, #AtlasChecks : 11 & #SharpAngleCheck : 10
 - 
 ![Alt text](./charts/osm_changes.png) 
 ![Alt text](./charts/users_per_hashtag.png) 
