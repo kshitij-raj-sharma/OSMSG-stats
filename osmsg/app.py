@@ -435,7 +435,7 @@ def main():
     )
     parser.add_argument(
         "--end_date",
-        help="End date in the format YYYY-MM-DD HH:M:Sz eg:2023-01-28 17:43:09+05:45",
+        help="End date in the format YYYY-MM-DD HH:M:Sz eg: 2023-01-28 17:43:09+05:45",
         default=dt.datetime.now(),
     )
     parser.add_argument(
@@ -505,11 +505,36 @@ def main():
         help="Your public OSM Change Replication URL ",
     )
 
-    parser.add_argument("--last_week", action="store_true", default=False)
-    parser.add_argument("--last_day", action="store_true", default=False)
-    parser.add_argument("--last_month", action="store_true", default=False)
-    parser.add_argument("--last_year", action="store_true", default=False)
-    parser.add_argument("--last_hour", action="store_true", default=False)
+    parser.add_argument(
+        "--last_week",
+        action="store_true",
+        help="Extract stats for last week",
+        default=False,
+    )
+    parser.add_argument(
+        "--last_day",
+        action="store_true",
+        help="Extract Stats for last day",
+        default=False,
+    )
+    parser.add_argument(
+        "--last_month",
+        action="store_true",
+        help="Extract Stats for last Month",
+        default=False,
+    )
+    parser.add_argument(
+        "--last_year",
+        action="store_true",
+        help="Extract stats for last year",
+        default=False,
+    )
+    parser.add_argument(
+        "--last_hour",
+        action="store_true",
+        help="Extract stats for Last hour",
+        default=False,
+    )
     parser.add_argument(
         "--charts",
         action="store_true",

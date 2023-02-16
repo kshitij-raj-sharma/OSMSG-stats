@@ -35,8 +35,8 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
 ```
   -h, --help            show this help message and exit
   --start_date START_DATE
-                        Start date in the format YYYY-MM-DD HH:M:Sz eg: 2023-01-28 17:43:09+05:45
-  --end_date END_DATE   End date in the format YYYY-MM-DD HH:M:Sz eg:2023-01-28 17:43:09+05:45
+                        Start date in the format YYYY-MM-DD HH:M:Sz , inlcude "" in timestamp eg: 2023-01-28 17:43:09+05:45
+  --end_date END_DATE   End date in the format YYYY-MM-DD HH:M:Sz , include "" in timestamp eg:2023-01-28 17:43:09+05:45
   --username USERNAME   Your OSM Username : Only required for Geofabrik Internal Changefiles
   --password PASSWORD   Your OSM Password : Only required for Geofabrik Internal Changefiles
   --timezone {Nepal,UTC}
@@ -79,6 +79,7 @@ It is a Simple python script processes osm files live and produces stats on the 
 3. Can Generate hashtag statistics
 4. Supports multiple output formats , Visualize Automatic Stats Being Genarated [here](./stats/)
 5. It can create summary charts automatically along with stats , Visualize them [here] (./stats/Global/Daily/)
+6. Can generate stats for any custom timestamp provided
 
 ```
 {"name":"username","uid":uid,"changesets":1,"nodes.create":1071,"nodes.modify":2100,"nodes.delete":0,"ways.create":146,"ways.modify":69,"ways.delete":0,"relations.create":0,"relations.modify":1,"relations.delete":0,"building.create":138,"building.modify":11,"building.delete":0,"highway.create":5,"highway.modify":49,"highway.delete":0,"waterway.create":0,"waterway.modify":4,"waterway.delete":0,"amenity.create":0,"amenity.modify":3,"amenity.delete":0,"landuse.create":3,"landuse.modify":1,"landuse.delete":0,"natural.create":0,"natural.modify":3,"natural.delete":0,"total_map_changes":3387}
