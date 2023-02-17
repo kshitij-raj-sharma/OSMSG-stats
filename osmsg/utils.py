@@ -33,6 +33,7 @@ import matplotlib.ticker as ticker
 import numpy as np
 import requests
 import seaborn as sns
+import urllib.parse
 
 CUSTOM_HEADER = {"user-agent": "oauth_cookie_client.py"}
 
@@ -453,3 +454,11 @@ def create_charts(df):
         # ax.set_yscale("log")
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
         plt.savefig("tags.png", bbox_inches="tight")
+
+# Function to create profile link
+def create_profile_link(name):
+    # Encode name for URL
+    encoded_name = urllib.parse.quote(name)
+    # Create URL string
+    url = f"https://www.openstreetmap.org/user/{encoded_name}"
+    return url

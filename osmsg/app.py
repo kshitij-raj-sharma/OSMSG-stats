@@ -19,7 +19,7 @@ from osmium.replication.server import ReplicationServer
 from shapely.geometry import box
 from tqdm import tqdm
 
-from osmsg.utils import create_charts, verify_me_osm
+from osmsg.utils import create_charts, verify_me_osm , create_profile_link
 
 from .changefiles import (
     get_prev_hour,
@@ -841,17 +841,22 @@ def main():
         fname = f"{args.name}_{start_date}_{end_date}"
         if args.exclude_date_in_name:
             fname = args.name
-        if "image" in args.format:
+        if "image" in args.format: ### used for twitter tweet
             # Convert the DataFrame to an image
-            df_img = (
-                (df if args.rows <= 100 else df.head(100))
-                if args.rows
-                else df.head(100)
-            )  # 100 as max rows for image format
+            df_img = df.head(25)
+            # Compute sums of specified columns for the top 20 rows
+            created = df_img[['nodes.create', 'ways.create', 'relations.create']].sum(axis=1)
+            modified = df_img[['nodes.modify', 'ways.modify', 'relations.modify']].sum(axis=1)
+            deleted = df_img[['nodes.delete', 'ways.delete', 'relations.delete']].sum(axis=1)
+
+            # Concatenate original DataFrame and sums DataFrame
+            result_df = pd.concat([df_img, created.rename('Created'), modified.rename('Modified'), deleted.rename('Deleted')], axis=1)
+
+
+            cols_to_export = ['rank', 'name','changesets','map_changes','Created','Modified','Deleted']  # Specify columns to export
+
             dfi.export(
-                df_img.drop(columns=["tags_create", "tags_modify"])
-                if args.all_tags
-                else df_img,
+                result_df[cols_to_export],
                 f"{fname}.png",
                 max_cols=-1,
                 max_rows=-1,
@@ -866,6 +871,10 @@ def main():
             csv_df = df
             csv_df["start_date"] = start_date_utc
             csv_df["end_date"] = end_date_utc
+
+            # Create profile link column
+            csv_df.insert(2, 'profile', csv_df['name'].apply(create_profile_link))
+
             csv_df.to_csv(f"{fname}.csv", index=False)
         if "excel" in args.format:
             df.to_excel(f"{fname}.xlsx", index=False)
