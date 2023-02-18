@@ -1,7 +1,7 @@
 name: Run Daily Report Hotosm Hashtag
 on:
   schedule:
-    - cron: "0 6 * * *" # Run every day at 7 UTC
+    - cron: "0 6 * * *" # Run every day at 6 UTC
   # push:
   #   branches:
   #     - master
