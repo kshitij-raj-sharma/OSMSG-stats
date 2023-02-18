@@ -44,10 +44,13 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           cp *.csv stats/Nepal/Monthly/Monthly_nepal_stats.csv
+          mv *.png stats/Nepal/Monthly/charts/top_users.png
           cp stats_metadata.json stats/Nepal/Monthly/stats_metadata.json
 
           git add -f stats/Nepal/Monthly/Monthly_nepal_stats.csv
           git add -f stats/Nepal/Monthly/stats_metadata.json
+          mv *.png stats/Nepal/Monthly/charts/top_users.png
+
 
           git commit -m "Updated Monthly Nepal Stats"
           git push

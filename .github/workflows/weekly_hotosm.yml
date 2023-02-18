@@ -36,10 +36,13 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           cp *.csv stats/hotosm/Weekly/weekly_stats.csv
+          mv *.png stats/hotosm/Weekly/charts/top_users.png
           cp stats_metadata.json stats/hotosm/Weekly/stats_metadata.json
 
           git add -f stats/hotosm/Weekly/weekly_stats.csv
           git add -f stats/hotosm/Weekly/stats_metadata.json
+          git add -f stats/hotosm/Weekly/charts/top_users.png
+
           git commit -m "Updated Weekly hotosm stats"
           git push
 

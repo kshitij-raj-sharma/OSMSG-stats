@@ -2,9 +2,9 @@ name: Run Daily Report Hotosm Hashtag
 on:
   schedule:
     - cron: "0 6 * * *" # Run every day at 7 UTC
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -36,10 +36,13 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           cp *.csv stats/hotosm/Daily/daily_stats.csv
+          mv *.png stats/hotosm/Daily/charts/top_users.png
           cp stats_metadata.json stats/hotosm/Daily/stats_metadata.json
 
           git add -f stats/hotosm/Daily/daily_stats.csv
           git add -f stats/hotosm/Daily/stats_metadata.json
+          git add -f stats/hotosm/Daily/charts/top_users.png
+
           git commit -m "Updated Daily hotosm stats"
           git push
 

@@ -44,10 +44,13 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           cp *.csv stats/Global/Monthly/Monthly_global_stats.csv
+          mv *.png stats/Global/Monthly/charts/top_users.png
           cp stats_metadata.json stats/Global/Monthly/stats_metadata.json
 
           git add -f stats/Global/Monthly/Monthly_global_stats.csv
           git add -f stats/Global/Monthly/stats_metadata.json
+          git add -f stats/Global/Monthly/charts/top_users.png
+
 
           git commit -m "Updated Monthly Global Stats"
           git push
