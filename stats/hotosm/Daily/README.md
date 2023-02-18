@@ -1,11 +1,11 @@
 ### Last Update :
 
-### Stats From 2023-02-16 00:00:00+00:00 to 2023-02-17 00:00:00+00:00
+### Stats From 2023-02-17 00:00:00+00:00 to 2023-02-18 00:00:00+00:00
 
-1303 Users made 8351 changesets with 1111282 map changes.
-- Libor Bednarik tops table with 16873 changes, Followed by nyainariantsoa & andraina. Users created 774994 nodes , 139189 ways & 60 relations, Including 129878 buildings, 7673 highways, 242 waterways. Users also modified 131809 nodes, 13381 ways & 16 relations
-- Top three trending hashtags for those stats are #hotosm-project-14226 : 286, #hotosm-project-14232 : 251 & #hotosm-project-14245 : 239
--  & Top three countries based on no of users contributed are Syrian Arab Republic : 697, Turkey : 416 & El Salvador : 83
+1210 Users made 7942 changesets with 966.6 thousand map changes.
+- 761.3 thousand OSM Elements were Created,144.6 thousand Modified & 60.7 thousand Deleted
+- Top three trending hashtags for those stats are #hotosm-project-14232 : 301, #hotosm-project-14235 : 220 & #hotosm-project-14246 : 173
+-  & Top three countries based on no of users contributed are Syrian Arab Republic : 606, Turkey : 455 & Angola : 43
 ![Alt text](./charts/osm_changes.png) 
 ![Alt text](./charts/users_per_hashtag.png) 
 ![Alt text](./charts/users_per_country.png) 
