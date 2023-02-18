@@ -327,14 +327,14 @@ def main():
             df = df.drop("countries", axis=1)
         create_charts(df)
         # Compute sums of specified columns for the entire dataframe
-        created = df[['nodes.create', 'ways.create', 'relations.create']].sum(axis=1)
-        modified = df[['nodes.modify', 'ways.modify', 'relations.modify']].sum(axis=1)
-        deleted = df[['nodes.delete', 'ways.delete', 'relations.delete']].sum(axis=1)
+        created_sum = df['nodes.create'] + df['ways.create'] + df['relations.create']
+        modified_sum = df['nodes.modify'] + df['ways.modify'] + df['relations.modify']
+        deleted_sum = df['nodes.delete'] + df['ways.delete'] + df['relations.delete']
 
 
         # Get the attribute of first row
         summary_text = f"{len(df)} Users made {df['changesets'].sum()} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
-        thread_summary = f"{humanize.intword(created)} OSM Elements were Created,{humanize.intword(modified)} Modified & {humanize.intword(deleted)} Deleted"
+        thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created,{humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted"
 
         trending_countries = ""
         trending_hashtags = ""
