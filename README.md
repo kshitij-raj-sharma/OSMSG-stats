@@ -109,7 +109,7 @@ In order to extract for specific country just add --country with country name as
 osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv --last_day --name stats --all_tags
 ```
 
-If you wish to have tags with specific count for key you can include them as `--tags "building" "highway" ` & add --country to extract specific country 
+If you wish to have tags with specific count for key you can include them as `--tags "building" "highway" ` & add --country to extract specific country , if you use geofabrik country updates you don't need to use --country option
 
 - To extract specific country with Geofabrik URL (extracts stats for 15 days custom date range)
 
