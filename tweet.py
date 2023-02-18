@@ -334,7 +334,7 @@ def main():
 
         # Get the attribute of first row
         summary_text = f"{len(df)} Users made {df['changesets'].sum()} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
-        thread_summary = f"{humanize.intword(created)} OSM Elements were Created,{humanize.intword(modified)} Modified & {humanize.intword(deleted)} Deleted. {df.loc[0, 'name']} tops table with {humanize.intword(df.loc[0, 'map_changes'])} changes, Followed by {df.loc[1, 'name']}"
+        thread_summary = f"{humanize.intword(created)} OSM Elements were Created,{humanize.intword(modified)} Modified & {humanize.intword(deleted)} Deleted"
 
         trending_countries = ""
         trending_hashtags = ""
