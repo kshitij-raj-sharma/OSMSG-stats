@@ -42,7 +42,7 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           cp *.csv stats/Nepal/Weekly/weekly_nepal_stats.csv
-          mv *.png stats/Nepal/Weekly/charts/top_users.png
+          cp *.png stats/Nepal/Weekly/charts/top_users.png
           cp stats_metadata.json stats/Nepal/Weekly/stats_metadata.json
 
           git add -f stats/Nepal/Weekly/weekly_nepal_stats.csv

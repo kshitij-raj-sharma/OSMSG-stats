@@ -2,9 +2,9 @@ name: Run Daily Report Nepal
 on:
   schedule:
     - cron: "0 6 * * *" # Run every day at 6 UTC
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -46,7 +46,7 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           cp *.csv stats/Nepal/Daily/daily_nepal_stats.csv
-          mv *.png stats/Nepal/Daily/charts/top_users.png
+          cp *.png stats/Nepal/Daily/charts/top_users.png
           cp stats_metadata.json stats/Nepal/Daily/stats_metadata.json
 
           git add -f stats/Nepal/Daily/daily_nepal_stats.csv

@@ -312,8 +312,8 @@ def main():
     api = tweepy.API(auth)
 
     files = os.listdir(os.getcwd())
-    json_files = [f for f in files if f.endswith(".png")]
-    first_file = os.path.join(os.getcwd(), json_files[0])
+    png_files = [f for f in files if f.endswith(".png")]
+    first_file = os.path.join(os.getcwd(), png_files[0])
 
     csv = [f for f in files if f.endswith(".csv")]
     summary_text = ""
@@ -334,7 +334,7 @@ def main():
 
         # Get the attribute of first row
         summary_text = f"{len(df)} Users made {df['changesets'].sum()} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
-        thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created,{humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted . Including {humanize.intword(df['building.create'].sum())} buildings & {humanize.intword(df['highway.create'].sum())} highways created. {df.loc[0, 'name']} tops table with {humanize.intword(df.loc[0, 'map_changes'])} changes, Followed by {df.loc[1, 'name']}"
+        thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created,{humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted . Including {humanize.intword(df['building.create'].sum())} buildings & {humanize.intword(df['highway.create'].sum())} highways created. {df.loc[0, 'name']} tops table with {humanize.intword(df.loc[0, 'map_changes'])} changes"
 
         trending_countries = ""
         trending_hashtags = ""

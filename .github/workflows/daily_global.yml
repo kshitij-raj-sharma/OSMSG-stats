@@ -2,9 +2,9 @@ name: Run Daily Report Global
 on:
   schedule:
     - cron: "0 5 * * *" # Run every day at 5 UTC
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           cp *.csv stats/Global/Daily/daily_global_stats.csv
-          mv *.png stats/Global/Daily/charts/top_users.png
+          cp *.png stats/Global/Daily/charts/top_users.png
           cp stats_metadata.json stats/Global/Daily/stats_metadata.json
 
           git add -f stats/Global/Daily/daily_global_stats.csv
