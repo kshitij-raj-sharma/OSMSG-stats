@@ -24,6 +24,7 @@
 import json
 import re
 import sys
+import urllib.parse
 from collections import defaultdict
 
 import humanize
@@ -33,7 +34,6 @@ import matplotlib.ticker as ticker
 import numpy as np
 import requests
 import seaborn as sns
-import urllib.parse
 
 CUSTOM_HEADER = {"user-agent": "oauth_cookie_client.py"}
 
@@ -258,7 +258,7 @@ def create_charts(df):
     plt.savefig("osm_changes.png", bbox_inches="tight")
 
     #### Countries block
-    if "countries" in df.columns:
+    if "countries" in df.columns[df.astype(bool).any()]:
 
         # Split the countries column into multiple rows, one for each country
         split_df = (
@@ -304,7 +304,7 @@ def create_charts(df):
         plt.savefig("users_per_country.png", bbox_inches="tight")
 
     ##### hashtag block
-    if "hashtags" in df.columns:
+    if "hashtags" in df.columns[df.astype(bool).any()]:
 
         # Split the hashtags column into multiple rows, one for each hashtag
         split_df = (
@@ -313,16 +313,14 @@ def create_charts(df):
             .stack()
             .reset_index(level=1, drop=True)
             .rename("hashtags")
-            .reset_index()
+            .dropna()
+            .loc[lambda x: x.str.strip().astype(bool)]
         )
 
-        # Drop rows where the value of the "hashtags" column is empty or NaN
-        split_df = split_df[split_df["hashtags"].notna() & (split_df["hashtags"] != "")]
+        # Create a new dataframe with the split countries data
+        new_df = split_df.to_frame().join(df[["name"]]).reset_index(drop=True)
 
-        # Create a new dataframe with the split hashtag data
-        new_df = df.merge(split_df)
-
-        # Group the data by hashtags and count the number of users for each hashtag
+        # Group the data by country and count the number of users for each country
         grouped = (
             new_df.groupby("hashtags")["name"].count().sort_values(ascending=False)
         )
@@ -357,7 +355,10 @@ def create_charts(df):
 
         plt.savefig("users_per_hashtag.png", bbox_inches="tight")
 
-    if "tags_create" in df.columns and "tags_modify" in df.columns:
+    if (
+        "tags_create" in df.columns[df.astype(bool).any()]
+        and "tags_modify" in df.columns[df.astype(bool).any()]
+    ):
         ### tag block
         # count the total number of each tag type (create/modify)
         data = defaultdict(int)
@@ -454,6 +455,7 @@ def create_charts(df):
         # ax.set_yscale("log")
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
         plt.savefig("tags.png", bbox_inches="tight")
+
 
 # Function to create profile link
 def create_profile_link(name):
