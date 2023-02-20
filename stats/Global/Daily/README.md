@@ -1,11 +1,11 @@
 ### Last Update :
 
-### Stats From 2023-02-18 00:00:00+00:00 to 2023-02-19 00:00:00+00:00
+### Stats From 2023-02-19 00:00:00+00:00 to 2023-02-20 00:00:00+00:00
 
-5046 Users made 33404 changesets with 3.2 million map changes.
-- 2.3 million OSM Elements were Created,629.0 thousand Modified & 237.4 thousand Deleted . Including 164.1 thousand buildings & 44.6 thousand highways created. Wilmer Osario tops table with 151.0 thousand changes
-- Top three trending hashtags for those stats are #TürkiyeEQ060223 : 327, #MissingMaps : 213 & #OMHAP : 212
--  & Top three countries based on no of users contributed are Germany : 827, United States of America : 494 & France : 385
+5387 Users made 36644 changesets with 3.1 million map changes.
+- 2.2 million OSM Elements were Created,706.4 thousand Modified & 222.4 thousand Deleted . Including 158.0 thousand buildings & 49.1 thousand highways created. _jcaruso tops table with 88.6 thousand changes
+- Top three trending hashtags for those stats are #TürkiyeEQ060223 : 278, #MissingMaps : 211 & #OMHAP : 210
+-  & Top three countries based on no of users contributed are Germany : 924, United States of America : 548 & France : 447
 ![Alt text](./charts/osm_changes.png) 
 ![Alt text](./charts/users_per_hashtag.png) 
 ![Alt text](./charts/users_per_country.png) 
