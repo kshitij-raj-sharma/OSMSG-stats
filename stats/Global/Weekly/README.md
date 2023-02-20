@@ -1,11 +1,11 @@
 ### Last Update :
 
-### Stats From 2023-02-04 23:14:10+00:00 to 2023-02-11 23:57:55+00:00
+### Stats From 2023-02-11 23:57:55+00:00 to 2023-02-19 00:00:00+00:00
 
-21998 Users made 321878 changesets with 32303953 map changes.
-- SherbetS_Import tops table with 1250968 changes, Followed by Solarisphere & Moreorless. Users created 21406457 nodes , 2647905 ways & 27639 relations, Including 1795041 buildings, 502830 highways, 47406 waterways. Users also modified 4307751 nodes, 1534286 ways & 59790 relations
-- Top three trending hashtags for those stats are #TürkiyeEQ060223 : 4063, #yercizenler : 3301 & #turkiye : 2489
--  & Top three countries based on no of users contributed are Turkey : 3882, Germany : 2760 & United States of America : 2125
+21248 Users made 303649 changesets with 38.9 million map changes.
+- 25.5 million OSM Elements were Created,5.5 million Modified & 7.9 million Deleted . Including 1.9 million buildings & 460.1 thousand highways created. Rawad tops table with 6.1 million changes
+- Top three trending hashtags for those stats are #TürkiyeEQ060223 : 3452, #Syria : 2015 & #OMHAP : 2015
+-  & Top three countries based on no of users contributed are Germany : 2908, Turkey : 2142 & Syrian Arab Republic : 2063
 ![Alt text](./charts/osm_changes.png) 
 ![Alt text](./charts/users_per_hashtag.png) 
 ![Alt text](./charts/users_per_country.png) 
