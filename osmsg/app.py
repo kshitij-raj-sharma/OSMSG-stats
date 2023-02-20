@@ -854,7 +854,6 @@ def main():
             deleted = df_img[["nodes.delete", "ways.delete", "relations.delete"]].sum(
                 axis=1
             )
-
             # Concatenate original DataFrame and sums DataFrame
             result_df = pd.concat(
                 [
@@ -875,6 +874,7 @@ def main():
                 "Modified",
                 "Deleted",
             ]  # Specify columns to export
+            result_df = result_df.reset_index(drop=True)
 
             dfi.export(
                 result_df[cols_to_export],
