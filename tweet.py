@@ -506,6 +506,7 @@ def main():
                 auto_populate_reply_metadata=True,
                 media_ids=[first_media.media_id],
             )
+    os.remove(first_file) # we no longer need stats as it was copied on earlier github action
 
 
 
