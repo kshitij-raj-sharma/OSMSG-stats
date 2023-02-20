@@ -404,7 +404,7 @@ def main():
     if args.tweet_last_week:
         if args.tweet_hotosm:
             orginal_tweet = api.update_status(
-                status=f"HOTOSM Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/hotosm/Weekly/weekly_stats.csv #weeklystats @hotosm #OpenStreetMap",
+                status=f"HOTOSM Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/hotosm/Weekly/weekly_stats.csv #weeklystats #gischat @hotosm #OpenStreetMap",
                 media_ids=media_ids,
             )
             thread_tweet = api.update_status(
@@ -417,7 +417,7 @@ def main():
 
         if args.tweet_global:
             orginal_tweet = api.update_status(
-                status=f"Global Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Weekly/weekly_global_stats.csv #weeklystats @OpenStreetMap #global",
+                status=f"Global Contributors Last Week\n{lstfile[1]} to {lstfile[2][:-4]}\n{summary_text}\nFull: https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/stats/Global/Weekly/weekly_global_stats.csv #weeklystats #gischat @OpenStreetMap #global",
                 media_ids=media_ids,
             )
             print(thread_summary)
