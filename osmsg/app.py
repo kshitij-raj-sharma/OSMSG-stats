@@ -900,9 +900,6 @@ def main():
         if "excel" in args.format:
             df.to_excel(f"{fname}.xlsx", index=False)
 
-        if args.charts:
-            create_charts(df)
-
         if "text" in args.format:
             text_output = df.to_markdown(tablefmt="grid", index=False)
             with open(f"{fname}.txt", "w", encoding="utf-8") as file:
@@ -910,6 +907,10 @@ def main():
                     f"Top {args.rows} User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
                 )
                 file.write(text_output)
+        if args.charts:
+            if 'geofabrik' in args.url.lower():
+                df.drop('countries', axis='columns')
+            create_charts(df)
         # Loop through the arguments
         for i in range(len(sys.argv)):
             # If the argument is '--password'

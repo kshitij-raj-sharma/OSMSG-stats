@@ -231,7 +231,7 @@ def create_charts(df):
             x_pos,
             [create_data.get(k, 0) for k in keys],
             bar_width,
-            color="b",
+            color="g",
             label="Create",
         )
         for i, bar in enumerate(bar1):
@@ -251,7 +251,7 @@ def create_charts(df):
             x_pos + bar_width,
             [modify_data.get(k, 0) for k in keys],
             bar_width,
-            color="r",
+            color="b",
             label="Modify",
         )
         for i, bar in enumerate(bar2):
