@@ -1,10 +1,10 @@
 ### Last Update :
 
-### Stats From 2023-02-19 03:06:06+05:45 to 2023-02-20 03:06:39+05:45
+### Stats From 2023-02-20 03:06:39+05:45 to 2023-02-21 03:06:18+05:45
 
-25 Users made 128 changesets with 21.4 thousand map changes.
-- 15.2 thousand OSM Elements were Created,6.2 thousand Modified & 0 Deleted . Including 1.6 thousand buildings & 58 highways created. seichter tops table with 6.7 thousand changes
-- Top three trending hashtags for those stats are #osmnepal : 5, #digitalnepal : 3 & #hotosm-project-14284 : 2
+26 Users made 107 changesets with 39.5 thousand map changes.
+- 36.2 thousand OSM Elements were Created,3.2 thousand Modified & 0 Deleted . Including 2.0 thousand buildings & 97 highways created. marek kleciak tops table with 12.2 thousand changes
+- Top three trending hashtags for those stats are #adt : 5, #MondayValidation : 5 & #Nepal : 5
 - 
 ![Alt text](./charts/osm_changes.png) 
 ![Alt text](./charts/users_per_hashtag.png) 
