@@ -88,9 +88,11 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
                     if tag in tags:
                         users[user][tag][action] += 1
         if country:
-            for ch in countries_changesets[changeset]:
-                if ch not in users[user]["hashtags"]:
-                    users[user]["hashtags"].append(ch)
+            if not hashtags:
+                for ch in countries_changesets[changeset]:
+                    if ch not in users[user]["hashtags"]:
+                        users[user]["hashtags"].append(ch)
+
 
     else:
         users[user] = {
@@ -131,7 +133,8 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
                 if tag in tags:
                     users[user][tag][action] = 1
         if country:
-            users[user]["hashtags"] = countries_changesets[changeset]
+            if not hashtags:
+                users[user]["hashtags"] = countries_changesets[changeset]
 
 
 def calculate_stats(user, uname, changeset, version, tags, osm_type):
@@ -139,8 +142,12 @@ def calculate_stats(user, uname, changeset, version, tags, osm_type):
         if (
             len(hashtag_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
-            if changeset in hashtag_changesets.keys():
-                collect_changefile_stats(
+            if country : 
+                if changeset in hashtag_changesets.keys() and changeset in countries_changesets.keys():
+                    collect_changefile_stats(user, uname, changeset, version, tags, osm_type)
+            else: 
+                if changeset in hashtag_changesets.keys(): 
+                    collect_changefile_stats(
                     user, uname, changeset, version, tags, osm_type
                 )
     elif country:
@@ -158,7 +165,6 @@ class ChangesetHandler(osmium.SimpleHandler):
         super(ChangesetHandler, self).__init__()
 
     def changeset(self, c):
-        country_check = False
         run_hashtag_check_logic = False
         if changeset and not hashtags:
             if "comment" in c.tags:
@@ -196,46 +202,37 @@ class ChangesetHandler(osmium.SimpleHandler):
                             hashtag_changesets[c.id]["hashtags"].append(hash_tag)
                     for i, row in intersected_rows.iterrows():
                         if row["name"] not in hashtag_changesets[c.id]["countries"]:
-                            if country:
-                                country_check = True
-                                if row["name"] == country:
-                                    hashtag_changesets[c.id]["countries"].append(
-                                        row["name"]
-                                    )
-                            else:
                                 hashtag_changesets[c.id]["countries"].append(
                                     row["name"]
                                 )
 
-        if not country_check:  # hash tag not supplied
-
+        if country:
             if c.bounds:
-                if country:
-                    bounds = str(c.bounds)
-                    if "invalid" not in bounds:
-                        bbox_list = bounds.strip("()").split(" ")
+                bounds = str(c.bounds)
+                if "invalid" not in bounds:
+                    bbox_list = bounds.strip("()").split(" ")
 
-                        minx, miny = bbox_list[0].split("/")
-                        maxx, maxy = bbox_list[1].split("/")
+                    minx, miny = bbox_list[0].split("/")
+                    maxx, maxy = bbox_list[1].split("/")
 
-                        bbox = box(float(minx), float(miny), float(maxx), float(maxy))
-                        # Create a point for the centroid of the bounding box
-                        centroid = bbox.centroid
-                        intersected_rows = countries_df[
-                            countries_df.intersects(centroid)
-                        ]
-                        for i, row in intersected_rows.iterrows():
+                    bbox = box(float(minx), float(miny), float(maxx), float(maxy))
+                    # Create a point for the centroid of the bounding box
+                    centroid = bbox.centroid
+                    intersected_rows = countries_df[
+                        countries_df.intersects(centroid)
+                    ]
+                    for i, row in intersected_rows.iterrows():
 
-                            if row["name"] == country:
-                                if c.id not in countries_changesets.keys():
-                                    countries_changesets[c.id] = []
-                                if "comment" in c.tags:
-                                    hashtags_comment = re.findall(
-                                        r"#[\w-]+", c.tags["comment"]
-                                    )
-                                    for tag in hashtags_comment:
-                                        if tag not in countries_changesets[c.id]:
-                                            countries_changesets[c.id].append(tag)
+                        if row["name"] == country:
+                            if c.id not in countries_changesets.keys():
+                                countries_changesets[c.id] = []
+                            if "comment" in c.tags:
+                                hashtags_comment = re.findall(
+                                    r"#[\w-]+", c.tags["comment"]
+                                )
+                                for tag in hashtags_comment:
+                                    if tag not in countries_changesets[c.id]:
+                                        countries_changesets[c.id].append(tag)
 
 
 class ChangefileHandler(osmium.SimpleHandler):
