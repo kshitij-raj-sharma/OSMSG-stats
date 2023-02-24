@@ -680,7 +680,7 @@ def main():
     if (end_date - start_date).days > 1:
         if args.hashtags or args.country:
             print(
-                "Warning : Replication for Changeset is minutely , To process more than a day data it might take a while , Use --force to ignore this warning"
+                "Warning : Replication for Changeset is minutely , To process more than a day data it might take a while, Consider supplying geofabrik country replication url for countries. Use --force to ignore this warning"
             )
             if not args.force:
                 sys.exit()
