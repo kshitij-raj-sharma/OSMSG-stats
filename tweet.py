@@ -317,22 +317,24 @@ def main():
     csv = [f for f in files if f.endswith(".csv")]
     summary_text = ""
     thread_summary = ""
-    if csv:
-        csv_file = os.path.join(os.getcwd(), csv[0])
+    csv_file = os.path.join(os.getcwd(), csv[0])
+    filename = os.path.basename(csv_file)
 
-        # read the .csv file and store it in a DataFrame
-        df = pd.read_csv(csv_file)
-        if args.tweet_nepal:
-            df = df.drop("countries", axis=1)
-        create_charts(df)
-        # Compute sums of specified columns for the entire dataframe
-        created_sum = df['nodes.create'] + df['ways.create'] + df['relations.create']
-        modified_sum = df['nodes.modify'] + df['ways.modify'] + df['relations.modify']
-        deleted_sum = df['nodes.delete'] + df['ways.delete'] + df['relations.delete']
+    lstfile = filename.split("_")
 
-        # Get the attribute of first row
-        summary_text = f"{len(df)} Users made {df['changesets'].sum()} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
-        thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created,{humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted . Including {humanize.intword(df['building.create'].sum())} buildings & {humanize.intword(df['highway.create'].sum())} highways created. {df.loc[0, 'name']} tops table with {humanize.intword(df.loc[0, 'map_changes'])} changes"
+    # read the .csv file and store it in a DataFrame
+    df = pd.read_csv(csv_file)
+    if args.tweet_nepal:
+        df = df.drop("countries", axis=1)
+    create_charts(df)
+    # Compute sums of specified columns for the entire dataframe
+    created_sum = df['nodes.create'] + df['ways.create'] + df['relations.create']
+    modified_sum = df['nodes.modify'] + df['ways.modify'] + df['relations.modify']
+    deleted_sum = df['nodes.delete'] + df['ways.delete'] + df['relations.delete']
+
+    # Get the attribute of first row
+    summary_text = f"{len(df)} Users made {df['changesets'].sum()} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
+    thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created,{humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted . Including {humanize.intword(df['building.create'].sum())} buildings & {humanize.intword(df['highway.create'].sum())} highways created. {df.loc[0, 'name']} tops table with {humanize.intword(df.loc[0, 'map_changes'])} changes"
 
     with open(f"summary.md", "a", encoding="utf-8") as file:
         file.write("\n Charts : \n")
