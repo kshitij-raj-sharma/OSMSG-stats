@@ -8,6 +8,7 @@ import re
 import shutil
 import sys
 import time
+import humanize
 from datetime import datetime
 
 import dataframe_image as dfi
@@ -19,7 +20,7 @@ from osmium.replication.server import ReplicationServer
 from shapely.geometry import box
 from tqdm import tqdm
 
-from osmsg.utils import create_charts, create_profile_link, verify_me_osm
+from osmsg.utils import create_charts, create_profile_link, verify_me_osm,sum_tags
 
 from .changefiles import (
     get_prev_hour,
@@ -346,9 +347,11 @@ def get_download_urls_changefiles(
         if "minute" in base_url:
             seq = (
                 seq + int((start_date - start_seq_time).total_seconds() / 60)
-            ) - 60  # go 1 hours ahead
-        else:
-            seq = seq - 1
+            ) - 60  # go 60 min earlier
+        elif "hour" in base_url:
+            seq = (
+                seq + int(((start_date - start_seq_time).total_seconds() / 60)/60)
+            ) - 1  # go 1 hour earlier
 
     start_seq = seq
     start_seq_url = repl.get_state_url(start_seq)
@@ -383,9 +386,9 @@ def get_download_urls_changefiles(
                     ).total_seconds()
                     / 60
                 )
-            ) + 60  # go 1 hours ahead
+            ) + 60  # go 1 hours later
         else:
-            last_seq += 1
+            last_seq += 1 # go 1 sequence later
         if last_seq >= server_seq:
             last_seq = server_seq
 
@@ -395,7 +398,7 @@ def get_download_urls_changefiles(
     )
 
     if seq >= last_seq:
-        print("Already up-to-date.")
+        print("Changefile : Already up-to-date.")
         sys.exit()
 
     download_urls = []
@@ -536,6 +539,12 @@ def main():
         "--charts",
         action="store_true",
         help="Exports Summary Charts along with stats",
+        default=False,
+    )
+    parser.add_argument(
+        "--summary",
+        action="store_true",
+        help="Produces Summary.md file with summary of Run",
         default=False,
     )
     parser.add_argument(
@@ -838,7 +847,7 @@ def main():
         fname = f"{args.name}_{start_date}_{end_date}"
         if args.exclude_date_in_name:
             fname = args.name
-        if "image" in args.format:  ### used for twitter tweet
+        if "image" in args.format:  ### image used for twitter tweet
             # Convert the DataFrame to an image
             df_img = df.head(25)
             # Compute sums of specified columns for the top 20 rows
@@ -896,14 +905,97 @@ def main():
             csv_df.to_csv(f"{fname}.csv", index=False)
         if "excel" in args.format:
             df.to_excel(f"{fname}.xlsx", index=False)
+        
+        if args.summary:
+            created_sum = df['nodes.create'] + df['ways.create'] + df['relations.create']
+            modified_sum = df['nodes.modify'] + df['ways.modify'] + df['relations.modify']
+            deleted_sum = df['nodes.delete'] + df['ways.delete'] + df['relations.delete']
+
+
+            # Get the attribute of first row
+            summary_text = f"{humanize.intword(len(df))} Users made {humanize.intword(df['changesets'].sum())} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
+            thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created, {humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted."
+            
+
+            
+            with open(f"summary.md", "w", encoding="utf-8") as file:
+                file.write(f"### Last Update : Stats from {start_date_utc} to {end_date_utc} (UTC Timezone)\n\n")
+                file.write(f"### {summary_text}\n")
+                file.write(f"### {thread_summary}\n")
+                top_users ="\nTop 5 Users are : \n"
+                for i in range(0,4 if len(df)>4 else len(df)):
+                    top_users += f"- {df.loc[i, 'name']} : {humanize.intword(df.loc[i, 'map_changes'])} Map Changes\n"
+                file.write(top_users) 
+
+                if args.tags:
+                    user_tags_summary="\nSummary of Supplied Tags\n"
+                    for user_tag in args.tags:
+                        user_tags_summary+=f"- {user_tag} = Created: {humanize.intword(df[f'{user_tag}.create'].sum())}, Modified : {humanize.intword(df[f'{user_tag}.modify'].sum())}\n"
+                    file.write(f"{user_tags_summary}\n")
+
+                if args.all_tags:
+                    # Apply the sum_tags function to the tags column
+                    tag_counts = sum_tags(df['tags_create'].tolist())
+
+                    # Sort the resulting dictionary by values and take the top three entries
+                    top_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:5]
+                    created_tags_summary = "\nTop 5 Created tags are :\n"
+                    # Print the top tags and their counts
+                    for tag, count in top_tags:
+                        created_tags_summary+=f'- {tag}: {humanize.intword(count)}\n'
+                    # Apply the sum_tags function to the tags column
+                    tag_counts = sum_tags(df['tags_modify'].tolist())
+
+                    # Sort the resulting dictionary by values and take the top three entries
+                    top_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:5]
+                    modified_tags_summary = "\nTop 5 Modified tags are :\n"
+                    # Print the top tags and their counts
+                    for tag, count in top_tags:
+                        modified_tags_summary+=f'- {tag}: {humanize.intword(count)}\n'
+                    file.write(f"{created_tags_summary}\n")
+                    file.write(f"{modified_tags_summary}\n")
+
+                if "hashtags" in df.columns[df.astype(bool).any()]:
+                    top_five = (
+                        df["hashtags"]
+                        .str.split(",")
+                        .explode()
+                        .dropna()
+                        .value_counts()
+                        .head(5)
+                    )
+                    trending_hashtags = f"\nTop 5 trending hashtags are:\n"
+                    for i in range(0,len(top_five)):
+                        if top_five.index[i].strip() !="":
+                            trending_hashtags+=f"- {top_five.index[i]} : {top_five[i]} users\n"
+                    file.write(f"{trending_hashtags}\n")
+
+                if "countries" in df.columns[df.astype(bool).any()]:
+                    top_five = (
+                        df["countries"]
+                        .str.split(",")
+                        .explode()
+                        .dropna()
+                        .value_counts()
+                        .head(5)
+                    )
+                    trending_countries = f"\nTop 5 trending Countries where user contributed are:\n"
+                    for i in range(0,len(top_five)):
+                        if top_five.index[i].strip() !="":
+                            trending_countries+=f"- {top_five.index[i]} : {top_five[i]} users\n"
+                    file.write(f"{trending_countries}\n")
+            
+                
 
         if "text" in args.format:
             text_output = df.to_markdown(tablefmt="grid", index=False)
             with open(f"{fname}.txt", "w", encoding="utf-8") as file:
                 file.write(
-                    f"Top {args.rows} User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
+                    f"User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
                 )
                 file.write(text_output)
+        
+
         if args.charts:
             if 'geofabrik' in args.url.lower():
                 df.drop('countries', axis='columns')

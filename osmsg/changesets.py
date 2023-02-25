@@ -76,12 +76,17 @@ class ChangesetToolKit:
         download_urls = []
         start_seq = self.timestamp_to_sequence(start_date)
         start_seq_time = self.sequence_to_timestamp(start_seq)
-        if (start_date - start_seq_time).days != 1:
+        if start_seq_time > start_date :
+            start_seq = (
+                    start_seq - int((start_seq_time - start_date).total_seconds() / 60)
+                ) # reduce start_seq to make it even 
+            start_seq_time = self.sequence_to_timestamp(start_seq)
+        if (start_date - start_seq_time).seconds != 15*60: 
             # difference should be a day difference to calculate accurate changeset stats
             if start_date > start_seq_time:
                 start_seq = (
                     start_seq + int((start_date - start_seq_time).total_seconds() / 60)
-                ) - 60  # go 1 hours back
+                ) - 60  # go 1 hour earlier
         if not end_date:
             current_sequence, last_run = self.get_current_state()
             end_date = last_run
@@ -96,16 +101,21 @@ class ChangesetToolKit:
             else:
                 end_seq = self.timestamp_to_sequence(end_date)
                 end_seq_time = self.sequence_to_timestamp(end_seq)
-                end_seq = (
-                    end_seq + int((end_seq_time - end_date).total_seconds() / 60)
-                ) + 60  # go 1 hours ahead
+                if end_date > end_seq_time:
+                    end_seq = (
+                            end_seq + int((end_date-end_seq_time).total_seconds() / 60)
+                        )+1 # increase end_seq to make it even
+                    end_seq_time = self.sequence_to_timestamp(end_seq)
+                if end_seq_time > end_date:
+                    end_seq = (
+                        end_seq + int((end_seq_time - end_date).total_seconds() / 60)
+                    ) + 60  # go 1 hours ahead
                 if (
                     end_seq > current_sequence
-                ):  # if it exceeds more than 6 hours keep current one
+                ):  # if it exceeds more than current seuquence
                     end_seq = current_sequence
-
         if start_seq >= end_seq:
-            print("Already up-to-date.")
+            print("Changeset : Already up-to-date.")
             sys.exit()
         initial_seq = start_seq
         print(f"Changesets: Generating Download URLS from {start_seq} to {end_seq}")

@@ -23,6 +23,7 @@
 
 import json
 import re
+import ast
 import sys
 import urllib.parse
 from collections import defaultdict
@@ -320,7 +321,7 @@ def create_charts(df):
         # Create a new dataframe with the split countries data
         new_df = split_df.to_frame().join(df[["name"]]).reset_index(drop=True)
 
-        # Group the data by country and count the number of users for each country
+        # Group the data by hashtags and count the number of users for each hashtag
         grouped = (
             new_df.groupby("hashtags")["name"].count().sort_values(ascending=False)
         )
@@ -464,3 +465,14 @@ def create_profile_link(name):
     # Create URL string
     url = f"https://www.openstreetmap.org/user/{encoded_name}"
     return url
+
+# Define a function to sum up the tag values across all rows
+def sum_tags(tags_list):
+    tag_counts = {}
+    for tags_dict in tags_list:
+        tags_dict=ast.literal_eval(tags_dict)
+        for tag, count in tags_dict.items():
+            if tag not in tag_counts:
+                tag_counts[tag] = 0
+            tag_counts[tag] += count
+    return tag_counts
