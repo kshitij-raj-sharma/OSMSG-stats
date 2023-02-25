@@ -63,7 +63,7 @@ jobs:
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_hotosm --tweet_last_day --git $commit_id
           
-          mv summary.md $base_dir/README.md
+          sudo mv summary.md $base_dir/README.md
           
           git add -f $base_dir/README.md
           git commit -m "Updated Readme Daily Hotosm"
