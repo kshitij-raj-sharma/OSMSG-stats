@@ -36,7 +36,6 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           base_dir=stats/smforst/Daily
-          mkdir -p $base_dir/Readme.md
           mkdir -p $base_dir/charts/
           
           cp *.csv $base_dir/daily_stats.csv
