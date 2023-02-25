@@ -904,7 +904,21 @@ def main():
 
             csv_df.to_csv(f"{fname}.csv", index=False)
         if "excel" in args.format:
-            df.to_excel(f"{fname}.xlsx", index=False)
+            df.to_excel(f"{fname}.xlsx", index=False)        
+
+        if "text" in args.format:
+            text_output = df.to_markdown(tablefmt="grid", index=False)
+            with open(f"{fname}.txt", "w", encoding="utf-8") as file:
+                file.write(
+                    f"User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
+                )
+                file.write(text_output)
+        
+
+        if args.charts:
+            if 'geofabrik' in args.url.lower():
+                df.drop('countries', axis='columns')
+            create_charts(df)
         
         if args.summary:
             created_sum = df['nodes.create'] + df['ways.create'] + df['relations.create']
@@ -923,7 +937,9 @@ def main():
                 file.write(f"#### {summary_text}\n")
                 file.write(f"#### {thread_summary}\n")
                 top_users ="\nTop 5 Users are : \n"
-                for i in range(0,4 if len(df)>4 else len(df)):
+                # set rank column as index
+                df.set_index('rank', inplace=True)
+                for i in range(0,5 if len(df)>5 else len(df)):
                     top_users += f"- {df.loc[i, 'name']} : {humanize.intword(df.loc[i, 'map_changes'])} Map Changes\n"
                 file.write(top_users) 
 
@@ -987,22 +1003,6 @@ def main():
                         if top_five.index[i].strip() !="":
                             trending_countries+=f"- {top_five.index[i]} : {top_five[i]} users\n"
                     file.write(f"{trending_countries}\n")
-            
-                
-
-        if "text" in args.format:
-            text_output = df.to_markdown(tablefmt="grid", index=False)
-            with open(f"{fname}.txt", "w", encoding="utf-8") as file:
-                file.write(
-                    f"User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
-                )
-                file.write(text_output)
-        
-
-        if args.charts:
-            if 'geofabrik' in args.url.lower():
-                df.drop('countries', axis='columns')
-            create_charts(df)
         # Loop through the arguments
         for i in range(len(sys.argv)):
             # If the argument is '--password'
