@@ -47,7 +47,7 @@ jobs:
           git add -f $base_dir/daily_stats.csv
           git add -f $base_dir/stats_metadata.json
           git add -f $base_dir/charts/
-          git add -f $base_dir/Readme.md
+          git add -f $base_dir/README.md
 
           git commit -m "Updated Daily hotosm stats"
           git push
