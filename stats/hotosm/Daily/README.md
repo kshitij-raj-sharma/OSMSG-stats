@@ -10,6 +10,7 @@ Top 5 Users are :
 - Md Aminul Islam 25 : 539 Map Changes
 
 Summary of Supplied Tags
+- poi = Created: 145, Modified : 177
 - building = Created: 78.7 thousand, Modified : 7.7 thousand
 - highway = Created: 3.9 thousand, Modified : 4.2 thousand
 - waterway = Created: 144, Modified : 149
