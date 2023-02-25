@@ -875,7 +875,7 @@ def main():
 
             dfi.export(
                 result_df[cols_to_export],
-                f"{fname}.png",
+                "top_users.png",
                 max_cols=-1,
                 max_rows=-1,
             )

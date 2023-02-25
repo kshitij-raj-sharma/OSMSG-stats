@@ -312,8 +312,7 @@ def main():
     api = tweepy.API(auth)
 
     files = os.listdir(os.getcwd())
-    png_files = [f for f in files if f.endswith(".png")]
-    first_file = os.path.join(os.getcwd(), png_files[0])
+    first_file = os.path.join(os.getcwd(), 'top_users.png')
 
     csv = [f for f in files if f.endswith(".csv")]
     summary_text = ""
@@ -393,7 +392,7 @@ def main():
     media_ids = []
 
     chart_png_files = [
-        f for f in all_files if f.endswith(".png") and not f.startswith("stats")
+        f for f in all_files if f.endswith(".png") and not f.startswith("top_user")
     ]
     for chart in chart_png_files:
         file_path = os.path.join(os.getcwd(), chart)
