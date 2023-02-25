@@ -927,11 +927,11 @@ def main():
                     top_users += f"- {df.loc[i, 'name']} : {humanize.intword(df.loc[i, 'map_changes'])} Map Changes\n"
                 file.write(top_users) 
 
-                
                 user_tags_summary="\nSummary of Supplied Tags\n"
-                user_tag='poi'
-                users_tags_summary+=f"- {user_tag} = Created: {humanize.intword(df[f'{user_tag}.create'].sum())}, Modified : {humanize.intword(df[f'{user_tag}.modify'].sum())}\n"
-                if args.tags:    
+                user_tag = 'poi'
+                user_tags_summary+=f"- {user_tag} = Created: {humanize.intword(df[f'{user_tag}.create'].sum())}, Modified : {humanize.intword(df[f'{user_tag}.modify'].sum())}\n"
+
+                if args.tags:
                     for user_tag in args.tags:
                         user_tags_summary+=f"- {user_tag} = Created: {humanize.intword(df[f'{user_tag}.create'].sum())}, Modified : {humanize.intword(df[f'{user_tag}.modify'].sum())}\n"
                 file.write(f"{user_tags_summary}\n")
