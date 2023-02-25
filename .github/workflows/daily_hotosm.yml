@@ -35,16 +35,19 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          cp *.csv stats/hotosm/Daily/daily_stats.csv
-          cp *.md stats/hotosm/Daily/README.md
+          
+          base_dir=stats/hotosm/Daily
+          mkdir -p $base_dir/charts/
 
-          cp *.png stats/hotosm/Daily/charts/top_users.png
-          cp stats_metadata.json stats/hotosm/Daily/stats_metadata.json
+          cp *.csv $base_dir/daily_stats.csv
+          cp *.png $base_dir/charts/
+          cp summary.md $base_dir/README.md
+          cp stats_metadata.json $base_dir/stats_metadata.json
 
-          git add -f stats/hotosm/Daily/daily_stats.csv
-          git add -f stats/hotosm/Daily/stats_metadata.json
-          git add -f stats/hotosm/Daily/charts/top_users.png
-          git add -f stats/hotosm/Daily/README.md
+          git add -f $base_dir/daily_stats.csv
+          git add -f $base_dir/stats_metadata.json
+          git add -f $base_dir/charts/
+          git add -f $base_dir/Readme.md
 
           git commit -m "Updated Daily hotosm stats"
           git push
@@ -59,9 +62,9 @@ jobs:
         run: |
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_hotosm --tweet_last_day --git $commit_id
-          mv summary.md stats/hotosm/Daily/README.md
-          mv *.png stats/hotosm/Daily/charts/
-          git add -f stats/hotosm/Daily/README.md
-          git add -f stats/hotosm/Daily/charts/
+          
+          mv summary.md $base_dir/README.md
+          
+          git add -f $base_dir/README.md
           git commit -m "Updated Readme Daily Hotosm"
           git push

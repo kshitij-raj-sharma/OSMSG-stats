@@ -920,8 +920,8 @@ def main():
             
             with open(f"summary.md", "w", encoding="utf-8") as file:
                 file.write(f"### Last Update : Stats from {start_date_utc} to {end_date_utc} (UTC Timezone)\n\n")
-                file.write(f"### {summary_text}\n")
-                file.write(f"### {thread_summary}\n")
+                file.write(f"#### {summary_text}\n")
+                file.write(f"#### {thread_summary}\n")
                 top_users ="\nTop 5 Users are : \n"
                 for i in range(0,4 if len(df)>4 else len(df)):
                     top_users += f"- {df.loc[i, 'name']} : {humanize.intword(df.loc[i, 'map_changes'])} Map Changes\n"
