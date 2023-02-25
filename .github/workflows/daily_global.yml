@@ -2,9 +2,9 @@ name: Run Daily Report Global
 on:
   schedule:
     - cron: "0 5 * * *" # Run every day at 5 UTC
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/Global/Daily/stats_metadata.json --changeset
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/Global/Daily/stats_metadata.json --changeset --summary
 
       - name: add stats to git
 
@@ -40,11 +40,14 @@ jobs:
           git config --global user.name "kshitijrajsharma"
           cp *.csv stats/Global/Daily/daily_global_stats.csv
           cp *.png stats/Global/Daily/charts/top_users.png
+          cp summary.md stats/Global/Daily/README.md
           cp stats_metadata.json stats/Global/Daily/stats_metadata.json
 
           git add -f stats/Global/Daily/daily_global_stats.csv
           git add -f stats/Global/Daily/stats_metadata.json
           git add -f stats/Global/Daily/charts/top_users.png
+          git add -f stats/Global/Daily/README.md
+
           
           git commit -m "Updated Daily global stats"
           git push
@@ -59,7 +62,7 @@ jobs:
         run: |
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_day --tweet_global --git $commit_id
-          mv meta.md stats/Global/Daily/README.md
+          mv summary.md stats/Global/Daily/README.md
           mv *.png stats/Global/Daily/charts/
           git add -f stats/Global/Daily/README.md
           git add -f stats/Global/Daily/charts/

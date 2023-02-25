@@ -330,51 +330,12 @@ def main():
         modified_sum = df['nodes.modify'] + df['ways.modify'] + df['relations.modify']
         deleted_sum = df['nodes.delete'] + df['ways.delete'] + df['relations.delete']
 
-
         # Get the attribute of first row
         summary_text = f"{len(df)} Users made {df['changesets'].sum()} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
         thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created,{humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted . Including {humanize.intword(df['building.create'].sum())} buildings & {humanize.intword(df['highway.create'].sum())} highways created. {df.loc[0, 'name']} tops table with {humanize.intword(df.loc[0, 'map_changes'])} changes"
 
-        trending_countries = ""
-        trending_hashtags = ""
-        # Check if the 'hashtags' column exists in the dataframe
-        if "hashtags" in df.columns:
-            # Use value_counts on the result of str.split and then use head(3) to get the top three most frequent elements
-            if args.tweet_hotosm:
-                top_three = df["hashtags"].str.split(",").explode().dropna()
-                top_three = (
-                    top_three[top_three.str.contains("hotosm")].value_counts().head(3)
-                )
-            else:
-                top_three = (
-                    df["hashtags"]
-                    .str.split(",")
-                    .explode()
-                    .dropna()
-                    .value_counts()
-                    .head(3)
-                )
-
-            # Format the output as a string
-            trending_hashtags = f"Top three trending hashtags for those stats are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
-        if not args.tweet_nepal:
-            if "countries" in df.columns:
-                top_three = (
-                    df["countries"].str.split(",").explode().value_counts().head(3)
-                )
-                trending_countries = f" & Top three countries based on no of users contributed are {top_three.index[0]} : {top_three[0]}, {top_three.index[1]} : {top_three[1]} & {top_three.index[2]} : {top_three[2]}"
-
-    filename = os.path.basename(first_file)
-
-    lstfile = filename.split("_")
-
-    with open(f"meta.md", "w", encoding="utf-8") as file:
-        file.write(f"### Last Update :\n\n")
-        file.write(f"### Stats From {lstfile[1]} to {lstfile[2][:-4]}\n\n")
-        file.write(f"{summary_text}\n")
-        file.write(f"- {thread_summary}\n")
-        file.write(f"- {trending_hashtags}\n")
-        file.write(f"- {trending_countries}\n")
+    with open(f"summary.md", "a", encoding="utf-8") as file:
+        file.write("\n Charts : \n")
         file.write("![Alt text](./charts/osm_changes.png) \n")
         file.write("![Alt text](./charts/users_per_hashtag.png) \n")
         file.write("![Alt text](./charts/users_per_country.png) \n")
