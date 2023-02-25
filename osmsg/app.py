@@ -939,7 +939,7 @@ def main():
                 top_users ="\nTop 5 Users are : \n"
                 # set rank column as index
                 df.set_index('rank', inplace=True)
-                for i in range(0,5 if len(df)>5 else len(df)):
+                for i in range(1,6 if len(df)>6 else len(df)):
                     top_users += f"- {df.loc[i, 'name']} : {humanize.intword(df.loc[i, 'map_changes'])} Map Changes\n"
                 file.write(top_users) 
 
