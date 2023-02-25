@@ -1,10 +1,10 @@
 name: Run Daily Report smforst Hashtag
 on:
   schedule:
-    - cron: "0 5 * * *" # Run every day at 6 UTC
-  push:
-    branches:
-      - master
+    - cron: "0 5 * * *" # Run every day at 5 UTC
+  # push:
+  #   branches:
+  #     - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -36,7 +36,7 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           base_dir=stats/smforst/Daily
-          mkdir -p $base_dir
+          mkdir -p $base_dir/charts/
 
           cp *.csv $base_dir/daily_stats.csv
           cp *.png $base_dir/charts/
