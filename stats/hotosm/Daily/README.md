@@ -1,12 +1,49 @@
-### Last Update :
+### Last Update : Stats from 2023-02-24 00:00:00+00:00 to 2023-02-25 00:00:00+00:00 (UTC Timezone)
 
-### Stats From 2023-02-23 00:00:00+00:00 to 2023-02-24 00:00:00+00:00
+#### 558 Users made 5.2 thousand changesets with 741.0 thousand map changes.
+#### 528.4 thousand OSM Elements were Created, 161.3 thousand Modified & 51.2 thousand Deleted.
 
-866 Users made 6063 changesets with 803.8 thousand map changes.
-- 633.1 thousand OSM Elements were Created,122.3 thousand Modified & 48.4 thousand Deleted . Including 86.9 thousand buildings & 5.7 thousand highways created. Roselyn Peralta tops table with 24.0 thousand changes
-- Top three trending hashtags for those stats are #hotosm-project-14233 : 160, #hotosm-project-14232 : 128 & #hotosm-project-14264 : 64
--  & Top three countries based on no of users contributed are Turkey : 293, Syrian Arab Republic : 218 & El Salvador : 162
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
+Top 5 Users are : 
+- jwalseth : 2.7 thousand Map Changes
+- andraina : 436 Map Changes
+- Narindra Fidintsoa : 4.2 thousand Map Changes
+- Md Aminul Islam 25 : 539 Map Changes
+
+Summary of Supplied Tags
+- building = Created: 78.7 thousand, Modified : 7.7 thousand
+- highway = Created: 3.9 thousand, Modified : 4.2 thousand
+- waterway = Created: 144, Modified : 149
+- amenity = Created: 114, Modified : 253
+
+
+Top 5 Created tags are :
+- building: 78.7 thousand
+- source: 12.0 thousand
+- highway: 3.9 thousand
+- natural: 429
+- layer: 237
+
+
+Top 5 Modified tags are :
+- building: 7.7 thousand
+- highway: 4.2 thousand
+- source: 2.3 thousand
+- name: 730
+- surface: 467
+
+
+Top 5 trending hashtags are:
+- #TürkiyeEQ060223 : 304 users
+- #MissingMaps : 181 users
+- #OMHAP : 179 users
+- #Syria : 179 users
+- #AKDN : 147 users
+
+
+Top 5 trending Countries where user contributed are:
+- Syrian Arab Republic : 176 users
+- Turkey : 152 users
+- Brazil : 53 users
+- Kenya : 40 users
+- United Republic of Tanzania : 27 users
+
