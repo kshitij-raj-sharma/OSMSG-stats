@@ -38,12 +38,12 @@ jobs:
           base_dir=stats/smforst/Daily
           mkdir -p $base_dir/charts/
           
-          cp *.csv $base_dir/daily_stats.csv
+          cp *.csv $base_dir/stats.csv
           cp *.png $base_dir/charts/
           mv summary.md $base_dir/Readme.md
           cp stats_metadata.json $base_dir/stats_metadata.json
 
-          git add -f $base_dir/daily_stats.csv
+          git add -f $base_dir/stats.csv
           git add -f $base_dir/stats_metadata.json
           git add -f $base_dir/charts/
           git add -f $base_dir/Readme.md

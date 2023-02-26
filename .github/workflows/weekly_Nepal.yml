@@ -31,7 +31,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --all_tags --changeset
+          osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --all_tags --changeset --charts --summary
         # run: |
         #   osmsg --url "https://planet.openstreetmap.org/replication/day" --format image csv --tags building highway waterway amenity --name stats --all_tags --last_week --country Nepal --name stats --read_from_metadata stats/Nepal/Weekly/stats_metadata.json --force
 
@@ -41,14 +41,18 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          cp *.csv stats/Nepal/Weekly/weekly_nepal_stats.csv
-          cp *.png stats/Nepal/Weekly/charts/top_users.png
-          cp stats_metadata.json stats/Nepal/Weekly/stats_metadata.json
+          base_dir=stats/Nepal/Weekly
+          mkdir -p $base_dir/charts/
 
-          git add -f stats/Nepal/Weekly/weekly_nepal_stats.csv
-          git add -f stats/Nepal/Weekly/stats_metadata.json
-          git add -f stats/Nepal/Weekly/charts/top_users.png
+          cp *.csv $base_dir/stats.csv
+          cp *.png $base_dir/charts/
+          cp summary.md $base_dir/README.md
+          cp stats_metadata.json $base_dir/stats_metadata.json
 
+          git add -f $base_dir/stats.csv
+          git add -f $base_dir/stats_metadata.json
+          git add -f $base_dir/charts/
+          git add -f $base_dir/README.md
 
           git commit -m "Updated Weekly Nepal Stats"
           git push
@@ -61,11 +65,13 @@ jobs:
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
+          base_dir=stats/Nepal/Weekly
+          
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_week  --tweet_nepal --git $commit_id
-          mv meta.md stats/Nepal/Weekly/README.md
-          mv *.png stats/Nepal/Weekly/charts/
-          git add -f stats/Nepal/Weekly/README.md
-          git add -f stats/hotosm/Weekly/charts/
+          
+          sudo mv summary.md $base_dir/README.md
+          
+          git add -f $base_dir/README.md
           git commit -m "Updated Readme Weekly Nepal"
           git push

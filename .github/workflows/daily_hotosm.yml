@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate Daily Hashtag Stats
         run: |
-          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/hotosm/Daily/stats_metadata.json --hashtags hotosm --summary
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/hotosm/Daily/stats_metadata.json --hashtags hotosm --summary --charts
 
       - name: add stats to git
 
@@ -39,12 +39,12 @@ jobs:
           base_dir=stats/hotosm/Daily
           mkdir -p $base_dir/charts/
 
-          cp *.csv $base_dir/daily_stats.csv
+          cp *.csv $base_dir/stats.csv
           cp *.png $base_dir/charts/
           cp summary.md $base_dir/README.md
           cp stats_metadata.json $base_dir/stats_metadata.json
 
-          git add -f $base_dir/daily_stats.csv
+          git add -f $base_dir/stats.csv
           git add -f $base_dir/stats_metadata.json
           git add -f $base_dir/charts/
           git add -f $base_dir/README.md

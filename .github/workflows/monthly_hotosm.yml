@@ -1,7 +1,7 @@
-name: Run Weekly Report Hotosm Hashtag
+name: Run Monthly Report Hotosm Hashtag
 on:
   schedule:
-    - cron: "0 2 * * MON" # Run every Monday at 2
+    - cron: "0 3 1 * *" # Run every Month day 1 03
   # push:
   #   branches:
   #     - master
@@ -25,7 +25,7 @@ jobs:
           pip install tweepy
           pip install -r requirements.txt
 
-      - name: Generate Weekly Hashtag Stats
+      - name: Generate Monthly Hashtag Stats
         run: |
           osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/hotosm/Weekly/stats_metadata.json --hashtags hotosm --force --charts --summary
 
@@ -36,7 +36,7 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           
-          base_dir=stats/hotosm/Weekly
+          base_dir=stats/hotosm/Monthly
           mkdir -p $base_dir/charts/
 
           cp *.csv $base_dir/stats.csv
@@ -49,7 +49,7 @@ jobs:
           git add -f $base_dir/charts/
           git add -f $base_dir/README.md
 
-          git commit -m "Updated Weekly hotosm stats"
+          git commit -m "Updated Monthly hotosm stats"
           git push
 
       - name: Tweet Stats
@@ -61,12 +61,12 @@ jobs:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --tweet_hotosm --tweet_last_week --git $commit_id
-          base_dir=stats/hotosm/Weekly
+          python tweet.py --tweet_hotosm --tweet_last_month --git $commit_id
+          base_dir=stats/hotosm/Monthly
 
           sudo mv summary.md $base_dir/README.md
           
           git add -f $base_dir/README.md
           
-          git commit -m "Updated Readme Weekly Hotosm"
+          git commit -m "Updated Readme Monthly Hotosm"
           git push
