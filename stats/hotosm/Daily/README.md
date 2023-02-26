@@ -1,56 +1,51 @@
-### Last Update : Stats from 2023-02-24 00:00:00+00:00 to 2023-02-25 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-02-25 00:00:00+00:00 to 2023-02-26 00:00:00+00:00 (UTC Timezone)
 
-#### 558 Users made 5.2 thousand changesets with 741.0 thousand map changes.
-#### 528.4 thousand OSM Elements were Created, 161.3 thousand Modified & 51.2 thousand Deleted.
+#### 311 Users made 3.3 thousand changesets with 347.9 thousand map changes.
+#### 259.3 thousand OSM Elements were Created, 64.8 thousand Modified & 23.8 thousand Deleted.
 
 Top 5 Users are : 
-- jwalseth : 2.7 thousand Map Changes
-- andraina : 436 Map Changes
-- Narindra Fidintsoa : 4.2 thousand Map Changes
-- Md Aminul Islam 25 : 539 Map Changes
+- Landry03 : 9.4 thousand Map Changes
+- Frans S : 8.1 thousand Map Changes
+- jwalseth : 7.9 thousand Map Changes
+- mrt_ortncl : 7.6 thousand Map Changes
+- TeBaMa : 7.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 145, Modified : 177
-- building = Created: 78.7 thousand, Modified : 7.7 thousand
-- highway = Created: 3.9 thousand, Modified : 4.2 thousand
-- waterway = Created: 144, Modified : 149
-- amenity = Created: 114, Modified : 253
+- poi = Created: 467, Modified : 282
+- building = Created: 36.8 thousand, Modified : 2.8 thousand
+- highway = Created: 2.0 thousand, Modified : 2.3 thousand
+- waterway = Created: 116, Modified : 73
+- amenity = Created: 415, Modified : 198
 
 
 Top 5 Created tags are :
-- building: 78.7 thousand
-- source: 12.0 thousand
-- highway: 3.9 thousand
-- natural: 429
-- layer: 237
+- building: 36.8 thousand
+- source: 3.1 thousand
+- highway: 2.0 thousand
+- name: 452
+- fixme: 428
 
 
 Top 5 Modified tags are :
-- building: 7.7 thousand
-- highway: 4.2 thousand
-- source: 2.3 thousand
-- name: 730
-- surface: 467
+- building: 2.8 thousand
+- highway: 2.3 thousand
+- source: 1.1 thousand
+- name: 446
+- surface: 384
 
 
 Top 5 trending hashtags are:
-- #TürkiyeEQ060223 : 304 users
-- #MissingMaps : 181 users
-- #OMHAP : 179 users
-- #Syria : 179 users
-- #AKDN : 147 users
+- #TürkiyeEQ060223 : 178 users
+- #MissingMaps : 110 users
+- #Syria : 106 users
+- #OMHAP : 106 users
+- #AKDN : 86 users
 
 
 Top 5 trending Countries where user contributed are:
-- Syrian Arab Republic : 176 users
-- Turkey : 152 users
-- Brazil : 53 users
-- Kenya : 40 users
-- United Republic of Tanzania : 27 users
+- Syrian Arab Republic : 108 users
+- Turkey : 91 users
+- Brazil : 23 users
+- Kenya : 15 users
+- Ethiopia : 12 users
 
-
- Charts : 
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
