@@ -1,46 +1,48 @@
-### Last Update : Stats from 2023-02-24 00:00:00+00:00 to 2023-02-25 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-02-25 00:00:00+00:00 to 2023-02-26 00:00:00+00:00 (UTC Timezone)
 
-### 23 Users made 208 changesets with 32.5 thousand map changes.
-### 23.6 thousand OSM Elements were Created, 8.2 thousand Modified & 673 Deleted.
+#### 20 Users made 699 changesets with 20.9 thousand map changes.
+#### 17.9 thousand OSM Elements were Created, 2.7 thousand Modified & 270 Deleted.
 
 Top 5 Users are : 
-- Md Aminul Islam 25 : 539 Map Changes
-- SushmaGhimire : 249 Map Changes
-- Ashim Paudel : 1.0 thousand Map Changes
-- Shahriar Hassan : 1.6 thousand Map Changes
+- Jarin Fardous : 4.4 thousand Map Changes
+- Mag'ladroth : 2.7 thousand Map Changes
+- Yhogen Julve : 2.5 thousand Map Changes
+- shashish : 1.8 thousand Map Changes
+- Rabin Ojha : 1.7 thousand Map Changes
 
 Summary of Supplied Tags
-- building = Created: 3.6 thousand, Modified : 282
-- highway = Created: 172, Modified : 199
-- waterway = Created: 4, Modified : 14
-- amenity = Created: 15, Modified : 48
+- poi = Created: 320, Modified : 151
+- building = Created: 2.6 thousand, Modified : 87
+- highway = Created: 279, Modified : 156
+- waterway = Created: 2, Modified : 0
+- amenity = Created: 302, Modified : 152
 
 
 Top 5 Created tags are :
-- building: 3.6 thousand
-- source: 484
-- highway: 172
-- amenity: 15
-- addr:district: 12
+- building: 2.6 thousand
+- check_date: 323
+- fixme: 323
+- name: 323
+- note: 323
 
 
 Top 5 Modified tags are :
-- building: 282
-- highway: 199
-- source: 128
-- amenity: 48
-- landuse: 31
+- name: 160
+- highway: 156
+- amenity: 152
+- healthcare: 148
+- phone: 140
 
 
 Top 5 trending hashtags are:
-- #TürkiyeEQ060223 : 23 users
-- #SMforST2023 : 22 users
-- #MissingMaps : 19 users
-- #Syria : 19 users
-- #OMHAP : 19 users
+- #SMforST2023 : 18 users
+- #TürkiyeEQ060223 : 18 users
+- #Syria : 14 users
+- #OMHAP : 14 users
+- #MissingMaps : 14 users
 
 
 Top 5 trending Countries where user contributed are:
-- Syrian Arab Republic : 18 users
-- Turkey : 8 users
+- Syrian Arab Republic : 15 users
+- Turkey : 7 users
 
