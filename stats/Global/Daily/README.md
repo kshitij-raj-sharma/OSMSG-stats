@@ -1,56 +1,50 @@
-### Last Update : Stats from 2023-02-25 00:00:00+00:00 to 2023-02-26 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-02-26 00:00:00+00:00 to 2023-02-27 00:00:00+00:00 (UTC Timezone)
 
-#### 5.1 thousand Users made 36.6 thousand changesets with 2.8 million map changes.
-#### 2.0 million OSM Elements were Created, 582.2 thousand Modified & 191.6 thousand Deleted.
+#### 5.1 thousand Users made 36.9 thousand changesets with 3.1 million map changes.
+#### 2.0 million OSM Elements were Created, 647.8 thousand Modified & 438.2 thousand Deleted.
 
 Top 5 Users are : 
-- _jcaruso : 52.9 thousand Map Changes
-- FOSStreetMap : 49.4 thousand Map Changes
-- JaLooooNz : 33.6 thousand Map Changes
-- Ydel - Imports : 25.6 thousand Map Changes
-- chlenix : 20.0 thousand Map Changes
+- potomatosm : 243.1 thousand Map Changes
+- DannyMcD : 40.5 thousand Map Changes
+- rabeyroux : 37.9 thousand Map Changes
+- FOSStreetMap : 36.9 thousand Map Changes
+- VARVAR8 : 25.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 52.2 thousand, Modified : 44.2 thousand
-- building = Created: 133.8 thousand, Modified : 55.9 thousand
-- highway = Created: 45.9 thousand, Modified : 100.4 thousand
-- waterway = Created: 4.9 thousand, Modified : 3.7 thousand
-- amenity = Created: 9.1 thousand, Modified : 9.6 thousand
+- poi = Created: 60.8 thousand, Modified : 56.0 thousand
+- building = Created: 125.5 thousand, Modified : 57.0 thousand
+- highway = Created: 49.7 thousand, Modified : 118.0 thousand
+- waterway = Created: 9.4 thousand, Modified : 3.7 thousand
+- amenity = Created: 11.9 thousand, Modified : 12.2 thousand
 
 
 Top 5 Created tags are :
-- building: 133.8 thousand
-- highway: 45.9 thousand
-- source: 42.7 thousand
-- natural: 19.1 thousand
-- addr:housenumber: 17.7 thousand
+- building: 125.5 thousand
+- highway: 49.7 thousand
+- source: 46.3 thousand
+- addr:housenumber: 21.3 thousand
+- natural: 20.3 thousand
 
 
 Top 5 Modified tags are :
-- highway: 100.4 thousand
-- name: 75.9 thousand
-- building: 55.9 thousand
-- surface: 46.6 thousand
-- addr:housenumber: 43.5 thousand
+- highway: 118.0 thousand
+- name: 96.2 thousand
+- building: 57.0 thousand
+- surface: 56.1 thousand
+- source: 45.2 thousand
 
 
 Top 5 trending hashtags are:
-- #TürkiyeEQ060223 : 178 users
-- #MissingMaps : 110 users
-- #OMHAP : 106 users
-- #Syria : 106 users
+- #TürkiyeEQ060223 : 145 users
+- #MissingMaps : 79 users
+- #OMHAP : 77 users
+- #Syria : 77 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 812 users
-- United States of America : 516 users
-- France : 390 users
-- U.K. of Great Britain and Northern Ireland : 237 users
-- Italy : 218 users
+- Germany : 835 users
+- United States of America : 514 users
+- France : 414 users
+- U.K. of Great Britain and Northern Ireland : 226 users
+- Italy : 219 users
 
-
- Charts : 
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
