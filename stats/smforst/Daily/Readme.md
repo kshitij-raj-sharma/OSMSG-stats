@@ -1,48 +1,48 @@
-### Last Update : Stats from 2023-02-25 00:00:00+00:00 to 2023-02-26 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-02-26 00:00:00+00:00 to 2023-02-27 00:00:00+00:00 (UTC Timezone)
 
-#### 20 Users made 699 changesets with 20.9 thousand map changes.
-#### 17.9 thousand OSM Elements were Created, 2.7 thousand Modified & 270 Deleted.
+#### 13 Users made 622 changesets with 27.9 thousand map changes.
+#### 19.5 thousand OSM Elements were Created, 7.6 thousand Modified & 808 Deleted.
 
 Top 5 Users are : 
-- Jarin Fardous : 4.4 thousand Map Changes
-- Mag'ladroth : 2.7 thousand Map Changes
-- Yhogen Julve : 2.5 thousand Map Changes
-- shashish : 1.8 thousand Map Changes
-- Rabin Ojha : 1.7 thousand Map Changes
+- Manoj Thapa : 8.0 thousand Map Changes
+- Rafiq Haidari : 5.5 thousand Map Changes
+- Dibikshya Shrestha : 4.5 thousand Map Changes
+- Gaurav Parajuli : 2.4 thousand Map Changes
+- AayushChand123 : 1.8 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 320, Modified : 151
-- building = Created: 2.6 thousand, Modified : 87
-- highway = Created: 279, Modified : 156
-- waterway = Created: 2, Modified : 0
-- amenity = Created: 302, Modified : 152
+- poi = Created: 451, Modified : 83
+- building = Created: 2.9 thousand, Modified : 137
+- highway = Created: 60, Modified : 201
+- waterway = Created: 1, Modified : 3
+- amenity = Created: 242, Modified : 71
 
 
 Top 5 Created tags are :
-- building: 2.6 thousand
-- check_date: 323
-- fixme: 323
-- name: 323
-- note: 323
+- building: 2.9 thousand
+- source: 453
+- name: 452
+- addr:district: 451
+- check_date: 451
 
 
 Top 5 Modified tags are :
-- name: 160
-- highway: 156
-- amenity: 152
-- healthcare: 148
-- phone: 140
+- highway: 201
+- source: 185
+- building: 137
+- name: 89
+- addr:district: 80
 
 
 Top 5 trending hashtags are:
-- #SMforST2023 : 18 users
-- #TürkiyeEQ060223 : 18 users
-- #Syria : 14 users
-- #OMHAP : 14 users
-- #MissingMaps : 14 users
+- #TürkiyeEQ060223 : 13 users
+- #SMforST2023 : 12 users
+- #Syria : 7 users
+- #AKDN : 7 users
+- #OMHAP : 7 users
 
 
 Top 5 trending Countries where user contributed are:
-- Syrian Arab Republic : 15 users
-- Turkey : 7 users
+- Syrian Arab Republic : 7 users
+- Turkey : 6 users
 
