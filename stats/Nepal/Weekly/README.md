@@ -1,12 +1,49 @@
-### Last Update :
+### Last Update : Stats from 2023-02-19 00:00:00+00:00 to 2023-02-26 00:00:00+00:00 (UTC Timezone)
 
-### Stats From 2023-02-12 00:00:00+00:00 to 2023-02-19 00:00:00+00:00
+#### 96 Users made 932 changesets with 224.2 thousand map changes.
+#### 175.7 thousand OSM Elements were Created, 48.2 thousand Modified & 320 Deleted.
 
-142 Users made 1214 changesets with 219.8 thousand map changes.
-- 179.6 thousand OSM Elements were Created,39.4 thousand Modified & 847 Deleted . Including 20.8 thousand buildings & 727 highways created. Nirmala Rawat tops table with 48.0 thousand changes
-- Top three trending hashtags for those stats are #osmnepal : 29, #digitalnepal : 23 & #hotosm-project-14284 : 18
-- 
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
+Top 5 Users are : 
+- Anil Basnet : 44.1 thousand Map Changes
+- marek kleciak : 36.6 thousand Map Changes
+- Lalit_IAAS : 36.1 thousand Map Changes
+- seichter : 22.9 thousand Map Changes
+- Nirmala Rawat : 17.0 thousand Map Changes
+
+Summary of Supplied Tags
+- poi = Created: 258, Modified : 185
+- building = Created: 14.2 thousand, Modified : 583
+- highway = Created: 708, Modified : 1.4 thousand
+- waterway = Created: 51, Modified : 118
+- amenity = Created: 23, Modified : 87
+
+
+Top 5 Created tags are :
+- building: 14.2 thousand
+- highway: 708
+- natural: 511
+- landuse: 329
+- name: 206
+
+
+Top 5 Modified tags are :
+- highway: 1.4 thousand
+- building: 583
+- surface: 325
+- name: 312
+- natural: 208
+
+
+Top 5 trending hashtags are:
+- #dmd : 14 users
+- #OSMNepal : 12 users
+- #hotosm-project-14310 : 11 users
+- #EPFL : 11 users
+
+
+Top 5 trending Countries where user contributed are:
+- Nepal : 88 users
+- India : 2 users
+- Sudan : 1 users
+- China : 1 users
+
