@@ -21,9 +21,12 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import json
-import re
 import ast
+import gzip
+import json
+import os
+import re
+import shutil
 import sys
 import urllib.parse
 from collections import defaultdict
@@ -466,13 +469,53 @@ def create_profile_link(name):
     url = f"https://www.openstreetmap.org/user/{encoded_name}"
     return url
 
+
 # Define a function to sum up the tag values across all rows
 def sum_tags(tags_list):
     tag_counts = {}
     for tags_dict in tags_list:
-        tags_dict=ast.literal_eval(tags_dict)
+        tags_dict = ast.literal_eval(tags_dict)
         for tag, count in tags_dict.items():
             if tag not in tag_counts:
                 tag_counts[tag] = 0
             tag_counts[tag] += count
     return tag_counts
+
+
+def get_file_path_from_url(url, mode):
+    url_splitted_list = url.split("/")
+    temp_path = os.path.join(os.getcwd(), f"temp/{mode}")
+
+    file_path = os.path.join(
+        temp_path,
+        f"{url_splitted_list[-3]}_{url_splitted_list[-2]}_{url_splitted_list[-1]}",
+    )
+    return file_path
+
+
+def download_osm_files(url, mode="changefiles", cookies=None):
+    file_path = get_file_path_from_url(url, mode)
+
+    if not os.path.exists(file_path[:-3]):
+        # Read the cookies from the file
+        if not os.path.exists(file_path):
+            if "geofabrik" in url.lower():
+                cookies_fmt = {}
+                test = cookies.split("=")
+                # name, value = line.strip().split("=")
+                cookies_fmt[test[0]] = f'{test[1]}=="'
+                response = requests.get(url, cookies=cookies_fmt)
+            else:
+                response = requests.get(url)
+
+            if not response.status_code == 200:
+                sys.exit()
+
+            file_data = response.content
+
+            with open(file_path, "wb") as f:
+                f.write(file_data)
+
+        with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
+            shutil.copyfileobj(f_in, f_out)
+        os.remove(file_path)
