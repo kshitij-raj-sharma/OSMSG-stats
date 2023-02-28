@@ -1,28 +1,33 @@
 import argparse
 import concurrent.futures
 import datetime as dt
-import gzip
 import json
 import os
 import re
 import shutil
 import sys
 import time
-import humanize
 from datetime import datetime
 
 import dataframe_image as dfi
 import geopandas as gpd
+import humanize
 import osmium
 import pandas as pd
-import requests
-from osmium.replication.server import ReplicationServer
 from shapely.geometry import box
 from tqdm import tqdm
 
-from osmsg.utils import create_charts, create_profile_link, verify_me_osm,sum_tags
+from osmsg.utils import (
+    create_charts,
+    create_profile_link,
+    download_osm_files,
+    get_file_path_from_url,
+    sum_tags,
+    verify_me_osm,
+)
 
 from .changefiles import (
+    get_download_urls_changefiles,
     get_prev_hour,
     get_prev_year_dates,
     in_local_timezone,
@@ -45,7 +50,9 @@ countries_df = gpd.read_file(
 )
 
 
-def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
+def collect_changefile_stats(
+    user, uname, changeset, version, tags, osm_type, osm_obj_nodes=None
+):
     tags_to_collect = list(additional_tags) if additional_tags else None
     if version == 1:
         action = "create"
@@ -93,7 +100,21 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
                 for ch in countries_changesets[changeset]:
                     if ch not in users[user]["hashtags"]:
                         users[user]["hashtags"].append(ch)
-
+        if length:
+            for t in length:
+                users[user].setdefault(f"{t}_create_len", 0)
+                if (
+                    t in tags
+                    and osm_obj_nodes
+                    and action != "modify"
+                    and action != "delete"
+                ):
+                    try:
+                        len_feature = osmium.geom.haversine_distance(osm_obj_nodes)
+                        users[user][f"{t}_create_len"] += round(len_feature)
+                    except Exception as ex:
+                        # print("WARNING: way  incomplete." % w.id)
+                        pass
 
     else:
         users[user] = {
@@ -138,27 +159,36 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
                 users[user]["hashtags"] = countries_changesets[changeset]
 
 
-def calculate_stats(user, uname, changeset, version, tags, osm_type):
+def calculate_stats(
+    user, uname, changeset, version, tags, osm_type, osm_obj_nodes=None
+):
     if (hashtags and country) or hashtags:  # intersect with changesets
         if (
             len(hashtag_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
-            if country : 
-                if changeset in hashtag_changesets.keys() and changeset in countries_changesets.keys():
-                    collect_changefile_stats(user, uname, changeset, version, tags, osm_type)
-            else: 
-                if changeset in hashtag_changesets.keys(): 
+            if country:
+                if (
+                    changeset in hashtag_changesets.keys()
+                    and changeset in countries_changesets.keys()
+                ):
                     collect_changefile_stats(
-                    user, uname, changeset, version, tags, osm_type
-                )
+                        user, uname, changeset, version, tags, osm_type, osm_obj_nodes
+                    )
+            else:
+                if changeset in hashtag_changesets.keys():
+                    collect_changefile_stats(
+                        user, uname, changeset, version, tags, osm_type, osm_obj_nodes
+                    )
     elif country:
         if len(countries_changesets) > 0:
             if changeset in countries_changesets.keys():
                 collect_changefile_stats(
-                    user, uname, changeset, version, tags, osm_type
+                    user, uname, changeset, version, tags, osm_type, osm_obj_nodes
                 )
     else:  # collect everything
-        collect_changefile_stats(user, uname, changeset, version, tags, osm_type)
+        collect_changefile_stats(
+            user, uname, changeset, version, tags, osm_type, osm_obj_nodes
+        )
 
 
 class ChangesetHandler(osmium.SimpleHandler):
@@ -203,9 +233,7 @@ class ChangesetHandler(osmium.SimpleHandler):
                             hashtag_changesets[c.id]["hashtags"].append(hash_tag)
                     for i, row in intersected_rows.iterrows():
                         if row["name"] not in hashtag_changesets[c.id]["countries"]:
-                                hashtag_changesets[c.id]["countries"].append(
-                                    row["name"]
-                                )
+                            hashtag_changesets[c.id]["countries"].append(row["name"])
 
         if country:
             if c.bounds:
@@ -219,9 +247,7 @@ class ChangesetHandler(osmium.SimpleHandler):
                     bbox = box(float(minx), float(miny), float(maxx), float(maxy))
                     # Create a point for the centroid of the bounding box
                     centroid = bbox.centroid
-                    intersected_rows = countries_df[
-                        countries_df.intersects(centroid)
-                    ]
+                    intersected_rows = countries_df[countries_df.intersects(centroid)]
                     for i, row in intersected_rows.iterrows():
 
                         if row["name"] == country:
@@ -252,7 +278,15 @@ class ChangefileHandler(osmium.SimpleHandler):
             version = w.version
             if w.deleted:
                 version = 0
-            calculate_stats(w.uid, w.user, w.changeset, version, w.tags, "ways")
+            calculate_stats(
+                w.uid,
+                w.user,
+                w.changeset,
+                version,
+                w.tags,
+                "ways",
+                w.nodes if length else None,
+            )
 
     def relation(self, r):
         if r.timestamp >= start_date_utc and r.timestamp <= end_date_utc:
@@ -267,153 +301,21 @@ def process_changefiles(url):
     # Send a GET request to the URL
     if "minute" not in url:
         print(f"Processing {url}")
-
-    url_splitted_list = url.split("/")
-    temp_path = os.path.join(os.getcwd(), "temp/changefiles")
-
-    file_path = os.path.join(
-        temp_path,
-        f"{url_splitted_list[-3]}_{url_splitted_list[-2]}_{url_splitted_list[-1]}",
-    )
-
-    if not os.path.exists(file_path):
-        # Read the cookies from the file
-
-        if "geofabrik" in url.lower():
-            cookies_fmt = {}
-            test = cookies.split("=")
-            # name, value = line.strip().split("=")
-            cookies_fmt[test[0]] = f'{test[1]}=="'
-            response = requests.get(url, cookies=cookies_fmt)
-        else:
-            response = requests.get(url)
-
-        if not response.status_code == 200:
-            sys.exit()
-
-        file_data = response.content
-
-        with open(file_path, "wb") as f:
-            f.write(file_data)
-
+    file_path = get_file_path_from_url(url, "changefiles")
     # Open the .osc.gz file in read-only mode
     handler = ChangefileHandler()
-    with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
-        shutil.copyfileobj(f_in, f_out)
-
-    handler.apply_file(file_path[:-3])
+    if length:
+        handler.apply_file(file_path[:-3], locations=True)
+    else:
+        handler.apply_file(file_path[:-3])
 
 
 def process_changesets(url):
     # print(f"Processing {url}")
-    url_splitted_list = url.split("/")
-    temp_path = os.path.join(os.getcwd(), "temp/changesets")
-
-    file_path = os.path.join(
-        temp_path,
-        f"{url_splitted_list[-3]}_{url_splitted_list[-2]}_{url_splitted_list[-1]}",
-    )
-    if not os.path.exists(file_path):
-
-        response = requests.get(url)
-        if not response.status_code == 200:
-            sys.exit()
-
-        file_data = response.content
-
-        with open(file_path, "wb") as f:
-            f.write(file_data)
-
-    # Open the .osc.gz file in read-only mode
-
+    file_path = get_file_path_from_url(url, "changesets")
     handler = ChangesetHandler()
-    with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
-        shutil.copyfileobj(f_in, f_out)
-
     handler.apply_file(file_path[:-3])
     # print(f"Finished {url}")
-
-
-def get_download_urls_changefiles(
-    start_date, end_date, base_url, timezone, scan_early_seq=False
-):
-    repl = ReplicationServer(base_url)
-
-    # Gets sequence id using timestamp we get from osm api using pyosmium tool
-    seq = repl.timestamp_to_sequence(start_date)
-    # going one step back to cover all changes only if it is not already behind
-    start_seq_time = seq_to_timestamp(repl.get_state_url(seq), timezone)
-    if scan_early_seq or (start_date - start_seq_time).days < 1:
-        if "minute" in base_url:
-            seq = (
-                seq + int((start_date - start_seq_time).total_seconds() / 60)
-            ) - 60  # go 60 min earlier
-        elif "hour" in base_url:
-            seq = (
-                seq + int(((start_date - start_seq_time).total_seconds() / 60)/60)
-            ) - 1  # go 1 hour earlier
-
-    start_seq = seq
-    start_seq_url = repl.get_state_url(start_seq)
-
-    if seq is None:
-        print(
-            "Cannot reach the configured replication service '%s'.\n"
-            "Does the URL point to a directory containing OSM update data?",
-            base_url,
-        )
-        sys.exit()
-
-    state_info = repl.get_state_info()  # gets current sequence / timestamp
-
-    if state_info is None:
-        # couldn't fetch state info from server
-        sys.exit()
-
-    server_seq, server_ts = state_info
-    server_ts = server_ts.astimezone(dt.timezone.utc)
-    last_seq = server_seq
-    if end_date:
-        end_date_seq = repl.timestamp_to_sequence(end_date)
-        last_seq = end_date_seq
-        if "minute" in base_url:
-            last_seq = (
-                last_seq
-                + int(
-                    (
-                        seq_to_timestamp(repl.get_state_url(end_date_seq), timezone)
-                        - end_date
-                    ).total_seconds()
-                    / 60
-                )
-            ) + 60  # go 1 hours later
-        else:
-            last_seq += 1 # go 1 sequence later
-        if last_seq >= server_seq:
-            last_seq = server_seq
-
-    print(
-        # f"You have supplied {start_date} : {seq} to {last_ts} : {last_seq} . Latest Server Fetched is : {server_seq} & {in_local_timezone(server_ts,timezone)} on {base_url}\n
-        f"Processing Changefiles from {seq_to_timestamp(repl.get_state_url(seq), timezone)} to {seq_to_timestamp(repl.get_state_url(last_seq), timezone)}"
-    )
-
-    if seq >= last_seq:
-        print("Changefile : Already up-to-date.")
-        sys.exit()
-
-    download_urls = []
-    end_seq_url = repl.get_state_url(last_seq)
-
-    while seq <= last_seq:
-        seq_url = repl.get_diff_url(seq)
-        if "geofabrik" in base_url:
-            # use internal server
-            seq_url = repl.get_diff_url(seq).replace(
-                "download.geofabrik", "osm-internal.download.geofabrik"
-            )
-        download_urls.append(seq_url)
-        seq = seq + 1
-    return download_urls, server_ts, start_seq, last_seq, start_seq_url, end_seq_url
 
 
 def auth(username, password):
@@ -427,7 +329,7 @@ def auth(username, password):
     return cookies
 
 
-def main():
+def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--start_date",
@@ -469,6 +371,7 @@ def main():
     parser.add_argument(
         "--tags",
         nargs="+",
+        default=None,
         type=str,
         help="Additional stats to collect : List of tags key",
     )
@@ -476,9 +379,18 @@ def main():
     parser.add_argument(
         "--hashtags",
         nargs="+",
+        default=None,
         type=str,
         help="Hashtags Statistics to Collect : List of hashtags , Limited until daily stats for now , Only lookups if hashtag is contained on the string , not a exact string lookup on beta",
     )
+    parser.add_argument(
+        "--length",
+        nargs="+",
+        default=None,
+        type=str,
+        help="Calculate length of osm features , Only Supported for way created features , Pass list of tags key to calculate eg : --length highway waterway , Unit is in Meters",
+    )
+
     parser.add_argument(
         "--force",
         action="store_true",
@@ -489,6 +401,7 @@ def main():
     parser.add_argument(
         "--rows",
         type=int,
+        default=None,
         help="No. of top rows to extract , to extract top 100 , pass 100",
     )
 
@@ -567,6 +480,12 @@ def main():
         help="Extract statistics of all of the unique tags and its count",
         default=False,
     )
+    parser.add_argument(
+        "--store",
+        action="store_true",
+        help="Stores downloaded osm files to machine itself to run different stats generation again, Will be useful if you are doing multiple analysis so that script will not download the files that are already downloaded",
+        default=False,
+    )
 
     parser.add_argument(
         "--exclude_date_in_name",
@@ -588,6 +507,11 @@ def main():
     )
 
     args = parser.parse_args()
+    return args
+
+
+def main():
+    args = parse_args()
     if args.start_date:
         start_date = strip_utc(
             dt.datetime.strptime(args.start_date, "%Y-%m-%d %H:%M:%S%z"), args.timezone
@@ -628,6 +552,7 @@ def main():
     global cookies
     global all_tags
     global hashtags
+    global length
     global country
     global changeset
     global exact_lookup
@@ -639,6 +564,7 @@ def main():
     cookies = None
     changeset = args.changeset
     exact_lookup = args.exact_lookup
+    length = args.length
 
     if "geofabrik" in args.url.lower():
         if args.username is None:
@@ -651,7 +577,6 @@ def main():
                 args.username and args.password
             ), "OSM username and password are required for geofabrik url"
         cookies = auth(args.username, args.password)
-    print("Script Started")
 
     if args.last_hour:
         start_date, end_date = get_prev_hour(args.timezone)
@@ -714,6 +639,24 @@ def main():
 
         max_workers = os.cpu_count() if not args.workers else args.workers
         print(f"Using {max_workers} Threads")
+        print(
+            "Downloading Changeset files using https://planet.openstreetmap.org/replication/changesets/"
+        )
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Use `map` to apply the `download osm files` function to each element in the `urls` list
+            for _ in tqdm(
+                executor.map(
+                    lambda x: download_osm_files(x, mode="changesets", cookies=cookies),
+                    changeset_download_urls,
+                ),
+                total=len(changeset_download_urls),
+                unit_scale=True,
+                unit="changesets",
+                leave=True,
+            ):
+                pass
+
+        print("Processing Changeset Files")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list
@@ -732,7 +675,7 @@ def main():
         if end_date > end_seq_timestamp:
             end_date = strip_utc(end_seq_timestamp, args.timezone)
 
-    print("Changefiles : Generating Download Urls")
+    print(f"Changefiles : Generating Download Urls Using {args.url}")
     (
         download_urls,
         server_ts,
@@ -762,6 +705,23 @@ def main():
     # Use the ThreadPoolExecutor to download the images in parallel
     max_workers = os.cpu_count() if not args.workers else args.workers
     print(f"Using {max_workers} Threads")
+
+    print("Downloading Changefiles")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Use `map` to apply the `download osm files` function to each element in the `urls` list
+        for _ in tqdm(
+            executor.map(
+                lambda x: download_osm_files(x, mode="changefiles", cookies=cookies),
+                download_urls,
+            ),
+            total=len(download_urls),
+            unit_scale=True,
+            unit="changefiles",
+            leave=True,
+        ):
+            pass
+    print("Processing Changefiles")
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         # executor.map(process_changefiles, download_urls)
@@ -777,7 +737,8 @@ def main():
         # executor.shutdown(wait=True)
     print("Changefiles Processing Finished")
     os.chdir(os.getcwd())
-    shutil.rmtree("temp")
+    if not args.store:
+        shutil.rmtree("temp")
     if len(users) >= 1:
         # print(users)
         if args.all_tags:
@@ -904,7 +865,7 @@ def main():
 
             csv_df.to_csv(f"{fname}.csv", index=False)
         if "excel" in args.format:
-            df.to_excel(f"{fname}.xlsx", index=False)        
+            df.to_excel(f"{fname}.xlsx", index=False)
 
         if "text" in args.format:
             text_output = df.to_markdown(tablefmt="grid", index=False)
@@ -913,64 +874,72 @@ def main():
                     f"User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
                 )
                 file.write(text_output)
-        
 
         if args.charts:
-            if 'geofabrik' in args.url.lower():
-                df.drop('countries', axis='columns')
+            if "geofabrik" in args.url.lower():
+                df.drop("countries", axis="columns")
             create_charts(df)
-        
-        if args.summary:
-            created_sum = df['nodes.create'] + df['ways.create'] + df['relations.create']
-            modified_sum = df['nodes.modify'] + df['ways.modify'] + df['relations.modify']
-            deleted_sum = df['nodes.delete'] + df['ways.delete'] + df['relations.delete']
 
+        if args.summary:
+            created_sum = (
+                df["nodes.create"] + df["ways.create"] + df["relations.create"]
+            )
+            modified_sum = (
+                df["nodes.modify"] + df["ways.modify"] + df["relations.modify"]
+            )
+            deleted_sum = (
+                df["nodes.delete"] + df["ways.delete"] + df["relations.delete"]
+            )
 
             # Get the attribute of first row
             summary_text = f"{humanize.intword(len(df))} Users made {humanize.intword(df['changesets'].sum())} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
             thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created, {humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted."
-            
 
-            
             with open(f"summary.md", "w", encoding="utf-8") as file:
-                file.write(f"### Last Update : Stats from {start_date_utc} to {end_date_utc} (UTC Timezone)\n\n")
+                file.write(
+                    f"### Last Update : Stats from {start_date_utc} to {end_date_utc} (UTC Timezone)\n\n"
+                )
                 file.write(f"#### {summary_text}\n")
                 file.write(f"#### {thread_summary}\n")
-                top_users ="\nTop 5 Users are : \n"
+                top_users = "\nTop 5 Users are : \n"
                 # set rank column as index
-                df.set_index('rank', inplace=True)
-                for i in range(1,6 if len(df)>6 else len(df)):
+                df.set_index("rank", inplace=True)
+                for i in range(1, 6 if len(df) > 6 else len(df)):
                     top_users += f"- {df.loc[i, 'name']} : {humanize.intword(df.loc[i, 'map_changes'])} Map Changes\n"
-                file.write(top_users) 
+                file.write(top_users)
 
-                user_tags_summary="\nSummary of Supplied Tags\n"
-                user_tag = 'poi'
-                user_tags_summary+=f"- {user_tag} = Created: {humanize.intword(df[f'{user_tag}.create'].sum())}, Modified : {humanize.intword(df[f'{user_tag}.modify'].sum())}\n"
+                user_tags_summary = "\nSummary of Supplied Tags\n"
+                user_tag = "poi"
+                user_tags_summary += f"- {user_tag} = Created: {humanize.intword(df[f'{user_tag}.create'].sum())}, Modified : {humanize.intword(df[f'{user_tag}.modify'].sum())}\n"
 
                 if args.tags:
                     for user_tag in args.tags:
-                        user_tags_summary+=f"- {user_tag} = Created: {humanize.intword(df[f'{user_tag}.create'].sum())}, Modified : {humanize.intword(df[f'{user_tag}.modify'].sum())}\n"
+                        user_tags_summary += f"- {user_tag} = Created: {humanize.intword(df[f'{user_tag}.create'].sum())}, Modified : {humanize.intword(df[f'{user_tag}.modify'].sum())}\n"
                 file.write(f"{user_tags_summary}\n")
 
                 if args.all_tags:
                     # Apply the sum_tags function to the tags column
-                    tag_counts = sum_tags(df['tags_create'].tolist())
+                    tag_counts = sum_tags(df["tags_create"].tolist())
 
                     # Sort the resulting dictionary by values and take the top three entries
-                    top_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:5]
+                    top_tags = sorted(
+                        tag_counts.items(), key=lambda x: x[1], reverse=True
+                    )[:5]
                     created_tags_summary = "\nTop 5 Created tags are :\n"
                     # Print the top tags and their counts
                     for tag, count in top_tags:
-                        created_tags_summary+=f'- {tag}: {humanize.intword(count)}\n'
+                        created_tags_summary += f"- {tag}: {humanize.intword(count)}\n"
                     # Apply the sum_tags function to the tags column
-                    tag_counts = sum_tags(df['tags_modify'].tolist())
+                    tag_counts = sum_tags(df["tags_modify"].tolist())
 
                     # Sort the resulting dictionary by values and take the top three entries
-                    top_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:5]
+                    top_tags = sorted(
+                        tag_counts.items(), key=lambda x: x[1], reverse=True
+                    )[:5]
                     modified_tags_summary = "\nTop 5 Modified tags are :\n"
                     # Print the top tags and their counts
                     for tag, count in top_tags:
-                        modified_tags_summary+=f'- {tag}: {humanize.intword(count)}\n'
+                        modified_tags_summary += f"- {tag}: {humanize.intword(count)}\n"
                     file.write(f"{created_tags_summary}\n")
                     file.write(f"{modified_tags_summary}\n")
 
@@ -984,9 +953,11 @@ def main():
                         .head(5)
                     )
                     trending_hashtags = f"\nTop 5 trending hashtags are:\n"
-                    for i in range(0,len(top_five)):
-                        if top_five.index[i].strip() !="":
-                            trending_hashtags+=f"- {top_five.index[i]} : {top_five[i]} users\n"
+                    for i in range(0, len(top_five)):
+                        if top_five.index[i].strip() != "":
+                            trending_hashtags += (
+                                f"- {top_five.index[i]} : {top_five[i]} users\n"
+                            )
                     file.write(f"{trending_hashtags}\n")
 
                 if "countries" in df.columns[df.astype(bool).any()]:
@@ -998,10 +969,14 @@ def main():
                         .value_counts()
                         .head(5)
                     )
-                    trending_countries = f"\nTop 5 trending Countries where user contributed are:\n"
-                    for i in range(0,len(top_five)):
-                        if top_five.index[i].strip() !="":
-                            trending_countries+=f"- {top_five.index[i]} : {top_five[i]} users\n"
+                    trending_countries = (
+                        f"\nTop 5 trending Countries where user contributed are:\n"
+                    )
+                    for i in range(0, len(top_five)):
+                        if top_five.index[i].strip() != "":
+                            trending_countries += (
+                                f"- {top_five.index[i]} : {top_five[i]} users\n"
+                            )
                     file.write(f"{trending_countries}\n")
         # Loop through the arguments
         for i in range(len(sys.argv)):
