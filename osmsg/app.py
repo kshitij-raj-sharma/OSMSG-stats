@@ -333,7 +333,7 @@ def process_changesets(url):
 
 
 def get_download_urls_changefiles(
-    start_date, end_date, base_url, timezone, scan_early_seq=False
+    start_date, end_date, base_url, timezone
 ):
     repl = ReplicationServer(base_url)
 
@@ -341,12 +341,12 @@ def get_download_urls_changefiles(
     seq = repl.timestamp_to_sequence(start_date)
     # going one step back to cover all changes only if it is not already behind
     start_seq_time = seq_to_timestamp(repl.get_state_url(seq), timezone)
-    if scan_early_seq or (start_date - start_seq_time).days < 1:
+    if start_date > start_seq_time:
         if "minute" in base_url:
             seq = (
                 seq + int((start_date - start_seq_time).total_seconds() / 60)
             ) - 60  # go 60 min earlier
-        elif "hour" in base_url:
+        if "hour" in base_url:
             seq = (
                 seq + int(((start_date - start_seq_time).total_seconds() / 60)/60)
             ) - 1  # go 1 hour earlier
