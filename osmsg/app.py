@@ -261,7 +261,7 @@ class ChangefileHandler(osmium.SimpleHandler):
             version = w.version
             if w.deleted:
                 version = 0
-            calculate_stats(w.uid, w.user, w.changeset, version, w.tags, "ways", w.nodes)
+            calculate_stats(w.uid, w.user, w.changeset, version, w.tags, "ways", w.nodes if length else None)
 
     def relation(self, r):
         if r.timestamp >= start_date_utc and r.timestamp <= end_date_utc:
