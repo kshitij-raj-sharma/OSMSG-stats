@@ -45,7 +45,7 @@ countries_df = gpd.read_file(
 )
 
 
-def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
+def collect_changefile_stats(user, uname, changeset, version, tags, osm_type , osm_obj_nodes=None):
     tags_to_collect = list(additional_tags) if additional_tags else None
     if version == 1:
         action = "create"
@@ -78,6 +78,14 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
             if tags:
                 for key, value in tags:
                     if action != "delete":  # we don't need deleted tags
+                        if key in length and osm_obj_nodes and action != "modify":
+                                try:
+                                    users[user].setdefault(f"{key}_create_len", 0)
+                                    len_feature = osmium.geom.haversine_distance(osm_obj_nodes)
+                                    users[user][f"{key}_create_len"] += round(len_feature)
+                                except Exception as ex:
+                                    # print("WARNING: way  incomplete." % w.id)
+                                    pass
                         if key in users[user][f"tags_{action}"]:
                             users[user][f"tags_{action}"][key] += 1
                         else:
@@ -138,27 +146,27 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type):
                 users[user]["hashtags"] = countries_changesets[changeset]
 
 
-def calculate_stats(user, uname, changeset, version, tags, osm_type):
+def calculate_stats(user, uname, changeset, version, tags, osm_type, osm_obj_nodes=None):
     if (hashtags and country) or hashtags:  # intersect with changesets
         if (
             len(hashtag_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
             if country : 
                 if changeset in hashtag_changesets.keys() and changeset in countries_changesets.keys():
-                    collect_changefile_stats(user, uname, changeset, version, tags, osm_type)
+                    collect_changefile_stats(user, uname, changeset, version, tags, osm_type, osm_obj_nodes)
             else: 
                 if changeset in hashtag_changesets.keys(): 
                     collect_changefile_stats(
-                    user, uname, changeset, version, tags, osm_type
+                    user, uname, changeset, version, tags, osm_type, osm_obj_nodes
                 )
     elif country:
         if len(countries_changesets) > 0:
             if changeset in countries_changesets.keys():
                 collect_changefile_stats(
-                    user, uname, changeset, version, tags, osm_type
+                    user, uname, changeset, version, tags, osm_type, osm_obj_nodes
                 )
     else:  # collect everything
-        collect_changefile_stats(user, uname, changeset, version, tags, osm_type)
+        collect_changefile_stats(user, uname, changeset, version, tags, osm_type, osm_obj_nodes)
 
 
 class ChangesetHandler(osmium.SimpleHandler):
@@ -252,7 +260,7 @@ class ChangefileHandler(osmium.SimpleHandler):
             version = w.version
             if w.deleted:
                 version = 0
-            calculate_stats(w.uid, w.user, w.changeset, version, w.tags, "ways")
+            calculate_stats(w.uid, w.user, w.changeset, version, w.tags, "ways", w.nodes)
 
     def relation(self, r):
         if r.timestamp >= start_date_utc and r.timestamp <= end_date_utc:
@@ -301,7 +309,7 @@ def process_changefiles(url):
     with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
         shutil.copyfileobj(f_in, f_out)
 
-    handler.apply_file(file_path[:-3])
+    handler.apply_file(file_path[:-3],locations=True)
 
 
 def process_changesets(url):
@@ -480,6 +488,13 @@ def main():
         help="Hashtags Statistics to Collect : List of hashtags , Limited until daily stats for now , Only lookups if hashtag is contained on the string , not a exact string lookup on beta",
     )
     parser.add_argument(
+        "--length",
+        nargs="+",
+        type=str,
+        help="Calculate length of osm features , Only Supported for way created features , Pass list of tags key to calculate eg : --length highway waterway , Unit is in Meters",
+    )
+
+    parser.add_argument(
         "--force",
         action="store_true",
         help="Force for the Hashtag Replication fetch if it is greater than a day interval",
@@ -567,6 +582,12 @@ def main():
         help="Extract statistics of all of the unique tags and its count",
         default=False,
     )
+    parser.add_argument(
+        "--store",
+        action="store_true",
+        help="Stores downloaded osm files to machine itself to run different stats generation again, Will be useful if you are doing multiple analysis so that script will not download the files that are already downloaded",
+        default=False,
+    )
 
     parser.add_argument(
         "--exclude_date_in_name",
@@ -628,6 +649,7 @@ def main():
     global cookies
     global all_tags
     global hashtags
+    global length
     global country
     global changeset
     global exact_lookup
@@ -639,6 +661,7 @@ def main():
     cookies = None
     changeset = args.changeset
     exact_lookup = args.exact_lookup
+    length = args.length
 
     if "geofabrik" in args.url.lower():
         if args.username is None:
@@ -651,7 +674,6 @@ def main():
                 args.username and args.password
             ), "OSM username and password are required for geofabrik url"
         cookies = auth(args.username, args.password)
-    print("Script Started")
 
     if args.last_hour:
         start_date, end_date = get_prev_hour(args.timezone)
@@ -777,7 +799,8 @@ def main():
         # executor.shutdown(wait=True)
     print("Changefiles Processing Finished")
     os.chdir(os.getcwd())
-    shutil.rmtree("temp")
+    if not args.store : 
+        shutil.rmtree("temp")
     if len(users) >= 1:
         # print(users)
         if args.all_tags:
