@@ -78,14 +78,6 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type , o
             if tags:
                 for key, value in tags:
                     if action != "delete":  # we don't need deleted tags
-                        if key in length and osm_obj_nodes and action != "modify":
-                                try:
-                                    users[user].setdefault(f"{key}_create_len", 0)
-                                    len_feature = osmium.geom.haversine_distance(osm_obj_nodes)
-                                    users[user][f"{key}_create_len"] += round(len_feature)
-                                except Exception as ex:
-                                    # print("WARNING: way  incomplete." % w.id)
-                                    pass
                         if key in users[user][f"tags_{action}"]:
                             users[user][f"tags_{action}"][key] += 1
                         else:
@@ -101,7 +93,16 @@ def collect_changefile_stats(user, uname, changeset, version, tags, osm_type , o
                 for ch in countries_changesets[changeset]:
                     if ch not in users[user]["hashtags"]:
                         users[user]["hashtags"].append(ch)
-
+        if length:
+            for t in length:
+                users[user].setdefault(f"{t}_create_len", 0)
+                if t in tags and osm_obj_nodes and action != "modify" and action !="delete":
+                    try: 
+                        len_feature = osmium.geom.haversine_distance(osm_obj_nodes)
+                        users[user][f"{t}_create_len"] += round(len_feature)
+                    except Exception as ex:
+                        # print("WARNING: way  incomplete." % w.id)
+                        pass
 
     else:
         users[user] = {
@@ -275,69 +276,58 @@ def process_changefiles(url):
     # Send a GET request to the URL
     if "minute" not in url:
         print(f"Processing {url}")
+    file_path= get_file_path_from_url(url,'changefiles')
+    # Open the .osc.gz file in read-only mode
+    handler = ChangefileHandler()
+    if length:
+        handler.apply_file(file_path[:-3],locations=True)
+    else:
+        handler.apply_file(file_path[:-3])
 
+
+def get_file_path_from_url(url,mode):
     url_splitted_list = url.split("/")
-    temp_path = os.path.join(os.getcwd(), "temp/changefiles")
+    temp_path = os.path.join(os.getcwd(), f"temp/{mode}")
 
     file_path = os.path.join(
         temp_path,
         f"{url_splitted_list[-3]}_{url_splitted_list[-2]}_{url_splitted_list[-1]}",
     )
+    return file_path
 
-    if not os.path.exists(file_path):
+
+def download_osm_files(url , mode='changefiles'):
+    file_path= get_file_path_from_url(url,mode)
+
+    if not os.path.exists(file_path[:-3]):
         # Read the cookies from the file
+        if not os.path.exists(file_path):
+            if "geofabrik" in url.lower():
+                cookies_fmt = {}
+                test = cookies.split("=")
+                # name, value = line.strip().split("=")
+                cookies_fmt[test[0]] = f'{test[1]}=="'
+                response = requests.get(url, cookies=cookies_fmt)
+            else:
+                response = requests.get(url)
 
-        if "geofabrik" in url.lower():
-            cookies_fmt = {}
-            test = cookies.split("=")
-            # name, value = line.strip().split("=")
-            cookies_fmt[test[0]] = f'{test[1]}=="'
-            response = requests.get(url, cookies=cookies_fmt)
-        else:
-            response = requests.get(url)
+            if not response.status_code == 200:
+                sys.exit()
 
-        if not response.status_code == 200:
-            sys.exit()
+            file_data = response.content
 
-        file_data = response.content
+            with open(file_path, "wb") as f:
+                f.write(file_data)
 
-        with open(file_path, "wb") as f:
-            f.write(file_data)
-
-    # Open the .osc.gz file in read-only mode
-    handler = ChangefileHandler()
-    with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
-        shutil.copyfileobj(f_in, f_out)
-
-    handler.apply_file(file_path[:-3],locations=True)
+        with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
+            shutil.copyfileobj(f_in, f_out)
+        os.remove(file_path)
 
 
 def process_changesets(url):
     # print(f"Processing {url}")
-    url_splitted_list = url.split("/")
-    temp_path = os.path.join(os.getcwd(), "temp/changesets")
-
-    file_path = os.path.join(
-        temp_path,
-        f"{url_splitted_list[-3]}_{url_splitted_list[-2]}_{url_splitted_list[-1]}",
-    )
-    if not os.path.exists(file_path):
-
-        response = requests.get(url)
-        if not response.status_code == 200:
-            sys.exit()
-
-        file_data = response.content
-
-        with open(file_path, "wb") as f:
-            f.write(file_data)
-
-    # Open the .osc.gz file in read-only mode
-
+    file_path= get_file_path_from_url(url,'changesets')
     handler = ChangesetHandler()
-    with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
-        shutil.copyfileobj(f_in, f_out)
-
     handler.apply_file(file_path[:-3])
     # print(f"Finished {url}")
 
@@ -477,6 +467,7 @@ def main():
     parser.add_argument(
         "--tags",
         nargs="+",
+        default=None,
         type=str,
         help="Additional stats to collect : List of tags key",
     )
@@ -484,12 +475,14 @@ def main():
     parser.add_argument(
         "--hashtags",
         nargs="+",
+        default=None,
         type=str,
         help="Hashtags Statistics to Collect : List of hashtags , Limited until daily stats for now , Only lookups if hashtag is contained on the string , not a exact string lookup on beta",
     )
     parser.add_argument(
         "--length",
         nargs="+",
+        default=None,
         type=str,
         help="Calculate length of osm features , Only Supported for way created features , Pass list of tags key to calculate eg : --length highway waterway , Unit is in Meters",
     )
@@ -504,6 +497,7 @@ def main():
     parser.add_argument(
         "--rows",
         type=int,
+        default=None,
         help="No. of top rows to extract , to extract top 100 , pass 100",
     )
 
@@ -736,6 +730,19 @@ def main():
 
         max_workers = os.cpu_count() if not args.workers else args.workers
         print(f"Using {max_workers} Threads")
+        print("Downloading Changeset Files")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Use `map` to apply the `download osm files` function to each element in the `urls` list
+            for _ in tqdm(
+                executor.map(lambda x: download_osm_files(x, mode="changesets"), changeset_download_urls),
+                total=len(changeset_download_urls),
+                unit_scale=True,
+                unit="changesets",
+                leave=True,
+            ):
+                pass
+
+        print("Processing Changeset Files")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list
@@ -784,6 +791,20 @@ def main():
     # Use the ThreadPoolExecutor to download the images in parallel
     max_workers = os.cpu_count() if not args.workers else args.workers
     print(f"Using {max_workers} Threads")
+
+    print("Downloading Changefiles")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Use `map` to apply the `download osm files` function to each element in the `urls` list
+        for _ in tqdm(
+            executor.map(lambda x: download_osm_files(x, mode="changefiles"), download_urls),
+            total=len(download_urls),
+            unit_scale=True,
+            unit="changefiles",
+            leave=True,
+        ):
+            pass
+    print("Processing Changefiles")
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         # Use `map` to apply the `download_image` function to each element in the `urls` list
         # executor.map(process_changefiles, download_urls)
