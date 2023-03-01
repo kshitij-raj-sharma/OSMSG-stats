@@ -39,6 +39,7 @@ jobs:
           base_dir=stats/hotosm/Monthly
           mkdir -p $base_dir/charts/
 
+          mv summary.csv $base_dir/
           cp *.csv $base_dir/stats.csv
           cp *.png $base_dir/charts/
           cp summary.md $base_dir/README.md

@@ -104,28 +104,30 @@ def collect_changefile_stats(
         # for poi
         if osm_type == "nodes" and tags and action != "delete":
             summary_interval[timestamp]["poi"][action] += 1
-        # for all tags
-        if all_tags and tags:
-            for key, value in tags:
-                if action != "delete":
-                    summary_interval_temp[timestamp].setdefault(f"tags_{action}", {})
-                    summary_interval_temp[timestamp][f"tags_{action}"].setdefault(
-                        key, 0
-                    )
-                    summary_interval_temp[timestamp][f"tags_{action}"][key] += 1
+
         # for user supplied tags
-        if tags_to_collect and action != "delete":
+        if tags_to_collect and action != "delete" and tags:
             for tag in tags_to_collect:
                 if tag in tags:
-                    summary_interval_temp[timestamp][tag][action] += 1
+                    summary_interval[timestamp].setdefault(
+                        tag, {"create": 0, "modify": 0}
+                    )
+                    summary_interval[timestamp][tag][action] += 1
         # for length calculation
         if length:
             for t in length:
-                summary_interval_temp[timestamp].setdefault(f"{t}_create_len", 0)
+                summary_interval[timestamp].setdefault(f"{t}_create_len", 0)
                 if t in tags and action != "modify" and action != "delete":
-                    summary_interval_temp[timestamp][f"{t}_create_len"] += round(
-                        len_feature
-                    )
+                    summary_interval[timestamp][f"{t}_create_len"] += round(len_feature)
+        # for all tags
+        if all_tags:
+            summary_interval[timestamp].setdefault("tags_create", {})
+            summary_interval[timestamp].setdefault("tags_modify", {})
+            if tags:
+                for key, value in tags:
+                    if action != "delete":
+                        summary_interval[timestamp][f"tags_{action}"].setdefault(key, 0)
+                        summary_interval[timestamp][f"tags_{action}"][key] += 1
 
     if user in users:
         if changeset not in users_temp[user]["changesets"]:
@@ -1027,7 +1029,7 @@ def main():
             create_charts(df)
 
         if args.summary:
-            summary_df.to_csv(f"summary_{fname}.csv", index=False)
+            summary_df.to_csv(f"summary.csv", index=False)
             created_sum = (
                 df["nodes.create"] + df["ways.create"] + df["relations.create"]
             )
