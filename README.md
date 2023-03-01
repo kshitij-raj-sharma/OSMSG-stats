@@ -154,6 +154,8 @@ osmsg --start_date "2022-01-01 00:00:00+00:00" --url "http://download.geofabrik.
 ```
 
 - Example of extract last 8 days of data for Turkey and Syria for hashtag smforst using geofabrik
+
+  --summary will allow to divide and provide stats as summary sepearated by daily , Youc an use this for mapathons ! 
 ```
 osmsg --url http://download.geofabrik.de/europe/turkey-updates https://download.geofabrik.de/asia/syria-updates --username "OSM USERNAME" --password "OSM PASSWORD" --hashtags smforst --length highway --force --days 6 --tags building highway amenity waterway --all_tags --summary
 ```
