@@ -484,8 +484,7 @@ def sum_tags(tags_list):
 
 def get_file_path_from_url(url, mode):
     url_splitted_list = url.split("/")
-    temp_path = os.path.join(os.getcwd(), f"temp/{mode}")
-
+    temp_path = os.path.join(os.getcwd(), f"temp/{mode}", url_splitted_list[-4])
     file_path = os.path.join(
         temp_path,
         f"{url_splitted_list[-3]}_{url_splitted_list[-2]}_{url_splitted_list[-1]}",
@@ -512,8 +511,10 @@ def download_osm_files(url, mode="changefiles", cookies=None):
                 sys.exit()
 
             file_data = response.content
+            # Create the directory if it does not exist
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
-            with open(file_path, "wb") as f:
+            with open(file_path, "xb") as f:
                 f.write(file_data)
 
         with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:

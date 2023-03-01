@@ -7,6 +7,7 @@ import re
 import shutil
 import sys
 import time
+import urllib.parse
 from datetime import datetime
 
 import dataframe_image as dfi
@@ -31,6 +32,7 @@ from .changefiles import (
     get_prev_hour,
     get_prev_year_dates,
     in_local_timezone,
+    last_days_count,
     previous_day,
     previous_month,
     previous_week,
@@ -312,7 +314,7 @@ def process_changefiles(url):
 
 def process_changesets(url):
     # print(f"Processing {url}")
-    file_path = get_file_path_from_url(url, "changesets")
+    file_path = get_file_path_from_url(url, "changeset")
     handler = ChangesetHandler()
     handler.apply_file(file_path[:-3])
     # print(f"Finished {url}")
@@ -414,8 +416,9 @@ def parse_args():
 
     parser.add_argument(
         "--url",
-        default="https://planet.openstreetmap.org/replication/minute",
-        help="Your public OSM Change Replication URL ",
+        nargs="+",
+        default=["https://planet.openstreetmap.org/replication/minute"],
+        help="Your public list of OSM Change Replication URL , 'minute,hour,day' option by default will translate to planet replciation url. You can supply multiple urls for geofabrik country updates , Url should not have trailing / at the end",
     )
 
     parser.add_argument(
@@ -447,6 +450,12 @@ def parse_args():
         action="store_true",
         help="Extract stats for Last hour",
         default=False,
+    )
+    parser.add_argument(
+        "--days",
+        type=int,
+        default=None,
+        help="N nof of last days to extract , for eg if 3 is supplied script will generate stats for last 3 days",
     )
     parser.add_argument(
         "--charts",
@@ -481,9 +490,9 @@ def parse_args():
         default=False,
     )
     parser.add_argument(
-        "--store",
+        "--temp",
         action="store_true",
-        help="Stores downloaded osm files to machine itself to run different stats generation again, Will be useful if you are doing multiple analysis so that script will not download the files that are already downloaded",
+        help="Deletes downloaded osm files from machine after processing is done , if you want to run osmsg on same files again keep this option turn off",
         default=False,
     )
 
@@ -511,6 +520,7 @@ def parse_args():
 
 
 def main():
+    print("OSMSG : Waking up ......")
     args = parse_args()
     if args.start_date:
         start_date = strip_utc(
@@ -524,10 +534,13 @@ def main():
             or args.last_month
             or args.last_year
             or args.last_hour
+            or args.days
         ):
             pass
         else:
-            print("ERR: Supply start_date")
+            print(
+                "ERR: Supply start_date or extraction parameters such as last_day , last_hour"
+            )
             sys.exit()
 
     if args.end_date:
@@ -566,17 +579,51 @@ def main():
     exact_lookup = args.exact_lookup
     length = args.length
 
-    if "geofabrik" in args.url.lower():
-        if args.username is None:
-            args.username = os.environ.get("OSM_USERNAME")
-        if args.password is None:
-            args.password = os.environ.get("OSM_PASSWORD")
+    if args.url:
+        args.url = list(set(args.url))  # remove duplicates
+        for url in args.url:
+            if urllib.parse.urlparse(url).scheme == "":
+                # The URL is not valid
+                if url == "minute":
+                    args.url = ["https://planet.openstreetmap.org/replication/minute"]
+                elif url == "hour":
+                    args.url = ["https://planet.openstreetmap.org/replication/hour"]
+                elif url == "day":
+                    args.url = ["https://planet.openstreetmap.org/replication/day"]
+                else:
+                    print(f"Invalid input for urls {url}")
+                    sys.exit()
+            if url.endswith("/"):
+                print(f"{url} should not end with trailing /")
+                sys.exit()
 
-        if not (args.username and args.password):
-            assert (
-                args.username and args.password
-            ), "OSM username and password are required for geofabrik url"
-        cookies = auth(args.username, args.password)
+        if any("geofabrik" in url.lower() for url in args.url):
+            if args.username is None:
+                args.username = os.environ.get("OSM_USERNAME")
+            if args.password is None:
+                args.password = os.environ.get("OSM_PASSWORD")
+
+            if not (args.username and args.password):
+                assert (
+                    args.username and args.password
+                ), "OSM username and password are required for geofabrik url"
+            cookies = auth(args.username, args.password)
+
+    count = sum(
+        [
+            args.last_hour,
+            args.last_year,
+            args.last_month,
+            args.last_day,
+            args.last_week,
+            bool(args.days),
+        ]
+    )
+    if count > 1:
+        print(
+            "Error: only one of --last_hour, --last_year, --last_month, --last_day, --last_week, or --days should be specified."
+        )
+        sys.exit()
 
     if args.last_hour:
         start_date, end_date = get_prev_hour(args.timezone)
@@ -592,6 +639,12 @@ def main():
     if args.last_week:
         start_date, end_date = previous_week(args.timezone)
 
+    if args.days:
+        if args.days > 0:
+            start_date, end_date = last_days_count(args.timezone, args.days)
+        else:
+            print(f"Error : {args.days} should be greater than 0")
+            sys.exit()
     if args.read_from_metadata:
         if os.path.exists(args.read_from_metadata):
             with open(args.read_from_metadata, "r") as openfile:
@@ -632,8 +685,7 @@ def main():
             f"Processing Changeset from {strip_utc(Changeset.sequence_to_timestamp(changeset_start_seq),args.timezone)} to {strip_utc(Changeset.sequence_to_timestamp(changeset_end_seq),args.timezone)}"
         )
 
-        temp_path = os.path.join(os.getcwd(), "temp/changesets")
-        print(os.path.exists(temp_path))
+        temp_path = os.path.join(os.getcwd(), "temp/changeset", "changesets")
         if not os.path.exists(temp_path):
             os.makedirs(temp_path)
 
@@ -646,7 +698,7 @@ def main():
             # Use `map` to apply the `download osm files` function to each element in the `urls` list
             for _ in tqdm(
                 executor.map(
-                    lambda x: download_osm_files(x, mode="changesets", cookies=cookies),
+                    lambda x: download_osm_files(x, mode="changeset", cookies=cookies),
                     changeset_download_urls,
                 ),
                 total=len(changeset_download_urls),
@@ -674,70 +726,70 @@ def main():
         end_seq_timestamp = Changeset.sequence_to_timestamp(changeset_end_seq)
         if end_date > end_seq_timestamp:
             end_date = strip_utc(end_seq_timestamp, args.timezone)
+    for url in args.url:
+        print(f"Changefiles : Generating Download Urls Using {url}")
+        (
+            download_urls,
+            server_ts,
+            start_seq,
+            end_seq,
+            start_seq_url,
+            end_seq_url,
+        ) = get_download_urls_changefiles(start_date, end_date, url, args.timezone)
+        if server_ts < end_date:
+            print(
+                f"Warning : End date data is not available at server, Changing to latest available date {server_ts}"
+            )
+            end_date = server_ts
+            if start_date >= server_ts:
+                print("Err: Data is not available after start date ")
+                sys.exit()
+        global end_date_utc
+        global start_date_utc
 
-    print(f"Changefiles : Generating Download Urls Using {args.url}")
-    (
-        download_urls,
-        server_ts,
-        start_seq,
-        end_seq,
-        start_seq_url,
-        end_seq_url,
-    ) = get_download_urls_changefiles(start_date, end_date, args.url, args.timezone)
-    if server_ts < end_date:
+        start_date_utc = start_date.astimezone(dt.timezone.utc)
+        end_date_utc = end_date.astimezone(dt.timezone.utc)
         print(
-            f"Warning : End date data is not available at server, Changing to latest available date {server_ts}"
+            f"Final UTC Date time to filter stats : {start_date_utc} to {end_date_utc}"
         )
-        end_date = server_ts
-        if start_date >= server_ts:
-            print("Err: Data is not available after start date ")
-            sys.exit()
-    global end_date_utc
-    global start_date_utc
+        # Use the ThreadPoolExecutor to download the images in parallel
+        max_workers = os.cpu_count() if not args.workers else args.workers
+        print(f"Using {max_workers} Threads")
 
-    start_date_utc = start_date.astimezone(dt.timezone.utc)
-    end_date_utc = end_date.astimezone(dt.timezone.utc)
-    print(f"Final UTC Date time to filter stats : {start_date_utc} to {end_date_utc}")
-    temp_path = os.path.join(os.getcwd(), "temp/changefiles")
-    if not os.path.exists(temp_path):
-        os.makedirs(temp_path)
+        print("Downloading Changefiles")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Use `map` to apply the `download osm files` function to each element in the `urls` list
+            for _ in tqdm(
+                executor.map(
+                    lambda x: download_osm_files(
+                        x, mode="changefiles", cookies=cookies
+                    ),
+                    download_urls,
+                ),
+                total=len(download_urls),
+                unit_scale=True,
+                unit="changefiles",
+                leave=True,
+            ):
+                pass
+        print("Processing Changefiles")
 
-    # Use the ThreadPoolExecutor to download the images in parallel
-    max_workers = os.cpu_count() if not args.workers else args.workers
-    print(f"Using {max_workers} Threads")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Use `map` to apply the `download_image` function to each element in the `urls` list
+            # executor.map(process_changefiles, download_urls)
+            for _ in tqdm(
+                executor.map(process_changefiles, download_urls),
+                total=len(download_urls),
+                unit_scale=True,
+                unit="changefiles",
+                leave=True,
+            ):
+                pass
 
-    print("Downloading Changefiles")
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        # Use `map` to apply the `download osm files` function to each element in the `urls` list
-        for _ in tqdm(
-            executor.map(
-                lambda x: download_osm_files(x, mode="changefiles", cookies=cookies),
-                download_urls,
-            ),
-            total=len(download_urls),
-            unit_scale=True,
-            unit="changefiles",
-            leave=True,
-        ):
-            pass
-    print("Processing Changefiles")
-
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-        # Use `map` to apply the `download_image` function to each element in the `urls` list
-        # executor.map(process_changefiles, download_urls)
-        for _ in tqdm(
-            executor.map(process_changefiles, download_urls),
-            total=len(download_urls),
-            unit_scale=True,
-            unit="changefiles",
-            leave=True,
-        ):
-            pass
-
-        # executor.shutdown(wait=True)
-    print("Changefiles Processing Finished")
+            # executor.shutdown(wait=True)
+        print(f"Changefiles Processing Finished using {url}")
     os.chdir(os.getcwd())
-    if not args.store:
+    if args.temp:
         shutil.rmtree("temp")
     if len(users) >= 1:
         # print(users)
