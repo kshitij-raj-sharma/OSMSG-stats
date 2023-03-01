@@ -6,10 +6,9 @@ from setuptools import setup
 with io.open("README.md", encoding="utf-8") as f:
     readme = f.read()
 
-
 setup(
     name="osmsg",
-    version="0.1.8",
+    version="0.1.9",
     description="OpenStreetMap Stats Generator : Commandline",
     long_description=readme,
     long_description_content_type="text/markdown",

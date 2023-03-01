@@ -179,7 +179,7 @@ osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ se
 
 ### Benchmarks :
 
-Speed depends upon no of cores available on your CPU .
+Speed depends upon no of cores available on your CPU and your internet speed
 Generally on Normal i5 machine To process a year of data for country like Nepal it takes approx 3min .
 
 ### OSM LOGIN info
