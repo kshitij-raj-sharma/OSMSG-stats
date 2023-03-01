@@ -2,9 +2,9 @@ name: Run Monthly Report Hotosm Hashtag
 on:
   schedule:
     - cron: "0 3 1 * *" # Run every Month day 1 03
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
 jobs:
   issue:
     runs-on: ubuntu-latest
