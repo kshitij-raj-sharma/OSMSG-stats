@@ -43,6 +43,8 @@ from .changesets import ChangesetToolKit
 
 users_temp = {}
 users = {}
+summary_interval = {}
+summary_interval_temp = {}
 hashtag_changesets = {}
 countries_changesets = {}
 
@@ -53,7 +55,7 @@ countries_df = gpd.read_file(
 
 
 def collect_changefile_stats(
-    user, uname, changeset, version, tags, osm_type, osm_obj_nodes=None
+    user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes=None
 ):
     tags_to_collect = list(additional_tags) if additional_tags else None
     if version == 1:
@@ -62,12 +64,74 @@ def collect_changefile_stats(
         action = "modify"
     if version == 0:
         action = "delete"
+    timestamp = timestamp.strftime("%Y-%m-%d")
+    len_feature = 0
+    if length and osm_obj_nodes:
+        try:
+            len_feature = osmium.geom.haversine_distance(osm_obj_nodes)
+        except Exception as ex:
+            # print("WARNING: way  incomplete." % w.id)
+            pass
+    if summary:
+        summary_interval.setdefault(
+            timestamp,
+            {
+                "timestamp": timestamp,
+                "users": 0,
+                "changesets": 0,
+                "nodes": {"create": 0, "modify": 0, "delete": 0},
+                "ways": {"create": 0, "modify": 0, "delete": 0},
+                "relations": {"create": 0, "modify": 0, "delete": 0},
+                "poi": {"create": 0, "modify": 0},
+            },
+        )
+
+        # for changeset count
+        summary_interval_temp.setdefault(timestamp, {"changesets": [], "users": []})
+        if changeset not in summary_interval_temp[timestamp]["changesets"]:
+            summary_interval_temp[timestamp]["changesets"].append(changeset)
+        summary_interval[timestamp]["changesets"] = len(
+            summary_interval_temp[timestamp]["changesets"]
+        )
+        # for users count
+        if user not in summary_interval_temp[timestamp]["users"]:
+            summary_interval_temp[timestamp]["users"].append(user)
+        summary_interval[timestamp]["users"] = len(
+            summary_interval_temp[timestamp]["users"]
+        )
+        # for nodes , ways relations count
+        summary_interval[timestamp][osm_type][action] += 1
+        # for poi
+        if osm_type == "nodes" and tags and action != "delete":
+            summary_interval[timestamp]["poi"][action] += 1
+        # for all tags
+        if all_tags and tags:
+            for key, value in tags:
+                if action != "delete":
+                    summary_interval_temp[timestamp].setdefault(f"tags_{action}", {})
+                    summary_interval_temp[timestamp][f"tags_{action}"].setdefault(
+                        key, 0
+                    )
+                    summary_interval_temp[timestamp][f"tags_{action}"][key] += 1
+        # for user supplied tags
+        if tags_to_collect and action != "delete":
+            for tag in tags_to_collect:
+                if tag in tags:
+                    summary_interval_temp[timestamp][tag][action] += 1
+        # for length calculation
+        if length:
+            for t in length:
+                summary_interval_temp[timestamp].setdefault(f"{t}_create_len", 0)
+                if t in tags and action != "modify" and action != "delete":
+                    summary_interval_temp[timestamp][f"{t}_create_len"] += round(
+                        len_feature
+                    )
+
     if user in users:
-        users[user]["name"] = uname
-        users[user]["uid"] = user
         if changeset not in users_temp[user]["changesets"]:
             users_temp[user]["changesets"].append(changeset)
         users[user]["changesets"] = len(users_temp[user]["changesets"])
+
         if hashtags or changeset:
             try:
                 for ch in hashtag_changesets[changeset]["countries"]:
@@ -111,12 +175,7 @@ def collect_changefile_stats(
                     and action != "modify"
                     and action != "delete"
                 ):
-                    try:
-                        len_feature = osmium.geom.haversine_distance(osm_obj_nodes)
-                        users[user][f"{t}_create_len"] += round(len_feature)
-                    except Exception as ex:
-                        # print("WARNING: way  incomplete." % w.id)
-                        pass
+                    users[user][f"{t}_create_len"] += round(len_feature)
 
     else:
         users[user] = {
@@ -162,7 +221,7 @@ def collect_changefile_stats(
 
 
 def calculate_stats(
-    user, uname, changeset, version, tags, osm_type, osm_obj_nodes=None
+    user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes=None
 ):
     if (hashtags and country) or hashtags:  # intersect with changesets
         if (
@@ -174,22 +233,43 @@ def calculate_stats(
                     and changeset in countries_changesets.keys()
                 ):
                     collect_changefile_stats(
-                        user, uname, changeset, version, tags, osm_type, osm_obj_nodes
+                        user,
+                        uname,
+                        changeset,
+                        version,
+                        tags,
+                        osm_type,
+                        timestamp,
+                        osm_obj_nodes,
                     )
             else:
                 if changeset in hashtag_changesets.keys():
                     collect_changefile_stats(
-                        user, uname, changeset, version, tags, osm_type, osm_obj_nodes
+                        user,
+                        uname,
+                        changeset,
+                        version,
+                        tags,
+                        osm_type,
+                        timestamp,
+                        osm_obj_nodes,
                     )
     elif country:
         if len(countries_changesets) > 0:
             if changeset in countries_changesets.keys():
                 collect_changefile_stats(
-                    user, uname, changeset, version, tags, osm_type, osm_obj_nodes
+                    user,
+                    uname,
+                    changeset,
+                    version,
+                    tags,
+                    osm_type,
+                    timestamp,
+                    osm_obj_nodes,
                 )
     else:  # collect everything
         collect_changefile_stats(
-            user, uname, changeset, version, tags, osm_type, osm_obj_nodes
+            user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes
         )
 
 
@@ -273,7 +353,9 @@ class ChangefileHandler(osmium.SimpleHandler):
             version = n.version
             if n.deleted:
                 version = 0
-            calculate_stats(n.uid, n.user, n.changeset, version, n.tags, "nodes")
+            calculate_stats(
+                n.uid, n.user, n.changeset, version, n.tags, "nodes", n.timestamp
+            )
 
     def way(self, w):
         if w.timestamp >= start_date_utc and w.timestamp <= end_date_utc:
@@ -287,6 +369,7 @@ class ChangefileHandler(osmium.SimpleHandler):
                 version,
                 w.tags,
                 "ways",
+                w.timestamp,
                 w.nodes if length else None,
             )
 
@@ -295,7 +378,9 @@ class ChangefileHandler(osmium.SimpleHandler):
             version = r.version
             if r.deleted:
                 version = 0
-            calculate_stats(r.uid, r.user, r.changeset, version, r.tags, "relations")
+            calculate_stats(
+                r.uid, r.user, r.changeset, version, r.tags, "relations", r.timestamp
+            )
 
 
 def process_changefiles(url):
@@ -569,6 +654,7 @@ def main():
     global country
     global changeset
     global exact_lookup
+    global summary
 
     all_tags = args.all_tags
     additional_tags = args.tags
@@ -578,6 +664,7 @@ def main():
     changeset = args.changeset
     exact_lookup = args.exact_lookup
     length = args.length
+    summary = args.summary
 
     if args.url:
         args.url = list(set(args.url))  # remove duplicates
@@ -795,24 +882,31 @@ def main():
         # print(users)
         if args.all_tags:
             for user in users:
-                users[user]["tags_create"] = json.dumps(
-                    dict(
-                        sorted(
-                            users[user]["tags_create"].items(),
-                            key=lambda item: item[1],
-                            reverse=True,
+                for action in ["create", "modify"]:
+                    users[user][f"tags_{action}"] = json.dumps(
+                        dict(
+                            sorted(
+                                users[user][f"tags_{action}"].items(),
+                                key=lambda item: item[1],
+                                reverse=True,
+                            )
                         )
                     )
-                )
-                users[user]["tags_modify"] = json.dumps(
-                    dict(
-                        sorted(
-                            users[user]["tags_modify"].items(),
-                            key=lambda item: item[1],
-                            reverse=True,
+            if summary:
+                for timestamp in summary_interval:
+                    for action in ["create", "modify"]:
+                        summary_interval[timestamp][f"tags_{action}"] = json.dumps(
+                            dict(
+                                sorted(
+                                    summary_interval[timestamp][
+                                        f"tags_{action}"
+                                    ].items(),
+                                    key=lambda item: item[1],
+                                    reverse=True,
+                                )
+                            )
                         )
-                    )
-                )
+        summary_df = pd.json_normalize(list(summary_interval.values()))
 
         df = pd.json_normalize(list(users.values()))
 
@@ -933,6 +1027,7 @@ def main():
             create_charts(df)
 
         if args.summary:
+            summary_df.to_csv(f"summary_{fname}.csv", index=False)
             created_sum = (
                 df["nodes.create"] + df["ways.create"] + df["relations.create"]
             )
