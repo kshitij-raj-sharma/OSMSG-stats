@@ -81,6 +81,14 @@ def previous_day(timezone):
     )
 
 
+def last_days_count(timezone, days):
+    today = datetime.today()
+    previous_day = today - timedelta(days=days)
+    return strip_utc(previous_day.strftime("%Y-%m-%d"), timezone), strip_utc(
+        today.strftime("%Y-%m-%d"), timezone
+    )
+
+
 def previous_week(timezone):
     today = datetime.today()
     start_date = today - timedelta(days=today.weekday() + 7)
