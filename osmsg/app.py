@@ -108,10 +108,8 @@ def collect_changefile_stats(
         # for user supplied tags
         if tags_to_collect and action != "delete" and tags:
             for tag in tags_to_collect:
+                summary_interval[timestamp].setdefault(tag, {"create": 0, "modify": 0})
                 if tag in tags:
-                    summary_interval[timestamp].setdefault(
-                        tag, {"create": 0, "modify": 0}
-                    )
                     summary_interval[timestamp][tag][action] += 1
         # for length calculation
         if length:
@@ -909,6 +907,21 @@ def main():
                             )
                         )
         summary_df = pd.json_normalize(list(summary_interval.values()))
+        summary_df = summary_df.assign(
+            changes=summary_df["nodes.create"]
+            + summary_df["nodes.modify"]
+            + summary_df["nodes.delete"]
+            + summary_df["ways.create"]
+            + summary_df["ways.modify"]
+            + summary_df["ways.delete"]
+            + summary_df["relations.create"]
+            + summary_df["relations.modify"]
+            + summary_df["relations.delete"]
+        )
+        summary_df.insert(3, "map_changes", summary_df["changes"], True)
+        summary_df = summary_df.drop(columns=["changes"])
+
+        summary_df = summary_df.sort_values("timestamp", ascending=True)
 
         df = pd.json_normalize(list(users.values()))
 
