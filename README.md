@@ -145,7 +145,9 @@ export OSM_PASSWORD="yourpassword"
 osmsg  --url "http://download.geofabrik.de/asia/nepal-updates" --format csv --start_date "2023-01-15 00:00:00+00:00" --end_date "2023-01-30 00:00:00+00:00" --name all_tags_stats --all_tags
 ```
 
-- To get stat of Nepal for 2022 to now with geofabrik replication:
+- To get stat of country for year with geofabrik replication:
+
+  Example of nepal for year of 2022
 
   Processing geofabrik country based osm change files are faster as they will have changes only for country and smaller in size
 
@@ -153,12 +155,26 @@ osmsg  --url "http://download.geofabrik.de/asia/nepal-updates" --format csv --st
 osmsg --start_date "2022-01-01 00:00:00+00:00" --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity'  --format csv
 ```
 
-- Example of extract last 8 days of data for Turkey and Syria for hashtag smforst using geofabrik
+- To extract on-going mapathons statistics 
 
-  --summary will allow to divide and provide stats as summary sepearated by daily , Youc an use this for mapathons ! 
+  Example of extract last 8 days of data for Turkey and Syria using hashtag smforst with geofabrik as source
+  --summary will allow to divide and provide stats as summary sepearated by daily , You can use this to get both summary csv and user contribution csv ! 
 ```
 osmsg --url http://download.geofabrik.de/europe/turkey-updates https://download.geofabrik.de/asia/syria-updates --username "OSM USERNAME" --password "OSM PASSWORD" --hashtags smforst --length highway --force --days 6 --tags building highway amenity waterway --all_tags --summary
 ```
+
+- Extract mapathon stats for hashtag only 
+  
+  You can use --length to get length of created features , supported for way features along with count
+```
+osmsg --url minute --hashtags mymapathonhashtag1 hashtag2 --length highway --force --tags building highway amenity waterway --all_tags --summary --start_date "2023-01-15 00:00:00+00:00" --end_date "2023-01-15 11:59:00+00:00"
+```
+Or you can simply say --last_day like this , can use hour replication to avoid processing too many files 
+
+```
+osmsg --url hour --hashtags mymapathonhashtag1 hashtag2 --length highway --force --tags building highway amenity waterway --all_tags --summary --last_day
+```
+
 Check more commands examples inside `stats/` `stats_metadata.json`
 
 Now start generating stats with above sample commands
