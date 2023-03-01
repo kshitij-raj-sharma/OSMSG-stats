@@ -351,7 +351,7 @@ class ChangefileHandler(osmium.SimpleHandler):
         super(ChangefileHandler, self).__init__()
 
     def node(self, n):
-        if n.timestamp >= start_date_utc and n.timestamp <= end_date_utc:
+        if n.timestamp >= start_date_utc and n.timestamp < end_date_utc:
             version = n.version
             if n.deleted:
                 version = 0
@@ -360,7 +360,7 @@ class ChangefileHandler(osmium.SimpleHandler):
             )
 
     def way(self, w):
-        if w.timestamp >= start_date_utc and w.timestamp <= end_date_utc:
+        if w.timestamp >= start_date_utc and w.timestamp < end_date_utc:
             version = w.version
             if w.deleted:
                 version = 0
@@ -376,7 +376,7 @@ class ChangefileHandler(osmium.SimpleHandler):
             )
 
     def relation(self, r):
-        if r.timestamp >= start_date_utc and r.timestamp <= end_date_utc:
+        if r.timestamp >= start_date_utc and r.timestamp < end_date_utc:
             version = r.version
             if r.deleted:
                 version = 0
