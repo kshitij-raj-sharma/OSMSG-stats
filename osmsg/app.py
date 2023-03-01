@@ -551,7 +551,7 @@ def parse_args():
     parser.add_argument(
         "--summary",
         action="store_true",
-        help="Produces Summary.md file with summary of Run",
+        help="Produces Summary.md file with summary of Run and also a summary.csv which will have summary of stats per day",
         default=False,
     )
     parser.add_argument(

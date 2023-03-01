@@ -75,7 +75,7 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
   --days DAYS           N nof of last days to extract , for eg if 3 is supplied script will generate
                         stats for last 3 days
   --charts              Exports Summary Charts along with stats
-  --summary             Produces Summary.md file with summary of Run
+  --summary             Produces Summary.md file with summary of Run and also a summary.csv which will have summary of stats per day
   --exact_lookup        Exact lookup for hashtags to match exact hashtag supllied , without this
                         hashtag search will search for the existence of text on hashtags and comments
   --changeset           Include hashtag and country informations on the stats. It forces script to
