@@ -47,6 +47,7 @@ summary_interval = {}
 summary_interval_temp = {}
 hashtag_changesets = {}
 countries_changesets = {}
+whitelisted_users = []
 
 # read the GeoJSON file
 countries_df = gpd.read_file(
@@ -72,6 +73,20 @@ def collect_changefile_stats(
         except Exception as ex:
             # print("WARNING: way  incomplete." % w.id)
             pass
+
+    # set default
+    users.setdefault(
+        user,
+        {
+            "name": uname,
+            "uid": user,
+            "changesets": 0,
+            "nodes": {"create": 0, "modify": 0, "delete": 0},
+            "ways": {"create": 0, "modify": 0, "delete": 0},
+            "relations": {"create": 0, "modify": 0, "delete": 0},
+            "poi": {"create": 0, "modify": 0},  # nodes that has tags
+        },
+    )
     if summary:
         summary_interval.setdefault(
             timestamp,
@@ -86,138 +101,90 @@ def collect_changefile_stats(
             },
         )
 
-        # for changeset count
+    # changeset count
+    users_temp.setdefault(user, {"changesetrs": []})
+    if summary:
         summary_interval_temp.setdefault(timestamp, {"changesets": [], "users": []})
         if changeset not in summary_interval_temp[timestamp]["changesets"]:
             summary_interval_temp[timestamp]["changesets"].append(changeset)
         summary_interval[timestamp]["changesets"] = len(
             summary_interval_temp[timestamp]["changesets"]
         )
-        # for users count
-        if user not in summary_interval_temp[timestamp]["users"]:
-            summary_interval_temp[timestamp]["users"].append(user)
-        summary_interval[timestamp]["users"] = len(
-            summary_interval_temp[timestamp]["users"]
-        )
-        # for nodes , ways relations count
+    users_temp[user].setdefault("changesets", [])
+    if changeset not in users_temp[user]["changesets"]:
+        users_temp[user]["changesets"].append(changeset)
+    users[user]["changesets"] = len(users_temp[user]["changesets"])
+
+    # hashtags & countries block
+    if hashtags or changeset_meta:
+        users[user].setdefault("countries", [])
+        users[user].setdefault("hashtags", [])
+
+        try:
+            for ch in hashtag_changesets[changeset]["countries"]:
+                if ch not in users[user]["countries"]:
+                    users[user]["countries"].append(ch)
+            for ch in hashtag_changesets[changeset]["hashtags"]:
+                if ch not in users[user]["hashtags"]:
+                    users[user]["hashtags"].append(ch)
+        except Exception as ex:
+            pass
+
+    # osm element count
+    users[user][osm_type][action] += 1
+    if summary:
         summary_interval[timestamp][osm_type][action] += 1
-        # for poi
-        if osm_type == "nodes" and tags and action != "delete":
+
+    # POI block
+    if osm_type == "nodes" and tags and action != "delete":
+        users[user]["poi"][action] += 1
+        if summary:
             summary_interval[timestamp]["poi"][action] += 1
 
-        # for user supplied tags
-        if tags_to_collect and action != "delete" and tags:
-            for tag in tags_to_collect:
-                summary_interval[timestamp].setdefault(tag, {"create": 0, "modify": 0})
-                if tag in tags:
-                    summary_interval[timestamp][tag][action] += 1
-        # for length calculation
-        if length:
-            for t in length:
-                summary_interval[timestamp].setdefault(f"{t}_create_len", 0)
-                if t in tags and action != "modify" and action != "delete":
-                    summary_interval[timestamp][f"{t}_create_len"] += round(len_feature)
-        # for all tags
-        if all_tags:
+    # all tags block
+    if all_tags:
+        users[user].setdefault("tags_create", {})
+        users[user].setdefault("tags_modify", {})
+        if summary:
             summary_interval[timestamp].setdefault("tags_create", {})
             summary_interval[timestamp].setdefault("tags_modify", {})
-            if tags:
-                for key, value in tags:
-                    if action != "delete":
+        if tags:
+            for key, value in tags:
+                if action != "delete":  # we don't need deleted tags
+                    users[user][f"tags_{action}"].setdefault(key, 0)
+                    users[user][f"tags_{action}"][key] += 1
+                    if summary:
                         summary_interval[timestamp][f"tags_{action}"].setdefault(key, 0)
                         summary_interval[timestamp][f"tags_{action}"][key] += 1
 
-    if user in users:
-        if changeset not in users_temp[user]["changesets"]:
-            users_temp[user]["changesets"].append(changeset)
-        users[user]["changesets"] = len(users_temp[user]["changesets"])
+    # for user supplied tags
+    if tags_to_collect and action != "delete" and tags:
+        for tag in tags_to_collect:
+            if summary:
+                summary_interval[timestamp].setdefault(tag, {"create": 0, "modify": 0})
+            users[user].setdefault(tag, {"create": 0, "modify": 0})
+            if tag in tags:
+                if summary:
+                    summary_interval[timestamp][tag][action] += 1
+                users[user][tag][action] += 1
 
-        if hashtags or changeset:
-            try:
-                for ch in hashtag_changesets[changeset]["countries"]:
-                    if ch not in users[user]["countries"]:
-                        users[user]["countries"].append(ch)
-                for ch in hashtag_changesets[changeset]["hashtags"]:
-                    if ch not in users[user]["hashtags"]:
-                        users[user]["hashtags"].append(ch)
-            except:
-                pass
+    # country block
+    if country:
+        if not hashtags:
+            for ch in countries_changesets[changeset]:
+                if ch not in users[user]["hashtags"]:
+                    users[user]["hashtags"].append(ch)
 
-        users[user][osm_type][action] += 1
-        if osm_type == "nodes" and tags:
-            if action != "delete":
-                users[user]["poi"][action] += 1
-        if all_tags:
-            if tags:
-                for key, value in tags:
-                    if action != "delete":  # we don't need deleted tags
-                        if key in users[user][f"tags_{action}"]:
-                            users[user][f"tags_{action}"][key] += 1
-                        else:
-                            users[user][f"tags_{action}"][key] = 1
-
-        if tags_to_collect:
-            if action != "delete":  # we don't need deleted tags
-                for tag in tags_to_collect:
-                    if tag in tags:
-                        users[user][tag][action] += 1
-        if country:
-            if not hashtags:
-                for ch in countries_changesets[changeset]:
-                    if ch not in users[user]["hashtags"]:
-                        users[user]["hashtags"].append(ch)
-        if length:
-            for t in length:
-                users[user].setdefault(f"{t}_create_len", 0)
-                if (
-                    t in tags
-                    and osm_obj_nodes
-                    and action != "modify"
-                    and action != "delete"
-                ):
-                    users[user][f"{t}_create_len"] += round(len_feature)
-
-    else:
-        users[user] = {
-            "name": uname,
-            "uid": user,
-            "changesets": 0,
-            "nodes": {"create": 0, "modify": 0, "delete": 0},
-            "ways": {"create": 0, "modify": 0, "delete": 0},
-            "relations": {"create": 0, "modify": 0, "delete": 0},
-            "poi": {"create": 0, "modify": 0},  # nodes that has tags
-        }
-        if hashtags or changeset:
-            users[user]["countries"] = []
-            users[user]["hashtags"] = []
-
-            try:
-                users[user]["countries"] = hashtag_changesets[changeset]["countries"]
-                users[user]["hashtags"] = hashtag_changesets[changeset]["hashtags"]
-            except:
-                pass
-
-        if tags_to_collect:
-            for tag in tags_to_collect:
-                users[user][tag] = {"create": 0, "modify": 0}
-        users_temp[user] = {"changesets": []}
-        if changeset not in users_temp[user]["changesets"]:
-            users_temp[user]["changesets"].append(changeset)
-        users[user]["changesets"] = len(users_temp[user]["changesets"])
-        users[user][osm_type][action] = 1
-        if all_tags:
-            users[user]["tags_create"] = {}
-            users[user]["tags_modify"] = {}
-            if tags:
-                for tag, value in tags:
-                    users[user][f"tags_{action}"][tag] = 1
-        if tags_to_collect:
-            for tag in tags_to_collect:
-                if tag in tags:
-                    users[user][tag][action] = 1
-        if country:
-            if not hashtags:
-                users[user]["hashtags"] = countries_changesets[changeset]
+    # for length calculation
+    if length:
+        for t in length:
+            users[user].setdefault(f"{t}_create_len", 0)
+            if summary:
+                summary_interval[timestamp].setdefault(f"{t}_create_len", 0)
+            if t in tags and action != "modify" and action != "delete":
+                if summary:
+                    summary_interval[timestamp][f"{t}_create_len"] += round(len_feature)
+                users[user][f"{t}_create_len"] += round(len_feature)
 
 
 def calculate_stats(
@@ -225,13 +192,13 @@ def calculate_stats(
 ):
     if (hashtags and country) or hashtags:  # intersect with changesets
         if (
-            len(hashtag_changesets) > 0
+            len(hashtag_changesets) > 0 or len(whitelisted_users) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
             if country:
                 if (
                     changeset in hashtag_changesets.keys()
                     and changeset in countries_changesets.keys()
-                ):
+                ) or uname in whitelisted_users:
                     collect_changefile_stats(
                         user,
                         uname,
@@ -243,7 +210,7 @@ def calculate_stats(
                         osm_obj_nodes,
                     )
             else:
-                if changeset in hashtag_changesets.keys():
+                if changeset in hashtag_changesets.keys() or uname in whitelisted_users:
                     collect_changefile_stats(
                         user,
                         uname,
@@ -255,8 +222,8 @@ def calculate_stats(
                         osm_obj_nodes,
                     )
     elif country:
-        if len(countries_changesets) > 0:
-            if changeset in countries_changesets.keys():
+        if len(countries_changesets) > 0 or len(whitelisted_users) > 0:
+            if changeset in countries_changesets.keys() or uname in whitelisted_users:
                 collect_changefile_stats(
                     user,
                     uname,
@@ -267,6 +234,18 @@ def calculate_stats(
                     timestamp,
                     osm_obj_nodes,
                 )
+    elif len(whitelisted_users) > 0:
+        if uname in whitelisted_users:
+            collect_changefile_stats(
+                user,
+                uname,
+                changeset,
+                version,
+                tags,
+                osm_type,
+                timestamp,
+                osm_obj_nodes,
+            )
     else:  # collect everything
         collect_changefile_stats(
             user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes
@@ -279,7 +258,7 @@ class ChangesetHandler(osmium.SimpleHandler):
 
     def changeset(self, c):
         run_hashtag_check_logic = False
-        if changeset and not hashtags:
+        if changeset_meta and not hashtags:
             if "comment" in c.tags:
                 run_hashtag_check_logic = True
         if hashtags:
@@ -353,34 +332,52 @@ class ChangefileHandler(osmium.SimpleHandler):
             version = n.version
             if n.deleted:
                 version = 0
-            calculate_stats(
-                n.uid, n.user, n.changeset, version, n.tags, "nodes", n.timestamp
-            )
+            try:
+                calculate_stats(
+                    n.uid, n.user, n.changeset, version, n.tags, "nodes", n.timestamp
+                )
+            except Exception as ex:
+                print(f"Warning: {n.id} parse error")
+                print(ex)
 
     def way(self, w):
         if w.timestamp >= start_date_utc and w.timestamp < end_date_utc:
             version = w.version
             if w.deleted:
                 version = 0
-            calculate_stats(
-                w.uid,
-                w.user,
-                w.changeset,
-                version,
-                w.tags,
-                "ways",
-                w.timestamp,
-                w.nodes if length else None,
-            )
+            try:
+                calculate_stats(
+                    w.uid,
+                    w.user,
+                    w.changeset,
+                    version,
+                    w.tags,
+                    "ways",
+                    w.timestamp,
+                    w.nodes if length else None,
+                )
+            except Exception as ex:
+                print(f"Warning: {w.id} parse error")
+                print(ex)
 
     def relation(self, r):
         if r.timestamp >= start_date_utc and r.timestamp < end_date_utc:
             version = r.version
             if r.deleted:
                 version = 0
-            calculate_stats(
-                r.uid, r.user, r.changeset, version, r.tags, "relations", r.timestamp
-            )
+            try:
+                calculate_stats(
+                    r.uid,
+                    r.user,
+                    r.changeset,
+                    version,
+                    r.tags,
+                    "relations",
+                    r.timestamp,
+                )
+            except Exception as ex:
+                print(f"Warning: {r.id} parse error")
+                print(ex)
 
 
 def process_changefiles(url):
@@ -490,6 +487,14 @@ def parse_args():
         type=int,
         default=None,
         help="No. of top rows to extract , to extract top 100 , pass 100",
+    )
+
+    parser.add_argument(
+        "--users",
+        type=str,
+        nargs="+",
+        default=None,
+        help="List of user names to look for , You can use it to only produce stats for listed users or pass it with hashtags , it will act as or filter. Case sensitive use ' ' to enter names with space in between",
     )
 
     parser.add_argument(
@@ -652,7 +657,7 @@ def main():
     global hashtags
     global length
     global country
-    global changeset
+    global changeset_meta
     global exact_lookup
     global summary
 
@@ -661,7 +666,7 @@ def main():
     hashtags = args.hashtags
     country = args.country
     cookies = None
-    changeset = args.changeset
+    changeset_meta = args.changeset
     exact_lookup = args.exact_lookup
     length = args.length
     summary = args.summary
@@ -711,6 +716,10 @@ def main():
             "Error: only one of --last_hour, --last_year, --last_month, --last_day, --last_week, or --days should be specified."
         )
         sys.exit()
+
+    if args.users:
+        for u in args.users:
+            whitelisted_users.append(u)
 
     if args.last_hour:
         start_date, end_date = get_prev_hour(args.timezone)
@@ -925,7 +934,7 @@ def main():
 
         df = pd.json_normalize(list(users.values()))
 
-        if hashtags or changeset:
+        if hashtags or changeset_meta:
             df["countries"] = df["countries"].apply(lambda x: ",".join(map(str, x)))
 
         df = df.assign(
@@ -958,7 +967,7 @@ def main():
             # Reindex the DataFrame with the new order of column names
             df = df.reindex(columns=cols)
 
-        if country or hashtags or changeset:
+        if country or hashtags or changeset_meta:
             df["hashtags"] = df["hashtags"].apply(lambda x: ",".join(map(str, x)))
             column_to_move = "hashtags"
             df = df.assign(**{column_to_move: df.pop(column_to_move)})
