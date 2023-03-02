@@ -2,9 +2,9 @@ name: Run Monthly Report Global
 on:
   schedule:
     - cron: "0 0 1 * *" # every month at day 1 00
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          
+
           base_dir=stats/Global/Monthly
           mkdir -p $base_dir/charts/
 
@@ -70,12 +70,12 @@ jobs:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
           base_dir=stats/Global/Monthly
-          
+
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_month --tweet_global --git $commit_id
-          
+
           sudo mv summary.md $base_dir/README.md
-          
+
           git add -f $base_dir/README.md
 
           git commit -m "Updated Readme Monthly Global"

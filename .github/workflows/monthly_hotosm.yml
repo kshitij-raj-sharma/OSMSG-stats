@@ -2,9 +2,9 @@ name: Run Monthly Report Hotosm Hashtag
 on:
   schedule:
     - cron: "0 3 1 * *" # Run every Month day 1 03
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          
+
           base_dir=stats/hotosm/Monthly
           mkdir -p $base_dir/charts/
 
@@ -66,8 +66,8 @@ jobs:
           base_dir=stats/hotosm/Monthly
 
           sudo mv summary.md $base_dir/README.md
-          
+
           git add -f $base_dir/README.md
-          
+
           git commit -m "Updated Readme Monthly Hotosm"
           git push
