@@ -1037,7 +1037,7 @@ def main():
                 file.write(text_output)
 
         if args.charts:
-            if "geofabrik" in args.url.lower():
+            if any("geofabrik" in url.lower() for url in args.url):
                 df.drop("countries", axis="columns")
             create_charts(df)
 
