@@ -2,9 +2,9 @@ name: Run Daily Report Global
 on:
   schedule:
     - cron: "0 5 * * *" # Run every day at 5 UTC
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -51,7 +51,7 @@ jobs:
           git add -f $base_dir/charts/
           git add -f $base_dir/README.md
 
-          
+
           git commit -m "Updated Daily global stats"
           git push
 
@@ -67,9 +67,9 @@ jobs:
 
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_last_day --tweet_global --git $commit_id
-          
+
           sudo mv summary.md $base_dir/README.md
-          
+
           git add -f $base_dir/README.md
 
           git commit -m "Updated Readme Daily Global"

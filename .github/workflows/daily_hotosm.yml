@@ -2,9 +2,9 @@ name: Run Daily Report Hotosm Hashtag
 on:
   schedule:
     - cron: "0 6 * * *" # Run every day at 6 UTC
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          
+
           base_dir=stats/hotosm/Daily
           mkdir -p $base_dir/charts/
 
@@ -64,9 +64,9 @@ jobs:
           base_dir=stats/hotosm/Daily
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --tweet_hotosm --tweet_last_day --git $commit_id
-          
+
           sudo mv summary.md $base_dir/README.md
-          
+
           git add -f $base_dir/README.md
           git commit -m "Updated Readme Daily Hotosm"
           git push
