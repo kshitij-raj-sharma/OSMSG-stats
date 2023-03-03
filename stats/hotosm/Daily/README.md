@@ -49,3 +49,9 @@ Top 5 trending Countries where user contributed are:
 - El Salvador : 38 users
 - United Republic of Tanzania : 27 users
 
+
+ Charts : 
+![Alt text](./charts/osm_changes.png) 
+![Alt text](./charts/users_per_hashtag.png) 
+![Alt text](./charts/users_per_country.png) 
+![Alt text](./charts/tags.png) 
