@@ -1,57 +1,51 @@
-### Last Update : Stats from 2023-03-01 00:00:00+00:00 to 2023-03-02 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-02 00:00:00+00:00 to 2023-03-03 00:00:00+00:00 (UTC Timezone)
 
-#### 625 Users made 6.1 thousand changesets with 634.3 thousand map changes.
-#### 424.1 thousand OSM Elements were Created, 157.8 thousand Modified & 52.5 thousand Deleted.
+#### 520 Users made 4.2 thousand changesets with 651.7 thousand map changes.
+#### 422.5 thousand OSM Elements were Created, 178.6 thousand Modified & 50.6 thousand Deleted.
 
 Top 5 Users are : 
-- jpportier : 15.5 thousand Map Changes
-- yunica : 14.2 thousand Map Changes
-- piligab : 10.9 thousand Map Changes
-- irma atus : 10.9 thousand Map Changes
-- DiahW : 10.7 thousand Map Changes
+- yunica : 17.3 thousand Map Changes
+- UPegasus : 16.6 thousand Map Changes
+- karitotp : 14.7 thousand Map Changes
+- piligab : 12.6 thousand Map Changes
+- KingVik : 12.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 191, Modified : 487
-- building = Created: 62.9 thousand, Modified : 9.8 thousand
-- highway = Created: 2.6 thousand, Modified : 2.9 thousand
-- waterway = Created: 44, Modified : 79
-- amenity = Created: 42, Modified : 293
+- poi = Created: 475, Modified : 1.1 thousand
+- building = Created: 61.4 thousand, Modified : 9.3 thousand
+- highway = Created: 3.2 thousand, Modified : 3.7 thousand
+- waterway = Created: 47, Modified : 84
+- amenity = Created: 41, Modified : 76
 
 
 Top 5 Created tags are :
-- building: 62.9 thousand
-- source: 3.3 thousand
-- highway: 2.6 thousand
-- natural: 338
-- layer: 207
+- building: 61.4 thousand
+- source: 6.9 thousand
+- highway: 3.2 thousand
+- name: 349
+- natural: 336
 
 
 Top 5 Modified tags are :
-- building: 9.8 thousand
-- source: 4.4 thousand
-- highway: 2.9 thousand
-- addr:city: 2.3 thousand
-- addr:postcode: 2.1 thousand
+- building: 9.3 thousand
+- source: 4.9 thousand
+- highway: 3.7 thousand
+- surface: 565
+- name: 439
 
 
 Top 5 trending hashtags are:
-- #TürkiyeEQ060223 : 240 users
-- #yercizenler : 144 users
-- #turkiye : 129 users
-- #turkey : 129 users
-- #MissingMaps : 110 users
+- #TürkiyeEQ060223 : 255 users
+- #yercizenler : 171 users
+- #turkiye : 165 users
+- #turkey : 165 users
+- #hotosm-project-14233 : 112 users
 
 
 Top 5 trending Countries where user contributed are:
-- Turkey : 150 users
-- Syrian Arab Republic : 109 users
-- El Salvador : 102 users
-- United Republic of Tanzania : 52 users
-- Brazil : 39 users
+- Turkey : 178 users
+- Syrian Arab Republic : 96 users
+- Ethiopia : 50 users
+- El Salvador : 38 users
+- United Republic of Tanzania : 27 users
 
-
- Charts : 
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
