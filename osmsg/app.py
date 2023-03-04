@@ -49,12 +49,13 @@ hashtag_changesets = {}
 countries_changesets = {}
 whitelisted_users = []
 
+print("Initializing ....")
 # read the GeoJSON file
 countries_df = gpd.read_file(
     "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries_un.geojson"
 )
 geofabrik_countries = pd.read_csv(
-    "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries.csv"
+    "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/feature/country_name_url/data/countries.csv"
 )
 
 
@@ -558,7 +559,6 @@ def parse_args():
 
 
 def main():
-    print("OSMSG : Waking up ......")
     args = parse_args()
     if args.start_date:
         start_date = strip_utc(
@@ -598,7 +598,7 @@ def main():
             osc_url_temp.append(
                 geofabrik_countries.loc[
                     geofabrik_countries["id"] == ctr.lower(), "update_url"
-                ]
+                ].values[0]
             )
         print("Ignoring --url , and using Geofabrik Update URL for Country")
         args.url = osc_url_temp
