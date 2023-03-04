@@ -648,7 +648,7 @@ def main():
 
         if any("geofabrik" in url.lower() for url in args.url):
             if args.username is None:
-                print(os.environ.get("OSM_USERNAME"))
+                # print(os.environ.get("OSM_USERNAME"))
                 args.username = os.environ.get("OSM_USERNAME")
             if args.password is None:
                 args.password = os.environ.get("OSM_PASSWORD")
