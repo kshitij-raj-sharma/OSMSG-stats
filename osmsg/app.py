@@ -110,6 +110,11 @@ def collect_changefile_stats(
         summary_interval[timestamp]["changesets"] = len(
             summary_interval_temp[timestamp]["changesets"]
         )
+        if user not in summary_interval_temp[timestamp]["users"]:
+            summary_interval_temp[timestamp]["users"].append(user)
+        summary_interval[timestamp]["users"] = len(
+            summary_interval_temp[timestamp]["users"]
+        )
     users_temp[user].setdefault("changesets", [])
     if changeset not in users_temp[user]["changesets"]:
         users_temp[user]["changesets"].append(changeset)

@@ -51,7 +51,9 @@ def previous_month(timezone):
         month = 13
         year -= 1
     prev_month_start = datetime(year, month - 1, 1)
-    prev_month_end = datetime(year, month - 1, calendar.monthrange(year, month - 1)[1])
+    prev_month_end = datetime(
+        year, month - 1, calendar.monthrange(year, month - 1)[1]
+    ) + timedelta(days=1)
     return strip_utc(prev_month_start.strftime("%Y-%m-%d"), timezone), strip_utc(
         prev_month_end.strftime("%Y-%m-%d"), timezone
     )
