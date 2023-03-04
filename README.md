@@ -23,14 +23,11 @@ pip install osmsg
 ### Usage:
 
 ```
-osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
-             [--password PASSWORD] [--timezone {Nepal,UTC}] [--name NAME] [--country COUNTRY]
-             [--tags TAGS [TAGS ...]] [--hashtags HASHTAGS [HASHTAGS ...]]
-             [--length LENGTH [LENGTH ...]] [--force] [--rows ROWS] [--workers WORKERS]
-             [--url URL [URL ...]] [--last_week] [--last_day] [--last_month] [--last_year]
-             [--last_hour] [--days DAYS] [--charts] [--summary] [--exact_lookup] [--changeset]
-             [--all_tags] [--temp] [--exclude_date_in_name]
-             [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
+osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME] [--password PASSWORD] [--timezone {Nepal,UTC}] [--name NAME]
+             [--country COUNTRY [COUNTRY ...]] [--tags TAGS [TAGS ...]] [--hashtags HASHTAGS [HASHTAGS ...]] [--length LENGTH [LENGTH ...]] [--force]
+             [--rows ROWS] [--users USERS [USERS ...]] [--workers WORKERS] [--url URL [URL ...]] [--last_week] [--last_day] [--last_month]
+             [--last_year] [--last_hour] [--days DAYS] [--charts] [--summary] [--exact_lookup] [--changeset] [--all_tags] [--temp]
+             [--exclude_date_in_name] [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
              [--read_from_metadata READ_FROM_METADATA]
 ```
 
@@ -46,52 +43,48 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
   --timezone {Nepal,UTC}
                         Your Timezone : Currently Supported Nepal, Default : UTC
   --name NAME           Output stat file name
-  --country COUNTRY     Country name to extract (get name from data/un_countries) : Only viable until
-                        day stats since changeset replication is available for minute, avoid using
-                        for geofabrik url since geofabrik already gives country level changefiles
+  --country COUNTRY [COUNTRY ...]
+                        List of country name to extract (get id from data/countries), It will use geofabrik countries updates so it will require OSM
+                        USERNAME. Only Available for Daily Updates
   --tags TAGS [TAGS ...]
                         Additional stats to collect : List of tags key
   --hashtags HASHTAGS [HASHTAGS ...]
-                        Hashtags Statistics to Collect : List of hashtags , Limited until daily stats
-                        for now , Only lookups if hashtag is contained on the string , not a exact
-                        string lookup on beta
+                        Hashtags Statistics to Collect : List of hashtags , Limited until daily stats for now , Only lookups if hashtag is contained
+                        on the string , not a exact string lookup on beta
   --length LENGTH [LENGTH ...]
-                        Calculate length of osm features , Only Supported for way created features ,
-                        Pass list of tags key to calculate eg : --length highway waterway , Unit is
-                        in Meters
+                        Calculate length of osm features , Only Supported for way created features , Pass list of tags key to calculate eg : --length
+                        highway waterway , Unit is in Meters
   --force               Force for the Hashtag Replication fetch if it is greater than a day interval
   --rows ROWS           No. of top rows to extract , to extract top 100 , pass 100
-  --workers WORKERS     No. of Parallel workers to assign : Default is no of cpu available , Be aware
-                        to use this max no of workers may cause overuse of resources
-  --url URL [URL ...]   Your public list of OSM Change Replication URL , 'minute,hour,day' option by
-                        default will translate to planet replciation url. You can supply multiple
-                        urls for geofabrik country updates , Url should not have trailing / at the
-                        end
+  --users USERS [USERS ...]
+                        List of user names to look for , You can use it to only produce stats for listed users or pass it with hashtags , it will act
+                        as or filter. Case sensitive use ' ' to enter names with space in between
+  --workers WORKERS     No. of Parallel workers to assign : Default is no of cpu available , Be aware to use this max no of workers may cause overuse
+                        of resources
+  --url URL [URL ...]   Your public list of OSM Change Replication URL , 'minute,hour,day' option by default will translate to planet replciation
+                        url. You can supply multiple urls for geofabrik country updates , Url should not have trailing / at the end
   --last_week           Extract stats for last week
   --last_day            Extract Stats for last day
   --last_month          Extract Stats for last Month
   --last_year           Extract stats for last year
   --last_hour           Extract stats for Last hour
-  --days DAYS           N nof of last days to extract , for eg if 3 is supplied script will generate
-                        stats for last 3 days
+  --days DAYS           N nof of last days to extract , for eg if 3 is supplied script will generate stats for last 3 days
   --charts              Exports Summary Charts along with stats
   --summary             Produces Summary.md file with summary of Run and also a summary.csv which will have summary of stats per day
-  --exact_lookup        Exact lookup for hashtags to match exact hashtag supllied , without this
-                        hashtag search will search for the existence of text on hashtags and comments
-  --changeset           Include hashtag and country informations on the stats. It forces script to
-                        process changeset replciation , Careful to use this since changeset
-                        replication is minutely
+  --exact_lookup        Exact lookup for hashtags to match exact hashtag supllied , without this hashtag search will search for the existence of text
+                        on hashtags and comments
+  --changeset           Include hashtag and country informations on the stats. It forces script to process changeset replciation , Careful to use
+                        this since changeset replication is minutely according to your internet speed and cpu cores
   --all_tags            Extract statistics of all of the unique tags and its count
-  --temp                Deletes downloaded osm files from machine after processing is done , if you
-                        want to run osmsg on same files again keep this option turn off
+  --temp                Deletes downloaded osm files from machine after processing is done , if you want to run osmsg on same files again keep this
+                        option turn off
   --exclude_date_in_name
-                        By default from and to date will be added to filename , You can skip this
-                        behaviour with this option
+                        By default from and to date will be added to filename , You can skip this behaviour with this option
   --format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]
                         Stats output format
   --read_from_metadata READ_FROM_METADATA
-                        Location of metadata to pick start date from previous run's end_date ,
-                        Generally used if you want to run bot on regular interval using cron/service
+                        Location of metadata to pick start date from previous run's end_date , Generally used if you want to run bot on regular
+                        interval using cron/service
 ```
 
 It is a Simple python script processes osm files live and produces stats on the fly
