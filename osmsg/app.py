@@ -49,9 +49,13 @@ hashtag_changesets = {}
 countries_changesets = {}
 whitelisted_users = []
 
+print("Initializing ....")
 # read the GeoJSON file
 countries_df = gpd.read_file(
     "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries_un.geojson"
+)
+geofabrik_countries = pd.read_csv(
+    "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries.csv"
 )
 
 
@@ -173,13 +177,6 @@ def collect_changefile_stats(
                     summary_interval[timestamp][tag][action] += 1
                 users[user][tag][action] += 1
 
-    # country block
-    if country:
-        if not hashtags:
-            for ch in countries_changesets[changeset]:
-                if ch not in users[user]["hashtags"]:
-                    users[user]["hashtags"].append(ch)
-
     # for length calculation
     if length:
         for t in length:
@@ -195,40 +192,12 @@ def collect_changefile_stats(
 def calculate_stats(
     user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes=None
 ):
-    if (hashtags and country) or hashtags:  # intersect with changesets
+    if hashtags:  # intersect with changesets
         if (
             len(hashtag_changesets) > 0 or len(whitelisted_users) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
-            if country:
-                if (
-                    changeset in hashtag_changesets.keys()
-                    and changeset in countries_changesets.keys()
-                ) or uname in whitelisted_users:
-                    collect_changefile_stats(
-                        user,
-                        uname,
-                        changeset,
-                        version,
-                        tags,
-                        osm_type,
-                        timestamp,
-                        osm_obj_nodes,
-                    )
-            else:
-                if changeset in hashtag_changesets.keys() or uname in whitelisted_users:
-                    collect_changefile_stats(
-                        user,
-                        uname,
-                        changeset,
-                        version,
-                        tags,
-                        osm_type,
-                        timestamp,
-                        osm_obj_nodes,
-                    )
-    elif country:
-        if len(countries_changesets) > 0 or len(whitelisted_users) > 0:
-            if changeset in countries_changesets.keys() or uname in whitelisted_users:
+
+            if changeset in hashtag_changesets.keys() or uname in whitelisted_users:
                 collect_changefile_stats(
                     user,
                     uname,
@@ -300,32 +269,6 @@ class ChangesetHandler(osmium.SimpleHandler):
                     for i, row in intersected_rows.iterrows():
                         if row["name"] not in hashtag_changesets[c.id]["countries"]:
                             hashtag_changesets[c.id]["countries"].append(row["name"])
-
-        if country:
-            if c.bounds:
-                bounds = str(c.bounds)
-                if "invalid" not in bounds:
-                    bbox_list = bounds.strip("()").split(" ")
-
-                    minx, miny = bbox_list[0].split("/")
-                    maxx, maxy = bbox_list[1].split("/")
-
-                    bbox = box(float(minx), float(miny), float(maxx), float(maxy))
-                    # Create a point for the centroid of the bounding box
-                    centroid = bbox.centroid
-                    intersected_rows = countries_df[countries_df.intersects(centroid)]
-                    for i, row in intersected_rows.iterrows():
-
-                        if row["name"] == country:
-                            if c.id not in countries_changesets.keys():
-                                countries_changesets[c.id] = []
-                            if "comment" in c.tags:
-                                hashtags_comment = re.findall(
-                                    r"#[\w-]+", c.tags["comment"]
-                                )
-                                for tag in hashtags_comment:
-                                    if tag not in countries_changesets[c.id]:
-                                        countries_changesets[c.id].append(tag)
 
 
 class ChangefileHandler(osmium.SimpleHandler):
@@ -453,8 +396,9 @@ def parse_args():
     )
     parser.add_argument(
         "--country",
+        nargs="+",
         default=None,
-        help="Country name to extract (get name from data/un_countries) : Only viable until day stats since changeset replication is available for minute, avoid using for geofabrik url since geofabrik already gives country level changefiles",
+        help="List of country name to extract (get id from data/countries), It will use geofabrik countries updates so it will require OSM USERNAME. Only Available for Daily Updates",
     )
 
     parser.add_argument(
@@ -573,7 +517,7 @@ def parse_args():
 
     parser.add_argument(
         "--changeset",
-        help="Include hashtag and country informations on the stats. It forces script to process changeset replciation , Careful to use this since changeset replication is minutely",
+        help="Include hashtag and country informations on the stats. It forces script to process changeset replciation , Careful to use this since changeset replication is minutely according to your internet speed and cpu cores",
         action="store_true",
         default=False,
     )
@@ -615,7 +559,6 @@ def parse_args():
 
 
 def main():
-    print("OSMSG : Waking up ......")
     args = parse_args()
     if args.start_date:
         start_date = strip_utc(
@@ -645,14 +588,25 @@ def main():
 
         end_date = strip_utc(end_date, args.timezone)
     if args.country:
-        if not countries_df["name"].isin([args.country]).any():
-            print("Country doesn't exists : Refer to data/countries_un.csv name column")
-            sys.exit()
+        osc_url_temp = []
+        for ctr in args.country:
+            if not geofabrik_countries["id"].isin([ctr.lower()]).any():
+                print(
+                    f"Error : {ctr} doesn't exists : Refer to data/countries.csv id column"
+                )
+                sys.exit()
+            osc_url_temp.append(
+                geofabrik_countries.loc[
+                    geofabrik_countries["id"] == ctr.lower(), "update_url"
+                ].values[0]
+            )
+        print(f"Ignoring --url , and using Geofabrik Update URL for {args.country}")
+        args.url = osc_url_temp
     if args.changeset:
-        if args.hashtags or args.country:
+        if args.hashtags:
             assert (
                 args.changeset
-            ), "You can not use include changeset meta option along with hashtags/country"
+            ), "You can not use include changeset meta option along with hashtags"
 
     start_time = time.time()
 
@@ -661,7 +615,6 @@ def main():
     global all_tags
     global hashtags
     global length
-    global country
     global changeset_meta
     global exact_lookup
     global summary
@@ -669,7 +622,6 @@ def main():
     all_tags = args.all_tags
     additional_tags = args.tags
     hashtags = args.hashtags
-    country = args.country
     cookies = None
     changeset_meta = args.changeset
     exact_lookup = args.exact_lookup
@@ -696,6 +648,7 @@ def main():
 
         if any("geofabrik" in url.lower() for url in args.url):
             if args.username is None:
+                print(os.environ.get("OSM_USERNAME"))
                 args.username = os.environ.get("OSM_USERNAME")
             if args.password is None:
                 args.password = os.environ.get("OSM_PASSWORD")
@@ -764,17 +717,22 @@ def main():
     if start_date == end_date:
         print("Err: Start date and end date are equal")
         sys.exit()
-
+    if (end_date - start_date).days < 1 or args.last_hour and args.country:
+        print(
+            "Warning : Use --changeset Option to include country info on stats , You can filter your country from output itself for stats lesser than a day, Use --country option for more than Day Statistics"
+        )
+        sys.exit()
     if (end_date - start_date).days > 1:
-        if args.hashtags or args.country:
+
+        if args.hashtags:
             print(
-                "Warning : Replication for Changeset is minutely , To process more than a day data it might take a while, Consider supplying geofabrik country replication url for countries. Use --force to ignore this warning"
+                "Warning : Replication for Changeset is minutely , To download more than day data it might take a while depending upon your internet speed, Use --force to ignore this warning"
             )
             if not args.force:
                 sys.exit()
     print(f"Supplied start_date: {start_date} and end_date: {end_date}")
 
-    if args.hashtags or args.country or args.changeset:
+    if args.hashtags or args.changeset:
 
         Changeset = ChangesetToolKit()
         (
@@ -920,22 +878,23 @@ def main():
                                 )
                             )
                         )
-        summary_df = pd.json_normalize(list(summary_interval.values()))
-        summary_df = summary_df.assign(
-            changes=summary_df["nodes.create"]
-            + summary_df["nodes.modify"]
-            + summary_df["nodes.delete"]
-            + summary_df["ways.create"]
-            + summary_df["ways.modify"]
-            + summary_df["ways.delete"]
-            + summary_df["relations.create"]
-            + summary_df["relations.modify"]
-            + summary_df["relations.delete"]
-        )
-        summary_df.insert(3, "map_changes", summary_df["changes"], True)
-        summary_df = summary_df.drop(columns=["changes"])
+        if args.summary:
+            summary_df = pd.json_normalize(list(summary_interval.values()))
+            summary_df = summary_df.assign(
+                changes=summary_df["nodes.create"]
+                + summary_df["nodes.modify"]
+                + summary_df["nodes.delete"]
+                + summary_df["ways.create"]
+                + summary_df["ways.modify"]
+                + summary_df["ways.delete"]
+                + summary_df["relations.create"]
+                + summary_df["relations.modify"]
+                + summary_df["relations.delete"]
+            )
+            summary_df.insert(3, "map_changes", summary_df["changes"], True)
+            summary_df = summary_df.drop(columns=["changes"])
 
-        summary_df = summary_df.sort_values("timestamp", ascending=True)
+            summary_df = summary_df.sort_values("timestamp", ascending=True)
 
         df = pd.json_normalize(list(users.values()))
 
@@ -972,7 +931,7 @@ def main():
             # Reindex the DataFrame with the new order of column names
             df = df.reindex(columns=cols)
 
-        if country or hashtags or changeset_meta:
+        if hashtags or changeset_meta:
             df["hashtags"] = df["hashtags"].apply(lambda x: ",".join(map(str, x)))
             column_to_move = "hashtags"
             df = df.assign(**{column_to_move: df.pop(column_to_move)})

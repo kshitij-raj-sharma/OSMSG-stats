@@ -96,7 +96,7 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
 
 It is a Simple python script processes osm files live and produces stats on the fly
 
-1. It can Generate Stats on Country Level for countries . Countries are available in [here](./data/countries_un.csv)
+1. It can Generate Stats on Country Level for countries based on geofabrik urls . Countries are available in [here](./data/countries.csv)
 2. It can also take any other server replication changefile to extract stats (Tested with Geofabrik and Planet Replication)
 3. Can Generate hashtag statistics
 4. Supports multiple output formats , Visualize Automatic Stats Being Genarated [here](./stats/)
@@ -149,7 +149,7 @@ osmsg  --url "http://download.geofabrik.de/asia/nepal-updates" --format csv --st
 
   Example of nepal for year of 2022
 
-  Processing geofabrik country based osm change files are faster as they will have changes only for country and smaller in size
+  Processing geofabrik country based osm change files are faster as they will have changes only for country and smaller in size , or you can pass --country parameter and pass id from data/countries.csv
 
 ```
 osmsg --start_date "2022-01-01 00:00:00+00:00" --url "http://download.geofabrik.de/asia/nepal-updates" --username 'your osm username' --password 'user osm password' --tags 'building' 'highway' 'waterway' 'amenity'  --format csv
@@ -160,7 +160,7 @@ osmsg --start_date "2022-01-01 00:00:00+00:00" --url "http://download.geofabrik.
   Example of extract last 8 days of data for Turkey and Syria using hashtag smforst with geofabrik as source
   --summary will allow to divide and provide stats as summary sepearated by daily , You can use this to get both summary csv and user contribution csv ! 
 ```
-osmsg --url http://download.geofabrik.de/europe/turkey-updates https://download.geofabrik.de/asia/syria-updates --username "OSM USERNAME" --password "OSM PASSWORD" --hashtags smforst --length highway --force --days 6 --tags building highway amenity waterway --all_tags --summary
+osmsg --country turkey syria --username "OSM USERNAME" --password "OSM PASSWORD" --hashtags smforst --length highway --force --days 6 --tags building highway amenity waterway --all_tags --summary
 ```
 
 - Extract mapathon stats for hashtag only 
