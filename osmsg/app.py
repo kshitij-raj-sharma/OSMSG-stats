@@ -648,6 +648,7 @@ def main():
 
         if any("geofabrik" in url.lower() for url in args.url):
             if args.username is None:
+                print(os.environ.get("OSM_USERNAME"))
                 args.username = os.environ.get("OSM_USERNAME")
             if args.password is None:
                 args.password = os.environ.get("OSM_PASSWORD")
@@ -877,22 +878,23 @@ def main():
                                 )
                             )
                         )
-        summary_df = pd.json_normalize(list(summary_interval.values()))
-        summary_df = summary_df.assign(
-            changes=summary_df["nodes.create"]
-            + summary_df["nodes.modify"]
-            + summary_df["nodes.delete"]
-            + summary_df["ways.create"]
-            + summary_df["ways.modify"]
-            + summary_df["ways.delete"]
-            + summary_df["relations.create"]
-            + summary_df["relations.modify"]
-            + summary_df["relations.delete"]
-        )
-        summary_df.insert(3, "map_changes", summary_df["changes"], True)
-        summary_df = summary_df.drop(columns=["changes"])
+        if args.summary:
+            summary_df = pd.json_normalize(list(summary_interval.values()))
+            summary_df = summary_df.assign(
+                changes=summary_df["nodes.create"]
+                + summary_df["nodes.modify"]
+                + summary_df["nodes.delete"]
+                + summary_df["ways.create"]
+                + summary_df["ways.modify"]
+                + summary_df["ways.delete"]
+                + summary_df["relations.create"]
+                + summary_df["relations.modify"]
+                + summary_df["relations.delete"]
+            )
+            summary_df.insert(3, "map_changes", summary_df["changes"], True)
+            summary_df = summary_df.drop(columns=["changes"])
 
-        summary_df = summary_df.sort_values("timestamp", ascending=True)
+            summary_df = summary_df.sort_values("timestamp", ascending=True)
 
         df = pd.json_normalize(list(users.values()))
 
