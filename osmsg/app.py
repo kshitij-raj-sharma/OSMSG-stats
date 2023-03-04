@@ -600,7 +600,7 @@ def main():
                     geofabrik_countries["id"] == ctr.lower(), "update_url"
                 ].values[0]
             )
-        print("Ignoring --url , and using Geofabrik Update URL for Country")
+        print(f"Ignoring --url , and using Geofabrik Update URL for {args.country}")
         args.url = osc_url_temp
     if args.changeset:
         if args.hashtags:
