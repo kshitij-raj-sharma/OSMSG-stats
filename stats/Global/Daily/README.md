@@ -1,56 +1,50 @@
-### Last Update : Stats from 2023-03-03 00:00:00+00:00 to 2023-03-04 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-04 00:00:00+00:00 to 2023-03-05 00:00:00+00:00 (UTC Timezone)
 
-#### 6.3 thousand Users made 42.3 thousand changesets with 4.1 million map changes.
-#### 2.6 million OSM Elements were Created, 910.7 thousand Modified & 657.5 thousand Deleted.
+#### 5.1 thousand Users made 35.8 thousand changesets with 3.9 million map changes.
+#### 3.1 million OSM Elements were Created, 669.0 thousand Modified & 186.8 thousand Deleted.
 
 Top 5 Users are : 
-- woodpeck_repair : 300.8 thousand Map Changes
-- Solarisphere : 216.5 thousand Map Changes
-- avinet_ua : 196.3 thousand Map Changes
-- Spaghetti Monster : 173.5 thousand Map Changes
-- Supaplex : 93.8 thousand Map Changes
+- SherbetS_Import : 654.2 thousand Map Changes
+- NKA : 277.6 thousand Map Changes
+- Solarisphere : 234.3 thousand Map Changes
+- avinet_ua : 85.6 thousand Map Changes
+- _jcaruso : 60.7 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 158.9 thousand, Modified : 149.6 thousand
-- building = Created: 162.2 thousand, Modified : 88.4 thousand
-- highway = Created: 54.5 thousand, Modified : 125.9 thousand
-- waterway = Created: 8.3 thousand, Modified : 3.5 thousand
-- amenity = Created: 7.5 thousand, Modified : 57.0 thousand
+- poi = Created: 48.8 thousand, Modified : 91.4 thousand
+- building = Created: 120.3 thousand, Modified : 53.0 thousand
+- highway = Created: 40.9 thousand, Modified : 125.7 thousand
+- waterway = Created: 9.9 thousand, Modified : 2.9 thousand
+- amenity = Created: 9.0 thousand, Modified : 29.6 thousand
 
 
 Top 5 Created tags are :
-- building: 162.2 thousand
-- source: 145.9 thousand
-- addr:housenumber: 110.8 thousand
-- addr:city: 106.5 thousand
-- addr:country: 94.8 thousand
+- building: 120.3 thousand
+- source: 54.1 thousand
+- highway: 40.9 thousand
+- natural: 35.4 thousand
+- landuse: 23.1 thousand
 
 
 Top 5 Modified tags are :
-- name: 272.4 thousand
-- name:uk: 196.8 thousand
-- highway: 125.9 thousand
-- building: 88.4 thousand
-- addr:housenumber: 57.2 thousand
+- name: 160.0 thousand
+- highway: 125.7 thousand
+- name:uk: 86.3 thousand
+- surface: 53.3 thousand
+- building: 53.0 thousand
 
 
 Top 5 trending hashtags are:
-- #TürkiyeEQ060223 : 323 users
-- #jpmc : 290 users
-- #zambia-census : 290 users
-- #hotosm-project-13433 : 249 users
+- #TürkiyeEQ060223 : 149 users
+- #turkey : 105 users
+- #yercizenler : 105 users
+- #turkiye : 105 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 818 users
-- United States of America : 628 users
-- France : 417 users
-- Zambia : 300 users
-- Turkey : 262 users
+- Germany : 900 users
+- United States of America : 489 users
+- France : 407 users
+- U.K. of Great Britain and Northern Ireland : 234 users
+- Poland : 227 users
 
-
- Charts : 
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
