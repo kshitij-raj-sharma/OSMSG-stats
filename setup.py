@@ -8,7 +8,7 @@ with io.open("README.md", encoding="utf-8") as f:
 
 setup(
     name="osmsg",
-    version="0.1.15",
+    version="0.1.16",
     description="OpenStreetMap Stats Generator : Commandline",
     long_description=readme,
     long_description_content_type="text/markdown",
