@@ -8,6 +8,8 @@ Monitored stats are available under `stats`, Currently Bot monitors OSM as whole
 
 ### Installation
 
+Follow [windows_installation](./docs/Install_windows.md) for Windows Users .
+
 - Install [osmium](https://github.com/osmcode/pyosmium) lib on your machine
 
 ```

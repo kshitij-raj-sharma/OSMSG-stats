@@ -536,9 +536,9 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--exclude_date_in_name",
+        "--include_date_in_name",
         action="store_true",
-        help="By default from and to date will be added to filename , You can skip this behaviour with this option",
+        help="You can append stats date and time in filename using this option",
         default=False,
     )
 
@@ -938,10 +938,10 @@ def main():
 
         start_date = in_local_timezone(start_date_utc, args.timezone)
         end_date = in_local_timezone(end_date_utc, args.timezone)
+        fname = args.name
+        if args.include_date_in_name:
+            fname = f"""{args.name}_{start_date.strftime('%Y-%m-%d-%H-%M-%S%z')}_{end_date.strftime('%Y-%m-%d-%H-%M-%S%z')}"""
 
-        fname = f"{args.name}_{start_date}_{end_date}"
-        if args.exclude_date_in_name:
-            fname = args.name
         if "image" in args.format:  ### image used for twitter tweet
             # Convert the DataFrame to an image
             df_img = df.head(25)
