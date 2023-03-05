@@ -1,4 +1,5 @@
 ### Installation of OSMSG on Windows 
+Instructions are created using Anaconda Navigator GUI
 
 1. Install Anaconda / Miniconda on your machine 
 
