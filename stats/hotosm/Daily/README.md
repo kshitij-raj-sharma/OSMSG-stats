@@ -1,57 +1,51 @@
-### Last Update : Stats from 2023-03-03 00:00:00+00:00 to 2023-03-04 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-04 00:00:00+00:00 to 2023-03-05 00:00:00+00:00 (UTC Timezone)
 
-#### 880 Users made 6.8 thousand changesets with 692.0 thousand map changes.
-#### 477.9 thousand OSM Elements were Created, 168.3 thousand Modified & 45.8 thousand Deleted.
+#### 280 Users made 2.2 thousand changesets with 317.5 thousand map changes.
+#### 237.0 thousand OSM Elements were Created, 63.8 thousand Modified & 16.8 thousand Deleted.
 
 Top 5 Users are : 
-- Narindra Fidintsoa : 15.7 thousand Map Changes
-- KingVik : 11.4 thousand Map Changes
-- piligab : 11.4 thousand Map Changes
-- Ang96 : 11.3 thousand Map Changes
-- UPegasus : 10.9 thousand Map Changes
+- yunica : 12.3 thousand Map Changes
+- Arie den Boon : 10.0 thousand Map Changes
+- nyainariantsoa : 8.7 thousand Map Changes
+- Frans S : 8.3 thousand Map Changes
+- TeBaMa : 8.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 534, Modified : 807
-- building = Created: 68.0 thousand, Modified : 9.6 thousand
-- highway = Created: 3.5 thousand, Modified : 3.7 thousand
-- waterway = Created: 124, Modified : 82
-- amenity = Created: 398, Modified : 103
+- poi = Created: 209, Modified : 59
+- building = Created: 32.0 thousand, Modified : 2.1 thousand
+- highway = Created: 2.4 thousand, Modified : 1.8 thousand
+- waterway = Created: 44, Modified : 45
+- amenity = Created: 36, Modified : 42
 
 
 Top 5 Created tags are :
-- building: 68.0 thousand
-- source: 3.6 thousand
-- highway: 3.5 thousand
-- addr:district: 793
-- addr:place: 633
+- building: 32.0 thousand
+- source: 4.7 thousand
+- highway: 2.4 thousand
+- leisure: 513
+- name: 193
 
 
 Top 5 Modified tags are :
-- building: 9.6 thousand
-- source: 6.8 thousand
-- highway: 3.7 thousand
-- building:levels: 2.0 thousand
-- building:material: 1.9 thousand
+- building: 2.1 thousand
+- highway: 1.8 thousand
+- source: 1.2 thousand
+- surface: 330
+- name: 159
 
 
 Top 5 trending hashtags are:
-- #TürkiyeEQ060223 : 322 users
-- #zambia-census : 291 users
-- #jpmc : 291 users
-- #hotosm-project-13433 : 250 users
-- #INGW3323 : 229 users
+- #TürkiyeEQ060223 : 148 users
+- #turkiye : 104 users
+- #turkey : 104 users
+- #yercizenler : 103 users
+- #MissingMaps : 48 users
 
 
 Top 5 trending Countries where user contributed are:
-- Zambia : 295 users
-- Turkey : 203 users
-- Syrian Arab Republic : 137 users
-- El Salvador : 67 users
-- United Republic of Tanzania : 49 users
+- Turkey : 110 users
+- Syrian Arab Republic : 48 users
+- Kenya : 18 users
+- Ethiopia : 16 users
+- Zambia : 15 users
 
-
- Charts : 
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
