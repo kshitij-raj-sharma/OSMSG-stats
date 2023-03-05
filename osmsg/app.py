@@ -939,7 +939,7 @@ def main():
         start_date = in_local_timezone(start_date_utc, args.timezone)
         end_date = in_local_timezone(end_date_utc, args.timezone)
 
-        fname = f"{args.name}_{start_date}_{end_date}"
+        fname = f"""{args.name}_{start_date.strftime('%Y-%m-%d-%H-%M-%S%z')}_{end_date.strftime('%Y-%m-%d-%H-%M-%S%z')}"""
         if args.exclude_date_in_name:
             fname = args.name
         if "image" in args.format:  ### image used for twitter tweet
