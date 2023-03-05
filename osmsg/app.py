@@ -717,7 +717,7 @@ def main():
     if start_date == end_date:
         print("Err: Start date and end date are equal")
         sys.exit()
-    if (end_date - start_date).days < 1 or args.last_hour and args.country:
+    if ((end_date - start_date).days < 1 or args.last_hour) and args.country:
         print(
             "Warning : Use --changeset Option to include country info on stats , You can filter your country from output itself for stats lesser than a day, Use --country option for more than Day Statistics"
         )
