@@ -182,13 +182,14 @@ OSMSG uses/supports sources , --url provided on argument will be used for osm ch
 
 2. If you are generating stats for rightnow / past 10min / past 1 hour using specific timeframe , stick with minutely (Sometimes to reflect changes you made on stats , Planet may take few minutes)
 
-3. For hashtag stats , planet changeset minute replication is by default for now (Found only this reliable source , couldn't find daily/monthly replication files) , Generating daily/weekly is only feasible , To generate more than that you can supply multiple countries geofabrik urls so that script can go through only country changefiles as stated on example above for turkey and syria , similarly you can pass your countries url and generate monthly yearly etc 
+3. For hashtag stats , planet changeset minute replication is by default for now (Found only this reliable source , couldn't find daily/monthly replication files) , Generating daily/weekly is feasible , To generate more than that you can supply multiple countries geofabrik urls so that script can go through only country changefiles as stated on example above for turkey and syria , similarly you can pass your countries url and generate monthly yearly etc or you can run osmsg one time for a year it will download and store osm files , and next time when you run it would avoid downloading and it can generate stats quicker
 
-4. For Country stats , if you use the --country option : It will use the planet minutely changeset replication to determine the location of the cahngeset bbox centroid , which means to process larger time frame it might take time , to avoid this Use Geofabrik internal changefiles based on country , OSMSG Supports processing of those hence you can directly supply geofabrik changefiles url for country and produce yearly/monthly stats eg :
+4. For Country stats , if you use the --country option : You can also pass country name id supported from data/countries.csv and it supports multiple countries at a time  if supplied , Name would be automatically translated to available geofabrik URL or You can pass your own URL eg :
 
 ```
 osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format csv --last_month --tags 'building' 'highway' 'waterway' 'amenity' --name last_month_stats  --all_tags
 ```
+5. It is recommended use same dir for running osmsg because osmsg stores downloaded osm files to temp dir and it can be reused next time you run stats on same period , avoids downloading all again, for eg : I run some stats for #hashtag1 for last month , and i want to run again for #hashtag2 , osmsg will use same downloaded files and avoid downloading for second time if you use the same dir for running 
 
 ### Benchmarks :
 
