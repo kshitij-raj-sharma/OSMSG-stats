@@ -1,57 +1,51 @@
-### Last Update : Stats from 2023-02-19 00:00:00+00:00 to 2023-02-26 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-02-26 00:00:00+00:00 to 2023-03-05 00:00:00+00:00 (UTC Timezone)
 
-#### 2.8 thousand Users made 36.7 thousand changesets with 4.7 million map changes.
-#### 3.6 million OSM Elements were Created, 832.8 thousand Modified & 273.0 thousand Deleted.
+#### 2.2 thousand Users made 30.7 thousand changesets with 3.7 million map changes.
+#### 2.6 million OSM Elements were Created, 882.4 thousand Modified & 275.0 thousand Deleted.
 
 Top 5 Users are : 
-- Roselyn Peralta : 88.8 thousand Map Changes
-- nyainariantsoa : 74.7 thousand Map Changes
-- UPegasus : 62.5 thousand Map Changes
-- anneeeeeeee : 58.5 thousand Map Changes
-- Kraan46 : 56.9 thousand Map Changes
+- UPegasus : 77.3 thousand Map Changes
+- yunica : 66.5 thousand Map Changes
+- TeBaMa : 62.1 thousand Map Changes
+- piligab : 52.2 thousand Map Changes
+- karitotp : 50.7 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 2.6 thousand, Modified : 1.3 thousand
-- building = Created: 513.4 thousand, Modified : 32.3 thousand
-- highway = Created: 29.7 thousand, Modified : 26.7 thousand
-- waterway = Created: 670, Modified : 787
-- amenity = Created: 854, Modified : 861
+- poi = Created: 4.1 thousand, Modified : 3.1 thousand
+- building = Created: 368.7 thousand, Modified : 44.9 thousand
+- highway = Created: 18.8 thousand, Modified : 20.3 thousand
+- waterway = Created: 500, Modified : 530
+- amenity = Created: 2.6 thousand, Modified : 787
 
 
 Top 5 Created tags are :
-- building: 513.4 thousand
-- source: 76.2 thousand
-- highway: 29.7 thousand
-- natural: 3.0 thousand
-- layer: 2.6 thousand
+- building: 368.7 thousand
+- source: 34.9 thousand
+- highway: 18.8 thousand
+- addr:district: 3.7 thousand
+- amenity: 2.6 thousand
 
 
 Top 5 Modified tags are :
-- building: 32.3 thousand
-- highway: 26.7 thousand
-- source: 12.7 thousand
-- surface: 3.8 thousand
-- name: 3.4 thousand
+- building: 44.9 thousand
+- source: 23.5 thousand
+- highway: 20.3 thousand
+- addr:city: 3.9 thousand
+- surface: 3.1 thousand
 
 
 Top 5 trending hashtags are:
-- #TürkiyeEQ060223 : 1960 users
-- #MissingMaps : 1134 users
-- #Syria : 1110 users
-- #OMHAP : 1110 users
-- #yercizenler : 1057 users
+- #TürkiyeEQ060223 : 996 users
+- #yercizenler : 632 users
+- #turkiye : 607 users
+- #turkey : 606 users
+- #MissingMaps : 476 users
 
 
 Top 5 trending Countries where user contributed are:
-- Syrian Arab Republic : 1134 users
-- Turkey : 1124 users
-- El Salvador : 235 users
-- Brazil : 153 users
-- Malawi : 109 users
+- Turkey : 659 users
+- Syrian Arab Republic : 457 users
+- Zambia : 316 users
+- El Salvador : 278 users
+- Ethiopia : 133 users
 
-
- Charts : 
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
