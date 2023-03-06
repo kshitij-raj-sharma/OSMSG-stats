@@ -1,55 +1,48 @@
-### Last Update : Stats from 2023-02-19 00:00:00+00:00 to 2023-02-26 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-02-26 00:00:00+00:00 to 2023-03-05 00:00:00+00:00 (UTC Timezone)
 
-#### 96 Users made 932 changesets with 224.2 thousand map changes.
-#### 175.7 thousand OSM Elements were Created, 48.2 thousand Modified & 320 Deleted.
+#### 106 Users made 828 changesets with 93.2 thousand map changes.
+#### 70.2 thousand OSM Elements were Created, 22.8 thousand Modified & 252 Deleted.
 
 Top 5 Users are : 
-- Anil Basnet : 44.1 thousand Map Changes
-- marek kleciak : 36.6 thousand Map Changes
-- Lalit_IAAS : 36.1 thousand Map Changes
-- seichter : 22.9 thousand Map Changes
-- Nirmala Rawat : 17.0 thousand Map Changes
+- seichter : 14.0 thousand Map Changes
+- Lalit_IAAS : 11.9 thousand Map Changes
+- wzdxs : 10.1 thousand Map Changes
+- Nirmala Rawat : 7.7 thousand Map Changes
+- marek kleciak : 7.7 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 258, Modified : 185
-- building = Created: 14.2 thousand, Modified : 583
-- highway = Created: 708, Modified : 1.4 thousand
-- waterway = Created: 51, Modified : 118
-- amenity = Created: 23, Modified : 87
+- poi = Created: 407, Modified : 233
+- building = Created: 9.7 thousand, Modified : 438
+- highway = Created: 279, Modified : 869
+- waterway = Created: 55, Modified : 184
+- amenity = Created: 75, Modified : 122
 
 
 Top 5 Created tags are :
-- building: 14.2 thousand
-- highway: 708
-- natural: 511
-- landuse: 329
-- name: 206
+- building: 9.7 thousand
+- highway: 279
+- landuse: 275
+- natural: 256
+- name: 154
 
 
 Top 5 Modified tags are :
-- highway: 1.4 thousand
-- building: 583
-- surface: 325
-- name: 312
-- natural: 208
+- highway: 869
+- building: 438
+- name: 297
+- surface: 223
+- waterway: 184
 
 
 Top 5 trending hashtags are:
-- #dmd : 14 users
-- #OSMNepal : 12 users
-- #hotosm-project-14310 : 11 users
-- #EPFL : 11 users
+- #maproulette : 9 users
+- #LineCrossingWaterBodyCheck : 9 users
+- #AtlasChecks : 9 users
+- #dmd : 9 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 88 users
-- India : 2 users
-- Sudan : 1 users
+- Nepal : 98 users
+- India : 6 users
 - China : 1 users
 
-
- Charts : 
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
