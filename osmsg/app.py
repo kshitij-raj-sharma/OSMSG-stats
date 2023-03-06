@@ -45,7 +45,7 @@ users_temp = {}
 users = {}
 summary_interval = {}
 summary_interval_temp = {}
-hashtag_changesets = {}
+processed_changesets = {}
 countries_changesets = {}
 whitelisted_users = []
 
@@ -128,16 +128,24 @@ def collect_changefile_stats(
     if hashtags or changeset_meta:
         users[user].setdefault("countries", [])
         users[user].setdefault("hashtags", [])
+        users[user].setdefault("editors", [])
 
-        try:
-            for ch in hashtag_changesets[changeset]["countries"]:
-                if ch not in users[user]["countries"]:
-                    users[user]["countries"].append(ch)
-            for ch in hashtag_changesets[changeset]["hashtags"]:
-                if ch not in users[user]["hashtags"]:
-                    users[user]["hashtags"].append(ch)
-        except Exception as ex:
-            pass
+        if changeset in processed_changesets:
+            users[user]["countries"] += [
+                ctry
+                for ctry in processed_changesets[changeset]["countries"]
+                if ctry not in users[user]["countries"]
+            ]
+            users[user]["hashtags"] += [
+                hstg
+                for hstg in processed_changesets[changeset]["hashtags"]
+                if hstg not in users[user]["hashtags"]
+            ]
+            users[user]["editors"] += [
+                editor
+                for editor in processed_changesets[changeset]["editors"]
+                if editor not in users[user]["editors"]
+            ]
 
     # osm element count
     users[user][osm_type][action] += 1
@@ -194,10 +202,10 @@ def calculate_stats(
 ):
     if hashtags:  # intersect with changesets
         if (
-            len(hashtag_changesets) > 0 or len(whitelisted_users) > 0
+            len(processed_changesets) > 0 or len(whitelisted_users) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
 
-            if changeset in hashtag_changesets.keys() or uname in whitelisted_users:
+            if changeset in processed_changesets.keys() or uname in whitelisted_users:
                 collect_changefile_stats(
                     user,
                     uname,
@@ -250,25 +258,37 @@ class ChangesetHandler(osmium.SimpleHandler):
                     run_hashtag_check_logic = True
 
         if run_hashtag_check_logic:
-            if c.id not in hashtag_changesets.keys():
-                hashtag_changesets[c.id] = {"hashtags": [], "countries": []}
-                # get bbox
-                bounds = str(c.bounds)
-                if "invalid" not in bounds:
-                    bbox_list = bounds.strip("()").split(" ")
-                    minx, miny = bbox_list[0].split("/")
-                    maxx, maxy = bbox_list[1].split("/")
-                    bbox = box(float(minx), float(miny), float(maxx), float(maxy))
-                    # Create a point for the centroid of the bounding box
-                    centroid = bbox.centroid
-                    intersected_rows = countries_df[countries_df.intersects(centroid)]
-                    hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
-                    for hash_tag in hashtags_comment:
-                        if hash_tag not in hashtag_changesets[c.id]["hashtags"]:
-                            hashtag_changesets[c.id]["hashtags"].append(hash_tag)
-                    for i, row in intersected_rows.iterrows():
-                        if row["name"] not in hashtag_changesets[c.id]["countries"]:
-                            hashtag_changesets[c.id]["countries"].append(row["name"])
+            processed_changesets.setdefault(
+                c.id,
+                {
+                    "hashtags": [],
+                    "countries": [],
+                    "editors": [],
+                },
+            )
+            if (
+                "created_by" in c.tags
+                and c.tags["created_by"] not in processed_changesets[c.id]["editors"]
+            ):
+                processed_changesets[c.id]["editors"].append(c.tags["created_by"])
+
+            hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
+            for hash_tag in hashtags_comment:
+                if hash_tag not in processed_changesets[c.id]["hashtags"]:
+                    processed_changesets[c.id]["hashtags"].append(hash_tag)
+            # get bbox
+            bounds = str(c.bounds)
+            if "invalid" not in bounds:
+                bbox_list = bounds.strip("()").split(" ")
+                minx, miny = bbox_list[0].split("/")
+                maxx, maxy = bbox_list[1].split("/")
+                bbox = box(float(minx), float(miny), float(maxx), float(maxy))
+                # Create a point for the centroid of the bounding box
+                centroid = bbox.centroid
+                intersected_rows = countries_df[countries_df.intersects(centroid)]
+                for i, row in intersected_rows.iterrows():
+                    if row["name"] not in processed_changesets[c.id]["countries"]:
+                        processed_changesets[c.id]["countries"].append(row["name"])
 
 
 class ChangefileHandler(osmium.SimpleHandler):
@@ -428,6 +448,13 @@ def parse_args():
         "--force",
         action="store_true",
         help="Force for the Hashtag Replication fetch if it is greater than a day interval",
+        default=False,
+    )
+
+    parser.add_argument(
+        "--meta",
+        action="store_true",
+        help="Generates stats_metadata.json including sequence info , start_data end_date , Will be useful when running daily/weekly/monthly by service/cron",
         default=False,
     )
 
@@ -725,11 +752,16 @@ def main():
     if (end_date - start_date).days > 1:
 
         if args.hashtags:
-            print(
-                "Warning : Replication for Changeset is minutely , To download more than day data it might take a while depending upon your internet speed, Use --force to ignore this warning"
-            )
             if not args.force:
+                print(
+                    "Warning : Replication for Changeset is minutely , To download more than day data it might take a while depending upon your internet speed, Use --force to ignore this warning"
+                )
                 sys.exit()
+        for url in args.url:
+            if "minute" in url and "geofabrik" not in url:
+                print(
+                    "Warning : To Process more than day data consider using daily/hourly replciation files to avoid downloading huge data . To use daily pass : --url day , for Hourly : --url hour "
+                )
     print(f"Supplied start_date: {start_date} and end_date: {end_date}")
 
     if args.hashtags or args.changeset:
@@ -898,9 +930,6 @@ def main():
 
         df = pd.json_normalize(list(users.values()))
 
-        if hashtags or changeset_meta:
-            df["countries"] = df["countries"].apply(lambda x: ",".join(map(str, x)))
-
         df = df.assign(
             changes=df["nodes.create"]
             + df["nodes.modify"]
@@ -932,6 +961,8 @@ def main():
             df = df.reindex(columns=cols)
 
         if hashtags or changeset_meta:
+            df["countries"] = df["countries"].apply(lambda x: ",".join(map(str, x)))
+            df["editors"] = df["editors"].apply(lambda x: ",".join(map(str, x)))
             df["hashtags"] = df["hashtags"].apply(lambda x: ",".join(map(str, x)))
             column_to_move = "hashtags"
             df = df.assign(**{column_to_move: df.pop(column_to_move)})
@@ -1122,21 +1153,21 @@ def main():
         command = " ".join(sys.argv)
         start_repl_ts = seq_to_timestamp(start_seq_url, args.timezone)
         end_repl_ts = seq_to_timestamp(end_seq_url, args.timezone)
-
-        with open(f"{args.name}_metadata.json", "w", encoding="utf-8") as file:
-            file.write(
-                json.dumps(
-                    {
-                        "command": str(command),
-                        "source": str(args.url),
-                        "start_date": str(start_date),
-                        "start_seq": f"{start_seq} = {start_repl_ts}",
-                        "end_date": str(end_date),
-                        "end_seq": f"{end_seq} = {end_repl_ts}",
-                    }
+        if args.meta:
+            with open(f"{args.name}_metadata.json", "w", encoding="utf-8") as file:
+                file.write(
+                    json.dumps(
+                        {
+                            "command": str(command),
+                            "source": str(args.url),
+                            "start_date": str(start_date),
+                            "start_seq": f"{start_seq} = {start_repl_ts}",
+                            "end_date": str(end_date),
+                            "end_seq": f"{end_seq} = {end_repl_ts}",
+                        }
+                    )
                 )
-            )
-        print("Metadata Created")
+            print("Metadata Created")
 
     else:
         print("No data Found")

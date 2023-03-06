@@ -109,8 +109,22 @@ It is a Simple python script processes osm files live and produces stats on the 
   By default replication is minute url.
 
 ```
-osmsg --last_hour --charts --changeset
+osmsg --last_hour
 ```
+
+- With Hashtags information
+
+```
+osmsg --last_hour --changeset
+```
+
+  
+- Last week data with summary & all tags info and using day replication
+```
+osmsg --last_week --url day --summary --all_tags
+```
+
+
 
 ### More Example Commands
 
