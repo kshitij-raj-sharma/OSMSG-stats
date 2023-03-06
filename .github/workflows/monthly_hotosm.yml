@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate Monthly Hashtag Stats
         run: |
-          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_month --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/hotosm/Monthly/stats_metadata.json --hashtags hotosm --force --charts --summary --workers 8 --include_date_in_name
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_month --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/hotosm/Monthly/stats_metadata.json --hashtags hotosm --force --charts --summary --workers 8 --include_date_in_name --meta
 
       - name: add stats to git
 
