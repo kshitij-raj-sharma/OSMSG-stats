@@ -20,7 +20,7 @@ Instructions are created using Anaconda Navigator GUI
     
     - Click on your newly created venv 
     
-    - Search for Not installed libraries and Find Osmium-tool & Install, If not available update Channels
+    - Search for **Not installed** libraries and Find **Osmium-tool** & Install, If it is  not available  You may need to **update Channels** and add ```https://anaconda.org/conda-forge```
     
     https://anaconda.org/conda-forge/osmium-tool
    ![image](https://user-images.githubusercontent.com/36752999/222939895-c98f364e-6413-47c0-8924-cecf1120f0a8.png)
@@ -42,7 +42,7 @@ Instructions are created using Anaconda Navigator GUI
     ```
     - For eg : Test stats for last hour
     ```
-    osmsg --last_hour --changesets --charts
+    osmsg --last_hour --changeset --charts
     ```
     ![image](https://user-images.githubusercontent.com/36752999/222940077-b5260c4b-78e2-41e7-8f63-d5267fa72859.png)
     - Once it is Done , Navigate to your dir with your Windows explorer where you produced stats you should find your desired stat files 
