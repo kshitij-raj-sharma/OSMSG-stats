@@ -205,7 +205,7 @@ def calculate_stats(
             len(processed_changesets) > 0 or len(whitelisted_users) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
 
-            if changeset in processed_changesets.keys() or uname in whitelisted_users:
+            if changeset in processed_changesets or uname in whitelisted_users:
                 collect_changefile_stats(
                     user,
                     uname,
@@ -300,52 +300,43 @@ class ChangefileHandler(osmium.SimpleHandler):
             version = n.version
             if n.deleted:
                 version = 0
-            try:
-                calculate_stats(
-                    n.uid, n.user, n.changeset, version, n.tags, "nodes", n.timestamp
-                )
-            except Exception as ex:
-                print(f"Warning: {n.id} parse error")
-                print(ex)
+
+            calculate_stats(
+                n.uid, n.user, n.changeset, version, n.tags, "nodes", n.timestamp
+            )
 
     def way(self, w):
         if w.timestamp >= start_date_utc and w.timestamp < end_date_utc:
             version = w.version
             if w.deleted:
                 version = 0
-            try:
-                calculate_stats(
-                    w.uid,
-                    w.user,
-                    w.changeset,
-                    version,
-                    w.tags,
-                    "ways",
-                    w.timestamp,
-                    w.nodes if length else None,
-                )
-            except Exception as ex:
-                print(f"Warning: {w.id} parse error")
-                print(ex)
+
+            calculate_stats(
+                w.uid,
+                w.user,
+                w.changeset,
+                version,
+                w.tags,
+                "ways",
+                w.timestamp,
+                w.nodes if length else None,
+            )
 
     def relation(self, r):
         if r.timestamp >= start_date_utc and r.timestamp < end_date_utc:
             version = r.version
             if r.deleted:
                 version = 0
-            try:
-                calculate_stats(
-                    r.uid,
-                    r.user,
-                    r.changeset,
-                    version,
-                    r.tags,
-                    "relations",
-                    r.timestamp,
-                )
-            except Exception as ex:
-                print(f"Warning: {r.id} parse error")
-                print(ex)
+
+            calculate_stats(
+                r.uid,
+                r.user,
+                r.changeset,
+                version,
+                r.tags,
+                "relations",
+                r.timestamp,
+            )
 
 
 def process_changefiles(url):
@@ -356,6 +347,7 @@ def process_changefiles(url):
     file_path = get_file_path_from_url(url, "changefiles")
     # Open the .osc.gz file in read-only mode
     handler = ChangefileHandler()
+
     if length:
         handler.apply_file(file_path[:-3], locations=True)
     else:
