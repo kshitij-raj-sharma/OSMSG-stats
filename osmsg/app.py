@@ -74,7 +74,7 @@ def collect_changefile_stats(
     if length and osm_obj_nodes:
         try:
             len_feature = osmium.geom.haversine_distance(osm_obj_nodes)
-        except Exception as ex:
+        except:
             # print("WARNING: way  incomplete." % w.id)
             pass
 
@@ -131,21 +131,24 @@ def collect_changefile_stats(
         users[user].setdefault("editors", [])
 
         if changeset in processed_changesets:
-            users[user]["countries"] += [
-                ctry
-                for ctry in processed_changesets[changeset]["countries"]
-                if ctry not in users[user]["countries"]
-            ]
-            users[user]["hashtags"] += [
-                hstg
-                for hstg in processed_changesets[changeset]["hashtags"]
-                if hstg not in users[user]["hashtags"]
-            ]
-            users[user]["editors"] += [
-                editor
-                for editor in processed_changesets[changeset]["editors"]
-                if editor not in users[user]["editors"]
-            ]
+            try:
+                users[user]["countries"] += [
+                    ctry
+                    for ctry in processed_changesets[changeset]["countries"]
+                    if ctry not in users[user]["countries"]
+                ]
+                users[user]["hashtags"] += [
+                    hstg
+                    for hstg in processed_changesets[changeset]["hashtags"]
+                    if hstg not in users[user]["hashtags"]
+                ]
+                users[user]["editors"] += [
+                    editor
+                    for editor in processed_changesets[changeset]["editors"]
+                    if editor not in users[user]["editors"]
+                ]
+            except:
+                pass
 
     # osm element count
     users[user][osm_type][action] += 1
@@ -191,10 +194,18 @@ def collect_changefile_stats(
             users[user].setdefault(f"{t}_create_len", 0)
             if summary:
                 summary_interval[timestamp].setdefault(f"{t}_create_len", 0)
-            if t in tags and action != "modify" and action != "delete":
-                if summary:
-                    summary_interval[timestamp][f"{t}_create_len"] += round(len_feature)
-                users[user][f"{t}_create_len"] += round(len_feature)
+            if tags:
+                if (
+                    t in tags
+                    and action != "modify"
+                    and action != "delete"
+                    and len_feature > 0
+                ):
+                    if summary:
+                        summary_interval[timestamp][f"{t}_create_len"] += round(
+                            len_feature
+                        )
+                    users[user][f"{t}_create_len"] += round(len_feature)
 
 
 def calculate_stats(
