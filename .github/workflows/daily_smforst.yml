@@ -30,7 +30,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg  --country turkey syria --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/smforst/Daily/stats_metadata.json --hashtags smforst --charts --summary --length highway --include_date_in_name --meta
+          osmsg  --country turkey syria --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/smforst/Daily/stats_metadata.json --hashtags smforst --charts --summary --length highway --meta
 
       - name: add stats to git
 
@@ -39,18 +39,15 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           base_dir=stats/smforst/Daily
+
           mkdir -p $base_dir/charts/
           
-          cp *.csv $base_dir/stats.csv
+          cp *.csv $base_dir/
           cp *.png $base_dir/charts/
           mv summary.md $base_dir/Readme.md
           cp stats_metadata.json $base_dir/stats_metadata.json
 
-          git add -f $base_dir/stats.csv
-          git add -f $base_dir/stats_metadata.json
-          git add -f $base_dir/charts/
-          git add -f $base_dir/Readme.md
-
+          git add -f $base_dir/*
 
           git commit -m "Updated Daily smforst stats"
           git push
