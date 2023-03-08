@@ -1,7 +1,7 @@
 name: Run Daily Report smforst Hashtag
 on:
   schedule:
-    - cron: "0 5 * * *" # Run every day at 5 UTC
+    - cron: "0 4 * * *" # Run every day at 4 UTC
   # push:
   #   branches:
   #     - master
@@ -30,7 +30,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg  --country turkey syria --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/smforst/Daily/stats_metadata.json --hashtags smforst --charts --summary --length highway --include_date_in_name --meta
+          osmsg  --country turkey syria --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/turkeyeq/Daily/stats_metadata.json --hashtags TürkiyeEQ060223 --charts --summary --length highway --include_date_in_name --meta
 
       - name: add stats to git
 
@@ -38,7 +38,7 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          base_dir=stats/smforst/Daily
+          base_dir=stats/turkeyeq/Daily
           mkdir -p $base_dir/charts/
           
           cp *.csv $base_dir/stats.csv

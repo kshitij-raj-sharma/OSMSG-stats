@@ -49,14 +49,19 @@ processed_changesets = {}
 countries_changesets = {}
 whitelisted_users = []
 
-print("Initializing ....")
-# read the GeoJSON file
-countries_df = gpd.read_file(
-    "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries_un.geojson"
-)
-geofabrik_countries = pd.read_csv(
-    "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries.csv"
-)
+
+def Initialize():
+    global countries_df
+    global geofabrik_countries
+
+    print("Initializing ....")
+    # read the GeoJSON file
+    countries_df = gpd.read_file(
+        "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries_un.geojson"
+    )
+    geofabrik_countries = pd.read_csv(
+        "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries.csv"
+    )
 
 
 def collect_changefile_stats(
@@ -191,9 +196,9 @@ def collect_changefile_stats(
     # for length calculation
     if length:
         for t in length:
-            users[user].setdefault(f"{t}_create_len", 0)
+            users[user].setdefault(f"{t}_len_m", 0)
             if summary:
-                summary_interval[timestamp].setdefault(f"{t}_create_len", 0)
+                summary_interval[timestamp].setdefault(f"{t}_len_m", 0)
             if tags:
                 if (
                     t in tags
@@ -202,10 +207,8 @@ def collect_changefile_stats(
                     and len_feature > 0
                 ):
                     if summary:
-                        summary_interval[timestamp][f"{t}_create_len"] += round(
-                            len_feature
-                        )
-                    users[user][f"{t}_create_len"] += round(len_feature)
+                        summary_interval[timestamp][f"{t}_len_m"] += round(len_feature)
+                    users[user][f"{t}_len_m"] += round(len_feature)
 
 
 def calculate_stats(
@@ -213,10 +216,10 @@ def calculate_stats(
 ):
     if hashtags:  # intersect with changesets
         if (
-            len(processed_changesets) > 0 or len(whitelisted_users) > 0
+            len(processed_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
 
-            if changeset in processed_changesets or uname in whitelisted_users:
+            if changeset in processed_changesets:
                 collect_changefile_stats(
                     user,
                     uname,
@@ -267,6 +270,8 @@ class ChangesetHandler(osmium.SimpleHandler):
                     elem.lower() in c.tags["comment"].lower() for elem in hashtags
                 ):
                     run_hashtag_check_logic = True
+        if run_hashtag_check_logic and len(whitelisted_users) > 0:
+            run_hashtag_check_logic = c.user in whitelisted_users
 
         if run_hashtag_check_logic:
             processed_changesets.setdefault(
@@ -473,7 +478,7 @@ def parse_args():
         type=str,
         nargs="+",
         default=None,
-        help="List of user names to look for , You can use it to only produce stats for listed users or pass it with hashtags , it will act as or filter. Case sensitive use ' ' to enter names with space in between",
+        help="List of user names to look for , You can use it to only produce stats for listed users or pass it with hashtags , it will act as and filter. Case sensitive use ' ' to enter names with space in between",
     )
 
     parser.add_argument(
@@ -590,6 +595,7 @@ def parse_args():
 
 def main():
     args = parse_args()
+    Initialize()
     if args.start_date:
         start_date = strip_utc(
             dt.datetime.strptime(args.start_date, "%Y-%m-%d %H:%M:%S%z"), args.timezone
