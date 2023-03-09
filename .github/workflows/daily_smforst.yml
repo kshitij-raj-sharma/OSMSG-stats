@@ -42,7 +42,7 @@ jobs:
 
           mkdir -p $base_dir/charts/
 
-          cp $base_dir/*.png $base_dir/charts/
+          mv $base_dir/*.png $base_dir/charts/
           mv $base_dir/stats_summary.md $base_dir/Readme.md
 
           git add -f $base_dir/*

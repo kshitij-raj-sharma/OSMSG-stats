@@ -2,9 +2,9 @@ name: Run Daily Report Tyrkeyeq Hashtag
 on:
   schedule:
     - cron: "0 4 * * *" # Run every day at 4 UTC
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
       
 jobs:
   issue:
@@ -43,7 +43,7 @@ jobs:
 
           mkdir -p $base_dir/charts/
 
-          cp $base_dir/*.png $base_dir/charts/
+          mv $base_dir/*.png $base_dir/charts/
           mv $base_dir/stats_summary.md $base_dir/Readme.md
 
           git add -f $base_dir/*

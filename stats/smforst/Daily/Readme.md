@@ -1,4 +1,4 @@
-### Last Update : Stats from 2023-03-06 21:21:37+00:00 to 2023-03-08 21:21:39+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-02-21 00:00:00+00:00 to 2023-03-08 21:21:39+00:00 (UTC Timezone)
 
 #### 158 Users made 3.6 thousand changesets with 402.0 thousand map changes.
 #### 293.9 thousand OSM Elements were Created, 107.3 thousand Modified & 757 Deleted.
