@@ -42,11 +42,9 @@ jobs:
           base_dir=stats/turkeyeq/Daily
 
           mkdir -p $base_dir/charts/
-          
-          cp *.csv $base_dir/
-          cp *.png $base_dir/charts/
-          mv summary.md $base_dir/Readme.md
-          cp stats_metadata.json $base_dir/stats_metadata.json
+
+          cp $base_dir/*.png $base_dir/charts/
+          mv $base_dir/stats_summary.md $base_dir/Readme.md
 
           git add -f $base_dir/*
 
