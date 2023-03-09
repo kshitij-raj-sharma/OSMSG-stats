@@ -1,48 +1,48 @@
-### Last Update : Stats from 2023-03-06 21:21:53+00:00 to 2023-03-07 21:21:53+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-07 21:21:53+00:00 to 2023-03-08 21:21:39+00:00 (UTC Timezone)
 
-#### 202 Users made 1.2 thousand changesets with 186.7 thousand map changes.
-#### 130.4 thousand OSM Elements were Created, 56.2 thousand Modified & 0 Deleted.
+#### 167 Users made 1.1 thousand changesets with 176.3 thousand map changes.
+#### 122.4 thousand OSM Elements were Created, 53.9 thousand Modified & 0 Deleted.
 
 Top 5 Users are : 
-- gnoye : 8.4 thousand Map Changes
-- EsthersGeo : 8.3 thousand Map Changes
-- karitotp : 7.8 thousand Map Changes
-- Ky_AT : 7.7 thousand Map Changes
-- Grintovec : 7.0 thousand Map Changes
+- EsthersGeo : 12.3 thousand Map Changes
+- yunita sari : 10.0 thousand Map Changes
+- karitotp : 6.8 thousand Map Changes
+- mjgk : 5.3 thousand Map Changes
+- gnoye : 5.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 26, Modified : 31
-- building = Created: 19.1 thousand, Modified : 2.3 thousand
-- highway = Created: 1.4 thousand, Modified : 2.0 thousand
-- waterway = Created: 44, Modified : 29
-- amenity = Created: 10, Modified : 13
+- poi = Created: 13, Modified : 72
+- building = Created: 17.8 thousand, Modified : 2.3 thousand
+- highway = Created: 1.5 thousand, Modified : 1.7 thousand
+- waterway = Created: 19, Modified : 19
+- amenity = Created: 0, Modified : 8
 
 
 Top 5 Created tags are :
-- building: 19.1 thousand
-- highway: 1.4 thousand
-- source: 626
-- name: 63
-- waterway: 44
+- building: 17.8 thousand
+- highway: 1.5 thousand
+- source: 960
+- layer: 286
+- landuse: 84
 
 
 Top 5 Modified tags are :
 - building: 2.3 thousand
-- highway: 2.0 thousand
-- source: 1.4 thousand
-- residential: 229
-- surface: 184
+- highway: 1.7 thousand
+- source: 1.1 thousand
+- surface: 171
+- landuse: 118
 
 
 Top 5 trending hashtags are:
-- #TürkiyeEQ060223 : 202 users
-- #Syria : 135 users
-- #OMHAP : 135 users
-- #MissingMaps : 135 users
-- #yercizenler : 73 users
+- #TürkiyeEQ060223 : 167 users
+- #Syria : 108 users
+- #OMHAP : 108 users
+- #MissingMaps : 108 users
+- #hotosm-project-14311 : 66 users
 
 
 Top 5 trending Countries where user contributed are:
-- Syrian Arab Republic : 137 users
-- Turkey : 78 users
+- Syrian Arab Republic : 107 users
+- Turkey : 73 users
 
