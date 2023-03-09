@@ -603,6 +603,9 @@ def main():
     Initialize()
     fname = args.name
     if args.update:
+        if args.read_from_metadata:
+            print("Error : Option not allowed : read_from_metadata along with --update")
+            sys.exit()
         if args.start_date:
             print(
                 "Error : Start_date is not allowed during update it will read it from stats csv"
