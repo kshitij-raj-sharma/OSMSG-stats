@@ -30,7 +30,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/Global/Daily/stats_metadata.json --changeset --summary --charts --include_date_in_name --meta
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/Global/Daily/stats_metadata.json --changeset --summary --charts  --meta
 
       - name: add stats to git
 
@@ -40,10 +40,10 @@ jobs:
           git config --global user.name "kshitijrajsharma"
           base_dir=stats/Global/Daily
 
-          mv summary.csv $base_dir/
+          mv stats_summary.csv $base_dir/
           cp *.csv $base_dir/stats.csv
           cp *.png $base_dir/charts/
-          cp summary.md $base_dir/README.md
+          cp stats_summary.md $base_dir/README.md
           cp stats_metadata.json $base_dir/stats_metadata.json
 
           git add -f $base_dir/stats.csv

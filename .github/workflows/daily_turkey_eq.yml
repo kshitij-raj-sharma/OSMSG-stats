@@ -31,7 +31,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg  --country turkey syria --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/turkeyeq/Daily/stats_metadata.json --hashtags TürkiyeEQ060223 --charts --summary --length highway --meta
+          osmsg  --country turkey syria --format csv image --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --hashtags TürkiyeEQ060223 --charts --summary --length highway --meta --update --name stats/turkeyeq/Daily/stats
 
       - name: add stats to git
 

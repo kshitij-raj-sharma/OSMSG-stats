@@ -36,6 +36,7 @@ import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import numpy as np
+import pandas as pd
 import requests
 import seaborn as sns
 
@@ -182,7 +183,7 @@ def verify_me_osm(
     return str(r.text)
 
 
-def create_charts(df):
+def create_charts(df, fname):
     ### osm changes block
     # Get the sum of all the create, modify, and delete values
     nodes_create = df["nodes.create"].sum()
@@ -259,7 +260,7 @@ def create_charts(df):
     # ax.set_yscale("symlog")
     ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ",")))
 
-    plt.savefig("osm_changes.png", bbox_inches="tight")
+    plt.savefig(f"{fname}_osm_changes.png", bbox_inches="tight")
 
     #### Countries block
     if "countries" in df.columns[df.astype(bool).any()]:
@@ -305,7 +306,7 @@ def create_charts(df):
 
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
 
-        plt.savefig("users_per_country.png", bbox_inches="tight")
+        plt.savefig(f"{fname}_users_per_country.png", bbox_inches="tight")
 
     ##### hashtag block
     if "hashtags" in df.columns[df.astype(bool).any()]:
@@ -357,7 +358,7 @@ def create_charts(df):
 
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
 
-        plt.savefig("users_per_hashtag.png", bbox_inches="tight")
+        plt.savefig(f"{fname}_users_per_hashtag.png", bbox_inches="tight")
 
     if (
         "tags_create" in df.columns[df.astype(bool).any()]
@@ -458,7 +459,7 @@ def create_charts(df):
         # Format the y-axis with a log scale and comma separated values
         # ax.set_yscale("log")
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
-        plt.savefig("tags.png", bbox_inches="tight")
+        plt.savefig(f"{fname}_tags.png", bbox_inches="tight")
 
 
 # Function to create profile link
@@ -520,3 +521,199 @@ def download_osm_files(url, mode="changefiles", cookies=None):
         with gzip.open(file_path, "rb") as f_in, open(file_path[:-3], "wb") as f_out:
             shutil.copyfileobj(f_in, f_out)
         os.remove(file_path)
+
+
+def update_stats(df1, df2):
+    # Merge the dataframes on 'ID'
+    merged_df = pd.merge(df1, df2, on="uid", how="outer")
+    merged_df["name"] = merged_df["name_x"].fillna(merged_df["name_y"]).astype(str)
+    # Get the list of integer columns to update
+    int_cols = [
+        col
+        for col in df1.columns
+        if df1[col].dtype == "int64" and col not in ["uid", "rank"]
+    ]
+
+    # Iterate over the integer columns and update the values
+    for col in int_cols:
+        merged_df[col] = merged_df.apply(
+            lambda row: int(row[f"{col}_x"]) + int(row[f"{col}_y"])
+            if pd.notnull(row[f"{col}_x"]) and pd.notnull(row[f"{col}_y"])
+            else int(row[f"{col}_x"] or 0)
+            if pd.notnull(row[f"{col}_x"])
+            else int(row[f"{col}_y"] or 0),
+            axis=1,
+        )
+
+    if set(["countries", "hashtags", "editors"]).issubset(df1.columns):
+        # Get the list of string columns to update
+        str_cols = [
+            col
+            for col in df1.columns
+            if df1[col].dtype == "object"
+            and col in ["countries", "hashtags", "editors"]
+        ]
+        # Iterate over the string columns and update the values
+        for col in str_cols:
+            merged_df[col] = merged_df.apply(
+                lambda row: ",".join(
+                    set(
+                        filter(
+                            lambda x: str(x) != "nan",
+                            str(row[f"{col}_x"]).split(",")
+                            + str(row[f"{col}_y"]).split(","),
+                        )
+                    )
+                ),
+                axis=1,
+            )
+
+    if set(["tags_create", "tags_modify"]).issubset(df1.columns):
+
+        # Update the 'tags_create' column
+        for i, row in merged_df.iterrows():
+            tags1 = (
+                json.loads(row["tags_create_x"])
+                if isinstance(row["tags_create_x"], str)
+                else {}
+            )
+            tags2 = (
+                json.loads(row["tags_create_y"])
+                if isinstance(row["tags_create_y"], str)
+                else {}
+            )
+            tags = {
+                k: tags1.get(k, 0) + tags2.get(k, 0) for k in set(tags1) | set(tags2)
+            }
+            merged_df.at[i, "tags_create"] = json.dumps(
+                dict(
+                    sorted(
+                        tags.items(),
+                        key=lambda item: item[1],
+                        reverse=True,
+                    )
+                )
+            )
+
+        for i, row in merged_df.iterrows():
+            tags1 = (
+                json.loads(row["tags_modify_x"])
+                if isinstance(row["tags_modify_x"], str)
+                else {}
+            )
+            tags2 = (
+                json.loads(row["tags_modify_y"])
+                if isinstance(row["tags_modify_y"], str)
+                else {}
+            )
+            tags = {
+                k: tags1.get(k, 0) + tags2.get(k, 0) for k in set(tags1) | set(tags2)
+            }
+            merged_df.at[i, "tags_modify"] = json.dumps(
+                dict(
+                    sorted(
+                        tags.items(),
+                        key=lambda item: item[1],
+                        reverse=True,
+                    )
+                )
+            )
+
+    # Drop the redundant columns
+    merged_df.drop(
+        [
+            col
+            for col in merged_df.columns
+            if col.endswith("_x") or col.endswith("_y") and col
+        ],
+        axis=1,
+        inplace=True,
+    )
+
+    merged_df = merged_df.sort_values("map_changes", ascending=False)
+    merged_df.insert(0, "rank", range(1, len(merged_df) + 1), True)
+    print("Updated the stats")
+    return merged_df
+
+
+def update_summary(df1, df2):
+    # Merge the dataframes on 'ID'
+    merged_df = pd.merge(df1, df2, on="timestamp", how="outer")
+
+    # Get the list of integer columns to update
+    int_cols = [
+        col
+        for col in df1.columns
+        if df1[col].dtype == "int64" and col not in ["timestamp", "rank"]
+    ]
+
+    # Iterate over the integer columns and update the values
+    for col in int_cols:
+        merged_df[col] = merged_df.apply(
+            lambda row: int(row[f"{col}_x"]) + int(row[f"{col}_y"])
+            if pd.notnull(row[f"{col}_x"]) and pd.notnull(row[f"{col}_y"])
+            else int(row[f"{col}_x"] or 0)
+            if pd.notnull(row[f"{col}_x"])
+            else int(row[f"{col}_y"] or 0),
+            axis=1,
+        )
+
+    if set(["tags_create", "tags_modify"]).issubset(df1.columns):
+
+        # Update the 'tags_create' column
+        for i, row in merged_df.iterrows():
+            tags1 = (
+                json.loads(row["tags_create_x"])
+                if isinstance(row["tags_create_x"], str)
+                else {}
+            )
+            tags2 = (
+                json.loads(row["tags_create_y"])
+                if isinstance(row["tags_create_y"], str)
+                else {}
+            )
+            tags = {
+                k: tags1.get(k, 0) + tags2.get(k, 0) for k in set(tags1) | set(tags2)
+            }
+            merged_df.at[i, "tags_create"] = json.dumps(
+                dict(
+                    sorted(
+                        tags.items(),
+                        key=lambda item: item[1],
+                        reverse=True,
+                    )
+                )
+            )
+
+        for i, row in merged_df.iterrows():
+            tags1 = (
+                json.loads(row["tags_modify_x"])
+                if isinstance(row["tags_modify_x"], str)
+                else {}
+            )
+            tags2 = (
+                json.loads(row["tags_modify_y"])
+                if isinstance(row["tags_modify_y"], str)
+                else {}
+            )
+            tags = {
+                k: tags1.get(k, 0) + tags2.get(k, 0) for k in set(tags1) | set(tags2)
+            }
+            merged_df.at[i, "tags_modify"] = json.dumps(
+                dict(
+                    sorted(
+                        tags.items(),
+                        key=lambda item: item[1],
+                        reverse=True,
+                    )
+                )
+            )
+
+    # Drop the redundant columns
+    merged_df.drop(
+        [col for col in merged_df.columns if col.endswith("_x") or col.endswith("_y")],
+        axis=1,
+        inplace=True,
+    )
+    merged_df = merged_df.sort_values("timestamp", ascending=True)
+    return merged_df

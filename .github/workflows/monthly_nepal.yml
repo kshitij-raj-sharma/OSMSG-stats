@@ -35,7 +35,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --last_month --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Monthly/stats_metadata.json --all_tags --summary --charts --include_date_in_name --meta
+          osmsg --url "http://download.geofabrik.de/asia/nepal-updates" --username '${{ secrets.OSM_USERNAME }}' --password '${{ secrets.OSM_PASSWORD }}' --format image csv --last_month --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Nepal/Monthly/stats_metadata.json --all_tags --summary --charts  --meta
 
       - name: add stats to git
 
@@ -47,10 +47,10 @@ jobs:
           base_dir=stats/Nepal/Monthly
           mkdir -p $base_dir/charts/
 
-          mv summary.csv $base_dir/
+          mv stats_summary.csv $base_dir/
           cp *.csv $base_dir/stats.csv
           cp *.png $base_dir/charts/
-          cp summary.md $base_dir/README.md
+          cp stats_summary.md $base_dir/README.md
           cp stats_metadata.json $base_dir/stats_metadata.json
 
           git add -f $base_dir/stats.csv
