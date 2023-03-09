@@ -48,3 +48,9 @@ Top 5 trending Countries where user contributed are:
 - U.K. of Great Britain and Northern Ireland : 230 users
 - Poland : 206 users
 
+
+ Charts : 
+![Alt text](./charts/osm_changes.png) 
+![Alt text](./charts/users_per_hashtag.png) 
+![Alt text](./charts/users_per_country.png) 
+![Alt text](./charts/tags.png) 
