@@ -531,17 +531,18 @@ def update_stats(df1, df2):
     int_cols = [
         col
         for col in df1.columns
-        if df1[col].dtype == "int64" and col not in ["uid", "rank"]
+        if df1[col].dtype in ["int64", "float64"] and col not in ["uid", "rank"]
     ]
 
     # Iterate over the integer columns and update the values
     for col in int_cols:
         merged_df[col] = merged_df.apply(
-            lambda row: int(row[f"{col}_x"]) + int(row[f"{col}_y"])
+            lambda row: pd.to_numeric(row[f"{col}_x"], errors="coerce")
+            + pd.to_numeric(row[f"{col}_y"], errors="coerce")
             if pd.notnull(row[f"{col}_x"]) and pd.notnull(row[f"{col}_y"])
-            else int(row[f"{col}_x"] or 0)
+            else pd.to_numeric(row[f"{col}_x"], errors="coerce") or 0
             if pd.notnull(row[f"{col}_x"])
-            else int(row[f"{col}_y"] or 0),
+            else pd.to_numeric(row[f"{col}_y"], errors="coerce") or 0,
             axis=1,
         )
 
@@ -644,17 +645,18 @@ def update_summary(df1, df2):
     int_cols = [
         col
         for col in df1.columns
-        if df1[col].dtype == "int64" and col not in ["timestamp", "rank"]
+        if df1[col].dtype in ["int64", "float64"] and col not in ["timestamp"]
     ]
 
     # Iterate over the integer columns and update the values
     for col in int_cols:
         merged_df[col] = merged_df.apply(
-            lambda row: int(row[f"{col}_x"]) + int(row[f"{col}_y"])
+            lambda row: pd.to_numeric(row[f"{col}_x"], errors="coerce")
+            + pd.to_numeric(row[f"{col}_y"], errors="coerce")
             if pd.notnull(row[f"{col}_x"]) and pd.notnull(row[f"{col}_y"])
-            else int(row[f"{col}_x"] or 0)
+            else pd.to_numeric(row[f"{col}_x"], errors="coerce") or 0
             if pd.notnull(row[f"{col}_x"])
-            else int(row[f"{col}_y"] or 0),
+            else pd.to_numeric(row[f"{col}_y"], errors="coerce") or 0,
             axis=1,
         )
 

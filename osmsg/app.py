@@ -774,7 +774,7 @@ def main():
         sys.exit()
     if ((end_date - start_date).days < 1 or args.last_hour) and args.country:
         print(
-            "Warning : Use --changeset Option to include country info on stats , You can filter your country from output itself for stats lesser than a day, Use --country option for more than Day Statistics"
+            "Args country has day difference lesser than 1 day , Remove args country simply process a day data with --changeset option"
         )
         sys.exit()
     if (end_date - start_date).days > 1:
@@ -1099,7 +1099,7 @@ def main():
 
             with open(f"{fname}_summary.md", "w", encoding="utf-8") as file:
                 file.write(
-                    f"### Last Update : Stats from {start_date_utc} to {end_date_utc} (UTC Timezone)\n\n"
+                    f"### Last Update : Stats from {old_stats_start_date if args.update else start_date_utc} to {end_date_utc} (UTC Timezone)\n\n"
                 )
                 file.write(f"#### {summary_text}\n")
                 file.write(f"#### {thread_summary}\n")
