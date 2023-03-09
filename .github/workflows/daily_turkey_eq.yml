@@ -49,5 +49,5 @@ jobs:
           git add -f $base_dir/*
 
 
-          git commit -m "Updated Daily smforst stats"
+          git commit -m "Updated Daily turkeyeq stats"
           git push
