@@ -1,48 +1,48 @@
-### Last Update : Stats from 2023-03-06 21:21:53+00:00 to 2023-03-07 21:21:53+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-07 21:21:53+00:00 to 2023-03-08 21:21:39+00:00 (UTC Timezone)
 
-#### 16 Users made 88 changesets with 15.3 thousand map changes.
-#### 10.5 thousand OSM Elements were Created, 4.7 thousand Modified & 0 Deleted.
+#### 34 Users made 298 changesets with 41.5 thousand map changes.
+#### 34.9 thousand OSM Elements were Created, 6.6 thousand Modified & 0 Deleted.
 
 Top 5 Users are : 
-- yunita sari : 4.0 thousand Map Changes
-- frozenrabi : 2.6 thousand Map Changes
-- Manoj Thapa : 1.7 thousand Map Changes
-- Dibikshya Shrestha : 1.4 thousand Map Changes
-- Rabin Ojha : 1.0 thousand Map Changes
+- yunita sari : 10.0 thousand Map Changes
+- HarryKMapper : 3.5 thousand Map Changes
+- Rafiq Haidari : 2.4 thousand Map Changes
+- Rabin Ojha : 2.2 thousand Map Changes
+- Manoj Thapa : 2.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 9, Modified : 1
-- building = Created: 1.7 thousand, Modified : 183
-- highway = Created: 101, Modified : 64
-- waterway = Created: 6, Modified : 7
-- amenity = Created: 8, Modified : 1
+- poi = Created: 6, Modified : 3
+- building = Created: 5.3 thousand, Modified : 216
+- highway = Created: 247, Modified : 161
+- waterway = Created: 0, Modified : 3
+- amenity = Created: 0, Modified : 0
 
 
 Top 5 Created tags are :
-- building: 1.7 thousand
-- highway: 101
-- source: 12
-- name: 10
-- addr:district: 9
+- building: 5.3 thousand
+- highway: 247
+- landuse: 70
+- natural: 13
+- name: 12
 
 
 Top 5 Modified tags are :
-- building: 183
-- highway: 64
-- source: 51
-- construction: 50
-- landuse: 30
+- building: 216
+- highway: 161
+- source: 149
+- landuse: 19
+- oneway: 12
 
 
 Top 5 trending hashtags are:
-- #TürkiyeEQ060223 : 16 users
-- #SMforST2023 : 16 users
-- #Syria : 12 users
-- #OMHAP : 12 users
-- #MissingMaps : 12 users
+- #SMforST2023 : 34 users
+- #TürkiyeEQ060223 : 34 users
+- #Syria : 29 users
+- #OMHAP : 29 users
+- #MissingMaps : 29 users
 
 
 Top 5 trending Countries where user contributed are:
-- Syrian Arab Republic : 12 users
-- Turkey : 6 users
+- Syrian Arab Republic : 29 users
+- Turkey : 8 users
 
