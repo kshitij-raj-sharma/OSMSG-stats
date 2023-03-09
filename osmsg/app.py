@@ -24,6 +24,8 @@ from osmsg.utils import (
     download_osm_files,
     get_file_path_from_url,
     sum_tags,
+    update_stats,
+    update_summary,
     verify_me_osm,
 )
 
@@ -374,7 +376,11 @@ def process_changesets(url):
     # print(f"Processing {url}")
     file_path = get_file_path_from_url(url, "changeset")
     handler = ChangesetHandler()
-    handler.apply_file(file_path[:-3])
+    try:
+        handler.apply_file(file_path[:-3])
+    except Exception as ex:
+        print(f"Error : {url}")
+        # raise ex
     # print(f"Finished {url}")
 
 
@@ -571,13 +577,6 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--include_date_in_name",
-        action="store_true",
-        help="You can append stats date and time in filename using this option",
-        default=False,
-    )
-
-    parser.add_argument(
         "--format",
         nargs="+",
         choices=["csv", "json", "excel", "image", "text"],
@@ -589,6 +588,12 @@ def parse_args():
         help="Location of metadata to pick start date from previous run's end_date , Generally used if you want to run bot on regular interval using cron/service",
     )
 
+    parser.add_argument(
+        "--update",
+        action="store_true",
+        default=False,
+        help="Update the old dataset produced by osmsg , Very Experimental : There should be your name stats.csv and summary.csv in place where command is run",
+    )
     args = parser.parse_args()
     return args
 
@@ -596,6 +601,17 @@ def parse_args():
 def main():
     args = parse_args()
     Initialize()
+    fname = args.name
+    if args.update:
+        if args.start_date:
+            print(
+                "Error : Start_date is not allowed during update it will read it from stats csv"
+            )
+            sys.exit()
+        old_df = pd.read_csv(f"{fname}.csv", encoding="utf8")
+        args.start_date = str(old_df.iloc[0]["end_date"])
+        old_stats_start_date = str(old_df.iloc[0]["start_date"])
+
     if args.start_date:
         start_date = strip_utc(
             dt.datetime.strptime(args.start_date, "%Y-%m-%d %H:%M:%S%z"), args.timezone
@@ -936,6 +952,9 @@ def main():
             summary_df = summary_df.drop(columns=["changes"])
 
             summary_df = summary_df.sort_values("timestamp", ascending=True)
+            if args.update:
+                old_summary = pd.read_csv(f"{fname}_summary.csv", encoding="utf8")
+                summary_df = update_summary(old_summary, summary_df)
 
         df = pd.json_normalize(list(users.values()))
 
@@ -978,10 +997,11 @@ def main():
 
         start_date = in_local_timezone(start_date_utc, args.timezone)
         end_date = in_local_timezone(end_date_utc, args.timezone)
-        fname = args.name
-        if args.include_date_in_name:
-            fname = f"""{args.name}_{start_date.strftime('%Y-%m-%d-%H-%M-%S%z')}_{end_date.strftime('%Y-%m-%d-%H-%M-%S%z')}"""
 
+        if args.update:
+            df = update_stats(old_df, df)
+
+        ### -------EXPORT BLOCK -------
         if "image" in args.format:  ### image used for twitter tweet
             # Convert the DataFrame to an image
             df_img = df.head(25)
@@ -1031,10 +1051,14 @@ def main():
         if "csv" in args.format:
             # Add the start_date and end_date columns to the DataFrame
             csv_df = df
-            csv_df["start_date"] = start_date_utc
+            csv_df["start_date"] = (
+                old_stats_start_date if args.update else start_date_utc
+            )
             csv_df["end_date"] = end_date_utc
 
             # Create profile link column
+            csv_df.drop("profile", axis=1, inplace=True, errors="ignore")
+
             csv_df.insert(2, "profile", csv_df["name"].apply(create_profile_link))
 
             csv_df.to_csv(f"{fname}.csv", index=False)
@@ -1052,10 +1076,10 @@ def main():
         if args.charts:
             if any("geofabrik" in url.lower() for url in args.url):
                 df.drop("countries", axis="columns")
-            create_charts(df)
+            create_charts(df, fname)
 
         if args.summary:
-            summary_df.to_csv(f"summary.csv", index=False)
+            summary_df.to_csv(f"{fname}_summary.csv", index=False)
             created_sum = (
                 df["nodes.create"] + df["ways.create"] + df["relations.create"]
             )
@@ -1070,7 +1094,7 @@ def main():
             summary_text = f"{humanize.intword(len(df))} Users made {humanize.intword(df['changesets'].sum())} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
             thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created, {humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted."
 
-            with open(f"summary.md", "w", encoding="utf-8") as file:
+            with open(f"{fname}_summary.md", "w", encoding="utf-8") as file:
                 file.write(
                     f"### Last Update : Stats from {start_date_utc} to {end_date_utc} (UTC Timezone)\n\n"
                 )
