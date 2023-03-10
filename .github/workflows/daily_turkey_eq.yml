@@ -1,7 +1,7 @@
 name: Run Daily Report Tyrkeyeq Hashtag
 on:
   schedule:
-    - cron: "0 4 * * *" # Run every day at 4 UTC
+    - cron: "0 6 * * *" # Run every day at 4 UTC
   # push:
   #   branches:
   #     - master
