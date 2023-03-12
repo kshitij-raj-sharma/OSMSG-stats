@@ -40,6 +40,7 @@ def main():
     thread_summary = ""
     csv_file = os.path.join(os.getcwd(), f"{args.name}.csv")
     base_dir = os.path.basename(csv_file)
+    print(base_dir)
     rel_csv_path = os.path.relpath(csv_file, os.getcwd())
 
     # read the .csv file and store it in a DataFrame
