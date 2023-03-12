@@ -37,6 +37,8 @@ def main():
     api = tweepy.API(auth)
 
     top_users = os.path.join(os.getcwd(), f"{args.name}_top_users.png")
+    print(args.name)
+    print(top_users)
     base_dir = os.path.basename(top_users)
 
     summary_text = ""
