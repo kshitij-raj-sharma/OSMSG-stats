@@ -25,4 +25,4 @@ jobs:
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
-          python tweet_test.py --tweet #SMFORST --name stats/smforst/Daily/stats
+          python tweet_test.py --tweet '#SMFORST' --name stats/smforst/Daily/stats
