@@ -51,6 +51,12 @@ jobs:
           git push
 
       - name : Tweet stats
+        env: #assign variables
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run : |
           commit_id=$(git rev-parse --short HEAD)
           python tweet_test.py --git $commit_id --tweet '#TürkiyeEQ060223' --name stats/turkeyeq/Daily/stats
