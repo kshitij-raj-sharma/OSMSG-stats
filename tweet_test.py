@@ -41,7 +41,6 @@ def main():
     csv_file = os.path.join(os.getcwd(), f"{args.name}.csv")
     full_path = os.path.abspath(os.path.join(os.getcwd(), csv_file))
     base_dir = os.path.abspath(os.path.dirname(full_path))
-    print(base_dir)
     rel_csv_path = os.path.relpath(csv_file, os.getcwd())
 
     # read the .csv file and store it in a DataFrame
@@ -65,8 +64,7 @@ def main():
     media_ids = []
     thread_media_ids = []
 
-    chart_png_files = [f for f in base_dir if f.endswith(".png")]
-    print(chart_png_files)
+    chart_png_files = [f for f in os.listdir(base_dir) if f.endswith(".png")]
     for i, chart in enumerate(chart_png_files):
         file_path = os.path.join(base_dir, chart)
         chart_media = api.media_upload(file_path)
