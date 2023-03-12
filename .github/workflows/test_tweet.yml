@@ -12,6 +12,9 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
+      - name : Install dependecies
+        run: |
+          pip install -e .
 
       - name: Tweet Stats
         env: #assign variables
