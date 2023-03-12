@@ -624,6 +624,18 @@ def main():
                 "Error : Start_date is not allowed during update it will read it from stats csv"
             )
             sys.exit()
+        if (
+            args.last_week
+            or args.last_day
+            or args.last_month
+            or args.last_year
+            or args.last_hour
+            or args.days
+        ):
+            print(
+                "Error : Can't pass last_* parameters along with update , update will pick start date from old csv and try to update up to now / end_date"
+            )
+            sys.exit()
         old_csv_path = os.path.join(os.getcwd(), f"{fname}.csv")
         if not os.path.exists(old_csv_path):
             print(f"Error: Couldn't find old stats csv at :{old_csv_path}")
@@ -637,7 +649,7 @@ def main():
         )
 
     if not args.start_date:
-        if (
+        if not (
             args.last_week
             or args.last_day
             or args.last_month
@@ -645,8 +657,6 @@ def main():
             or args.last_hour
             or args.days
         ):
-            pass
-        else:
             print(
                 "ERR: Supply start_date or extraction parameters such as last_day , last_hour"
             )

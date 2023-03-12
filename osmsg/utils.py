@@ -665,7 +665,32 @@ def update_summary(df1, df2):
             else pd.to_numeric(row[f"{col}_y"], errors="coerce") or 0,
             axis=1,
         )
-    # if set(["hashtags", "editors"]).issubset(df1.columns):
+    if "editors" in df1.columns:
+        # Update the 'editors' column
+        for i, row in merged_df.iterrows():
+            editors1 = (
+                json.loads(row["editors_x"])
+                if isinstance(row["editors_x"], str)
+                else {}
+            )
+            editors2 = (
+                json.loads(row["editors_y"])
+                if isinstance(row["editors_y"], str)
+                else {}
+            )
+            editors = {
+                k: editors1.get(k, 0) + editors2.get(k, 0)
+                for k in set(editors1) | set(editors2)
+            }
+            merged_df.at[i, "editors"] = json.dumps(
+                dict(
+                    sorted(
+                        editors.items(),
+                        key=lambda item: item[1],
+                        reverse=True,
+                    )
+                )
+            )
 
     if set(["tags_create", "tags_modify"]).issubset(df1.columns):
 
