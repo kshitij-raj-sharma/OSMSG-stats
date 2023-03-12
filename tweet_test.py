@@ -39,7 +39,8 @@ def main():
     summary_text = ""
     thread_summary = ""
     csv_file = os.path.join(os.getcwd(), f"{args.name}.csv")
-    base_dir = os.path.basename(csv_file)
+    full_path = os.path.abspath(os.path.join(os.getcwd(), csv_file))
+    base_dir = os.path.abspath(os.path.dirname(full_path))
     print(base_dir)
     rel_csv_path = os.path.relpath(csv_file, os.getcwd())
 
