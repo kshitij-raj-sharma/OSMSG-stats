@@ -46,7 +46,7 @@ def main():
     csv_file = os.path.join(os.getcwd(), f"{args.name}.csv")
     full_path = os.path.abspath(os.path.join(os.getcwd(), csv_file))
     base_dir = os.path.abspath(os.path.dirname(full_path))
-    rel_csv_path = os.path.relpath(csv_file, os.getcwd())
+    rel_csv_path = os.path.relpath(base_dir, os.getcwd())
 
     # read the .csv file and store it in a DataFrame
     df = pd.read_csv(csv_file)
