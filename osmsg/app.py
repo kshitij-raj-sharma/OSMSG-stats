@@ -18,17 +18,6 @@ import pandas as pd
 from shapely.geometry import box
 from tqdm import tqdm
 
-from osmsg.utils import (
-    create_charts,
-    create_profile_link,
-    download_osm_files,
-    get_file_path_from_url,
-    sum_tags,
-    update_stats,
-    update_summary,
-    verify_me_osm,
-)
-
 from .changefiles import (
     get_download_urls_changefiles,
     get_prev_hour,
@@ -42,6 +31,16 @@ from .changefiles import (
     strip_utc,
 )
 from .changesets import ChangesetToolKit
+from .utils import (
+    create_charts,
+    create_profile_link,
+    download_osm_files,
+    get_file_path_from_url,
+    sum_tags,
+    update_stats,
+    update_summary,
+    verify_me_osm,
+)
 
 users_temp = {}
 users = {}
@@ -1042,7 +1041,7 @@ def main():
 
             dfi.export(
                 result_df[cols_to_export],
-                "top_users.png",
+                f"{fname}_top_users.png",
                 max_cols=-1,
                 max_rows=-1,
             )
@@ -1075,11 +1074,11 @@ def main():
                     f"User Contributions From {start_date} to {end_date} . Planet Source File : {args.url}\n "
                 )
                 file.write(text_output)
-
+        produced_charts_list = []
         if args.charts:
             if any("geofabrik" in url.lower() for url in args.url):
                 df.drop("countries", axis="columns")
-            create_charts(df, fname)
+            produced_charts_list = create_charts(df, fname)
 
         if args.summary:
             summary_df.to_csv(f"{fname}_summary.csv", index=False)
@@ -1180,6 +1179,27 @@ def main():
                                 f"- {top_five.index[i]} : {top_five[i]} users\n"
                             )
                     file.write(f"{trending_countries}\n")
+                if args.charts:
+                    png_paths = []
+                    base_dir = os.path.basename(os.path.join(os.getcwd(), fname))
+                    # loop through all files in the directory
+                    for ch in produced_charts_list:
+                        rel_path = os.path.relpath(
+                            os.path.join(os.getcwd(), ch), base_dir
+                        )
+                        path_components = rel_path.split(os.sep)
+                        # remove any components that go "up" a directory
+                        while path_components[0] == "..":
+                            path_components.pop(0)
+                        # re-join the remaining components to get the modified relative path
+                        rel_path = "./" + os.sep.join(path_components)
+
+                        # add the relative path to the list
+                        png_paths.append(rel_path)
+                    file.write("\n Charts : \n")
+                    for chart in png_paths:
+                        file.write(f"![Alt text]({chart}) \n")
+
         # Loop through the arguments
         for i in range(len(sys.argv)):
             # If the argument is '--password'
