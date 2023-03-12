@@ -199,7 +199,7 @@ def create_charts(df, fname):
     # Extract the start and end dates from the dataframe
     start_date = df["start_date"][0]
     end_date = df["end_date"][0]
-
+    created_charts = []
     # Create the bar chart
 
     create = [nodes_create, ways_create, relations_create]
@@ -261,6 +261,7 @@ def create_charts(df, fname):
     ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ",")))
 
     plt.savefig(f"{fname}_osm_changes.png", bbox_inches="tight")
+    created_charts.append(f"{fname}_osm_changes.png")
 
     #### Countries block
     if "countries" in df.columns[df.astype(bool).any()]:
@@ -307,6 +308,7 @@ def create_charts(df, fname):
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
 
         plt.savefig(f"{fname}_users_per_country.png", bbox_inches="tight")
+        created_charts.append(f"{fname}_users_per_country.png")
 
     ##### hashtag block
     if "hashtags" in df.columns[df.astype(bool).any()]:
@@ -359,6 +361,7 @@ def create_charts(df, fname):
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
 
         plt.savefig(f"{fname}_users_per_hashtag.png", bbox_inches="tight")
+        created_charts.append(f"{fname}_users_per_hashtag.png")
 
     if (
         "tags_create" in df.columns[df.astype(bool).any()]
@@ -460,6 +463,9 @@ def create_charts(df, fname):
         # ax.set_yscale("log")
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.0f}"))
         plt.savefig(f"{fname}_tags.png", bbox_inches="tight")
+        created_charts.append(f"{fname}_tags.png")
+
+    return created_charts
 
 
 # Function to create profile link

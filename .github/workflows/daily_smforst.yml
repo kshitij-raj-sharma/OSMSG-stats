@@ -39,13 +39,15 @@ jobs:
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           base_dir=stats/smforst/Daily
+          mkdir -p $base_dir
 
-          mkdir -p $base_dir/charts/
-
-          mv $base_dir/*.png $base_dir/charts/
           mv $base_dir/stats_summary.md $base_dir/Readme.md
 
           git add -f $base_dir/*
 
           git commit -m "Updated Daily smforst stats"
           git push
+
+      - name : Tweet stats
+        run : |
+          python tweet_test.py --tweet '#SMFORST' --name stats/smforst/Daily/stats
