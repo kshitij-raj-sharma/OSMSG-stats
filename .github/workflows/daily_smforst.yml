@@ -57,4 +57,4 @@ jobs:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run : |
           commit_id=$(git rev-parse --short HEAD)
-          python tweet_test.py --git $commit_id --tweet '#SMFORST' --name stats/smforst/Daily/stats
+          python tweet_test.py --git $commit_id --tweet '#SMFORST' --name stats/smforst/Daily/stats --mention '@openmapping_ap'

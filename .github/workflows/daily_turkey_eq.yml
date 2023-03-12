@@ -59,4 +59,4 @@ jobs:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run : |
           commit_id=$(git rev-parse --short HEAD)
-          python tweet_test.py --git $commit_id --tweet '#TürkiyeEQ060223' --name stats/turkeyeq/Daily/stats
+          python tweet_test.py --git $commit_id --tweet '#TürkiyeEQ060223' --name stats/turkeyeq/Daily/stats --mention '@hotosm'

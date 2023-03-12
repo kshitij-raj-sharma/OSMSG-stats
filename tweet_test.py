@@ -19,6 +19,11 @@ def main():
         required=True,
         help="Main Stats Name to include in tweet",
     )
+    parser.add_argument(
+        "--mention",
+        default="",
+        help="Tweeter id to mention on tweet, Provide with @",
+    )
 
     parser.add_argument(
         "--git",
@@ -73,7 +78,7 @@ def main():
         else:
             thread_media_ids.append(chart_media.media_id)
     orginal_tweet = api.update_status(
-        status=f"{args.tweet} Contributions\n{start_date} to {end_date}\n{summary_text}\nFullStats:https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/{rel_csv_path}  #gischat #OpenStreetMap",
+        status=f"{args.tweet} Contributions\n{start_date} to {end_date}\n{summary_text}\nFullStats:https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/{rel_csv_path}  #gischat #OpenStreetMap {args.mention}",
         media_ids=media_ids,
     )
     if len(thread_media_ids) > 0:
