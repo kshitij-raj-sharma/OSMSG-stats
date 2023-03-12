@@ -97,6 +97,9 @@ def collect_changefile_stats(
             "poi": {"create": 0, "modify": 0},  # nodes that has tags
         },
     )
+
+    # changeset count
+    users_temp.setdefault(user, {"changesetrs": []})
     if summary:
         summary_interval.setdefault(
             timestamp,
@@ -110,10 +113,6 @@ def collect_changefile_stats(
                 "poi": {"create": 0, "modify": 0},
             },
         )
-
-    # changeset count
-    users_temp.setdefault(user, {"changesetrs": []})
-    if summary:
         summary_interval_temp.setdefault(timestamp, {"changesets": [], "users": []})
         if changeset not in summary_interval_temp[timestamp]["changesets"]:
             summary_interval_temp[timestamp]["changesets"].append(changeset)
@@ -155,12 +154,15 @@ def collect_changefile_stats(
                         users[user]["editors"].append(editor)
                     if summary:
                         # use regex to extract editor name
-                        pattern = r"([a-zA-Z\s]+)"
-                        editor_name = re.findall(pattern, editor)
-                        # convert to lowercase and print editor name
-                        editor = editor_name[0].lower()
-                        summary_interval[timestamp]["editors"].setdefault(editor, 0)
-                        summary_interval[timestamp]["editors"][editor] += 1
+                        try:
+                            pattern = r"([a-zA-Z\s]+)"
+                            editor_name = re.findall(pattern, editor)
+                            # convert to lowercase and print editor name
+                            editor = editor_name[0].lower()
+                            summary_interval[timestamp]["editors"].setdefault(editor, 0)
+                            summary_interval[timestamp]["editors"][editor] += 1
+                        except:
+                            pass
             except:
                 pass
 
@@ -223,6 +225,7 @@ def collect_changefile_stats(
 def calculate_stats(
     user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes=None
 ):
+
     if hashtags:  # intersect with changesets
         if (
             len(processed_changesets) > 0
@@ -253,7 +256,14 @@ def calculate_stats(
             )
     else:  # collect everything
         collect_changefile_stats(
-            user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes
+            user,
+            uname,
+            changeset,
+            version,
+            tags,
+            osm_type,
+            timestamp,
+            osm_obj_nodes,
         )
 
 
