@@ -36,14 +36,10 @@ def main():
 
     api = tweepy.API(auth)
 
-    top_users = os.path.join(os.getcwd(), f"{args.name}_top_users.png")
-    print(args.name)
-    print(top_users)
-    base_dir = os.path.basename(top_users)
-
     summary_text = ""
     thread_summary = ""
     csv_file = os.path.join(os.getcwd(), f"{args.name}.csv")
+    base_dir = os.path.basename(csv_file)
     rel_csv_path = os.path.relpath(csv_file, os.getcwd())
 
     # read the .csv file and store it in a DataFrame
@@ -65,26 +61,27 @@ def main():
     except:
         print("Error during authentication")
     media_ids = []
+    thread_media_ids = []
 
-    chart_png_files = [
-        f for f in base_dir if f.endswith(".png") and not f.startswith("top_user")
-    ]
-    for chart in chart_png_files:
+    chart_png_files = [f for f in base_dir if f.endswith(".png")]
+    for i, chart in enumerate(chart_png_files):
         file_path = os.path.join(os.getcwd(), chart)
         chart_media = api.media_upload(file_path)
-        media_ids.append(chart_media.media_id)
-
-    first_media = api.media_upload(top_users)
+        if i < 4:
+            media_ids.append(chart_media.media_id)
+        else:
+            thread_media_ids.append(chart_media.media_id)
     orginal_tweet = api.update_status(
         status=f"{args.tweet} Contributions\n{start_date} to {end_date}\n{summary_text}\nFullStats:https://github.com/kshitijrajsharma/OSMSG/blob/{args.git}/{rel_csv_path}  #gischat #OpenStreetMap",
         media_ids=media_ids,
     )
-    thread_tweet = api.update_status(
-        status=thread_summary,
-        in_reply_to_status_id=orginal_tweet.id,
-        auto_populate_reply_metadata=True,
-        media_ids=[first_media.media_id],
-    )
+    if len(thread_media_ids) > 0:
+        thread_tweet = api.update_status(
+            status=thread_summary,
+            in_reply_to_status_id=orginal_tweet.id,
+            auto_populate_reply_metadata=True,
+            media_ids=thread_media_ids,
+        )
 
 
 if __name__ == "__main__":
