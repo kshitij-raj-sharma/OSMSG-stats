@@ -135,7 +135,8 @@ def collect_changefile_stats(
         users[user].setdefault("countries", [])
         users[user].setdefault("hashtags", [])
         users[user].setdefault("editors", [])
-        summary_interval[timestamp].setdefault("editors", {})
+        if summary:
+            summary_interval[timestamp].setdefault("editors", {})
 
         if changeset in processed_changesets:
             try:
@@ -152,13 +153,14 @@ def collect_changefile_stats(
                 for editor in processed_changesets[changeset]["editors"]:
                     if editor not in users[user]["editors"]:
                         users[user]["editors"].append(editor)
-                    # use regex to extract editor name
-                    pattern = r"([a-zA-Z\s]+)"
-                    editor_name = re.findall(pattern, editor)
-                    # convert to lowercase and print editor name
-                    editor = editor_name[0].lower()
-                    summary_interval[timestamp]["editors"].setdefault(editor, 0)
-                    summary_interval[timestamp]["editors"][editor] += 1
+                    if summary:
+                        # use regex to extract editor name
+                        pattern = r"([a-zA-Z\s]+)"
+                        editor_name = re.findall(pattern, editor)
+                        # convert to lowercase and print editor name
+                        editor = editor_name[0].lower()
+                        summary_interval[timestamp]["editors"].setdefault(editor, 0)
+                        summary_interval[timestamp]["editors"][editor] += 1
             except:
                 pass
 
