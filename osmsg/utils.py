@@ -665,6 +665,7 @@ def update_summary(df1, df2):
             else pd.to_numeric(row[f"{col}_y"], errors="coerce") or 0,
             axis=1,
         )
+    # if set(["hashtags", "editors"]).issubset(df1.columns):
 
     if set(["tags_create", "tags_modify"]).issubset(df1.columns):
 

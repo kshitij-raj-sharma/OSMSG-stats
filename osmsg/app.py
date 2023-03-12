@@ -135,6 +135,7 @@ def collect_changefile_stats(
         users[user].setdefault("countries", [])
         users[user].setdefault("hashtags", [])
         users[user].setdefault("editors", [])
+        summary_interval[timestamp].setdefault("editors", {})
 
         if changeset in processed_changesets:
             try:
@@ -148,11 +149,16 @@ def collect_changefile_stats(
                     for hstg in processed_changesets[changeset]["hashtags"]
                     if hstg not in users[user]["hashtags"]
                 ]
-                users[user]["editors"] += [
-                    editor
-                    for editor in processed_changesets[changeset]["editors"]
-                    if editor not in users[user]["editors"]
-                ]
+                for editor in processed_changesets[changeset]["editors"]:
+                    if editor not in users[user]["editors"]:
+                        users[user]["editors"].append(editor)
+                    # use regex to extract editor name
+                    pattern = r"([a-zA-Z\s]+)"
+                    editor_name = re.findall(pattern, editor)
+                    # convert to lowercase and print editor name
+                    editor = editor_name[0].lower()
+                    summary_interval[timestamp]["editors"].setdefault(editor, 0)
+                    summary_interval[timestamp]["editors"][editor] += 1
             except:
                 pass
 
@@ -601,6 +607,14 @@ def main():
     args = parse_args()
     Initialize()
     fname = args.name
+    full_path = os.path.abspath(
+        os.path.join(os.getcwd(), os.path.join(os.getcwd(), f"{fname}.csv"))
+    )
+    base_path = os.path.abspath(os.path.dirname(full_path))
+    print(base_path)
+    if not os.path.exists(base_path):
+        os.makedirs(base_path)
+
     if args.update:
         if args.read_from_metadata:
             print("Error : Option not allowed : read_from_metadata along with --update")
@@ -937,26 +951,6 @@ def main():
                                 )
                             )
                         )
-        if args.summary:
-            summary_df = pd.json_normalize(list(summary_interval.values()))
-            summary_df = summary_df.assign(
-                changes=summary_df["nodes.create"]
-                + summary_df["nodes.modify"]
-                + summary_df["nodes.delete"]
-                + summary_df["ways.create"]
-                + summary_df["ways.modify"]
-                + summary_df["ways.delete"]
-                + summary_df["relations.create"]
-                + summary_df["relations.modify"]
-                + summary_df["relations.delete"]
-            )
-            summary_df.insert(3, "map_changes", summary_df["changes"], True)
-            summary_df = summary_df.drop(columns=["changes"])
-
-            summary_df = summary_df.sort_values("timestamp", ascending=True)
-            if args.update:
-                old_summary = pd.read_csv(f"{fname}_summary.csv", encoding="utf8")
-                summary_df = update_summary(old_summary, summary_df)
 
         df = pd.json_normalize(list(users.values()))
 
@@ -996,6 +990,38 @@ def main():
             df["hashtags"] = df["hashtags"].apply(lambda x: ",".join(map(str, x)))
             column_to_move = "hashtags"
             df = df.assign(**{column_to_move: df.pop(column_to_move)})
+            if args.summary:
+                for timestamp in summary_interval:
+                    summary_interval[timestamp]["editors"] = json.dumps(
+                        dict(
+                            sorted(
+                                summary_interval[timestamp]["editors"].items(),
+                                key=lambda item: item[1],
+                                reverse=True,
+                            )
+                        )
+                    )
+
+        if args.summary:
+            summary_df = pd.json_normalize(list(summary_interval.values()))
+            summary_df = summary_df.assign(
+                changes=summary_df["nodes.create"]
+                + summary_df["nodes.modify"]
+                + summary_df["nodes.delete"]
+                + summary_df["ways.create"]
+                + summary_df["ways.modify"]
+                + summary_df["ways.delete"]
+                + summary_df["relations.create"]
+                + summary_df["relations.modify"]
+                + summary_df["relations.delete"]
+            )
+            summary_df.insert(3, "map_changes", summary_df["changes"], True)
+            summary_df = summary_df.drop(columns=["changes"])
+
+            summary_df = summary_df.sort_values("timestamp", ascending=True)
+            if args.update:
+                old_summary = pd.read_csv(f"{fname}_summary.csv", encoding="utf8")
+                summary_df = update_summary(old_summary, summary_df)
 
         start_date = in_local_timezone(start_date_utc, args.timezone)
         end_date = in_local_timezone(end_date_utc, args.timezone)
@@ -1181,11 +1207,10 @@ def main():
                     file.write(f"{trending_countries}\n")
                 if args.charts:
                     png_paths = []
-                    base_dir = os.path.basename(os.path.join(os.getcwd(), fname))
                     # loop through all files in the directory
                     for ch in produced_charts_list:
                         rel_path = os.path.relpath(
-                            os.path.join(os.getcwd(), ch), base_dir
+                            os.path.join(os.getcwd(), ch), base_path
                         )
                         path_components = rel_path.split(os.sep)
                         # remove any components that go "up" a directory
