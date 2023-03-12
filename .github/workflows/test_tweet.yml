@@ -15,6 +15,7 @@ jobs:
       - name : Install dependecies
         run: |
           pip install -e .
+          pip install tweepy
 
       - name: Tweet Stats
         env: #assign variables
