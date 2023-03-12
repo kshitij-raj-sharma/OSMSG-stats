@@ -1,21 +1,21 @@
 ### Last Update : Stats from 2023-02-21 00:00:00+00:00 to 2023-03-11 21:21:09+00:00 (UTC Timezone)
 
-#### 161 Users made 3.8 thousand changesets with 438.9 thousand map changes.
-#### 324.1 thousand OSM Elements were Created, 114.1 thousand Modified & 757 Deleted.
+#### 161 Users made 3.8 thousand changesets with 440.6 thousand map changes.
+#### 324.1 thousand OSM Elements were Created, 114.1 thousand Modified & 2.4 thousand Deleted.
 
 Top 5 Users are : 
 - yunita sari : 46.6 thousand Map Changes
 - Manoj Thapa : 35.6 thousand Map Changes
-- Rafiq Haidari : 24.7 thousand Map Changes
+- Rafiq Haidari : 24.8 thousand Map Changes
 - Rabin Ojha : 21.0 thousand Map Changes
-- Gaurav Parajuli : 19.2 thousand Map Changes
+- Gaurav Parajuli : 19.3 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 1.5 thousand, Modified : 391
 - building = Created: 47.5 thousand, Modified : 3.0 thousand
 - highway = Created: 3.4 thousand, Modified : 2.9 thousand
-- waterway = Created: 16, Modified : 45
 - amenity = Created: 699, Modified : 341
+- waterway = Created: 16, Modified : 45
 
 
 Top 5 Created tags are :
@@ -48,7 +48,7 @@ Top 5 trending Countries where user contributed are:
 
 
  Charts : 
-![Alt text](./smforst/Daily/stats_osm_changes.png) 
-![Alt text](./smforst/Daily/stats_users_per_country.png) 
-![Alt text](./smforst/Daily/stats_users_per_hashtag.png) 
-![Alt text](./smforst/Daily/stats_tags.png) 
+![Alt text](./stats_osm_changes.png) 
+![Alt text](./stats_users_per_country.png) 
+![Alt text](./stats_users_per_hashtag.png) 
+![Alt text](./stats_tags.png) 
