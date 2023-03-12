@@ -39,6 +39,16 @@ import numpy as np
 import pandas as pd
 import requests
 import seaborn as sns
+from requests.adapters import HTTPAdapter
+
+# number of times to retry
+retry_count = 3
+# create a session with retry configuration
+session = requests.Session()
+retries = HTTPAdapter(max_retries=retry_count)
+session.mount("https://", retries)
+session.mount("http://", retries)
+
 
 CUSTOM_HEADER = {"user-agent": "oauth_cookie_client.py"}
 
@@ -510,12 +520,10 @@ def download_osm_files(url, mode="changefiles", cookies=None):
                 test = cookies.split("=")
                 # name, value = line.strip().split("=")
                 cookies_fmt[test[0]] = f'{test[1]}=="'
-                response = requests.get(url, cookies=cookies_fmt)
+                response = session.get(url, cookies=cookies_fmt)
             else:
-                response = requests.get(url)
-
-            if not response.status_code == 200:
-                sys.exit()
+                response = session.get(url)
+            response.raise_for_status()
 
             file_data = response.content
             # Create the directory if it does not exist
