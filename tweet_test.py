@@ -64,6 +64,7 @@ def main():
     thread_media_ids = []
 
     chart_png_files = [f for f in base_dir if f.endswith(".png")]
+    print(chart_png_files)
     for i, chart in enumerate(chart_png_files):
         file_path = os.path.join(base_dir, chart)
         chart_media = api.media_upload(file_path)
