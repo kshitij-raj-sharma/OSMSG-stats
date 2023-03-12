@@ -52,4 +52,5 @@ jobs:
 
       - name : Tweet stats
         run : |
-          python tweet_test.py --tweet '#TürkiyeEQ060223' --name stats/turkeyeq/Daily/stats
+          commit_id=$(git rev-parse --short HEAD)
+          python tweet_test.py --git $commit_id --tweet '#TürkiyeEQ060223' --name stats/turkeyeq/Daily/stats

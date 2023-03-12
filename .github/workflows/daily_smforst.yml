@@ -2,9 +2,9 @@ name: Run Daily Report smforst Hashtag
 on:
   schedule:
     - cron: "0 6 * * *" # Run every day at 4 UTC
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -50,4 +50,5 @@ jobs:
 
       - name : Tweet stats
         run : |
-          python tweet_test.py --tweet '#SMFORST' --name stats/smforst/Daily/stats
+          commit_id=$(git rev-parse --short HEAD)
+          python tweet_test.py --git $commit_id --tweet '#SMFORST' --name stats/smforst/Daily/stats
