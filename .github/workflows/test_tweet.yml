@@ -28,4 +28,4 @@ jobs:
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
-          python tweet.py --tweet '#TürkiyeEQ060223' --name stats/turkeyeq/Daily/stats --mention '@hotosm'
+          python tweet.py --name stats/Global/Weekly/stats --tweet 'Global Last Week' --mention '@openstreetmap'
