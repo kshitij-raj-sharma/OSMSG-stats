@@ -2,9 +2,9 @@ name: Run Daily Report Global
 on:
   schedule:
     - cron: "0 5 * * *" # Run every day at 5 UTC
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -56,5 +56,5 @@ jobs:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --git $commit_id --name stats/Global/Daily/stats --tweet 'Global Last Day' --mention '@openstreetmap'
+          python tweet_test.py --git $commit_id --name stats/Global/Daily/stats --tweet 'Global Last Day' --mention '@openstreetmap'
 
