@@ -2,9 +2,9 @@ name: Run Weekly Report Hotosm Hashtag
 on:
   schedule:
     - cron: "0 2 * * MON" # Run every Monday at 2
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate Weekly Hashtag Stats
         run: |
-          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --read_from_metadata stats/hotosm/Weekly/stats_metadata.json --hashtags hotosm --force --charts --summary  --meta
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats/hotosm/Weekly/stats --all_tags --read_from_metadata stats/hotosm/Weekly/stats_metadata.json --hashtags hotosm --force --charts --summary  --meta
 
       - name: add stats to git
 
@@ -37,18 +37,10 @@ jobs:
           git config --global user.name "kshitijrajsharma"
           
           base_dir=stats/hotosm/Weekly
-          mkdir -p $base_dir/charts/
 
-          mv stats_summary.csv $base_dir/
-          cp *.csv $base_dir/stats.csv
-          cp *.png $base_dir/charts/
-          cp stats_summary.md $base_dir/README.md
-          cp stats_metadata.json $base_dir/stats_metadata.json
-
-          git add -f $base_dir/stats.csv
-          git add -f $base_dir/stats_metadata.json
-          git add -f $base_dir/charts/
-          git add -f $base_dir/README.md
+          mkdir -p $base_dir
+          mv $base_dir/stats_summary.md $base_dir/Readme.md
+          git add -f $base_dir/*
 
           git commit -m "Updated Weekly hotosm stats"
           git push
@@ -62,12 +54,5 @@ jobs:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --tweet_hotosm --tweet_last_week --git $commit_id
-          base_dir=stats/hotosm/Weekly
+          python tweet_test.py --git $commit_id --tweet 'HOTOSM Last Week' --name stats/hotosm/Weekly/stats --mention '@hotosm'
 
-          sudo mv stats_summary.md $base_dir/README.md
-          
-          git add -f $base_dir/README.md
-          
-          git commit -m "Updated Readme Weekly Hotosm"
-          git push
