@@ -65,7 +65,7 @@ jobs:
           python tweet.py --tweet_hotosm --tweet_last_week --git $commit_id
           base_dir=stats/hotosm/Weekly
 
-          sudo mv summary.md $base_dir/README.md
+          sudo mv stats_summary.md $base_dir/README.md
           
           git add -f $base_dir/README.md
           
