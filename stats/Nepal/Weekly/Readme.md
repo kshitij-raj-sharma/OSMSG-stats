@@ -2,6 +2,8 @@
 
 #### 111 Users made 798 changesets with 231.0 thousand map changes.
 #### 95.6 thousand OSM Elements were Created, 135.2 thousand Modified & 249 Deleted.
+Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
+Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
 - Heinz_V : 100.9 thousand Map Changes
