@@ -2,6 +2,8 @@
 
 #### 19.0 thousand Users made 260.2 thousand changesets with 23.1 million map changes.
 #### 15.5 million OSM Elements were Created, 5.7 million Modified & 1.8 million Deleted.
+Get Full Stats at [stats.csv](./stats/Global/Weekly/stats.csv)
+Get Summary Stats at [stats_summary.csv](./stats/Global/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
 - Moreorless : 323.1 thousand Map Changes
