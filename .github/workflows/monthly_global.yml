@@ -35,7 +35,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format image csv --last_month --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Global/Monthly/stats_metadata.json --all_tags --charts --summary  --meta
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format image csv --last_month --tags 'building' 'highway' 'waterway' 'amenity' --name stats/Global/Monthly/stats --read_from_metadata stats/Global/Monthly/stats_metadata.json --all_tags --charts --summary  --meta
 
       - name: add stats to git
 
@@ -45,18 +45,10 @@ jobs:
           git config --global user.name "kshitijrajsharma"
 
           base_dir=stats/Global/Monthly
-          mkdir -p $base_dir/charts/
 
-          mv stats_summary.csv $base_dir/
-          cp *.csv $base_dir/stats.csv
-          cp *.png $base_dir/charts/
-          cp stats_summary.md $base_dir/README.md
-          cp stats_metadata.json $base_dir/stats_metadata.json
-
-          git add -f $base_dir/stats.csv
-          git add -f $base_dir/stats_metadata.json
-          git add -f $base_dir/charts/
-          git add -f $base_dir/README.md
+          mkdir -p $base_dir
+          mv $base_dir/stats_summary.md $base_dir/Readme.md
+          git add -f $base_dir/*
 
           git commit -m "Updated Monthly Global Stats"
           git push
@@ -69,14 +61,6 @@ jobs:
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
-          base_dir=stats/Global/Monthly
-
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --tweet_last_month --tweet_global --git $commit_id
+          python tweet.py --git $commit_id --name stats/Global/Monthly/stats --tweet 'Global Last Month' --mention '@openstreetmap'
 
-          sudo mv summary.md $base_dir/README.md
-
-          git add -f $base_dir/README.md
-
-          git commit -m "Updated Readme Monthly Global"
-          git push

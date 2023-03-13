@@ -45,18 +45,10 @@ jobs:
           git config --global user.name "kshitijrajsharma"
           
           base_dir=stats/Nepal/Monthly
-          mkdir -p $base_dir/charts/
 
-          mv stats_summary.csv $base_dir/
-          cp *.csv $base_dir/stats.csv
-          cp *.png $base_dir/charts/
-          cp stats_summary.md $base_dir/README.md
-          cp stats_metadata.json $base_dir/stats_metadata.json
-
-          git add -f $base_dir/stats.csv
-          git add -f $base_dir/stats_metadata.json
-          git add -f $base_dir/charts/
-          git add -f $base_dir/README.md
+          mkdir -p $base_dir
+          mv $base_dir/stats_summary.md $base_dir/Readme.md
+          git add -f $base_dir/*
 
           git commit -m "Updated Monthly Nepal Stats"
           git push
@@ -69,13 +61,6 @@ jobs:
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
-          base_dir=stats/Nepal/Monthly
-
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --tweet_last_month --tweet_nepal --git $commit_id
-          
-          sudo mv summary.md $base_dir/README.md
-          
-          git add -f $base_dir/README.md
-          git commit -m "Updated Readme Monthly Nepal"
-          git push
+          python tweet.py --git $commit_id --name stats/Nepal/Monthly/stats  --tweet 'Nepal Last Month'
+
