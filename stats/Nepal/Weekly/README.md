@@ -1,54 +1,55 @@
-### Last Update : Stats from 2023-02-26 00:00:00+00:00 to 2023-03-05 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-05 00:00:00+00:00 to 2023-03-12 00:00:00+00:00 (UTC Timezone)
 
-#### 106 Users made 828 changesets with 93.2 thousand map changes.
-#### 70.2 thousand OSM Elements were Created, 22.8 thousand Modified & 252 Deleted.
+#### 111 Users made 798 changesets with 231.0 thousand map changes.
+#### 95.6 thousand OSM Elements were Created, 135.2 thousand Modified & 249 Deleted.
 
 Top 5 Users are : 
-- seichter : 14.0 thousand Map Changes
-- Lalit_IAAS : 11.9 thousand Map Changes
-- wzdxs : 10.1 thousand Map Changes
-- Nirmala Rawat : 7.7 thousand Map Changes
-- marek kleciak : 7.7 thousand Map Changes
+- Heinz_V : 100.9 thousand Map Changes
+- seichter : 25.3 thousand Map Changes
+- Narayan Thapa : 13.8 thousand Map Changes
+- Nirmala Rawat : 11.8 thousand Map Changes
+- Prabin Pokhrel : 9.8 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 407, Modified : 233
-- building = Created: 9.7 thousand, Modified : 438
-- highway = Created: 279, Modified : 869
-- waterway = Created: 55, Modified : 184
-- amenity = Created: 75, Modified : 122
+- poi = Created: 157, Modified : 446
+- building = Created: 10.0 thousand, Modified : 391
+- highway = Created: 537, Modified : 1.6 thousand
+- waterway = Created: 71, Modified : 187
+- amenity = Created: 58, Modified : 125
 
 
 Top 5 Created tags are :
-- building: 9.7 thousand
-- highway: 279
-- landuse: 275
-- natural: 256
-- name: 154
+- building: 10.0 thousand
+- landuse: 1.0 thousand
+- natural: 643
+- highway: 537
+- water: 504
 
 
 Top 5 Modified tags are :
-- highway: 869
-- building: 438
-- name: 297
-- surface: 223
-- waterway: 184
+- highway: 1.6 thousand
+- name: 414
+- surface: 395
+- building: 391
+- landuse: 254
 
 
 Top 5 trending hashtags are:
-- #maproulette : 9 users
-- #LineCrossingWaterBodyCheck : 9 users
-- #AtlasChecks : 9 users
-- #dmd : 9 users
+- #Nepal : 10 users
+- #BIPAD : 9 users
+- #YILAB : 8 users
+- #DigitalVolunteers : 8 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 98 users
-- India : 6 users
-- China : 1 users
+- Nepal : 106 users
+- China : 4 users
+- India : 1 users
+- Thailand : 1 users
 
 
  Charts : 
-![Alt text](./charts/osm_changes.png) 
-![Alt text](./charts/users_per_hashtag.png) 
-![Alt text](./charts/users_per_country.png) 
-![Alt text](./charts/tags.png) 
+![Alt text](./stats_osm_changes.png) 
+![Alt text](./stats_users_per_country.png) 
+![Alt text](./stats_users_per_hashtag.png) 
+![Alt text](./stats_tags.png) 
