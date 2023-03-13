@@ -38,7 +38,7 @@ def main():
     api = tweepy.API(auth)
 
     files = os.listdir(os.getcwd())
-    first_file = os.path.join(os.getcwd(), "top_users.png")
+    first_file = os.path.join(os.getcwd(), "stats_top_users.png")
 
     csv = [f for f in files if f.endswith(".csv")]
     summary_text = ""
@@ -61,7 +61,7 @@ def main():
     summary_text = f"{len(df)} Users made {df['changesets'].sum()} changesets with {humanize.intword(df['map_changes'].sum())} map changes."
     thread_summary = f"{humanize.intword(created_sum.sum())} OSM Elements were Created,{humanize.intword(modified_sum.sum())} Modified & {humanize.intword(deleted_sum.sum())} Deleted . Including {humanize.intword(df['building.create'].sum())} buildings & {humanize.intword(df['highway.create'].sum())} highways created. {df.loc[0, 'name']} tops table with {humanize.intword(df.loc[0, 'map_changes'])} changes"
 
-    with open(f"summary.md", "a", encoding="utf-8") as file:
+    with open(f"stats_summary.md", "a", encoding="utf-8") as file:
         file.write("\n Charts : \n")
         file.write("![Alt text](./charts/osm_changes.png) \n")
         file.write("![Alt text](./charts/users_per_hashtag.png) \n")
