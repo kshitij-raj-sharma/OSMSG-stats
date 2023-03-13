@@ -73,7 +73,9 @@ def main():
     for i, chart in enumerate(chart_png_files):
         file_path = os.path.join(base_dir, chart)
         chart_media = api.media_upload(file_path)
-        if i < 4:
+        if len(media_ids) < 4:
+            if "top_users" in chart:
+                thread_media_ids.append(chart_media.media_id)
             media_ids.append(chart_media.media_id)
         else:
             thread_media_ids.append(chart_media.media_id)

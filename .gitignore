@@ -5,4 +5,4 @@ temp
 __pycache__
 dist
 .env
-.DS_STORE
+.DS_Store

@@ -1158,6 +1158,10 @@ def main():
                 )
                 file.write(f"#### {summary_text}\n")
                 file.write(f"#### {thread_summary}\n")
+                file.write(f"Get Full Stats at [stats.csv](./{fname}.csv)\n")
+                file.write(
+                    f"Get Summary Stats at [stats_summary.csv](./{fname}_summary.csv)\n"
+                )
                 top_users = "\nTop 5 Users are : \n"
                 # set rank column as index
                 df.set_index("rank", inplace=True)

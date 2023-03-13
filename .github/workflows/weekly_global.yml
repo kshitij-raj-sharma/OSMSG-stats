@@ -2,9 +2,9 @@ name: Run Weekly Report Global
 on:
   schedule:
     - cron: "0 0 * * MON" # Run every Monday
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats --read_from_metadata stats/Global/Weekly/stats_metadata.json --all_tags --changeset --force --charts --summary  --meta
+          osmsg --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_week --tags 'building' 'highway' 'waterway' 'amenity' --name stats/Global/Weekly/stats --read_from_metadata stats/Global/Weekly/stats_metadata.json --all_tags --changeset --force --charts --summary  --meta --workers 8
 
       - name: Upload stats to Github
         run: |
@@ -39,18 +39,10 @@ jobs:
           git config --global user.name "kshitijrajsharma"
           
           base_dir=stats/Global/Weekly
-          mkdir -p $base_dir/charts/
 
-          mv stats_summary.csv $base_dir/
-          cp *.csv $base_dir/stats.csv
-          cp *.png $base_dir/charts/
-          cp stats_summary.md $base_dir/README.md
-          cp stats_metadata.json $base_dir/stats_metadata.json
-
-          git add -f $base_dir/stats.csv
-          git add -f $base_dir/stats_metadata.json
-          git add -f $base_dir/charts/
-          git add -f $base_dir/README.md
+          mkdir -p $base_dir
+          mv $base_dir/stats_summary.md $base_dir/Readme.md
+          git add -f $base_dir/*
 
           git commit -m "Updated Weekly Global Stats"
           git push
@@ -63,14 +55,8 @@ jobs:
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
-          base_dir=stats/Global/Weekly
-          
+
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --tweet_last_week --tweet_global --git $commit_id
+          python tweet_test.py --git $commit_id --name stats/Global/Weekly/stats --tweet 'Global Last Week' --mention '@openstreetmap'
           
-          sudo mv stats_summary.md $base_dir/README.md
-          
-          git add -f $base_dir/README.md
-          
-          git commit -m "Updated Readme Weekly Global"
-          git push
+
