@@ -32,6 +32,7 @@ from .changefiles import (
     strip_utc,
 )
 from .changesets import ChangesetToolKit
+from .login import verify_me_osm
 from .utils import (
     create_charts,
     create_profile_link,
@@ -40,7 +41,6 @@ from .utils import (
     sum_tags,
     update_stats,
     update_summary,
-    verify_me_osm,
 )
 
 users_temp = {}
