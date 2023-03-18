@@ -10,11 +10,12 @@ import time
 import urllib.parse
 from datetime import datetime
 
-import dataframe_image as dfi
 import geopandas as gpd
 import humanize
+import matplotlib.pyplot as plt
 import osmium
 import pandas as pd
+from matplotlib.font_manager import FontProperties
 from shapely.geometry import box
 from tqdm import tqdm
 
@@ -1094,13 +1095,27 @@ def main():
                 "Deleted",
             ]  # Specify columns to export
             result_df = result_df.reset_index(drop=True)
-
-            dfi.export(
-                result_df[cols_to_export],
-                f"{fname}_top_users.png",
-                max_cols=-1,
-                max_rows=-1,
+            table_df = result_df[cols_to_export]
+            # Plot the dataframe as a table
+            fig, ax = plt.subplots(figsize=(10, 5))
+            ax.axis("off")
+            ax.axis("tight")
+            table = ax.table(
+                cellText=table_df.values,
+                colLabels=table_df.columns,
+                loc="center",
+                fontsize=18,
             )
+            fig.text(0.5, 0.95, "Top Users", fontsize=8, ha="center")
+            # Set the font properties for the title column
+            font_props = FontProperties(weight="bold")
+
+            # Make the first row of the table bold
+            for j in range(table_df.shape[1]):
+                cell = table[0, j]
+                cell.set_text_props(fontproperties=font_props)
+            # Save the plot to a PNG file
+            plt.savefig(f"{fname}_top_users.png", bbox_inches="tight", dpi=200)
 
         if "json" in args.format:
             # with open(f"{out_file_name}.json") as file:

@@ -2,9 +2,6 @@ requests
 osmium
 pandas
 tweepy
-dataframe-image
-flare-floss
-tabulate
 Shapely
 geopandas
 tqdm
