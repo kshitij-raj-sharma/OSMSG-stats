@@ -259,6 +259,11 @@ export OSM_PASSWORD="yourpassword"
 
 Now use command as it is without username and password , OSM Login is enabled from Geofabrik [itself](https://github.com/geofabrik/sendfile_osm_oauth_protector) So OSMSG Doesn't uses any third party tool/methododology for the authentication
 
-##### Note :
+### Contributing
+Contributions are always welcome! Project is in active development phase , Improving documentation is always great place to start. Here's how you can get involved:
 
-This project is under active development hence you may notice bugs or incomplete functions , Feel free to file issue or Contribute . Happy Coding ! Happy Mapping
+  - File an issue if you find any bugs or have a feature request.
+  - Set up a development environment.
+  - Fork the repository.
+  - Make your changes and submit a pull request.
+
