@@ -1,7 +1,7 @@
 name: Run Daily Report Hotosm Hashtag
 on:
   schedule:
-    - cron: "0 4 * * *" # Run every day at 4 UTC
+    - cron: "0 5 * * *" # Run every day at 4 UTC
   # push:
   #   branches:
   #     - master
@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate Daily Hashtag Stats
         run: |
-          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats/hotosm/Daily/stats --all_tags --read_from_metadata stats/hotosm/Daily/stats_metadata.json --hashtags hotosm --summary --charts  --meta
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats/hotosm/Daily/stats --all_tags --read_from_metadata stats/hotosm/Daily/stats_metadata.json --hashtags hotosm --summary --charts  --meta --force
 
       - name: add stats to git
 
