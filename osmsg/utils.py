@@ -301,7 +301,7 @@ def create_charts(df, fname):
         fig, ax = plt.subplots(figsize=(20, 20))
         ax = sns.barplot(x=grouped.index, y=grouped.values)
 
-        font = fm.FontProperties(family="Arial", size=8)
+        font = fm.FontProperties(size=8)
         # Add the count labels to the bars
         for i, v in enumerate(grouped.values):
             ax.text(
@@ -350,7 +350,7 @@ def create_charts(df, fname):
         fig, ax = plt.subplots(figsize=(20, 20))
         ax = sns.barplot(x=grouped.index, y=grouped.values)
 
-        font = fm.FontProperties(family="Arial", size=12)
+        font = fm.FontProperties(size=12)
         # Add the count labels to the bars
         for i, v in enumerate(grouped.values):
             ax.text(
