@@ -1,3 +1,26 @@
+# This file is part of OSMSG (https://github.com/kshitijrajsharma/OSMSG).
+# MIT License
+
+# Copyright (c) 2023 Kshitij Raj Sharma
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 import datetime
 import datetime as dt
 import sys
@@ -76,12 +99,12 @@ class ChangesetToolKit:
         download_urls = []
         start_seq = self.timestamp_to_sequence(start_date)
         start_seq_time = self.sequence_to_timestamp(start_seq)
-        if start_seq_time > start_date :
-            start_seq = (
-                    start_seq - int((start_seq_time - start_date).total_seconds() / 60)
-                ) # reduce start_seq to make it even 
+        if start_seq_time > start_date:
+            start_seq = start_seq - int(
+                (start_seq_time - start_date).total_seconds() / 60
+            )  # reduce start_seq to make it even
             start_seq_time = self.sequence_to_timestamp(start_seq)
-        if (start_date - start_seq_time).seconds != 15*60: 
+        if (start_date - start_seq_time).seconds != 15 * 60:
             # difference should be a day difference to calculate accurate changeset stats
             if start_date > start_seq_time:
                 start_seq = (
@@ -103,8 +126,8 @@ class ChangesetToolKit:
                 end_seq_time = self.sequence_to_timestamp(end_seq)
                 if end_date > end_seq_time:
                     end_seq = (
-                            end_seq + int((end_date-end_seq_time).total_seconds() / 60)
-                        )+1 # increase end_seq to make it even
+                        end_seq + int((end_date - end_seq_time).total_seconds() / 60)
+                    ) + 1  # increase end_seq to make it even
                     end_seq_time = self.sequence_to_timestamp(end_seq)
                 if end_seq_time > end_date:
                     end_seq = (
