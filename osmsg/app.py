@@ -1214,6 +1214,9 @@ def main():
                 if args.tags:
                     for user_tag in args.tags:
                         user_tags_summary += f"- {user_tag} = Created: {humanize.intword(df[f'{user_tag}.create'].sum())}, Modified : {humanize.intword(df[f'{user_tag}.modify'].sum())}\n"
+                if args.length:
+                    for len_feat in args.length:
+                        user_tags_summary += f"- {len_feat} length created = {humanize.intword(round(df[f'{len_feat}_len_m'].sum()/1000))} Km\n"
                 file.write(f"{user_tags_summary}\n")
 
                 if args.all_tags:
