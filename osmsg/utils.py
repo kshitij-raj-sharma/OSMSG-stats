@@ -25,6 +25,7 @@ import ast
 import gzip
 import json
 import os
+import re
 import shutil
 import urllib.parse
 from collections import defaultdict
@@ -616,6 +617,11 @@ def update_summary(df1, df2):
     return merged_df
 
 
+def extract_projects(hashtags):
+    matches = re.findall(r"#hotosm-project-(\d+)", hashtags)
+    return matches
+
+
 def generate_tm_stats(tm_projects, usernames):
     TM_API_URL = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects"
     tm_user_stats = {}
@@ -627,29 +633,22 @@ def generate_tm_stats(tm_projects, usernames):
             data = response.json()
             for user in data["userContributions"]:
                 if user["username"] in usernames:
-                    tm_user_stats.setdefault(
-                        user["username"],
-                        {
+                    user_project_key = f"{user['username']}_{project}"
+                    if user_project_key not in tm_user_stats:
+                        tm_user_stats[user_project_key] = {
                             "name": user["username"],
+                            "tm_projects": project,
                             "tm_mapping_level": user["mappingLevel"],
                             "tasks_mapped": 0,
                             "tasks_validated": 0,
                             "tasks_total": 0,
-                            "projects_total": 0,
-                            "contributed_projects": [],
-                        },
-                    )
-                    tm_user_stats[user["username"]]["tasks_mapped"] += user["mapped"]
-                    tm_user_stats[user["username"]]["tasks_validated"] += user[
+                        }
+                    tm_user_stats[user_project_key]["tasks_mapped"] += user["mapped"]
+                    tm_user_stats[user_project_key]["tasks_validated"] += user[
                         "validated"
                     ]
-                    tm_user_stats[user["username"]]["tasks_total"] += user["total"]
-                    tm_user_stats[user["username"]]["contributed_projects"] += [project]
-                    tm_user_stats[user["username"]]["projects_total"] = len(
-                        tm_user_stats[user["username"]]["contributed_projects"]
-                    )
-    tm_df = pd.json_normalize(list(tm_user_stats.values()))
-    tm_df["contributed_projects"] = tm_df["contributed_projects"].apply(
-        lambda x: ",".join(map(str, x))
-    )
+                    tm_user_stats[user_project_key]["tasks_total"] += user["total"]
+
+    tm_df = pd.DataFrame(list(tm_user_stats.values()))
+    tm_df = tm_df.groupby(["name", "tm_projects"], as_index=False).sum()
     return tm_df
