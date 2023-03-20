@@ -614,3 +614,42 @@ def update_summary(df1, df2):
     )
     merged_df = merged_df.sort_values("timestamp", ascending=True)
     return merged_df
+
+
+def generate_tm_stats(tm_projects, usernames):
+    TM_API_URL = "https://tasking-manager-tm4-production-api.hotosm.org/api/v2/projects"
+    tm_user_stats = {}
+    for project in tm_projects:
+        api_call = f"{TM_API_URL}/{project}/contributions/"
+        response = session.get(api_call)
+        # response.raise_for_status()
+        if response.status_code == 200:
+            data = response.json()
+            for user in data["userContributions"]:
+                if user["username"] in usernames:
+                    tm_user_stats.setdefault(
+                        user["username"],
+                        {
+                            "name": user["username"],
+                            "tm_mapping_level": user["mappingLevel"],
+                            "tasks_mapped": 0,
+                            "tasks_validated": 0,
+                            "tasks_total": 0,
+                            "projects_total": 0,
+                            "contributed_projects": [],
+                        },
+                    )
+                    tm_user_stats[user["username"]]["tasks_mapped"] += user["mapped"]
+                    tm_user_stats[user["username"]]["tasks_validated"] += user[
+                        "validated"
+                    ]
+                    tm_user_stats[user["username"]]["tasks_total"] += user["total"]
+                    tm_user_stats[user["username"]]["contributed_projects"] += [project]
+                    tm_user_stats[user["username"]]["projects_total"] = len(
+                        tm_user_stats[user["username"]]["contributed_projects"]
+                    )
+    tm_df = pd.json_normalize(list(tm_user_stats.values()))
+    tm_df["contributed_projects"] = tm_df["contributed_projects"].apply(
+        lambda x: ",".join(map(str, x))
+    )
+    return tm_df

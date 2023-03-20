@@ -60,6 +60,7 @@ from .utils import (
     create_charts,
     create_profile_link,
     download_osm_files,
+    generate_tm_stats,
     get_file_path_from_url,
     sum_tags,
     update_stats,
@@ -514,6 +515,13 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--tm_stats",
+        action="store_true",
+        help="Includes Tasking Manager stats for users , TM Projects are filtered from hashtags used , Appends all time stats for user for project id produced from stats",
+        default=False,
+    )
+
+    parser.add_argument(
         "--rows",
         type=int,
         default=None,
@@ -719,6 +727,11 @@ def main():
             )
         print(f"Ignoring --url , and using Geofabrik Update URL for {args.country}")
         args.url = osc_url_temp
+
+    if args.tm_stats:
+        if not args.changeset and not args.hashtags:
+            args.changeset = True  # changeset is required to extract tm project id from hashtags field
+
     if args.changeset:
         if args.hashtags:
             assert (
@@ -1018,6 +1031,7 @@ def main():
         df = df.drop(columns=["changes"])
         df = df.sort_values("map_changes", ascending=False)
         df.insert(0, "rank", range(1, len(df) + 1), True)
+
         if args.rows:
             df = df.head(args.rows)
         print(df)
@@ -1050,6 +1064,16 @@ def main():
                             )
                         )
                     )
+
+        if args.tm_stats:
+            project_nums = set()
+            for index, row in df.iterrows():
+                matches = re.findall(r"#hotosm-project-(\d+)", row["hashtags"])
+                project_nums.update(matches)
+            project_nums = list(project_nums)
+            usernames_unique = df["name"].unique().tolist()
+            tm_users_df = generate_tm_stats(project_nums, usernames_unique)
+            df = pd.merge(df, tm_users_df, on="name", how="left")
 
         if args.summary:
             summary_df = pd.json_normalize(list(summary_interval.values()))

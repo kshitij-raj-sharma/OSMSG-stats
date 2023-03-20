@@ -25,3 +25,6 @@ it is a sum of unique tags key that user added , if you add a poi and there are 
 
 ### feature count ( building , highway , waterway , amenity etc)
 Feature count will be added if it matches the key supplied , if a change has building key it will add it as a  building = 1 similar for all the features irrespective of values 
+
+## TM Stats 
+TM stats are generated on the basis of project id grabbed from the stats. OSMSG looks for presence for hashtag #hotosm-project-* and creates a unique list of project id contributed within timeframe and filters provided . It then queries TM API , with usernames and project id to gather tm task mapped , validated stats . Timeframe bound for tm stats is not currently supported because of limitaion of API , the stats generated for user is all time stats for that project found on hashtags ! 
