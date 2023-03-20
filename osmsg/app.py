@@ -682,11 +682,17 @@ def main():
             )
             sys.exit()
         old_csv_path = os.path.join(os.getcwd(), f"{fname}.csv")
-        if not os.path.exists(old_csv_path):
-            print(f"Error: Couldn't find old stats csv at :{old_csv_path}")
-        old_df = pd.read_csv(old_csv_path, encoding="utf8")
-        args.start_date = str(old_df.iloc[0]["end_date"])
-        old_stats_start_date = str(old_df.iloc[0]["start_date"])
+        old_summary_path = os.path.join(os.getcwd(), f"{fname}_summary.csv")
+        if not os.path.exists(old_csv_path) or not os.path.exists(old_summary_path):
+            print(
+                f"Error: Couldn't find old stats/summary csv at :{old_csv_path} hence changing update to false and extracting last day stats for default"
+            )
+            args.update = False
+            args.last_day = True
+        if args.update:
+            old_df = pd.read_csv(old_csv_path, encoding="utf8")
+            args.start_date = str(old_df.iloc[0]["end_date"])
+            old_stats_start_date = str(old_df.iloc[0]["start_date"])
 
     if args.start_date:
         start_date = strip_utc(
@@ -1123,11 +1129,6 @@ def main():
 
             summary_df = summary_df.sort_values("timestamp", ascending=True)
             if args.update:
-                old_summary_path = os.path.join(os.getcwd(), f"{fname}_summary.csv")
-                if not os.path.exists(old_summary_path):
-                    print(
-                        f"Error: Couldn't find old summary csv at :{old_summary_path}"
-                    )
                 old_summary = pd.read_csv(f"{fname}_summary.csv", encoding="utf8")
                 summary_df = update_summary(old_summary, summary_df)
 
