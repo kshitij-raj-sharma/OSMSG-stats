@@ -60,6 +60,8 @@ from .utils import (
     create_charts,
     create_profile_link,
     download_osm_files,
+    extract_projects,
+    generate_tm_stats,
     get_file_path_from_url,
     sum_tags,
     update_stats,
@@ -514,6 +516,13 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--tm_stats",
+        action="store_true",
+        help="Includes Tasking Manager stats for users , TM Projects are filtered from hashtags used , Appends all time stats for user for project id produced from stats",
+        default=False,
+    )
+
+    parser.add_argument(
         "--rows",
         type=int,
         default=None,
@@ -719,6 +728,11 @@ def main():
             )
         print(f"Ignoring --url , and using Geofabrik Update URL for {args.country}")
         args.url = osc_url_temp
+
+    if args.tm_stats:
+        if not args.changeset and not args.hashtags:
+            args.changeset = True  # changeset is required to extract tm project id from hashtags field
+
     if args.changeset:
         if args.hashtags:
             assert (
@@ -1018,6 +1032,7 @@ def main():
         df = df.drop(columns=["changes"])
         df = df.sort_values("map_changes", ascending=False)
         df.insert(0, "rank", range(1, len(df) + 1), True)
+
         if args.rows:
             df = df.head(args.rows)
         print(df)
@@ -1050,6 +1065,45 @@ def main():
                             )
                         )
                     )
+
+        if args.tm_stats:
+            print("Generating TM Stats ....")
+            # apply function to create new column with list of projects
+            df1 = df
+            df1["tm_projects"] = df1["hashtags"].apply(extract_projects)
+            unique_projects = list(
+                set(
+                    project
+                    for project_list in df1["tm_projects"]
+                    for project in project_list
+                )
+            )
+            usernames_unique = df1["name"].unique().tolist()
+
+            df2 = generate_tm_stats(unique_projects, usernames_unique)
+            # explode projects column to create new row for each project
+            df1 = df1.explode("tm_projects")
+
+            # merge df1 and df2_grouped on username and project
+            df_merged = pd.merge(df1, df2, on=["name", "tm_projects"], how="left")
+
+            # group df_merged by username to combine information for each unique username
+            df_final = (
+                df_merged.groupby(["name"])
+                .agg(
+                    {
+                        "tm_mapping_level": "first",
+                        "tasks_mapped": "sum",
+                        "tasks_validated": "sum",
+                        "tasks_total": "sum",
+                    }
+                )
+                .reset_index()
+            )
+
+            df = pd.merge(df, df_final, on=["name"], how="left")
+            df["tm_projects"] = df["tm_projects"].apply(lambda x: ",".join(x))
+            print(df)
 
         if args.summary:
             summary_df = pd.json_normalize(list(summary_interval.values()))
