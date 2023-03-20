@@ -650,5 +650,13 @@ def generate_tm_stats(tm_projects, usernames):
                     tm_user_stats[user_project_key]["tasks_total"] += user["total"]
 
     tm_df = pd.DataFrame(list(tm_user_stats.values()))
-    tm_df = tm_df.groupby(["name", "tm_projects"], as_index=False).sum()
+
+    tm_df = tm_df.groupby(["name", "tm_projects"], as_index=False).agg(
+        {
+            "tm_mapping_level": "first",
+            "tasks_mapped": "sum",
+            "tasks_validated": "sum",
+            "tasks_total": "sum",
+        }
+    )
     return tm_df

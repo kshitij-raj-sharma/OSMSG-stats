@@ -1092,6 +1092,7 @@ def main():
                 df_merged.groupby(["name"])
                 .agg(
                     {
+                        "tm_mapping_level": "first",
                         "tasks_mapped": "sum",
                         "tasks_validated": "sum",
                         "tasks_total": "sum",
@@ -1102,6 +1103,8 @@ def main():
 
             df = pd.merge(df, df_final, on=["name"], how="left")
             df["tm_projects"] = df["tm_projects"].apply(lambda x: ",".join(x))
+            df["tm_mapping_level"] = df["tm_mapping_level"].str.strip().str.lower()
+
             print(df)
 
         if args.summary:
