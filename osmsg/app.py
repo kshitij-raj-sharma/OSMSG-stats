@@ -1101,7 +1101,7 @@ def main():
             )
 
             df = pd.merge(df, df_final, on=["name"], how="left")
-            df["tm_projects"] = df["tm_projects"].apply(lambda x: ",".join(str(x)))
+            df["tm_projects"] = df["tm_projects"].apply(lambda x: ",".join(x))
             print(df)
 
         if args.summary:
