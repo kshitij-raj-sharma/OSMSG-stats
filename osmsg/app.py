@@ -1103,8 +1103,6 @@ def main():
 
             df = pd.merge(df, df_final, on=["name"], how="left")
             df["tm_projects"] = df["tm_projects"].apply(lambda x: ",".join(x))
-            df["tm_mapping_level"] = df["tm_mapping_level"].str.strip().str.lower()
-
             print(df)
 
         if args.summary:
