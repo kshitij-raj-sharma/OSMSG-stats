@@ -1,54 +1,54 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-03-21 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-21 00:00:00+00:00 to 2023-03-22 00:00:00+00:00 (UTC Timezone)
 
-#### 6.2 thousand Users made 41.5 thousand changesets with 3.4 million map changes.
-#### 2.4 million OSM Elements were Created, 721.4 thousand Modified & 266.9 thousand Deleted.
+#### 6.0 thousand Users made 40.5 thousand changesets with 3.4 million map changes.
+#### 2.2 million OSM Elements were Created, 739.0 thousand Modified & 396.6 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/Global/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Global/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- jmarchon : 214.5 thousand Map Changes
-- DressyPear4 : 33.0 thousand Map Changes
-- b-unicycling : 30.5 thousand Map Changes
-- Sander H : 26.1 thousand Map Changes
-- igitov : 25.3 thousand Map Changes
+- Spaghetti Monster : 175.3 thousand Map Changes
+- jmarchon : 80.6 thousand Map Changes
+- DressyPear4 : 39.9 thousand Map Changes
+- nyainariantsoa : 28.2 thousand Map Changes
+- Becky Candy : 27.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 51.0 thousand, Modified : 45.3 thousand
-- building = Created: 124.1 thousand, Modified : 51.2 thousand
-- highway = Created: 59.6 thousand, Modified : 121.7 thousand
-- waterway = Created: 11.8 thousand, Modified : 3.4 thousand
-- amenity = Created: 7.1 thousand, Modified : 9.5 thousand
+- poi = Created: 62.9 thousand, Modified : 72.8 thousand
+- building = Created: 122.0 thousand, Modified : 51.1 thousand
+- highway = Created: 56.3 thousand, Modified : 117.5 thousand
+- waterway = Created: 14.9 thousand, Modified : 5.3 thousand
+- amenity = Created: 8.5 thousand, Modified : 8.6 thousand
 
 
 Top 5 Created tags are :
-- building: 124.1 thousand
-- highway: 59.6 thousand
-- source: 40.1 thousand
-- name: 18.1 thousand
-- natural: 18.0 thousand
+- building: 122.0 thousand
+- highway: 56.3 thousand
+- source: 35.5 thousand
+- name: 23.0 thousand
+- natural: 16.7 thousand
 
 
 Top 5 Modified tags are :
-- highway: 121.7 thousand
-- name: 83.3 thousand
-- surface: 52.9 thousand
-- building: 51.2 thousand
-- source: 42.5 thousand
+- highway: 117.5 thousand
+- name: 77.5 thousand
+- addr:housenumber: 67.3 thousand
+- source: 67.0 thousand
+- addr:city: 55.1 thousand
 
 
 Top 5 trending hashtags are:
-- #adt : 166 users
-- #TürkiyeEQ060223 : 79 users
-- #MissingMaps : 67 users
-- #amap : 65 users
+- #adt : 185 users
+- #maproulette : 81 users
+- #TürkiyeEQ060223 : 76 users
+- #OpenCitiesLAC : 66 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 888 users
-- United States of America : 728 users
-- France : 433 users
-- U.K. of Great Britain and Northern Ireland : 254 users
-- Italy : 239 users
+- Germany : 805 users
+- United States of America : 739 users
+- France : 377 users
+- U.K. of Great Britain and Northern Ireland : 270 users
+- Poland : 258 users
 
 
  Charts : 
