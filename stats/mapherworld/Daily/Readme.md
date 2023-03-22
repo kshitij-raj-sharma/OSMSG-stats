@@ -1,34 +1,35 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-03-21 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-03-22 04:07:24+00:00 (UTC Timezone)
 
-#### 4 Users made 14 changesets with 54 map changes.
-#### 3 OSM Elements were Created, 51 Modified & 0 Deleted.
+#### 5 Users made 18 changesets with 58 map changes.
+#### 4 OSM Elements were Created, 54 Modified & 0 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
 - charles chilufya : 40 Map Changes
+- tshedy : 8 Map Changes
 - @Erima : 5 Map Changes
-- tshedy : 5 Map Changes
+- Kshitijraj Sharma : 4 Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 3, Modified : 5
-- building = Created: 0, Modified : 41
+- poi = Created: 4, Modified : 7
+- building = Created: 0, Modified : 42
 - highway = Created: 0, Modified : 0
 - waterway = Created: 0, Modified : 0
-- amenity = Created: 0, Modified : 2
+- amenity = Created: 1, Modified : 5
 - highway length created = 0 Km
 
 
 Top 5 Created tags are :
-- access: 3
-- entrance: 3
+- wheelchair: 4
 - ref: 3
-- wheelchair: 3
+- entrance: 3
+- access: 3
 - fixme: 1
 
 
 Top 5 Modified tags are :
-- building: 41
+- building: 42
 - roof:shape: 40
 - building:material: 38
 - building:levels: 37
@@ -36,15 +37,18 @@ Top 5 Modified tags are :
 
 
 Top 5 trending hashtags are:
-- #MapHerWorld : 3 users
+- #MapHerWorld : 4 users
 - #MapLesotho : 1 users
+- #missingmaps : 1 users
+- #youthmappersmsu : 1 users
 
 
 Top 5 trending Countries where user contributed are:
 - Zambia : 1 users
-- United Republic of Tanzania : 1 users
 - Lesotho : 1 users
+- United Republic of Tanzania : 1 users
 - Nepal : 1 users
+- Zimbabwe : 1 users
 
 
  Charts : 
