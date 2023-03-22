@@ -54,5 +54,5 @@ jobs:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --git $commit_id --tweet 'HOTOSM Last Week' --name stats/hotosm/Weekly/stats --mention '@hotosm'
+          python tweet.py --git $commit_id --tweet 'Tasking Manager Last Week' --name stats/hotosm/Weekly/stats --mention '@hotosm'
 
