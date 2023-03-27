@@ -1271,6 +1271,27 @@ def main():
                 for i in range(1, 6 if len(df) > 6 else len(df)):
                     top_users += f"- {df.loc[i, 'name']} : {humanize.intword(df.loc[i, 'map_changes'])} Map Changes\n"
                 file.write(top_users)
+                if args.tm_stats:
+                    top_tm_mappers = "\nTop 5 Tasking Manager Mappers are : \n"
+                    tm_df = df
+                    tm_sort = tm_df.sort_values(by="tasks_mapped", ascending=False)
+
+                    # Get the top 5 rows
+                    tm_top_5 = tm_sort.head(5)
+                    for index, row in tm_top_5.iterrows():
+                        name = row["name"]
+                        tasks_mapped = row["tasks_mapped"]
+                        top_tm_mappers += f"- {name} : {humanize.intword(tasks_mapped)} Tasks Mapped\n"
+                    file.write(top_tm_mappers)
+
+                    top_tm_validators = "\nTop 5 Tasking Manager Validators are : \n"
+                    tm_sort = tm_df.sort_values(by="tasks_validated", ascending=False)
+                    tm_top_5 = tm_sort.head(5)
+                    for index, row in tm_top_5.iterrows():
+                        name = row["name"]
+                        tasks_validated = row["tasks_validated"]
+                        top_tm_validators += f"- {name} : {humanize.intword(tasks_validated)} Tasks Validated\n"
+                    file.write(top_tm_validators)
 
                 user_tags_summary = "\nSummary of Supplied Tags\n"
                 user_tag = "poi"
