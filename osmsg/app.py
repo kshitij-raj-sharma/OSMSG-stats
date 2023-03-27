@@ -1075,7 +1075,17 @@ def main():
         if args.tm_stats:
             print("Generating TM Stats ....")
             # apply function to create new column with list of projects
+            columns_to_drop = [
+                "tm_mapping_level",
+                "tasks_mapped",
+                "tasks_validated",
+                "tasks_total",
+                "tm_projects",
+            ]
+            df = df.drop(columns=[col for col in columns_to_drop if col in df.columns])
+
             df1 = df
+
             df1["tm_projects"] = df1["hashtags"].apply(extract_projects)
             unique_projects = list(
                 set(
