@@ -62,5 +62,5 @@ jobs:
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --git $commit_id --name stats/Global/Monthly/stats --tweet 'Global Last Month' --mention '@openstreetmap'
+          python tweet.py --git $commit_id --name stats/Global/Monthly/stats --tweet 'OSM Last Month' --mention '@openstreetmap'
 
