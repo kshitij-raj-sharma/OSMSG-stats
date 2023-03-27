@@ -1,53 +1,54 @@
-### Last Update : Stats from 2023-03-12 00:00:00+00:00 to 2023-03-19 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-19 00:00:00+00:00 to 2023-03-26 00:00:00+00:00 (UTC Timezone)
 
-#### 117 Users made 1.0 thousand changesets with 182.9 thousand map changes.
-#### 117.5 thousand OSM Elements were Created, 65.1 thousand Modified & 247 Deleted.
+#### 104 Users made 956 changesets with 118.9 thousand map changes.
+#### 87.1 thousand OSM Elements were Created, 31.5 thousand Modified & 308 Deleted.
 Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Lanzhou University : 25.0 thousand Map Changes
-- Ma nish : 23.0 thousand Map Changes
-- marek kleciak : 21.2 thousand Map Changes
-- Prabin Pokhrel : 18.5 thousand Map Changes
-- Heinz_V : 12.0 thousand Map Changes
+- marek kleciak : 30.1 thousand Map Changes
+- Lanzhou University : 12.3 thousand Map Changes
+- Puspa chad : 11.4 thousand Map Changes
+- Nirmala Rawat : 10.1 thousand Map Changes
+- Ma nish : 7.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 475, Modified : 517
-- building = Created: 9.0 thousand, Modified : 614
-- highway = Created: 504, Modified : 1.2 thousand
-- waterway = Created: 37, Modified : 128
-- amenity = Created: 315, Modified : 105
+- poi = Created: 196, Modified : 1.8 thousand
+- building = Created: 6.7 thousand, Modified : 333
+- highway = Created: 307, Modified : 998
+- waterway = Created: 21, Modified : 112
+- amenity = Created: 137, Modified : 1.3 thousand
 
 
 Top 5 Created tags are :
-- building: 9.0 thousand
-- landuse: 1.9 thousand
-- natural: 637
-- highway: 504
-- amenity: 315
+- building: 6.7 thousand
+- landuse: 813
+- natural: 443
+- highway: 307
+- amenity: 137
 
 
 Top 5 Modified tags are :
-- highway: 1.2 thousand
-- name: 735
-- building: 614
-- landuse: 551
-- natural: 474
+- name: 1.9 thousand
+- name:en: 1.7 thousand
+- name:ne: 1.6 thousand
+- amenity: 1.3 thousand
+- highway: 998
 
 
 Top 5 trending hashtags are:
-- #AtlasChecks : 17 users
-- #maproulette : 17 users
-- #SharpAngleCheck : 14 users
-- #LocalizeNepal : 8 users
+- #Nepal : 12 users
+- #OSMLocalizer : 10 users
+- #LocalizeNepal : 10 users
+- #adt : 8 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 110 users
-- China : 7 users
-- India : 2 users
-- Thailand : 1 users
+- Nepal : 97 users
+- India : 3 users
+- China : 2 users
+- Afghanistan : 1 users
+- Uzbekistan : 1 users
 
 
  Charts : 
