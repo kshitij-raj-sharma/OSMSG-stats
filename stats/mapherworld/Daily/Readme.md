@@ -1,7 +1,7 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-03-31 04:07:06+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-01 04:07:01+00:00 (UTC Timezone)
 
-#### 15 Users made 150 changesets with 435 map changes.
-#### 58 OSM Elements were Created, 377 Modified & 0 Deleted.
+#### 15 Users made 151 changesets with 436 map changes.
+#### 58 OSM Elements were Created, 378 Modified & 0 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
@@ -14,10 +14,10 @@ Top 5 Users are :
 
 Summary of Supplied Tags
 - poi = Created: 58, Modified : 219
-- building = Created: 2, Modified : 149
+- building = Created: 2, Modified : 150
 - highway = Created: 1, Modified : 0
 - waterway = Created: 0, Modified : 0
-- amenity = Created: 32, Modified : 115
+- amenity = Created: 32, Modified : 116
 - highway length created = 0 Km
 
 
@@ -30,9 +30,9 @@ Top 5 Created tags are :
 
 
 Top 5 Modified tags are :
-- check_date: 251
-- name: 236
-- wheelchair: 215
+- check_date: 252
+- name: 237
+- wheelchair: 216
 - internet_access: 203
 - addr:street: 189
 
