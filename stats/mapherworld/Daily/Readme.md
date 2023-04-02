@@ -1,54 +1,54 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-01 04:07:01+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-02 04:06:42+00:00 (UTC Timezone)
 
-#### 15 Users made 151 changesets with 436 map changes.
-#### 58 OSM Elements were Created, 378 Modified & 0 Deleted.
+#### 18 Users made 177 changesets with 544 map changes.
+#### 76 OSM Elements were Created, 468 Modified & 0 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- charles chilufya : 159 Map Changes
+- charles chilufya : 194 Map Changes
 - paulsangu14 : 118 Map Changes
-- abdul_4ts : 55 Map Changes
+- abdul_4ts : 65 Map Changes
 - Nanaefua : 26 Map Changes
-- Amani97 : 19 Map Changes
+- Kelvin Manase : 25 Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 58, Modified : 219
-- building = Created: 2, Modified : 150
+- poi = Created: 76, Modified : 262
+- building = Created: 3, Modified : 194
 - highway = Created: 1, Modified : 0
 - waterway = Created: 0, Modified : 0
-- amenity = Created: 32, Modified : 116
+- amenity = Created: 44, Modified : 152
 - highway length created = 0 Km
 
 
 Top 5 Created tags are :
-- name: 40
-- check_date: 38
-- wheelchair: 34
-- amenity: 32
-- internet_access: 26
+- name: 55
+- check_date: 54
+- wheelchair: 46
+- amenity: 44
+- internet_access: 37
 
 
 Top 5 Modified tags are :
-- check_date: 252
-- name: 237
-- wheelchair: 216
-- internet_access: 203
-- addr:street: 189
+- check_date: 303
+- name: 288
+- wheelchair: 243
+- internet_access: 229
+- addr:street: 220
 
 
 Top 5 trending hashtags are:
-- #MapHerWorld : 11 users
-- #knustyouthmappers : 2 users
+- #MapHerWorld : 14 users
+- #knustyouthmappers : 4 users
+- #youthmappers : 3 users
 - #mapherworld : 2 users
-- #youthmappers : 1 users
 - #Mapherworld : 1 users
 
 
 Top 5 trending Countries where user contributed are:
 - United Republic of Tanzania : 8 users
-- Ghana : 2 users
-- Zambia : 1 users
+- Ghana : 3 users
+- Zambia : 2 users
 - Lesotho : 1 users
 - Uganda : 1 users
 
