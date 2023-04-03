@@ -1,54 +1,54 @@
-### Last Update : Stats from 2023-04-01 00:00:00+00:00 to 2023-04-02 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-04-02 00:00:00+00:00 to 2023-04-03 00:00:00+00:00 (UTC Timezone)
 
-#### 4.8 thousand Users made 33.2 thousand changesets with 2.9 million map changes.
-#### 2.0 million OSM Elements were Created, 600.9 thousand Modified & 223.2 thousand Deleted.
+#### 5.1 thousand Users made 34.2 thousand changesets with 2.7 million map changes.
+#### 1.9 million OSM Elements were Created, 613.3 thousand Modified & 184.7 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/Global/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Global/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- jmarchon : 90.0 thousand Map Changes
-- Moreorless : 82.3 thousand Map Changes
-- Supaplex : 50.1 thousand Map Changes
-- anthaas : 43.6 thousand Map Changes
-- ff5722 : 38.0 thousand Map Changes
+- Supaplex : 46.2 thousand Map Changes
+- Alan Bragg : 44.3 thousand Map Changes
+- Heinz_V : 36.6 thousand Map Changes
+- ff5722 : 35.6 thousand Map Changes
+- Lanzhou University : 32.4 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 97.8 thousand, Modified : 43.7 thousand
-- building = Created: 116.2 thousand, Modified : 75.7 thousand
-- highway = Created: 40.7 thousand, Modified : 94.5 thousand
-- waterway = Created: 6.5 thousand, Modified : 3.9 thousand
-- amenity = Created: 7.0 thousand, Modified : 9.4 thousand
+- poi = Created: 102.4 thousand, Modified : 42.1 thousand
+- building = Created: 96.6 thousand, Modified : 83.2 thousand
+- highway = Created: 46.0 thousand, Modified : 106.1 thousand
+- waterway = Created: 6.2 thousand, Modified : 6.4 thousand
+- amenity = Created: 7.5 thousand, Modified : 9.6 thousand
 
 
 Top 5 Created tags are :
-- building: 116.2 thousand
-- source: 80.4 thousand
-- addr:housenumber: 66.9 thousand
-- addr:street: 66.8 thousand
-- addr:city: 57.9 thousand
+- building: 96.6 thousand
+- source: 73.8 thousand
+- addr:housenumber: 68.0 thousand
+- addr:street: 66.4 thousand
+- addr:city: 56.9 thousand
 
 
 Top 5 Modified tags are :
-- highway: 94.5 thousand
-- building: 75.7 thousand
-- name: 68.6 thousand
-- addr:housenumber: 65.9 thousand
-- addr:street: 65.5 thousand
+- highway: 106.1 thousand
+- building: 83.2 thousand
+- name: 81.7 thousand
+- addr:housenumber: 67.3 thousand
+- addr:street: 62.7 thousand
 
 
 Top 5 trending hashtags are:
-- #TropicalCycloneFreddy : 49 users
-- #CycloneFreddy : 49 users
-- #hotosm-project-14513 : 44 users
-- #mrcs : 44 users
+- #maproulette : 49 users
+- #missingmaps : 34 users
+- #TropicalCycloneFreddy : 29 users
+- #CycloneFreddy : 29 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 760 users
-- United States of America : 496 users
-- France : 396 users
-- U.K. of Great Britain and Northern Ireland : 236 users
-- Italy : 204 users
+- Germany : 914 users
+- United States of America : 477 users
+- France : 399 users
+- U.K. of Great Britain and Northern Ireland : 253 users
+- Italy : 224 users
 
 
  Charts : 
