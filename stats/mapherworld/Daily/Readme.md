@@ -1,40 +1,40 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-06 04:07:09+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-07 04:06:46+00:00 (UTC Timezone)
 
-#### 20 Users made 358 changesets with 2.0 thousand map changes.
-#### 302 OSM Elements were Created, 1.6 thousand Modified & 19 Deleted.
+#### 20 Users made 412 changesets with 2.2 thousand map changes.
+#### 324 OSM Elements were Created, 1.9 thousand Modified & 20 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- charles chilufya : 652 Map Changes
-- mildred_akoth : 369 Map Changes
-- Mariannamukulunga : 177 Map Changes
+- charles chilufya : 725 Map Changes
+- mildred_akoth : 379 Map Changes
+- Mariannamukulunga : 256 Map Changes
 - Letwin : 153 Map Changes
 - Paxxy : 136 Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 302, Modified : 981
-- building = Created: 14, Modified : 584
+- poi = Created: 324, Modified : 1.1 thousand
+- building = Created: 14, Modified : 668
 - highway = Created: 17, Modified : 11
 - waterway = Created: 1, Modified : 0
-- amenity = Created: 144, Modified : 696
+- amenity = Created: 159, Modified : 787
 - highway length created = 0 Km
 
 
 Top 5 Created tags are :
-- check_date: 166
-- name: 166
-- amenity: 144
-- wheelchair: 73
-- natural: 66
+- check_date: 187
+- name: 187
+- amenity: 159
+- wheelchair: 81
+- internet_access: 69
 
 
 Top 5 Modified tags are :
-- check_date: 1.2 thousand
-- name: 1.1 thousand
-- amenity: 696
-- building: 584
-- addr:street: 524
+- check_date: 1.3 thousand
+- name: 1.3 thousand
+- amenity: 787
+- building: 668
+- addr:street: 546
 
 
 Top 5 trending hashtags are:
