@@ -251,12 +251,10 @@ def collect_changefile_stats(
 def calculate_stats(
     user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes=None
 ):
-
     if hashtags:  # intersect with changesets
         if (
             len(processed_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
-
             if changeset in processed_changesets:
                 collect_changefile_stats(
                     user,
@@ -860,7 +858,6 @@ def main():
         )
         sys.exit()
     if (end_date - start_date).days > 1:
-
         if args.hashtags:
             if not args.force:
                 print(
@@ -875,7 +872,6 @@ def main():
     print(f"Supplied start_date: {start_date} and end_date: {end_date}")
 
     if args.hashtags or args.changeset:
-
         Changeset = ChangesetToolKit()
         (
             changeset_download_urls,
@@ -1097,29 +1093,30 @@ def main():
             usernames_unique = df1["name"].unique().tolist()
 
             df2 = generate_tm_stats(unique_projects, usernames_unique)
-            # explode projects column to create new row for each project
-            df1 = df1.explode("tm_projects")
+            if not df2.empty:
+                # explode projects column to create new row for each project
+                df1 = df1.explode("tm_projects")
 
-            # merge df1 and df2_grouped on username and project
-            df_merged = pd.merge(df1, df2, on=["name", "tm_projects"], how="left")
+                # merge df1 and df2_grouped on username and project
+                df_merged = pd.merge(df1, df2, on=["name", "tm_projects"], how="left")
 
-            # group df_merged by username to combine information for each unique username
-            df_final = (
-                df_merged.groupby(["name"])
-                .agg(
-                    {
-                        "tm_mapping_level": "first",
-                        "tasks_mapped": "sum",
-                        "tasks_validated": "sum",
-                        "tasks_total": "sum",
-                    }
+                # group df_merged by username to combine information for each unique username
+                df_final = (
+                    df_merged.groupby(["name"])
+                    .agg(
+                        {
+                            "tm_mapping_level": "first",
+                            "tasks_mapped": "sum",
+                            "tasks_validated": "sum",
+                            "tasks_total": "sum",
+                        }
+                    )
+                    .reset_index()
                 )
-                .reset_index()
-            )
 
-            df = pd.merge(df, df_final, on=["name"], how="left")
-            df["tm_projects"] = df["tm_projects"].apply(lambda x: ",".join(x))
-            print(df)
+                df = pd.merge(df, df_final, on=["name"], how="left")
+                df["tm_projects"] = df["tm_projects"].apply(lambda x: ",".join(x))
+                print(df)
 
         if args.summary:
             summary_df = pd.json_normalize(list(summary_interval.values()))
