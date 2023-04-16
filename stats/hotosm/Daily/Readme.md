@@ -1,55 +1,55 @@
-### Last Update : Stats from 2023-04-14 00:00:00+00:00 to 2023-04-15 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-04-15 00:00:00+00:00 to 2023-04-16 00:00:00+00:00 (UTC Timezone)
 
-#### 480 Users made 5.3 thousand changesets with 643.3 thousand map changes.
-#### 539.4 thousand OSM Elements were Created, 69.8 thousand Modified & 34.1 thousand Deleted.
+#### 249 Users made 2.0 thousand changesets with 389.7 thousand map changes.
+#### 286.6 thousand OSM Elements were Created, 59.4 thousand Modified & 43.7 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Narindra Fidintsoa : 45.8 thousand Map Changes
-- nyainariantsoa : 30.9 thousand Map Changes
-- Ang96 : 21.1 thousand Map Changes
-- DNL852 : 13.8 thousand Map Changes
-- foxrobs : 13.1 thousand Map Changes
+- nyainariantsoa : 38.1 thousand Map Changes
+- Ang96 : 18.8 thousand Map Changes
+- DNL852 : 15.3 thousand Map Changes
+- ola_ooo : 13.3 thousand Map Changes
+- peculiar theater : 12.7 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 289, Modified : 210
-- building = Created: 80.5 thousand, Modified : 2.9 thousand
-- highway = Created: 4.1 thousand, Modified : 2.3 thousand
-- waterway = Created: 143, Modified : 196
-- amenity = Created: 25, Modified : 117
+- poi = Created: 960, Modified : 72
+- building = Created: 35.0 thousand, Modified : 2.7 thousand
+- highway = Created: 2.0 thousand, Modified : 1.8 thousand
+- waterway = Created: 775, Modified : 236
+- amenity = Created: 33, Modified : 35
 
 
 Top 5 Created tags are :
-- building: 80.5 thousand
-- highway: 4.1 thousand
-- source: 1.3 thousand
-- leisure: 609
-- landuse: 289
+- building: 35.0 thousand
+- highway: 2.0 thousand
+- natural: 886
+- waterway: 775
+- leisure: 676
 
 
 Top 5 Modified tags are :
-- building: 2.9 thousand
-- highway: 2.3 thousand
-- addr:street: 1.2 thousand
-- addr:housenumber: 1.2 thousand
-- building:levels: 1.1 thousand
+- building: 2.7 thousand
+- highway: 1.8 thousand
+- building:levels: 1.7 thousand
+- height: 1.7 thousand
+- addr:street: 1.4 thousand
 
 
 Top 5 trending hashtags are:
-- #GeoNight2023 : 166 users
-- #building : 99 users
-- #OSMMG : 99 users
-- #hotosm-project-14586 : 83 users
-- #Map4Tg : 56 users
+- #OSMAfrica : 61 users
+- #HydroRDC : 60 users
+- #hotosm-project-14617 : 49 users
+- #missingmaps : 39 users
+- #hotosm-project-14618 : 25 users
 
 
 Top 5 trending Countries where user contributed are:
-- Madagascar : 101 users
-- Togo : 58 users
-- Malawi : 54 users
-- El Salvador : 41 users
-- Benin : 34 users
+- Democratic Republic of the Congo : 75 users
+- Malawi : 30 users
+- Turkey : 18 users
+- Ethiopia : 16 users
+- United Republic of Tanzania : 11 users
 
 
  Charts : 
