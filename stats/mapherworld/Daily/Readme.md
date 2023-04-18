@@ -1,40 +1,40 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-17 04:07:39+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-18 04:07:01+00:00 (UTC Timezone)
 
-#### 28 Users made 939 changesets with 6.9 thousand map changes.
-#### 1.0 thousand OSM Elements were Created, 5.8 thousand Modified & 21 Deleted.
+#### 28 Users made 997 changesets with 7.5 thousand map changes.
+#### 1.1 thousand OSM Elements were Created, 6.4 thousand Modified & 21 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Paxxy : 1.8 thousand Map Changes
+- Paxxy : 1.9 thousand Map Changes
 - charles chilufya : 1.5 thousand Map Changes
-- mildred_akoth : 614 Map Changes
+- mildred_akoth : 675 Map Changes
+- asmakulaga : 668 Map Changes
 - paulsangu14 : 573 Map Changes
-- asmakulaga : 471 Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 590, Modified : 3.0 thousand
-- building = Created: 97, Modified : 2.5 thousand
-- highway = Created: 34, Modified : 19
+- poi = Created: 673, Modified : 3.5 thousand
+- building = Created: 97, Modified : 2.6 thousand
+- highway = Created: 34, Modified : 20
 - waterway = Created: 1, Modified : 0
-- amenity = Created: 280, Modified : 2.0 thousand
+- amenity = Created: 322, Modified : 2.3 thousand
 - highway length created = 0 Km
 
 
 Top 5 Created tags are :
-- name: 367
-- check_date: 351
-- amenity: 280
-- wheelchair: 149
-- internet_access: 132
+- name: 442
+- check_date: 427
+- amenity: 322
+- wheelchair: 166
+- internet_access: 148
 
 
 Top 5 Modified tags are :
-- check_date: 3.7 thousand
-- name: 3.3 thousand
-- addr:street: 2.6 thousand
-- building: 2.5 thousand
-- amenity: 2.0 thousand
+- check_date: 4.2 thousand
+- name: 3.8 thousand
+- addr:street: 2.8 thousand
+- building: 2.6 thousand
+- amenity: 2.3 thousand
 
 
 Top 5 trending hashtags are:
@@ -50,7 +50,6 @@ Top 5 trending Countries where user contributed are:
 - Ghana : 4 users
 - Zambia : 3 users
 - Uganda : 2 users
-- Rwanda : 1 users
 
 
  Charts : 
