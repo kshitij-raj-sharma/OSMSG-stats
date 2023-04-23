@@ -1,48 +1,48 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-22 04:07:24+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-23 04:06:52+00:00 (UTC Timezone)
 
-#### 30 Users made 1.2 thousand changesets with 13.7 thousand map changes.
-#### 4.0 thousand OSM Elements were Created, 9.7 thousand Modified & 25 Deleted.
+#### 30 Users made 1.2 thousand changesets with 14.4 thousand map changes.
+#### 4.2 thousand OSM Elements were Created, 10.2 thousand Modified & 27 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
 - paulsangu14 : 3.6 thousand Map Changes
 - Paxxy : 2.5 thousand Map Changes
-- charles chilufya : 2.2 thousand Map Changes
-- Kelvin Manase : 1.5 thousand Map Changes
-- asmakulaga : 855 Map Changes
+- charles chilufya : 2.3 thousand Map Changes
+- Kelvin Manase : 1.9 thousand Map Changes
+- mildred_akoth : 1.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 750, Modified : 5.5 thousand
-- building = Created: 625, Modified : 3.6 thousand
+- poi = Created: 918, Modified : 6.0 thousand
+- building = Created: 627, Modified : 3.7 thousand
 - highway = Created: 36, Modified : 23
 - waterway = Created: 1, Modified : 0
-- amenity = Created: 367, Modified : 3.5 thousand
+- amenity = Created: 531, Modified : 3.7 thousand
 - highway length created = 0 Km
 
 
 Top 5 Created tags are :
-- building: 625
-- name: 498
-- check_date: 489
-- amenity: 367
-- wheelchair: 192
+- name: 661
+- building: 627
+- amenity: 531
+- check_date: 495
+- wheelchair: 195
 
 
 Top 5 Modified tags are :
-- check_date: 6.6 thousand
-- name: 5.6 thousand
-- building: 3.6 thousand
-- amenity: 3.5 thousand
-- addr:street: 3.4 thousand
+- check_date: 7.0 thousand
+- name: 6.0 thousand
+- amenity: 3.7 thousand
+- building: 3.7 thousand
+- addr:street: 3.5 thousand
 
 
 Top 5 trending hashtags are:
 - #MapHerWorld : 22 users
-- #knustyouthmappers : 4 users
 - #mapherworld : 4 users
-- #100women : 3 users
+- #knustyouthmappers : 4 users
 - #youthmappers : 3 users
+- #100women : 3 users
 
 
 Top 5 trending Countries where user contributed are:
