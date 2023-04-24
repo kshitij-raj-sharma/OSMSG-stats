@@ -1,48 +1,48 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-23 04:06:52+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-24 04:06:54+00:00 (UTC Timezone)
 
-#### 30 Users made 1.2 thousand changesets with 14.4 thousand map changes.
-#### 4.2 thousand OSM Elements were Created, 10.2 thousand Modified & 27 Deleted.
+#### 31 Users made 1.3 thousand changesets with 15.9 thousand map changes.
+#### 4.2 thousand OSM Elements were Created, 11.7 thousand Modified & 27 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
 - paulsangu14 : 3.6 thousand Map Changes
-- Paxxy : 2.5 thousand Map Changes
-- charles chilufya : 2.3 thousand Map Changes
+- charles chilufya : 2.6 thousand Map Changes
+- Paxxy : 2.6 thousand Map Changes
 - Kelvin Manase : 1.9 thousand Map Changes
-- mildred_akoth : 1.0 thousand Map Changes
+- asmakulaga : 1.4 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 918, Modified : 6.0 thousand
-- building = Created: 627, Modified : 3.7 thousand
-- highway = Created: 36, Modified : 23
+- poi = Created: 943, Modified : 6.9 thousand
+- building = Created: 633, Modified : 4.2 thousand
+- highway = Created: 36, Modified : 24
 - waterway = Created: 1, Modified : 0
-- amenity = Created: 531, Modified : 3.7 thousand
+- amenity = Created: 542, Modified : 4.2 thousand
 - highway length created = 0 Km
 
 
 Top 5 Created tags are :
-- name: 661
-- building: 627
-- amenity: 531
-- check_date: 495
-- wheelchair: 195
+- name: 677
+- building: 633
+- amenity: 542
+- check_date: 511
+- wheelchair: 205
 
 
 Top 5 Modified tags are :
-- check_date: 7.0 thousand
-- name: 6.0 thousand
-- amenity: 3.7 thousand
-- building: 3.7 thousand
-- addr:street: 3.5 thousand
+- check_date: 8.1 thousand
+- name: 7.0 thousand
+- amenity: 4.2 thousand
+- building: 4.2 thousand
+- addr:street: 3.8 thousand
 
 
 Top 5 trending hashtags are:
-- #MapHerWorld : 22 users
-- #mapherworld : 4 users
+- #MapHerWorld : 23 users
 - #knustyouthmappers : 4 users
-- #youthmappers : 3 users
+- #mapherworld : 4 users
 - #100women : 3 users
+- #youthmappers : 3 users
 
 
 Top 5 trending Countries where user contributed are:
@@ -50,6 +50,7 @@ Top 5 trending Countries where user contributed are:
 - Ghana : 4 users
 - Zambia : 3 users
 - Uganda : 3 users
+- Zimbabwe : 2 users
 
 
  Charts : 
