@@ -1,53 +1,53 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-29 04:06:39+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-04-30 04:06:39+00:00 (UTC Timezone)
 
-#### 42 Users made 2.1 thousand changesets with 24.4 thousand map changes.
-#### 6.3 thousand OSM Elements were Created, 18.1 thousand Modified & 31 Deleted.
+#### 51 Users made 2.2 thousand changesets with 25.6 thousand map changes.
+#### 7.1 thousand OSM Elements were Created, 18.5 thousand Modified & 31 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
 - charles chilufya : 6.1 thousand Map Changes
-- paulsangu14 : 3.7 thousand Map Changes
+- paulsangu14 : 3.8 thousand Map Changes
 - Paxxy : 2.9 thousand Map Changes
+- tshedy : 2.3 thousand Map Changes
 - Kelvin Manase : 1.9 thousand Map Changes
-- asmakulaga : 1.6 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 3.0 thousand, Modified : 8.5 thousand
-- building = Created: 1.0 thousand, Modified : 9.0 thousand
-- highway = Created: 836, Modified : 40
+- poi = Created: 3.9 thousand, Modified : 8.8 thousand
+- building = Created: 1.1 thousand, Modified : 9.0 thousand
+- highway = Created: 1.3 thousand, Modified : 41
 - waterway = Created: 4, Modified : 0
-- amenity = Created: 766, Modified : 5.4 thousand
+- amenity = Created: 832, Modified : 5.6 thousand
 - highway length created = 0 Km
 
 
 Top 5 Created tags are :
-- name: 1.2 thousand
-- building: 1.0 thousand
-- check_date: 925
-- highway: 836
-- support: 767
+- name: 1.4 thousand
+- highway: 1.3 thousand
+- support: 1.3 thousand
+- check_date: 1.1 thousand
+- lamp_type: 1.1 thousand
 
 
 Top 5 Modified tags are :
-- check_date: 9.9 thousand
+- check_date: 10.2 thousand
 - building: 9.0 thousand
-- name: 8.7 thousand
+- name: 9.0 thousand
 - roof:shape: 7.5 thousand
 - building:levels: 6.6 thousand
 
 
 Top 5 trending hashtags are:
-- #MapHerWorld : 29 users
+- #MapHerWorld : 38 users
+- #OSMRwanda : 7 users
+- #EveryDoorRwanda : 6 users
 - #mapherworld : 6 users
-- #OSMRwanda : 5 users
-- #MapRwanda : 4 users
-- #EveryDoorRwanda : 4 users
+- #MapRwanda : 5 users
 
 
 Top 5 trending Countries where user contributed are:
-- United Republic of Tanzania : 11 users
-- Rwanda : 6 users
+- United Republic of Tanzania : 18 users
+- Rwanda : 8 users
 - Zimbabwe : 5 users
 - Ghana : 5 users
 - Zambia : 3 users
