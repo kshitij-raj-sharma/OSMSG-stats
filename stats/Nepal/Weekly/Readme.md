@@ -1,52 +1,53 @@
-### Last Update : Stats from 2023-04-16 00:00:00+00:00 to 2023-04-23 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-04-23 00:00:00+00:00 to 2023-04-30 00:00:00+00:00 (UTC Timezone)
 
-#### 113 Users made 1.1 thousand changesets with 195.7 thousand map changes.
-#### 136.9 thousand OSM Elements were Created, 57.9 thousand Modified & 919 Deleted.
+#### 126 Users made 1.1 thousand changesets with 189.5 thousand map changes.
+#### 155.8 thousand OSM Elements were Created, 33.1 thousand Modified & 486 Deleted.
 Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Puspa chad : 42.2 thousand Map Changes
-- Rojina Dhakal : 26.2 thousand Map Changes
-- Anil Basnet : 24.6 thousand Map Changes
-- Binisha21 : 22.5 thousand Map Changes
-- Heinz_V : 21.0 thousand Map Changes
+- Anil Basnet : 51.8 thousand Map Changes
+- Rojina Dhakal : 22.7 thousand Map Changes
+- marek kleciak : 13.8 thousand Map Changes
+- Pooja Dulal : 9.7 thousand Map Changes
+- Adrie Sonke : 8.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 142, Modified : 353
-- building = Created: 13.4 thousand, Modified : 605
-- highway = Created: 670, Modified : 2.8 thousand
-- waterway = Created: 85, Modified : 550
-- amenity = Created: 53, Modified : 239
+- poi = Created: 818, Modified : 303
+- building = Created: 15.2 thousand, Modified : 410
+- highway = Created: 719, Modified : 4.0 thousand
+- waterway = Created: 104, Modified : 139
+- amenity = Created: 77, Modified : 158
 
 
 Top 5 Created tags are :
-- building: 13.4 thousand
-- highway: 670
-- natural: 269
-- landuse: 190
-- name: 135
+- building: 15.2 thousand
+- name: 749
+- highway: 719
+- place: 583
+- natural: 451
 
 
 Top 5 Modified tags are :
-- highway: 2.8 thousand
-- name: 768
-- surface: 695
-- building: 605
-- waterway: 550
+- highway: 4.0 thousand
+- surface: 655
+- name: 513
+- building: 410
+- source: 336
 
 
 Top 5 trending hashtags are:
-- #osmnepal : 12 users
-- #maproulette : 12 users
-- #AtlasChecks : 11 users
-- #youthmappers : 11 users
+- #BIPAD : 14 users
+- #Nepal : 13 users
+- #digitalnepal : 12 users
+- #YILAB : 12 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 108 users
-- India : 2 users
-- China : 1 users
+- Nepal : 120 users
+- China : 3 users
+- India : 1 users
+- Afghanistan : 1 users
 
 
  Charts : 
