@@ -1,55 +1,55 @@
-### Last Update : Stats from 2023-05-01 00:00:00+00:00 to 2023-05-02 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-05-02 00:00:00+00:00 to 2023-05-03 00:00:00+00:00 (UTC Timezone)
 
-#### 273 Users made 2.4 thousand changesets with 304.8 thousand map changes.
-#### 228.6 thousand OSM Elements were Created, 40.9 thousand Modified & 35.4 thousand Deleted.
+#### 500 Users made 4.5 thousand changesets with 730.4 thousand map changes.
+#### 591.4 thousand OSM Elements were Created, 94.0 thousand Modified & 45.0 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Mercy14846 : 15.7 thousand Map Changes
-- MissK265 : 10.8 thousand Map Changes
-- bernard98 : 8.0 thousand Map Changes
-- Brendar86 : 7.9 thousand Map Changes
-- charles chilufya : 7.4 thousand Map Changes
+- nyainariantsoa : 21.1 thousand Map Changes
+- Ang96 : 20.6 thousand Map Changes
+- Narindra Fidintsoa : 19.0 thousand Map Changes
+- Libor Bednarik : 17.1 thousand Map Changes
+- andraina : 15.6 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 2.6 thousand, Modified : 66
-- building = Created: 31.0 thousand, Modified : 1.0 thousand
-- highway = Created: 1.7 thousand, Modified : 1.7 thousand
-- waterway = Created: 102, Modified : 106
-- amenity = Created: 211, Modified : 5
+- poi = Created: 123, Modified : 187
+- building = Created: 70.7 thousand, Modified : 3.1 thousand
+- highway = Created: 4.4 thousand, Modified : 2.6 thousand
+- waterway = Created: 143, Modified : 116
+- amenity = Created: 12, Modified : 22
 
 
 Top 5 Created tags are :
-- building: 31.0 thousand
-- source: 4.2 thousand
-- natural: 2.5 thousand
-- height: 1.7 thousand
-- leaf_cycle: 1.7 thousand
+- building: 70.7 thousand
+- source: 4.6 thousand
+- highway: 4.4 thousand
+- landuse: 404
+- layer: 249
 
 
 Top 5 Modified tags are :
-- highway: 1.7 thousand
-- building: 1.0 thousand
-- source: 510
-- surface: 407
-- landuse: 155
+- building: 3.1 thousand
+- highway: 2.6 thousand
+- source: 1.0 thousand
+- surface: 729
+- building:levels: 331
 
 
 Top 5 trending hashtags are:
-- #missingmaps : 61 users
-- #mrcs : 28 users
-- #TropicalCycloneFreddy : 28 users
-- #CycloneFreddy : 28 users
-- #hotosm-project-14513 : 28 users
+- #missingmaps : 227 users
+- #msf : 102 users
+- #Tanzania : 76 users
+- #TanzaniaDevelopmentTrust : 76 users
+- #OpenCitiesLAC : 71 users
 
 
 Top 5 trending Countries where user contributed are:
-- Malawi : 40 users
-- Ethiopia : 24 users
-- United Republic of Tanzania : 19 users
-- Togo : 19 users
-- Kenya : 18 users
+- United Republic of Tanzania : 87 users
+- Niger : 65 users
+- Malawi : 52 users
+- Honduras : 41 users
+- Equatorial Guinea : 35 users
 
 
  Charts : 
