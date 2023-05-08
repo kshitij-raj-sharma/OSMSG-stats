@@ -1,53 +1,53 @@
-### Last Update : Stats from 2023-04-23 00:00:00+00:00 to 2023-04-30 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-04-30 00:00:00+00:00 to 2023-05-07 00:00:00+00:00 (UTC Timezone)
 
-#### 126 Users made 1.1 thousand changesets with 189.5 thousand map changes.
-#### 155.8 thousand OSM Elements were Created, 33.1 thousand Modified & 486 Deleted.
+#### 110 Users made 979 changesets with 181.8 thousand map changes.
+#### 162.4 thousand OSM Elements were Created, 19.1 thousand Modified & 344 Deleted.
 Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Anil Basnet : 51.8 thousand Map Changes
-- Rojina Dhakal : 22.7 thousand Map Changes
-- marek kleciak : 13.8 thousand Map Changes
-- Pooja Dulal : 9.7 thousand Map Changes
-- Adrie Sonke : 8.3 thousand Map Changes
+- Anil Basnet : 44.1 thousand Map Changes
+- Rojina Dhakal : 37.1 thousand Map Changes
+- marek kleciak : 17.4 thousand Map Changes
+- Nirmala Rawat : 9.6 thousand Map Changes
+- Lalit_IAAS : 7.1 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 818, Modified : 303
-- building = Created: 15.2 thousand, Modified : 410
-- highway = Created: 719, Modified : 4.0 thousand
-- waterway = Created: 104, Modified : 139
-- amenity = Created: 77, Modified : 158
+- poi = Created: 499, Modified : 277
+- building = Created: 16.8 thousand, Modified : 258
+- highway = Created: 850, Modified : 1.5 thousand
+- waterway = Created: 61, Modified : 134
+- amenity = Created: 19, Modified : 150
 
 
 Top 5 Created tags are :
-- building: 15.2 thousand
-- name: 749
-- highway: 719
-- place: 583
-- natural: 451
+- building: 16.8 thousand
+- highway: 850
+- source: 835
+- name: 457
+- place: 404
 
 
 Top 5 Modified tags are :
-- highway: 4.0 thousand
-- surface: 655
-- name: 513
-- building: 410
-- source: 336
+- highway: 1.5 thousand
+- ref: 571
+- name: 510
+- surface: 344
+- building: 258
 
 
 Top 5 trending hashtags are:
-- #BIPAD : 14 users
-- #Nepal : 13 users
-- #digitalnepal : 12 users
-- #YILAB : 12 users
+- #osmnepal : 20 users
+- #BIPAD : 15 users
+- #DigitalVolunteers : 15 users
+- #YILAB : 15 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 120 users
-- China : 3 users
-- India : 1 users
-- Afghanistan : 1 users
+- Nepal : 102 users
+- China : 4 users
+- India : 2 users
+- Vietnam : 1 users
 
 
  Charts : 
