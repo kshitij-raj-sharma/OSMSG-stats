@@ -8,7 +8,9 @@
 
 - Paste Content as in [sample.yml](../sample.yml)
 
-- Replace ```REPLACE_ME_WITH_HASHTAG``` with your ```hashtag name``` in doc , You can use Control+F to find REPLACE_ME_WITH_HASHTAG and replace in one shot with dropdown
+- Replace ```REPLACE_ME_WITH_HASHTAG``` with your ```hashtag name``` in doc , You can use Control+F to find REPLACE_ME_WITH_HASHTAG and replace in one shot with dropdown like in screenshot below
+  <img width="866" alt="image" src="https://user-images.githubusercontent.com/36752999/236824979-b45db0a1-45f7-4226-b559-30c6d20a992b.png">
+
 
 - Commit and push changes - After making the necessary changes to the YAML file, commit the changes and push the branch to your forked repository.
 
