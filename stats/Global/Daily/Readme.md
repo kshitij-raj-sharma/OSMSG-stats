@@ -1,54 +1,54 @@
-### Last Update : Stats from 2023-05-06 00:00:00+00:00 to 2023-05-07 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-05-07 00:00:00+00:00 to 2023-05-08 00:00:00+00:00 (UTC Timezone)
 
-#### 5.1 thousand Users made 34.4 thousand changesets with 3.3 million map changes.
-#### 2.4 million OSM Elements were Created, 686.8 thousand Modified & 214.3 thousand Deleted.
+#### 5.3 thousand Users made 35.4 thousand changesets with 3.2 million map changes.
+#### 2.3 million OSM Elements were Created, 591.9 thousand Modified & 241.2 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/Global/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Global/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- jmarchon : 496.3 thousand Map Changes
-- PlayzinhoAgro-imports : 225.1 thousand Map Changes
-- avinet_ua : 81.4 thousand Map Changes
-- beddy : 46.0 thousand Map Changes
-- vakal : 44.7 thousand Map Changes
+- PlayzinhoAgro-imports : 563.3 thousand Map Changes
+- Noro Hibu : 48.8 thousand Map Changes
+- beddy : 44.9 thousand Map Changes
+- Thiskal : 32.9 thousand Map Changes
+- _jcaruso : 23.9 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 49.8 thousand, Modified : 101.2 thousand
-- building = Created: 113.3 thousand, Modified : 72.9 thousand
-- highway = Created: 42.6 thousand, Modified : 132.6 thousand
-- waterway = Created: 9.0 thousand, Modified : 3.3 thousand
-- amenity = Created: 7.3 thousand, Modified : 22.0 thousand
+- poi = Created: 71.0 thousand, Modified : 57.6 thousand
+- building = Created: 146.0 thousand, Modified : 72.6 thousand
+- highway = Created: 50.3 thousand, Modified : 112.3 thousand
+- waterway = Created: 5.6 thousand, Modified : 3.2 thousand
+- amenity = Created: 9.5 thousand, Modified : 11.2 thousand
 
 
 Top 5 Created tags are :
-- building: 113.3 thousand
-- building:levels: 44.0 thousand
-- highway: 42.6 thousand
-- height: 41.8 thousand
-- source: 36.7 thousand
+- building: 146.0 thousand
+- building:levels: 106.4 thousand
+- height: 104.7 thousand
+- pmfsefin:idedif: 91.3 thousand
+- highway: 50.3 thousand
 
 
 Top 5 Modified tags are :
-- name: 153.2 thousand
-- highway: 132.6 thousand
-- addr:street: 100.5 thousand
-- addr:country: 99.8 thousand
-- addr:city: 88.9 thousand
+- highway: 112.3 thousand
+- name: 82.6 thousand
+- building: 72.6 thousand
+- addr:housenumber: 59.6 thousand
+- surface: 52.3 thousand
 
 
 Top 5 trending hashtags are:
-- #missingmaps : 42 users
-- #UNMAPPEDPH : 33 users
-- #UNMAPPEDPH2021 : 33 users
-- #mapbeks : 33 users
+- #maproulette : 33 users
+- #missingmaps : 32 users
+- #OSMRwanda : 26 users
+- #MapRwanda : 25 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 954 users
-- United States of America : 455 users
-- France : 413 users
-- Poland : 250 users
-- U.K. of Great Britain and Northern Ireland : 210 users
+- Germany : 1033 users
+- United States of America : 500 users
+- France : 433 users
+- U.K. of Great Britain and Northern Ireland : 247 users
+- Poland : 230 users
 
 
  Charts : 
