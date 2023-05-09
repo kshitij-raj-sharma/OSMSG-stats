@@ -406,11 +406,14 @@ def process_changefiles(url):
     file_path = get_file_path_from_url(url, "changefiles")
     # Open the .osc.gz file in read-only mode
     handler = ChangefileHandler()
+    try :
 
-    if length:
-        handler.apply_file(file_path[:-3], locations=True)
-    else:
-        handler.apply_file(file_path[:-3])
+        if length:
+            handler.apply_file(file_path[:-3], locations=True)
+        else:
+            handler.apply_file(file_path[:-3])
+    except Exception as ex :
+        print(f"File may be corrupt : Error at {url} : {ex}")
 
 
 def process_changesets(url):
@@ -419,10 +422,8 @@ def process_changesets(url):
     handler = ChangesetHandler()
     try:
         handler.apply_file(file_path[:-3])
-    except Exception as ex:
-        print(f"Error : {url}")
-        # raise ex
-    # print(f"Finished {url}")
+    except Exception as ex :
+        print(f"File may be corrupt : Error at {url} : {ex}")
 
 
 def auth(username, password):
