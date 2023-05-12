@@ -131,7 +131,7 @@ def create_charts(df, fname):
 
     #### Countries block
     if "countries" in df.columns[df.astype(bool).any()]:
-        # Split the countries column into multiple rows, one for each country
+        # Split the countries column into multiple rows
         split_df = (
             df["countries"]
             .astype(str)
