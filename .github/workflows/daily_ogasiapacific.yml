@@ -5,7 +5,9 @@ on:
   push:
     branches:
       - fix/bug_country_null
-    
+#   push:
+#     branches:
+#       - master
 jobs:
   issue:
     runs-on: ubuntu-latest
