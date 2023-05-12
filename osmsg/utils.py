@@ -131,10 +131,10 @@ def create_charts(df, fname):
 
     #### Countries block
     if "countries" in df.columns[df.astype(bool).any()]:
-
-        # Split the countries column into multiple rows, one for each country
+        # Split the countries column into multiple rows
         split_df = (
             df["countries"]
+            .astype(str)
             .str.split(",", expand=True)
             .stack()
             .reset_index(level=1, drop=True)
@@ -178,7 +178,6 @@ def create_charts(df, fname):
 
     ##### hashtag block
     if "hashtags" in df.columns[df.astype(bool).any()]:
-
         # Split the hashtags column into multiple rows, one for each hashtag
         split_df = (
             df["hashtags"]
@@ -440,7 +439,6 @@ def update_stats(df1, df2):
             )
 
     if set(["tags_create", "tags_modify"]).issubset(df1.columns):
-
         # Update the 'tags_create' column
         for i, row in merged_df.iterrows():
             tags1 = (
@@ -557,7 +555,6 @@ def update_summary(df1, df2):
             )
 
     if set(["tags_create", "tags_modify"]).issubset(df1.columns):
-
         # Update the 'tags_create' column
         for i, row in merged_df.iterrows():
             tags1 = (

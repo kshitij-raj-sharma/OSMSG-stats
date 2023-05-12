@@ -2,6 +2,9 @@ name: Run Daily Report OGAsiaPacific Hashtag
 on:
   schedule:
     - cron: "0 3 * * *" # Run every day at 3 UTC
+  push:
+    branches:
+      - fix/bug_country_null
 #   push:
 #     branches:
 #       - master
