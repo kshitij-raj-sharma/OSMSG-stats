@@ -1,55 +1,55 @@
-### Last Update : Stats from 2023-05-11 00:00:00+00:00 to 2023-05-12 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-05-12 00:00:00+00:00 to 2023-05-13 00:00:00+00:00 (UTC Timezone)
 
-#### 528 Users made 4.0 thousand changesets with 507.4 thousand map changes.
-#### 412.8 thousand OSM Elements were Created, 62.8 thousand Modified & 31.7 thousand Deleted.
+#### 471 Users made 4.2 thousand changesets with 470.0 thousand map changes.
+#### 363.8 thousand OSM Elements were Created, 78.4 thousand Modified & 27.8 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- nyainariantsoa : 26.9 thousand Map Changes
-- Son Enoc : 16.8 thousand Map Changes
-- Mr L genius : 15.2 thousand Map Changes
-- UPegasus : 13.4 thousand Map Changes
-- Ang96 : 12.5 thousand Map Changes
+- Ang96 : 20.8 thousand Map Changes
+- UPegasus : 14.2 thousand Map Changes
+- raychal : 12.1 thousand Map Changes
+- andraina : 11.5 thousand Map Changes
+- Ajio Betty : 11.4 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 816, Modified : 135
-- building = Created: 59.5 thousand, Modified : 2.2 thousand
-- highway = Created: 3.0 thousand, Modified : 2.0 thousand
-- waterway = Created: 107, Modified : 119
-- amenity = Created: 10, Modified : 21
+- poi = Created: 1.5 thousand, Modified : 228
+- building = Created: 53.2 thousand, Modified : 2.0 thousand
+- highway = Created: 2.9 thousand, Modified : 1.9 thousand
+- waterway = Created: 223, Modified : 140
+- amenity = Created: 5, Modified : 22
 
 
 Top 5 Created tags are :
-- building: 59.5 thousand
-- highway: 3.0 thousand
-- source: 2.9 thousand
-- natural: 946
-- landuse: 242
+- building: 53.2 thousand
+- highway: 2.9 thousand
+- source: 2.4 thousand
+- source:geometry:date: 1.2 thousand
+- natural: 604
 
 
 Top 5 Modified tags are :
-- building: 2.2 thousand
-- highway: 2.0 thousand
-- source: 660
-- surface: 428
-- name: 159
+- building: 2.0 thousand
+- highway: 1.9 thousand
+- source: 579
+- surface: 447
+- name: 196
 
 
 Top 5 trending hashtags are:
-- #OpenCitiesLAC : 155 users
-- #missingmaps : 143 users
-- #msf : 61 users
-- #ourimpact : 58 users
-- #hemorrhagicfeverGNQ : 49 users
+- #OpenCitiesLAC : 192 users
+- #ourimpact : 94 users
+- #missingmaps : 94 users
+- #gvm2023 : 93 users
+- #amm : 87 users
 
 
 Top 5 trending Countries where user contributed are:
-- Honduras : 95 users
-- El Salvador : 59 users
-- Equatorial Guinea : 49 users
-- United Republic of Tanzania : 38 users
-- Malawi : 38 users
+- Honduras : 170 users
+- Uganda : 41 users
+- Rwanda : 31 users
+- Ethiopia : 29 users
+- Malawi : 27 users
 
 
  Charts : 
