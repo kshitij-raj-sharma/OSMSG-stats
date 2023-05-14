@@ -1,45 +1,50 @@
-### Last Update : Stats from 2023-05-09 00:00:00+00:00 to 2023-05-12 05:09:09+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-05-09 00:00:00+00:00 to 2023-05-14 03:12:39+00:00 (UTC Timezone)
 
-#### 3 Users made 6 changesets with 286 map changes.
-#### 267 OSM Elements were Created, 19 Modified & 0 Deleted.
+#### 4 Users made 19 changesets with 780 map changes.
+#### 377 OSM Elements were Created, 348 Modified & 55 Deleted.
 Get Full Stats at [stats.csv](/stats/OGAsiaPacific/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/OGAsiaPacific/Daily/stats_summary.csv)
 
 Top 5 Users are : 
+- abdul_4ts : 457 Map Changes
 - HBanu : 240 Map Changes
-- abdul_4ts : 28 Map Changes
+- AayushChand123 : 65 Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 0, Modified : 1
-- building = Created: 53, Modified : 1
-- highway = Created: 0, Modified : 3
-- waterway = Created: 0, Modified : 0
-- amenity = Created: 0, Modified : 1
+- poi = Created: 0, Modified : 3
+- building = Created: 55, Modified : 2
+- highway = Created: 9, Modified : 34
+- waterway = Created: 0, Modified : 2
+- amenity = Created: 0, Modified : 3
 - highway length created = 0 Km
 
 
 Top 5 Created tags are :
-- building: 53
+- building: 55
+- highway: 9
+- landuse: 4
+- natural: 1
+- name: 1
 
 
 Top 5 Modified tags are :
-- highway: 3
-- foot: 3
+- highway: 34
+- name: 6
+- surface: 5
+- amenity: 3
 - motor_vehicle: 3
-- name: 2
-- website: 2
 
 
 Top 5 trending hashtags are:
-- #OGAsiaPacific : 3 users
-- #Update : 1 users
-- #GisCorps : 1 users
-- #hotosm-project-14733 : 1 users
+- #OGAsiaPacific : 4 users
 - #youthmappers : 1 users
+- #mappingghana : 1 users
+- #knustyouthmappers : 1 users
+- #Update : 1 users
 
 
 Top 5 trending Countries where user contributed are:
-- nan : 3 users
+- nan : 4 users
 
 
  Charts : 
