@@ -1,20 +1,20 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-05-15 04:07:54+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-05-16 04:07:39+00:00 (UTC Timezone)
 
-#### 58 Users made 3.6 thousand changesets with 49.5 thousand map changes.
-#### 17.9 thousand OSM Elements were Created, 31.5 thousand Modified & 92 Deleted.
+#### 58 Users made 3.6 thousand changesets with 50.1 thousand map changes.
+#### 18.0 thousand OSM Elements were Created, 32.0 thousand Modified & 92 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- charles chilufya : 9.4 thousand Map Changes
+- charles chilufya : 9.7 thousand Map Changes
 - paulsangu14 : 9.1 thousand Map Changes
 - Yves umuganwa : 3.8 thousand Map Changes
 - DvnMartinez : 3.1 thousand Map Changes
 - Kelvin Manase : 2.9 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 10.6 thousand, Modified : 13.3 thousand
-- building = Created: 7.8 thousand, Modified : 16.0 thousand
+- poi = Created: 10.6 thousand, Modified : 13.4 thousand
+- building = Created: 7.8 thousand, Modified : 16.5 thousand
 - highway = Created: 1.5 thousand, Modified : 84
 - waterway = Created: 11, Modified : 1
 - amenity = Created: 1.1 thousand, Modified : 8.6 thousand
@@ -26,15 +26,15 @@ Top 5 Created tags are :
 - roof:shape: 6.3 thousand
 - addr:housenumber: 2.2 thousand
 - building:levels: 1.9 thousand
-- roof:levels: 1.8 thousand
+- roof:levels: 1.9 thousand
 
 
 Top 5 Modified tags are :
-- building: 16.0 thousand
+- building: 16.5 thousand
 - check_date: 15.5 thousand
 - name: 13.4 thousand
-- roof:shape: 11.6 thousand
-- building:levels: 10.7 thousand
+- roof:shape: 12.0 thousand
+- building:levels: 11.1 thousand
 
 
 Top 5 trending hashtags are:
