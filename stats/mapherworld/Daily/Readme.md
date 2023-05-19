@@ -1,23 +1,23 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-05-18 04:07:56+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-05-19 04:07:07+00:00 (UTC Timezone)
 
-#### 58 Users made 3.7 thousand changesets with 50.6 thousand map changes.
-#### 18.0 thousand OSM Elements were Created, 32.5 thousand Modified & 92 Deleted.
+#### 58 Users made 3.8 thousand changesets with 51.3 thousand map changes.
+#### 18.0 thousand OSM Elements were Created, 33.2 thousand Modified & 92 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- charles chilufya : 9.8 thousand Map Changes
+- charles chilufya : 10.0 thousand Map Changes
 - paulsangu14 : 9.2 thousand Map Changes
 - Yves umuganwa : 3.9 thousand Map Changes
+- Paxxy : 3.2 thousand Map Changes
 - DvnMartinez : 3.1 thousand Map Changes
-- Kelvin Manase : 2.9 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 10.6 thousand, Modified : 13.6 thousand
-- building = Created: 7.8 thousand, Modified : 16.7 thousand
+- poi = Created: 10.7 thousand, Modified : 13.8 thousand
+- building = Created: 7.8 thousand, Modified : 17.3 thousand
 - highway = Created: 1.5 thousand, Modified : 84
 - waterway = Created: 11, Modified : 1
-- amenity = Created: 1.1 thousand, Modified : 8.8 thousand
+- amenity = Created: 1.1 thousand, Modified : 9.0 thousand
 - highway length created = 4 Km
 
 
@@ -30,19 +30,19 @@ Top 5 Created tags are :
 
 
 Top 5 Modified tags are :
-- building: 16.7 thousand
-- check_date: 15.8 thousand
-- name: 13.6 thousand
-- roof:shape: 12.2 thousand
-- building:levels: 11.3 thousand
+- building: 17.3 thousand
+- check_date: 16.0 thousand
+- name: 13.7 thousand
+- roof:shape: 12.5 thousand
+- building:levels: 11.5 thousand
 
 
 Top 5 trending hashtags are:
 - #MapHerWorld : 44 users
-- #mapherworld : 9 users
 - #OSMRwanda : 9 users
-- #MapRwanda : 7 users
+- #mapherworld : 9 users
 - #EveryDoorRwanda : 7 users
+- #MapRwanda : 7 users
 
 
 Top 5 trending Countries where user contributed are:
