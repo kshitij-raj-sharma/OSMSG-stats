@@ -1,40 +1,40 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-05-23 04:06:54+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-05-24 04:06:54+00:00 (UTC Timezone)
 
-#### 58 Users made 3.8 thousand changesets with 52.1 thousand map changes.
-#### 18.1 thousand OSM Elements were Created, 33.8 thousand Modified & 121 Deleted.
+#### 58 Users made 3.9 thousand changesets with 52.5 thousand map changes.
+#### 18.2 thousand OSM Elements were Created, 34.2 thousand Modified & 121 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- charles chilufya : 10.1 thousand Map Changes
+- charles chilufya : 10.2 thousand Map Changes
 - paulsangu14 : 9.5 thousand Map Changes
 - Yves umuganwa : 3.9 thousand Map Changes
 - Paxxy : 3.2 thousand Map Changes
 - DvnMartinez : 3.1 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 10.8 thousand, Modified : 14.0 thousand
-- building = Created: 7.8 thousand, Modified : 17.4 thousand
+- poi = Created: 10.8 thousand, Modified : 14.2 thousand
+- building = Created: 7.8 thousand, Modified : 17.6 thousand
 - highway = Created: 1.5 thousand, Modified : 84
 - waterway = Created: 11, Modified : 1
-- amenity = Created: 1.1 thousand, Modified : 9.2 thousand
+- amenity = Created: 1.1 thousand, Modified : 9.3 thousand
 - highway length created = 4 Km
 
 
 Top 5 Created tags are :
 - building: 7.8 thousand
-- roof:shape: 6.3 thousand
+- roof:shape: 6.4 thousand
 - addr:housenumber: 2.3 thousand
-- building:levels: 1.9 thousand
+- building:levels: 2.0 thousand
 - roof:levels: 1.9 thousand
 
 
 Top 5 Modified tags are :
-- building: 17.4 thousand
-- check_date: 16.3 thousand
-- name: 13.9 thousand
-- roof:shape: 12.6 thousand
-- building:levels: 11.6 thousand
+- building: 17.6 thousand
+- check_date: 16.5 thousand
+- name: 14.0 thousand
+- roof:shape: 12.7 thousand
+- building:levels: 11.8 thousand
 
 
 Top 5 trending hashtags are:
