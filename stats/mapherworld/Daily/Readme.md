@@ -1,6 +1,6 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-05-26 04:07:39+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-05-27 04:07:58+00:00 (UTC Timezone)
 
-#### 58 Users made 3.9 thousand changesets with 53.4 thousand map changes.
+#### 58 Users made 3.9 thousand changesets with 53.5 thousand map changes.
 #### 18.3 thousand OSM Elements were Created, 35.0 thousand Modified & 122 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
@@ -17,14 +17,14 @@ Summary of Supplied Tags
 - building = Created: 7.9 thousand, Modified : 17.8 thousand
 - highway = Created: 1.5 thousand, Modified : 84
 - waterway = Created: 11, Modified : 1
-- amenity = Created: 1.1 thousand, Modified : 9.5 thousand
+- amenity = Created: 1.2 thousand, Modified : 9.5 thousand
 - highway length created = 4 Km
 
 
 Top 5 Created tags are :
 - building: 7.9 thousand
 - roof:shape: 6.4 thousand
-- addr:housenumber: 2.3 thousand
+- addr:housenumber: 2.4 thousand
 - building:levels: 2.0 thousand
 - roof:levels: 2.0 thousand
 
@@ -39,10 +39,10 @@ Top 5 Modified tags are :
 
 Top 5 trending hashtags are:
 - #MapHerWorld : 44 users
-- #mapherworld : 9 users
 - #OSMRwanda : 9 users
-- #EveryDoorRwanda : 7 users
+- #mapherworld : 9 users
 - #MapRwanda : 7 users
+- #EveryDoorRwanda : 7 users
 
 
 Top 5 trending Countries where user contributed are:
