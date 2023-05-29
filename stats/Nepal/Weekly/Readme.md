@@ -1,53 +1,53 @@
-### Last Update : Stats from 2023-05-14 00:00:00+00:00 to 2023-05-21 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-05-21 00:00:00+00:00 to 2023-05-28 00:00:00+00:00 (UTC Timezone)
 
-#### 132 Users made 1.4 thousand changesets with 188.5 thousand map changes.
-#### 124.6 thousand OSM Elements were Created, 63.4 thousand Modified & 435 Deleted.
+#### 123 Users made 1.5 thousand changesets with 201.8 thousand map changes.
+#### 130.3 thousand OSM Elements were Created, 71.2 thousand Modified & 220 Deleted.
 Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Anil Basnet : 33.9 thousand Map Changes
-- Rojina Dhakal : 31.7 thousand Map Changes
-- Adrie Sonke : 27.7 thousand Map Changes
-- mandira bomjan : 9.9 thousand Map Changes
-- Pragya Joshi : 8.9 thousand Map Changes
+- Rojina Dhakal : 32.6 thousand Map Changes
+- Anil Basnet : 32.6 thousand Map Changes
+- Adrie Sonke : 29.4 thousand Map Changes
+- Sumit Kumar Sah : 14.2 thousand Map Changes
+- marek kleciak : 10.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 188, Modified : 510
-- building = Created: 10.5 thousand, Modified : 509
-- highway = Created: 879, Modified : 4.6 thousand
-- waterway = Created: 42, Modified : 66
-- amenity = Created: 63, Modified : 242
+- poi = Created: 181, Modified : 495
+- building = Created: 12.4 thousand, Modified : 568
+- highway = Created: 1.1 thousand, Modified : 3.2 thousand
+- waterway = Created: 97, Modified : 76
+- amenity = Created: 19, Modified : 200
 
 
 Top 5 Created tags are :
-- building: 10.5 thousand
-- highway: 879
-- landuse: 484
-- natural: 347
-- ref: 161
+- building: 12.4 thousand
+- highway: 1.1 thousand
+- landuse: 370
+- source: 310
+- natural: 292
 
 
 Top 5 Modified tags are :
-- highway: 4.6 thousand
-- ref:old: 2.9 thousand
-- ref: 1.8 thousand
-- name: 825
-- source: 681
+- highway: 3.2 thousand
+- ref: 1.7 thousand
+- ref:old: 1.3 thousand
+- name: 1.0 thousand
+- surface: 651
 
 
 Top 5 trending hashtags are:
-- #adt : 18 users
-- #osmnepal : 16 users
-- #KLL : 15 users
-- #OSMNepal : 14 users
+- #osmnepal : 22 users
+- #digitalnepal : 16 users
+- #mapbuds : 16 users
+- #youthmappers : 15 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 122 users
-- India : 3 users
-- China : 3 users
-- Nigeria : 1 users
+- Nepal : 110 users
+- India : 7 users
+- China : 5 users
+- Thailand : 3 users
 
 
  Charts : 
