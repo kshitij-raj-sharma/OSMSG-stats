@@ -1,7 +1,7 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-05 04:06:39+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-06 04:06:43+00:00 (UTC Timezone)
 
-#### 59 Users made 4.1 thousand changesets with 55.3 thousand map changes.
-#### 18.6 thousand OSM Elements were Created, 36.6 thousand Modified & 122 Deleted.
+#### 60 Users made 4.1 thousand changesets with 55.4 thousand map changes.
+#### 18.6 thousand OSM Elements were Created, 36.7 thousand Modified & 122 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
@@ -13,7 +13,7 @@ Top 5 Users are :
 - Kelvin Manase : 3.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 11.2 thousand, Modified : 15.0 thousand
+- poi = Created: 11.2 thousand, Modified : 15.1 thousand
 - building = Created: 8.0 thousand, Modified : 19.2 thousand
 - highway = Created: 1.5 thousand, Modified : 84
 - waterway = Created: 11, Modified : 1
