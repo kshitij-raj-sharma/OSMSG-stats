@@ -1,7 +1,7 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-06 04:06:43+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-07 04:06:54+00:00 (UTC Timezone)
 
-#### 60 Users made 4.1 thousand changesets with 55.4 thousand map changes.
-#### 18.6 thousand OSM Elements were Created, 36.7 thousand Modified & 122 Deleted.
+#### 60 Users made 4.1 thousand changesets with 55.7 thousand map changes.
+#### 18.6 thousand OSM Elements were Created, 36.9 thousand Modified & 122 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
@@ -13,11 +13,11 @@ Top 5 Users are :
 - Kelvin Manase : 3.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 11.2 thousand, Modified : 15.1 thousand
-- building = Created: 8.0 thousand, Modified : 19.2 thousand
+- poi = Created: 11.2 thousand, Modified : 15.2 thousand
+- building = Created: 8.0 thousand, Modified : 19.3 thousand
 - highway = Created: 1.5 thousand, Modified : 84
 - waterway = Created: 11, Modified : 1
-- amenity = Created: 1.2 thousand, Modified : 9.6 thousand
+- amenity = Created: 1.2 thousand, Modified : 9.7 thousand
 - highway length created = 4 Km
 
 
@@ -30,11 +30,11 @@ Top 5 Created tags are :
 
 
 Top 5 Modified tags are :
-- building: 19.2 thousand
-- check_date: 17.4 thousand
-- name: 14.6 thousand
-- roof:shape: 14.1 thousand
-- building:levels: 13.3 thousand
+- building: 19.3 thousand
+- check_date: 17.6 thousand
+- name: 14.7 thousand
+- roof:shape: 14.2 thousand
+- building:levels: 13.4 thousand
 
 
 Top 5 trending hashtags are:
@@ -49,8 +49,8 @@ Top 5 trending Countries where user contributed are:
 - United Republic of Tanzania : 23 users
 - Rwanda : 10 users
 - Zimbabwe : 7 users
+- Kenya : 5 users
 - Ghana : 5 users
-- Kenya : 4 users
 
 
  Charts : 
