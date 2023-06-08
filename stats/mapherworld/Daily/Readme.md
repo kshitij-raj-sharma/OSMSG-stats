@@ -1,23 +1,23 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-07 04:06:54+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-08 04:07:24+00:00 (UTC Timezone)
 
-#### 60 Users made 4.1 thousand changesets with 55.7 thousand map changes.
-#### 18.6 thousand OSM Elements were Created, 36.9 thousand Modified & 122 Deleted.
+#### 60 Users made 4.1 thousand changesets with 56.3 thousand map changes.
+#### 18.6 thousand OSM Elements were Created, 37.5 thousand Modified & 122 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- charles chilufya : 10.6 thousand Map Changes
+- charles chilufya : 10.7 thousand Map Changes
 - paulsangu14 : 9.7 thousand Map Changes
+- Eugenie de Jesus : 4.2 thousand Map Changes
 - Yves umuganwa : 3.9 thousand Map Changes
-- Eugenie de Jesus : 3.6 thousand Map Changes
 - Kelvin Manase : 3.3 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 11.2 thousand, Modified : 15.2 thousand
-- building = Created: 8.0 thousand, Modified : 19.3 thousand
+- building = Created: 8.0 thousand, Modified : 19.8 thousand
 - highway = Created: 1.5 thousand, Modified : 84
 - waterway = Created: 11, Modified : 1
-- amenity = Created: 1.2 thousand, Modified : 9.7 thousand
+- amenity = Created: 1.2 thousand, Modified : 9.8 thousand
 - highway length created = 4 Km
 
 
@@ -30,19 +30,19 @@ Top 5 Created tags are :
 
 
 Top 5 Modified tags are :
-- building: 19.3 thousand
+- building: 19.8 thousand
 - check_date: 17.6 thousand
-- name: 14.7 thousand
-- roof:shape: 14.2 thousand
-- building:levels: 13.4 thousand
+- name: 14.8 thousand
+- roof:shape: 14.7 thousand
+- building:levels: 13.9 thousand
 
 
 Top 5 trending hashtags are:
 - #MapHerWorld : 44 users
 - #mapherworld : 10 users
 - #OSMRwanda : 9 users
-- #EveryDoorRwanda : 7 users
 - #MapRwanda : 7 users
+- #EveryDoorRwanda : 7 users
 
 
 Top 5 trending Countries where user contributed are:
