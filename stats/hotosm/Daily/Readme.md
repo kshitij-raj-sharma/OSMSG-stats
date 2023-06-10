@@ -1,55 +1,55 @@
-### Last Update : Stats from 2023-06-08 00:00:00+00:00 to 2023-06-09 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-06-09 00:00:00+00:00 to 2023-06-10 00:00:00+00:00 (UTC Timezone)
 
-#### 398 Users made 2.9 thousand changesets with 353.6 thousand map changes.
-#### 265.9 thousand OSM Elements were Created, 58.7 thousand Modified & 29.1 thousand Deleted.
+#### 561 Users made 4.2 thousand changesets with 411.6 thousand map changes.
+#### 320.2 thousand OSM Elements were Created, 58.0 thousand Modified & 33.3 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- b_rey952 : 14.2 thousand Map Changes
-- UPegasus : 8.7 thousand Map Changes
-- TeBaMa : 8.1 thousand Map Changes
-- Adrie Sonke : 8.0 thousand Map Changes
-- mjgk : 6.3 thousand Map Changes
+- UPegasus : 10.1 thousand Map Changes
+- k10s : 8.3 thousand Map Changes
+- b_rey952 : 7.8 thousand Map Changes
+- JarvisMaps! : 7.0 thousand Map Changes
+- Adrie Sonke : 6.8 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 362, Modified : 158
-- building = Created: 38.5 thousand, Modified : 1.6 thousand
-- highway = Created: 1.1 thousand, Modified : 2.2 thousand
-- waterway = Created: 136, Modified : 84
-- amenity = Created: 25, Modified : 28
+- poi = Created: 623, Modified : 143
+- building = Created: 40.9 thousand, Modified : 2.0 thousand
+- highway = Created: 2.8 thousand, Modified : 2.2 thousand
+- waterway = Created: 192, Modified : 130
+- amenity = Created: 124, Modified : 35
 
 
 Top 5 Created tags are :
-- building: 38.5 thousand
-- highway: 1.1 thousand
-- natural: 879
-- source: 654
-- man_made: 512
+- building: 40.9 thousand
+- highway: 2.8 thousand
+- source: 1.0 thousand
+- natural: 906
+- landuse: 735
 
 
 Top 5 Modified tags are :
 - highway: 2.2 thousand
-- building: 1.6 thousand
-- surface: 1.4 thousand
-- source: 480
-- landuse: 210
+- building: 2.0 thousand
+- surface: 995
+- source: 600
+- landuse: 411
 
 
 Top 5 trending hashtags are:
-- #missingmaps : 71 users
-- #OpenCitiesLAC : 54 users
-- #MapRwanda : 46 users
-- #OSMRwanda : 46 users
-- #OSMEthiopia : 44 users
+- #missingmaps : 85 users
+- #OpenCitiesLAC : 80 users
+- #OSMEthiopia : 64 users
+- #hotosm-project-14858 : 62 users
+- #omofoodsecuritymapping : 62 users
 
 
 Top 5 trending Countries where user contributed are:
-- Rwanda : 46 users
-- Ethiopia : 45 users
-- Malawi : 38 users
-- Honduras : 38 users
-- Philippines : 35 users
+- Honduras : 75 users
+- Malawi : 70 users
+- Ethiopia : 63 users
+- Kenya : 48 users
+- Philippines : 47 users
 
 
  Charts : 
