@@ -1,0 +1,60 @@
+name: Run Daily Report Field Mappers
+on:
+  schedule:
+    - cron: "0 7 * * *" # Run every day at 7 UTC
+  # push:
+  #   branches:
+  #     - master
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install Osmium
+        run: sudo apt-get install -y osmium-tool
+
+      - name: Install necessary dependecies
+        run: |
+          pip install flare-floss
+          pip install -e . 
+          pip install tweepy
+          pip install -r requirements.txt
+
+      - name: Generate Daily Hashtag Stats
+        env: #assign variables
+          OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
+          OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
+        run: |
+          osmsg --format csv image --name stats --tags amenity --all_tags --charts --summary --update --name stats/fieldmappers/Daily/stats --force --field_mappers
+
+      - name: add stats to git
+
+        run: |
+          git pull
+          git config --global user.email "skshitizraj@gmail.com"
+          git config --global user.name "kshitijrajsharma"
+          base_dir=stats/fieldmappers/Daily
+          mkdir -p $base_dir
+
+          mv $base_dir/stats_summary.md $base_dir/Readme.md
+
+          git add -f $base_dir/*
+
+          git commit -m "Updated Daily fieldmappers stats"
+          git push
+
+      - name : Tweet stats
+        env: #assign variables
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+        run : |
+          commit_id=$(git rev-parse --short HEAD)
+          python tweet.py --git $commit_id --tweet '#fieldmappers' --name stats/fieldmappers/Daily/stats

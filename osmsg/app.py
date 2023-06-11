@@ -62,6 +62,7 @@ from .utils import (
     download_osm_files,
     extract_projects,
     generate_tm_stats,
+    get_editors_name_strapped,
     get_file_path_from_url,
     sum_tags,
     update_stats,
@@ -75,6 +76,18 @@ summary_interval_temp = {}
 processed_changesets = {}
 countries_changesets = {}
 whitelisted_users = []
+
+field_mapping_editors = [
+    "streetcomplete",
+    "vespucci",
+    "go map",
+    "every door android",
+    "organic maps android",
+    "osmand",
+    "every door ios",
+    "organic maps ios",
+    "osmand maps",
+]
 
 
 def Initialize():
@@ -125,7 +138,7 @@ def collect_changefile_stats(
     )
 
     # changeset count
-    users_temp.setdefault(user, {"changesetrs": []})
+    users_temp.setdefault(user, {"changesets": []})
     if summary:
         summary_interval.setdefault(
             timestamp,
@@ -179,12 +192,8 @@ def collect_changefile_stats(
                     if editor not in users[user]["editors"]:
                         users[user]["editors"].append(editor)
                     if summary:
-                        # use regex to extract editor name
                         try:
-                            pattern = r"([a-zA-Z\s]+)"
-                            editor_name = re.findall(pattern, editor)
-                            # convert to lowercase and print editor name
-                            editor = editor_name[0].lower()
+                            editor = get_editors_name_strapped(editor)
                             summary_interval[timestamp]["editors"].setdefault(editor, 0)
                             summary_interval[timestamp]["editors"][editor] += 1
                         except:
@@ -251,7 +260,7 @@ def collect_changefile_stats(
 def calculate_stats(
     user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes=None
 ):
-    if hashtags:  # intersect with changesets
+    if hashtags or collect_field_mappers_stats:  # intersect with changesets
         if (
             len(processed_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
@@ -297,9 +306,13 @@ class ChangesetHandler(osmium.SimpleHandler):
 
     def changeset(self, c):
         run_hashtag_check_logic = False
+        if collect_field_mappers_stats:
+            if "created_by" in c.tags:
+                editor = get_editors_name_strapped(c.tags["created_by"])
+                if editor not in field_mapping_editors:
+                    return
         if changeset_meta and not hashtags:
-            if "comment" in c.tags:
-                run_hashtag_check_logic = True
+            run_hashtag_check_logic = True
         if hashtags:
             if "comment" in c.tags:
                 if exact_lookup:
@@ -316,7 +329,7 @@ class ChangesetHandler(osmium.SimpleHandler):
         if run_hashtag_check_logic and len(whitelisted_users) > 0:
             run_hashtag_check_logic = c.user in whitelisted_users
 
-        if run_hashtag_check_logic:
+        if run_hashtag_check_logic or collect_field_mappers_stats:
             processed_changesets.setdefault(
                 c.id,
                 {
@@ -330,11 +343,11 @@ class ChangesetHandler(osmium.SimpleHandler):
                 and c.tags["created_by"] not in processed_changesets[c.id]["editors"]
             ):
                 processed_changesets[c.id]["editors"].append(c.tags["created_by"])
-
-            hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
-            for hash_tag in hashtags_comment:
-                if hash_tag not in processed_changesets[c.id]["hashtags"]:
-                    processed_changesets[c.id]["hashtags"].append(hash_tag)
+            if "comment" in c.tags:
+                hashtags_comment = re.findall(r"#[\w-]+", c.tags["comment"])
+                for hash_tag in hashtags_comment:
+                    if hash_tag not in processed_changesets[c.id]["hashtags"]:
+                        processed_changesets[c.id]["hashtags"].append(hash_tag)
             # get bbox
             bounds = str(c.bounds)
             if "invalid" not in bounds:
@@ -503,6 +516,13 @@ def parse_args():
         "--force",
         action="store_true",
         help="Force for the Hashtag Replication fetch if it is greater than a day interval",
+        default=False,
+    )
+
+    parser.add_argument(
+        "--field_mappers",
+        action="store_true",
+        help="Filter stats by field mapping editors",
         default=False,
     )
 
@@ -753,15 +773,20 @@ def main():
     global changeset_meta
     global exact_lookup
     global summary
+    global collect_field_mappers_stats
 
     all_tags = args.all_tags
     additional_tags = args.tags
     hashtags = args.hashtags
     cookies = None
-    changeset_meta = args.changeset
     exact_lookup = args.exact_lookup
     length = args.length
     summary = args.summary
+    collect_field_mappers_stats = args.field_mappers
+    if args.field_mappers:
+        if not args.changeset and not args.hashtags:
+            args.changeset = True
+    changeset_meta = args.changeset
 
     if args.url:
         args.url = list(set(args.url))  # remove duplicates
