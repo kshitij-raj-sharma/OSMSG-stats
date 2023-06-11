@@ -228,6 +228,52 @@ def create_charts(df, fname):
         plt.savefig(f"{fname}_users_per_hashtag.png", bbox_inches="tight")
         created_charts.append(f"{fname}_users_per_hashtag.png")
 
+    if "editors" in df.columns[df.astype(bool).any()]:
+        split_df = (
+            df["editors"]
+            .str.split(",", expand=True)
+            .stack()
+            .reset_index(level=1, drop=True)
+            .rename("editors")
+            .dropna()
+            .loc[lambda x: x.str.strip().astype(bool)]
+        )
+
+        new_df = split_df.to_frame().join(df[["name"]]).reset_index(drop=True)
+        # Group the data by editors and count the number of users for each editor
+        grouped_editors = (
+            new_df.groupby("editors")["name"].count().sort_values(ascending=False)
+        )
+
+        # Determine the number of categories to show in the pie chart
+        num_categories = min(len(grouped_editors), 8)
+
+        # Select the top categories and group the rest as "others"
+        top_editors = grouped_editors.head(num_categories)
+        other_editors_count = grouped_editors.iloc[num_categories:].sum()
+
+        # Create a new series with the top categories and "others" count
+        editors_data = top_editors.append(
+            pd.Series(other_editors_count, index=["Others"])
+        )
+
+        # Plot the data as a pie chart using matplotlib
+        plt.figure(figsize=(10, 10))
+        plt.pie(
+            editors_data.values,
+            labels=editors_data.index,
+            autopct="%1.1f%%",
+            startangle=90,
+            colors=sns.color_palette("pastel")[0 : len(editors_data)],
+        )
+
+        # Set the title
+        plt.title("Editors Distribution")
+
+        # Save the chart
+        plt.savefig(f"{fname}_editors_pie_chart.png", bbox_inches="tight")
+        created_charts.append(f"{fname}_editors_pie_chart.png")
+
     if (
         "tags_create" in df.columns[df.astype(bool).any()]
         and "tags_modify" in df.columns[df.astype(bool).any()]

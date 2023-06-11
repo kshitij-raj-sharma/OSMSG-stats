@@ -1370,6 +1370,24 @@ def main():
                             )
                     file.write(f"{trending_hashtags}\n")
 
+                if "editors" in df.columns[df.astype(bool).any()]:
+                    top_five = (
+                        df["editors"]
+                        .astype(str)
+                        .str.split(",")
+                        .explode()
+                        .dropna()
+                        .value_counts()
+                        .head(5)
+                    )
+                    trending_editors = f"\nTop 5 trending editors are:\n"
+                    for i in range(0, len(top_five)):
+                        if top_five.index[i].strip() != "":
+                            trending_editors += (
+                                f"- {top_five.index[i]} : {top_five[i]} users\n"
+                            )
+                    file.write(f"{trending_editors}\n")
+
                 if "countries" in df.columns[df.astype(bool).any()]:
                     top_five = (
                         df["countries"]
