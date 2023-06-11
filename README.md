@@ -30,11 +30,12 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE]
              [--timezone {Nepal,UTC}] [--name NAME]
              [--country COUNTRY [COUNTRY ...]] [--tags TAGS [TAGS ...]]
              [--hashtags HASHTAGS [HASHTAGS ...]]
-             [--length LENGTH [LENGTH ...]] [--force] [--meta] [--rows ROWS]
-             [--users USERS [USERS ...]] [--workers WORKERS]
-             [--url URL [URL ...]] [--last_week] [--last_day] [--last_month]
-             [--last_year] [--last_hour] [--days DAYS] [--charts] [--summary]
-             [--exact_lookup] [--changeset] [--all_tags] [--temp]
+             [--length LENGTH [LENGTH ...]] [--force] [--field_mappers]
+             [--meta] [--tm_stats] [--rows ROWS] [--users USERS [USERS ...]]
+             [--workers WORKERS] [--url URL [URL ...]] [--last_week]
+             [--last_day] [--last_month] [--last_year] [--last_hour]
+             [--days DAYS] [--charts] [--summary] [--exact_lookup]
+             [--changeset] [--all_tags] [--temp]
              [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
              [--read_from_metadata READ_FROM_METADATA] [--update]
 ```
@@ -42,6 +43,7 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE]
 ### Options:
 
 ```
+options:
   -h, --help            show this help message and exit
   --start_date START_DATE
                         Start date in the format YYYY-MM-DD HH:M:Sz eg:
@@ -75,9 +77,13 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE]
                         Meters
   --force               Force for the Hashtag Replication fetch if it is
                         greater than a day interval
+  --field_mappers       Filter stats by field mapping editors
   --meta                Generates stats_metadata.json including sequence info
                         , start_data end_date , Will be useful when running
                         daily/weekly/monthly by service/cron
+  --tm_stats            Includes Tasking Manager stats for users , TM Projects
+                        are filtered from hashtags used , Appends all time
+                        stats for user for project id produced from stats
   --rows ROWS           No. of top rows to extract , to extract top 100 , pass
                         100
   --users USERS [USERS ...]
