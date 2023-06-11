@@ -657,3 +657,15 @@ def generate_tm_stats(tm_projects, usernames):
         }
     )
     return tm_df
+
+
+def get_editors_name_strapped(editor):
+    try:
+        pattern = r"([a-zA-Z\s]+)"
+        editor_name = re.findall(pattern, editor)
+        # convert to lowercase and print editor name
+        editor = editor_name[0].lower().strip()
+        return editor
+
+    except:
+        return editor.strip()
