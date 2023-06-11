@@ -1,9 +1,9 @@
 requests
 osmium
-pandas
+pandas==1.5.2
 tweepy
 Shapely
-geopandas
+geopandas==0.10.2
 tqdm
 seaborn
 matplotlib

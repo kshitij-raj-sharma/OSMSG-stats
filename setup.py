@@ -20,10 +20,10 @@ setup(
     entry_points={"console_scripts": ["osmsg = osmsg.app:main"]},
     install_requires=[
         "osmium",
-        "pandas",
+        "pandas==1.5.2",
         "requests",
         "Shapely",
-        "geopandas",
+        "geopandas==0.10.2",
         "tqdm",
         "seaborn",
         "matplotlib",
