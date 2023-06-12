@@ -178,7 +178,7 @@ osmsg --last_week --url day --summary --all_tags
 osmsg --url "https://planet.openstreetmap.org/replication/minute" --format csv --tags building highway waterway amenity --name stats --all_tags --last_hour
 ```
 
-In order to extract for specific country just add --country with country name as in [data/countries_un.csv](./data/countries_un.csv) for eg : For Nepal : `--country Nepal`
+In order to extract for specific country just add --country with country name as in [data/countries.csv](./data/countries.csv) for eg : For Nepal : `--country Nepal`
 
 - To extract stats for last day whole world with all the tags and specified stat :
   
