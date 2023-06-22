@@ -1,6 +1,6 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-21 04:08:02+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-22 04:06:56+00:00 (UTC Timezone)
 
-#### 105 Users made 4.8 thousand changesets with 65.3 thousand map changes.
+#### 105 Users made 4.8 thousand changesets with 65.4 thousand map changes.
 #### 19.6 thousand OSM Elements were Created, 45.6 thousand Modified & 124 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
@@ -17,7 +17,7 @@ Summary of Supplied Tags
 - building = Created: 8.7 thousand, Modified : 26.7 thousand
 - highway = Created: 1.6 thousand, Modified : 85
 - waterway = Created: 11, Modified : 1
-- amenity = Created: 1.4 thousand, Modified : 10.6 thousand
+- amenity = Created: 1.4 thousand, Modified : 10.7 thousand
 - highway length created = 4 Km
 
 
@@ -33,7 +33,7 @@ Top 5 Modified tags are :
 - building: 26.7 thousand
 - roof:shape: 21.1 thousand
 - building:levels: 20.2 thousand
-- check_date: 19.1 thousand
+- check_date: 19.2 thousand
 - roof:levels: 19.1 thousand
 
 
@@ -42,12 +42,12 @@ Top 5 trending hashtags are:
 - #OsmUgcampaign : 15 users
 - #mapherworld : 12 users
 - #OSMRwanda : 11 users
-- #EveryDoorRwanda : 8 users
+- #MapRwanda : 8 users
 
 
 Top 5 trending editors are:
 - Every Door Android 3.0 : 53 users
-- Every Door Android 3.1 : 48 users
+- Every Door Android 3.1 : 49 users
 - Every Door iOS 3.0 : 9 users
 - iD 2.25.2 : 3 users
 - JOSM/1.5 (18721 en) : 2 users
@@ -58,7 +58,7 @@ Top 5 trending Countries where user contributed are:
 - Uganda : 27 users
 - Rwanda : 12 users
 - Zimbabwe : 7 users
-- Ghana : 5 users
+- Kenya : 5 users
 
 
  Charts : 
