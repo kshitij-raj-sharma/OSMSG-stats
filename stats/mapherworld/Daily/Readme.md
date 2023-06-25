@@ -1,20 +1,20 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-24 04:07:16+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-25 04:07:41+00:00 (UTC Timezone)
 
-#### 105 Users made 4.8 thousand changesets with 66.2 thousand map changes.
-#### 20.2 thousand OSM Elements were Created, 45.9 thousand Modified & 124 Deleted.
+#### 106 Users made 4.9 thousand changesets with 66.5 thousand map changes.
+#### 20.2 thousand OSM Elements were Created, 46.2 thousand Modified & 124 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- charles chilufya : 11.3 thousand Map Changes
+- charles chilufya : 11.4 thousand Map Changes
 - paulsangu14 : 10.4 thousand Map Changes
-- Eugenie de Jesus : 7.4 thousand Map Changes
+- Eugenie de Jesus : 7.7 thousand Map Changes
 - Yves umuganwa : 3.9 thousand Map Changes
 - Kelvin Manase : 3.5 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 12.2 thousand, Modified : 16.7 thousand
-- building = Created: 8.8 thousand, Modified : 26.7 thousand
+- building = Created: 8.8 thousand, Modified : 27.0 thousand
 - highway = Created: 1.6 thousand, Modified : 86
 - waterway = Created: 11, Modified : 1
 - amenity = Created: 1.5 thousand, Modified : 10.7 thousand
@@ -30,24 +30,24 @@ Top 5 Created tags are :
 
 
 Top 5 Modified tags are :
-- building: 26.7 thousand
-- roof:shape: 21.2 thousand
-- building:levels: 20.3 thousand
-- check_date: 19.2 thousand
-- roof:levels: 19.1 thousand
+- building: 27.0 thousand
+- roof:shape: 21.4 thousand
+- building:levels: 20.5 thousand
+- roof:levels: 19.4 thousand
+- check_date: 19.3 thousand
 
 
 Top 5 trending hashtags are:
 - #MapHerWorld : 84 users
 - #OsmUgcampaign : 15 users
-- #mapherworld : 12 users
+- #mapherworld : 13 users
 - #OSMRwanda : 11 users
-- #MapRwanda : 8 users
+- #EveryDoorRwanda : 8 users
 
 
 Top 5 trending editors are:
 - Every Door Android 3.0 : 53 users
-- Every Door Android 3.1 : 49 users
+- Every Door Android 3.1 : 51 users
 - Every Door iOS 3.0 : 9 users
 - iD 2.25.2 : 3 users
 - JOSM/1.5 (18721 en) : 2 users
@@ -58,7 +58,7 @@ Top 5 trending Countries where user contributed are:
 - Uganda : 27 users
 - Rwanda : 12 users
 - Zimbabwe : 7 users
-- Kenya : 5 users
+- Ghana : 6 users
 
 
  Charts : 
