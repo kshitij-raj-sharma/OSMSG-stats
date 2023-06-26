@@ -49,6 +49,18 @@ session.mount("https://", retries)
 session.mount("http://", retries)
 
 
+def get_editors_name_strapped(editor):
+    try:
+        pattern = r"([a-zA-Z\s]+)"
+        editor_name = re.findall(pattern, editor)
+        # convert to lowercase and print editor name
+        editor = editor_name[0].lower().strip()
+        return editor
+
+    except:
+        return editor.strip()
+
+
 def create_charts(df, fname):
     ### osm changes block
     # Get the sum of all the create, modify, and delete values
@@ -228,6 +240,52 @@ def create_charts(df, fname):
         plt.savefig(f"{fname}_users_per_hashtag.png", bbox_inches="tight")
         created_charts.append(f"{fname}_users_per_hashtag.png")
 
+    # if "editors" in df.columns[df.astype(bool).any()]:
+    #     split_df = (
+    #         df["editors"]
+    #         .str.split(",", expand=True)
+    #         .stack()
+    #         .reset_index(level=1, drop=True)
+    #         .rename("editors")
+    #         .dropna()
+    #         .loc[lambda x: x.str.strip().astype(bool)]
+    #     )
+
+    #     new_df = split_df.to_frame().join(df[["name"]]).reset_index(drop=True)
+    #     # Group the data by editors and count the number of users for each editor
+    #     grouped_editors = (
+    #         new_df.groupby("editors")["name"].count().sort_values(ascending=False)
+    #     )
+
+    #     # Determine the number of categories to show in the pie chart
+    #     num_categories = min(len(grouped_editors), 8)
+
+    #     # Select the top categories and group the rest as "others"
+    #     top_editors = grouped_editors.head(num_categories)
+    #     other_editors_count = grouped_editors.iloc[num_categories:].sum()
+
+    #     # Create a new series with the top categories and "others" count
+    #     editors_data = top_editors.append(
+    #         pd.Series(other_editors_count, index=["Others"])
+    #     )
+
+    #     # Plot the data as a pie chart using matplotlib
+    #     plt.figure(figsize=(10, 10))
+    #     plt.pie(
+    #         editors_data.values,
+    #         labels=editors_data.index,
+    #         autopct="%1.1f%%",
+    #         startangle=90,
+    #         colors=sns.color_palette("pastel")[0 : len(editors_data)],
+    #     )
+
+    #     # Set the title
+    #     plt.title("Editors Distribution")
+
+    #     # Save the chart
+    #     plt.savefig(f"{fname}_editors_pie_chart.png", bbox_inches="tight")
+    #     created_charts.append(f"{fname}_editors_pie_chart.png")
+
     if "editors" in df.columns[df.astype(bool).any()]:
         split_df = (
             df["editors"]
@@ -237,6 +295,7 @@ def create_charts(df, fname):
             .rename("editors")
             .dropna()
             .loc[lambda x: x.str.strip().astype(bool)]
+            .apply(get_editors_name_strapped)  # Apply the function to each editor name
         )
 
         new_df = split_df.to_frame().join(df[["name"]]).reset_index(drop=True)
@@ -259,18 +318,34 @@ def create_charts(df, fname):
 
         # Plot the data as a pie chart using matplotlib
         plt.figure(figsize=(10, 10))
-        plt.pie(
+        patches, _ = plt.pie(
             editors_data.values,
-            labels=editors_data.index,
-            autopct="%1.1f%%",
             startangle=90,
             colors=sns.color_palette("pastel")[0 : len(editors_data)],
         )
 
-        # Set the title
-        plt.title("Editors Distribution")
+        # Calculate the percentages for the pie chart slices
+        percentages = editors_data.values / editors_data.values.sum() * 100
 
-        # Save the chart
+        # Create labels for the legend with the editor names and percentages
+        legend_labels = [
+            f"{label} ({percentage:.1f}%)"
+            for label, percentage in zip(editors_data.index, percentages)
+        ]
+
+        # Add labels outside the pie chart
+        plt.legend(
+            patches,
+            legend_labels,
+            title="Editors",
+            loc="center left",
+            bbox_to_anchor=(1, 0.5),
+            fontsize=12,
+        )
+
+        # Set the title
+        plt.title("Editors / Users Distribution")
+
         plt.savefig(f"{fname}_editors_pie_chart.png", bbox_inches="tight")
         created_charts.append(f"{fname}_editors_pie_chart.png")
 
@@ -703,15 +778,3 @@ def generate_tm_stats(tm_projects, usernames):
         }
     )
     return tm_df
-
-
-def get_editors_name_strapped(editor):
-    try:
-        pattern = r"([a-zA-Z\s]+)"
-        editor_name = re.findall(pattern, editor)
-        # convert to lowercase and print editor name
-        editor = editor_name[0].lower().strip()
-        return editor
-
-    except:
-        return editor.strip()
