@@ -1,23 +1,23 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-29 04:09:30+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-30 04:07:31+00:00 (UTC Timezone)
 
-#### 106 Users made 4.9 thousand changesets with 67.1 thousand map changes.
-#### 20.5 thousand OSM Elements were Created, 46.5 thousand Modified & 124 Deleted.
+#### 106 Users made 4.9 thousand changesets with 67.3 thousand map changes.
+#### 20.5 thousand OSM Elements were Created, 46.7 thousand Modified & 124 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- charles chilufya : 11.4 thousand Map Changes
+- charles chilufya : 11.5 thousand Map Changes
 - paulsangu14 : 10.8 thousand Map Changes
-- Eugenie de Jesus : 8.0 thousand Map Changes
+- Eugenie de Jesus : 8.1 thousand Map Changes
 - Yves umuganwa : 3.9 thousand Map Changes
 - Kelvin Manase : 3.5 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 12.3 thousand, Modified : 16.7 thousand
-- building = Created: 8.8 thousand, Modified : 27.3 thousand
+- building = Created: 8.8 thousand, Modified : 27.4 thousand
 - highway = Created: 1.6 thousand, Modified : 87
 - waterway = Created: 11, Modified : 1
-- amenity = Created: 1.5 thousand, Modified : 10.7 thousand
+- amenity = Created: 1.5 thousand, Modified : 10.8 thousand
 - highway length created = 4 Km
 
 
@@ -30,11 +30,11 @@ Top 5 Created tags are :
 
 
 Top 5 Modified tags are :
-- building: 27.3 thousand
+- building: 27.4 thousand
 - roof:shape: 21.7 thousand
-- building:levels: 20.8 thousand
-- roof:levels: 19.6 thousand
-- check_date: 19.3 thousand
+- building:levels: 20.9 thousand
+- roof:levels: 19.7 thousand
+- check_date: 19.4 thousand
 
 
 Top 5 trending hashtags are:
@@ -42,7 +42,7 @@ Top 5 trending hashtags are:
 - #OsmUgcampaign : 15 users
 - #mapherworld : 13 users
 - #OSMRwanda : 11 users
-- #EveryDoorRwanda : 8 users
+- #MapRwanda : 8 users
 
 
 Top 5 trending editors are:
