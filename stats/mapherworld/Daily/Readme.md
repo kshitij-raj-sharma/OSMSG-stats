@@ -1,4 +1,4 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-06-30 04:07:31+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-07-03 04:08:31+00:00 (UTC Timezone)
 
 #### 106 Users made 4.9 thousand changesets with 67.3 thousand map changes.
 #### 20.5 thousand OSM Elements were Created, 46.7 thousand Modified & 124 Deleted.
@@ -31,7 +31,7 @@ Top 5 Created tags are :
 
 Top 5 Modified tags are :
 - building: 27.4 thousand
-- roof:shape: 21.7 thousand
+- roof:shape: 21.8 thousand
 - building:levels: 20.9 thousand
 - roof:levels: 19.7 thousand
 - check_date: 19.4 thousand
@@ -50,7 +50,7 @@ Top 5 trending editors are:
 - Every Door Android 3.1 : 52 users
 - Every Door iOS 3.0 : 9 users
 - iD 2.25.2 : 3 users
-- OsmAnd 4.4.7 : 2 users
+- JOSM/1.5 (18721 en) : 2 users
 
 
 Top 5 trending Countries where user contributed are:
