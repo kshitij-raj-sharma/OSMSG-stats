@@ -22,6 +22,26 @@ pip install osmium
 pip install osmsg
 ```
 
+### [DOCKER] Install with Docker locally
+
+- Clone repo & Build Local container : 
+
+  ```
+  docker build -t osmsg:latest .
+  ```
+
+- Run Container terminal to run osmsg commands: 
+
+  ```
+  docker run -it osmsg
+  ```
+
+  Attach your volume for stats generation if necessary 
+
+  ```
+  docker run -it -v /home/user/data:/app/data osmsg
+  ```
+
 ### Usage:
 
 ```
