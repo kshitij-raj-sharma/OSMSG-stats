@@ -45,112 +45,88 @@ pip install osmsg
 ### Usage:
 
 ```
-osmsg [-h] [--start_date START_DATE] [--end_date END_DATE]
-             [--username USERNAME] [--password PASSWORD]
-             [--timezone {Nepal,UTC}] [--name NAME]
+osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
+             [--password PASSWORD] [--timezone {Nepal,UTC}] [--name NAME]
              [--country COUNTRY [COUNTRY ...]] [--tags TAGS [TAGS ...]]
-             [--hashtags HASHTAGS [HASHTAGS ...]]
-             [--length LENGTH [LENGTH ...]] [--force] [--field_mappers]
-             [--meta] [--tm_stats] [--rows ROWS] [--users USERS [USERS ...]]
-             [--workers WORKERS] [--url URL [URL ...]] [--last_week]
-             [--last_day] [--last_month] [--last_year] [--last_hour]
-             [--days DAYS] [--charts] [--summary] [--exact_lookup]
+             [--hashtags HASHTAGS [HASHTAGS ...]] [--length LENGTH [LENGTH ...]] [--force]
+             [--field_mappers] [--meta] [--tm_stats] [--rows ROWS] [--users USERS [USERS ...]]
+             [--workers WORKERS] [--url URL [URL ...]] [--last_week] [--last_day] [--last_month]
+             [--last_year] [--last_hour] [--days DAYS] [--charts] [--summary] [--exact_lookup]
              [--changeset] [--all_tags] [--temp]
              [--format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]]
-             [--read_from_metadata READ_FROM_METADATA] [--update]
+             [--read_from_metadata READ_FROM_METADATA] [--boundary BOUNDARY] [--update]
 ```
 
 ### Options:
 
 ```
-options:
   -h, --help            show this help message and exit
   --start_date START_DATE
-                        Start date in the format YYYY-MM-DD HH:M:Sz eg:
-                        2023-01-28 17:43:09+05:45
-  --end_date END_DATE   End date in the format YYYY-MM-DD HH:M:Sz eg:
-                        2023-01-28 17:43:09+05:45
-  --username USERNAME   Your OSM Username : Only required for Geofabrik
-                        Internal Changefiles
-  --password PASSWORD   Your OSM Password : Only required for Geofabrik
-                        Internal Changefiles
+                        Start date in the format YYYY-MM-DD HH:M:Sz eg: 2023-01-28 17:43:09+05:45
+  --end_date END_DATE   End date in the format YYYY-MM-DD HH:M:Sz eg: 2023-01-28 17:43:09+05:45
+  --username USERNAME   Your OSM Username : Only required for Geofabrik Internal Changefiles
+  --password PASSWORD   Your OSM Password : Only required for Geofabrik Internal Changefiles
   --timezone {Nepal,UTC}
-                        Your Timezone : Currently Supported Nepal, Default :
-                        UTC
+                        Your Timezone : Currently Supported Nepal, Default : UTC
   --name NAME           Output stat file name
   --country COUNTRY [COUNTRY ...]
-                        List of country name to extract (get id from
-                        data/countries), It will use geofabrik countries
-                        updates so it will require OSM USERNAME. Only
-                        Available for Daily Updates
+                        List of country name to extract (get id from data/countries), It will use
+                        geofabrik countries updates so it will require OSM USERNAME. Only Available for
+                        Daily Updates
   --tags TAGS [TAGS ...]
                         Additional stats to collect : List of tags key
   --hashtags HASHTAGS [HASHTAGS ...]
-                        Hashtags Statistics to Collect : List of hashtags ,
-                        Limited until daily stats for now , Only lookups if
-                        hashtag is contained on the string , not a exact
+                        Hashtags Statistics to Collect : List of hashtags , Limited until daily stats
+                        for now , Only lookups if hashtag is contained on the string , not a exact
                         string lookup on beta
   --length LENGTH [LENGTH ...]
-                        Calculate length of osm features , Only Supported for
-                        way created features , Pass list of tags key to
-                        calculate eg : --length highway waterway , Unit is in
+                        Calculate length of osm features , Only Supported for way created features ,
+                        Pass list of tags key to calculate eg : --length highway waterway , Unit is in
                         Meters
-  --force               Force for the Hashtag Replication fetch if it is
-                        greater than a day interval
+  --force               Force for the Hashtag Replication fetch if it is greater than a day interval
   --field_mappers       Filter stats by field mapping editors
-  --meta                Generates stats_metadata.json including sequence info
-                        , start_data end_date , Will be useful when running
-                        daily/weekly/monthly by service/cron
-  --tm_stats            Includes Tasking Manager stats for users , TM Projects
-                        are filtered from hashtags used , Appends all time
-                        stats for user for project id produced from stats
-  --rows ROWS           No. of top rows to extract , to extract top 100 , pass
-                        100
+  --meta                Generates stats_metadata.json including sequence info , start_data end_date ,
+                        Will be useful when running daily/weekly/monthly by service/cron
+  --tm_stats            Includes Tasking Manager stats for users , TM Projects are filtered from
+                        hashtags used , Appends all time stats for user for project id produced from
+                        stats
+  --rows ROWS           No. of top rows to extract , to extract top 100 , pass 100
   --users USERS [USERS ...]
-                        List of user names to look for , You can use it to
-                        only produce stats for listed users or pass it with
-                        hashtags , it will act as and filter. Case sensitive
-                        use ' ' to enter names with space in between
-  --workers WORKERS     No. of Parallel workers to assign : Default is no of
-                        cpu available , Be aware to use this max no of workers
-                        may cause overuse of resources
-  --url URL [URL ...]   Your public list of OSM Change Replication URL ,
-                        'minute,hour,day' option by default will translate to
-                        planet replciation url. You can supply multiple urls
-                        for geofabrik country updates , Url should not have
-                        trailing / at the end
+                        List of user names to look for , You can use it to only produce stats for
+                        listed users or pass it with hashtags , it will act as and filter. Case
+                        sensitive use ' ' to enter names with space in between
+  --workers WORKERS     No. of Parallel workers to assign : Default is no of cpu available , Be aware
+                        to use this max no of workers may cause overuse of resources
+  --url URL [URL ...]   Your public list of OSM Change Replication URL , 'minute,hour,day' option by
+                        default will translate to planet replciation url. You can supply multiple urls
+                        for geofabrik country updates , Url should not have trailing / at the end
   --last_week           Extract stats for last week
   --last_day            Extract Stats for last day
   --last_month          Extract Stats for last Month
   --last_year           Extract stats for last year
   --last_hour           Extract stats for Last hour
-  --days DAYS           N nof of last days to extract , for eg if 3 is
-                        supplied script will generate stats for last 3 days
+  --days DAYS           N nof of last days to extract , for eg if 3 is supplied script will generate
+                        stats for last 3 days
   --charts              Exports Summary Charts along with stats
-  --summary             Produces Summary.md file with summary of Run and also
-                        a summary.csv which will have summary of stats per day
-  --exact_lookup        Exact lookup for hashtags to match exact hashtag
-                        supllied , without this hashtag search will search for
-                        the existence of text on hashtags and comments
-  --changeset           Include hashtag and country informations on the stats.
-                        It forces script to process changeset replciation ,
-                        Careful to use this since changeset replication is
-                        minutely according to your internet speed and cpu
-                        cores
-  --all_tags            Extract statistics of all of the unique tags and its
-                        count
-  --temp                Deletes downloaded osm files from machine after
-                        processing is done , if you want to run osmsg on same
-                        files again keep this option turn off
+  --summary             Produces Summary.md file with summary of Run and also a summary.csv which will
+                        have summary of stats per day
+  --exact_lookup        Exact lookup for hashtags to match exact hashtag supllied , without this
+                        hashtag search will search for the existence of text on hashtags and comments
+  --changeset           Include hashtag and country informations on the stats. It forces script to
+                        process changeset replciation , Careful to use this since changeset replication
+                        is minutely according to your internet speed and cpu cores
+  --all_tags            Extract statistics of all of the unique tags and its count
+  --temp                Deletes downloaded osm files from machine after processing is done , if you
+                        want to run osmsg on same files again keep this option turn off
   --format {csv,json,excel,image,text} [{csv,json,excel,image,text} ...]
                         Stats output format
   --read_from_metadata READ_FROM_METADATA
-                        Location of metadata to pick start date from previous
-                        run's end_date , Generally used if you want to run bot
-                        on regular interval using cron/service
-  --update              Update the old dataset produced by osmsg , Very
-                        Experimental : There should be your name stats.csv and
-                        summary.csv in place where command is run
+                        Location of metadata to pick start date from previous run's end_date ,
+                        Generally used if you want to run bot on regular interval using cron/service
+  --boundary BOUNDARY   Boundary geojson file path to filter stats, see data/example_boudnary for
+                        format of geojson
+  --update              Update the old dataset produced by osmsg , Very Experimental : There should be
+                        your name stats.csv and summary.csv in place where command is run
 ```
 
 It is a Simple python script processes osm files live and produces stats on the fly

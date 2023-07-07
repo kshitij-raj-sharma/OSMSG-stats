@@ -663,7 +663,7 @@ def parse_args():
         "--boundary",
         type=str,
         default=None,
-        help="Boundary geojson file path to filter stats",
+        help="Boundary geojson file path to filter stats, see data/example_boudnary for format of geojson",
     )
 
     parser.add_argument(
