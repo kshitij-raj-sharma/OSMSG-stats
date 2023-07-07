@@ -39,7 +39,6 @@ import matplotlib.pyplot as plt
 import osmium
 import pandas as pd
 from matplotlib.font_manager import FontProperties
-from shapely.geometry import box
 from tqdm import tqdm
 
 from .changefiles import (
@@ -62,8 +61,10 @@ from .utils import (
     download_osm_files,
     extract_projects,
     generate_tm_stats,
+    get_bbox_centroid,
     get_editors_name_strapped,
     get_file_path_from_url,
+    process_boundary,
     sum_tags,
     update_stats,
     update_summary,
@@ -260,7 +261,9 @@ def collect_changefile_stats(
 def calculate_stats(
     user, uname, changeset, version, tags, osm_type, timestamp, osm_obj_nodes=None
 ):
-    if hashtags or collect_field_mappers_stats:  # intersect with changesets
+    if (
+        hashtags or collect_field_mappers_stats or geom_boundary
+    ):  # intersect with changesets
         if (
             len(processed_changesets) > 0
         ):  # make sure there are changesets to intersect if not meaning hashtag changeset not found no need to go for changefiles
@@ -306,6 +309,14 @@ class ChangesetHandler(osmium.SimpleHandler):
 
     def changeset(self, c):
         run_hashtag_check_logic = False
+        centroid = get_bbox_centroid(c.bounds)
+
+        if geom_boundary:
+            if not centroid:
+                return
+            if not geom_filter_df.within(centroid).any():
+                return
+
         if collect_field_mappers_stats:
             if "created_by" in c.tags:
                 editor = get_editors_name_strapped(c.tags["created_by"])
@@ -348,15 +359,8 @@ class ChangesetHandler(osmium.SimpleHandler):
                 for hash_tag in hashtags_comment:
                     if hash_tag not in processed_changesets[c.id]["hashtags"]:
                         processed_changesets[c.id]["hashtags"].append(hash_tag)
-            # get bbox
-            bounds = str(c.bounds)
-            if "invalid" not in bounds:
-                bbox_list = bounds.strip("()").split(" ")
-                minx, miny = bbox_list[0].split("/")
-                maxx, maxy = bbox_list[1].split("/")
-                bbox = box(float(minx), float(miny), float(maxx), float(maxy))
-                # Create a point for the centroid of the bounding box
-                centroid = bbox.centroid
+
+            if centroid:
                 intersected_rows = countries_df[countries_df.intersects(centroid)]
                 for i, row in intersected_rows.iterrows():
                     if row["name"] not in processed_changesets[c.id]["countries"]:
@@ -655,6 +659,12 @@ def parse_args():
         "--read_from_metadata",
         help="Location of metadata to pick start date from previous run's end_date , Generally used if you want to run bot on regular interval using cron/service",
     )
+    parser.add_argument(
+        "--boundary",
+        type=str,
+        default=None,
+        help="Boundary geojson file path to filter stats, see data/example_boudnary for format of geojson",
+    )
 
     parser.add_argument(
         "--update",
@@ -774,6 +784,8 @@ def main():
     global exact_lookup
     global summary
     global collect_field_mappers_stats
+    global geom_filter_df
+    global geom_boundary
 
     all_tags = args.all_tags
     additional_tags = args.tags
@@ -783,6 +795,12 @@ def main():
     length = args.length
     summary = args.summary
     collect_field_mappers_stats = args.field_mappers
+    geom_boundary = args.boundary
+    if args.boundary:
+        if not args.changeset and not args.hashtags:
+            args.changeset = True
+        geom_filter_df = process_boundary(args.boundary)
+
     if args.field_mappers:
         if not args.changeset and not args.hashtags:
             args.changeset = True

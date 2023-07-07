@@ -30,6 +30,7 @@ import shutil
 import urllib.parse
 from collections import defaultdict
 
+import geopandas as gpd
 import humanize
 import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
@@ -39,6 +40,7 @@ import pandas as pd
 import requests
 import seaborn as sns
 from requests.adapters import HTTPAdapter
+from shapely.geometry import MultiPolygon, Polygon, box
 
 # number of times to retry
 retry_count = 3
@@ -778,3 +780,59 @@ def generate_tm_stats(tm_projects, usernames):
         }
     )
     return tm_df
+
+
+def process_boundary(input_data):
+    if isinstance(input_data, str):
+        try:
+            geojson_data = json.loads(input_data)
+        except json.JSONDecodeError:
+            # If it's not a valid JSON string, treat it as a file path
+            if not os.path.isfile(input_data):
+                raise ValueError("Invalid file path provided.")
+            with open(input_data) as file:
+                geojson_data = json.load(file)
+    else:
+        raise ValueError("Invalid input type. JSON string/file path.")
+    geometry = geojson_data.get("geometry")
+
+    if geometry.get("type") not in ("Polygon", "MultiPolygon"):
+        raise ValueError("Invalid GeoJSON. Expected Polygon or MultiPolygon geometry.")
+
+    coordinates = geometry.get("coordinates")[0]
+    if geometry.get("type") == "Polygon":
+        if len(coordinates) < 3:
+            raise ValueError(
+                "Invalid GeoJSON Polygon. Expected at least three coordinate tuples."
+            )
+        polygons = [Polygon(coordinates)]
+    else:
+        polygons = []
+        for coords in coordinates:
+            if len(coords) < 3:
+                raise ValueError(
+                    "Invalid GeoJSON MultiPolygon. Expected at least three coordinate tuples."
+                )
+            polygons.append(Polygon(coords))
+
+    if geometry.get("type") == "MultiPolygon":
+        geom = MultiPolygon(polygons)
+    else:
+        geom = polygons[0]
+    ### return geom gdf here
+    gdf = gpd.GeoDataFrame(geometry=gpd.GeoSeries(geom))
+    print("Filtering data with: ",gdf)
+    return gdf
+
+
+def get_bbox_centroid(bounds):
+    bounds = str(bounds)
+    if "invalid" not in bounds:
+        bbox_list = bounds.strip("()").split(" ")
+        minx, miny = bbox_list[0].split("/")
+        maxx, maxy = bbox_list[1].split("/")
+        bbox = box(float(minx), float(miny), float(maxx), float(maxy))
+        # Create a point for the centroid of the bounding box
+        centroid = bbox.centroid
+        return centroid
+    return None
