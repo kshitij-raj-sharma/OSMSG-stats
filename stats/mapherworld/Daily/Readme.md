@@ -1,7 +1,7 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-07-06 04:08:11+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-07-08 04:07:37+00:00 (UTC Timezone)
 
 #### 107 Users made 5.0 thousand changesets with 67.5 thousand map changes.
-#### 20.5 thousand OSM Elements were Created, 46.8 thousand Modified & 124 Deleted.
+#### 20.6 thousand OSM Elements were Created, 46.8 thousand Modified & 124 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
