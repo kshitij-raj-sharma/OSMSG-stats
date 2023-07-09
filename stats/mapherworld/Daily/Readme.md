@@ -1,20 +1,20 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-07-08 04:07:37+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-07-09 04:07:34+00:00 (UTC Timezone)
 
-#### 107 Users made 5.0 thousand changesets with 67.5 thousand map changes.
-#### 20.6 thousand OSM Elements were Created, 46.8 thousand Modified & 124 Deleted.
+#### 107 Users made 5.0 thousand changesets with 67.8 thousand map changes.
+#### 20.7 thousand OSM Elements were Created, 46.9 thousand Modified & 124 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
 - charles chilufya : 11.5 thousand Map Changes
-- paulsangu14 : 10.8 thousand Map Changes
+- paulsangu14 : 11.0 thousand Map Changes
 - Eugenie de Jesus : 8.1 thousand Map Changes
 - Yves umuganwa : 3.9 thousand Map Changes
 - Kelvin Manase : 3.5 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 12.3 thousand, Modified : 16.8 thousand
-- building = Created: 8.8 thousand, Modified : 27.5 thousand
+- building = Created: 8.9 thousand, Modified : 27.5 thousand
 - highway = Created: 1.6 thousand, Modified : 87
 - waterway = Created: 11, Modified : 1
 - amenity = Created: 1.5 thousand, Modified : 10.8 thousand
@@ -22,7 +22,7 @@ Summary of Supplied Tags
 
 
 Top 5 Created tags are :
-- building: 8.8 thousand
+- building: 8.9 thousand
 - roof:shape: 7.2 thousand
 - addr:housenumber: 2.7 thousand
 - building:levels: 2.4 thousand
@@ -50,7 +50,7 @@ Top 5 trending editors are:
 - Every Door Android 3.1 : 53 users
 - Every Door iOS 3.0 : 10 users
 - iD 2.25.2 : 3 users
-- JOSM/1.5 (18721 en) : 2 users
+- OsmAnd 4.4.7 : 2 users
 
 
 Top 5 trending Countries where user contributed are:
