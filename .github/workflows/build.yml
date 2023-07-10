@@ -1,9 +1,8 @@
 name: Build and Publish
 
 on:
-  push:
-    tags:
-      - 'v*'
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -24,7 +23,7 @@ jobs:
           pip install setuptools wheel twine
 
       - name: Build package
-        run: python setup.py sdist 
+        run: python setup.py sdist
 
       - name: Publish to PyPI
         env:
