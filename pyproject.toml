@@ -9,7 +9,7 @@ description = "OpenStreetMap Stats Generator : Commandline"
 readme = "README.md"
 homepage = "https://github.com/kshitijrajsharma/OSMSG"
 authors = [{name = "Kshitij Raj Sharma", email = "skshitizraj@gmail.com"}]
-license = "MIT"
+license = {text = "MIT"}
 
 [tool.poetry.dependencies]
 python = "^3.6"
