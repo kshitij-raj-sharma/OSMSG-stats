@@ -7,7 +7,6 @@ name = "osmsg"
 version = "0.1.32"
 description = "OpenStreetMap Stats Generator : Commandline"
 readme = "README.md"
-homepage = "https://github.com/kshitijrajsharma/OSMSG"
 authors = [{name = "Kshitij Raj Sharma", email = "skshitizraj@gmail.com"}]
 license = {text = "MIT"}
 
