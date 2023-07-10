@@ -269,6 +269,8 @@ Contributions are always welcome! Project is in active development phase , Impro
   - Fork the repository.
   - Make your changes and submit a pull request.
 
+### Version Control
+Follow [Version Control Docs](./docs/Version_control.md)
 
 ### Request Stats Tracking on Github 
 Follow [stats_request_docs](./docs/Request_Stats.md)
