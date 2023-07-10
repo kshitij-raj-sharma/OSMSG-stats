@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-06-25 00:00:00+00:00 to 2023-07-02 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-07-02 00:00:00+00:00 to 2023-07-09 00:00:00+00:00 (UTC Timezone)
 
-#### 1.6 thousand Users made 20.2 thousand changesets with 2.1 million map changes.
-#### 1.5 million OSM Elements were Created, 476.4 thousand Modified & 140.8 thousand Deleted.
+#### 1.1 thousand Users made 16.1 thousand changesets with 2.1 million map changes.
+#### 1.3 million OSM Elements were Created, 585.7 thousand Modified & 146.2 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Yves umuganwa : 43.1 thousand Map Changes
-- TeBaMa : 42.4 thousand Map Changes
-- zaituniawadh : 27.2 thousand Map Changes
-- Kraan46 : 24.5 thousand Map Changes
-- mjgk : 24.5 thousand Map Changes
+- Rizki907 : 49.6 thousand Map Changes
+- irma atus : 48.6 thousand Map Changes
+- UPegasus : 47.5 thousand Map Changes
+- Kraan46 : 37.7 thousand Map Changes
+- DiahW : 35.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 1.3 thousand, Modified : 569
-- building = Created: 230.7 thousand, Modified : 30.8 thousand
-- highway = Created: 7.3 thousand, Modified : 9.7 thousand
-- waterway = Created: 335, Modified : 362
-- amenity = Created: 122, Modified : 156
+- poi = Created: 1.3 thousand, Modified : 532
+- building = Created: 194.9 thousand, Modified : 42.5 thousand
+- highway = Created: 6.5 thousand, Modified : 9.8 thousand
+- waterway = Created: 417, Modified : 482
+- amenity = Created: 523, Modified : 167
 
 
 Top 5 Created tags are :
-- building: 230.7 thousand
-- highway: 7.3 thousand
-- source: 5.1 thousand
-- landuse: 1.9 thousand
-- crossing: 1.2 thousand
+- building: 194.9 thousand
+- highway: 6.5 thousand
+- source: 5.7 thousand
+- surface: 1.1 thousand
+- landuse: 998
 
 
 Top 5 Modified tags are :
-- building: 30.8 thousand
-- highway: 9.7 thousand
-- building:levels: 5.5 thousand
-- height: 5.3 thousand
-- addr:city: 3.9 thousand
+- building: 42.5 thousand
+- addr:city: 13.3 thousand
+- addr:street: 13.2 thousand
+- addr:housenumber: 13.1 thousand
+- building:levels: 12.9 thousand
 
 
 Top 5 trending hashtags are:
-- #OpenCitiesLAC : 460 users
-- #hotosm-project-14637 : 355 users
-- #srilanka : 355 users
-- #kalutara : 355 users
-- #dmc : 355 users
+- #hotosm-project-14637 : 336 users
+- #dmc : 335 users
+- #srilanka : 335 users
+- #kalutara : 335 users
+- #OpenCitiesLAC : 221 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 1240 users
-- JOSM/1.5 (18746 en) : 95 users
-- RapiD 1.1.9-tm.1 : 36 users
-- JOSM/1.5 (18721 fr) : 23 users
-- JOSM/1.5 (18678 en) : 21 users
+- iD 2.21.1 : 834 users
+- JOSM/1.5 (18746 en) : 88 users
+- JOSM/1.5 (18463 en) : 17 users
+- JOSM/1.5 (18721 fr) : 16 users
+- JOSM/1.5 (18678 en) : 15 users
 
 
 Top 5 trending Countries where user contributed are:
-- Honduras : 468 users
-- Sri Lanka : 374 users
-- Philippines : 111 users
-- Malawi : 93 users
-- Nigeria : 74 users
+- Sri Lanka : 339 users
+- Honduras : 226 users
+- Philippines : 88 users
+- Democratic Republic of the Congo : 70 users
+- Ecuador : 66 users
 
 
  Charts : 
