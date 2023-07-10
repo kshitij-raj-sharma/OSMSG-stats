@@ -821,7 +821,7 @@ def process_boundary(input_data):
         geom = polygons[0]
     ### return geom gdf here
     gdf = gpd.GeoDataFrame(geometry=gpd.GeoSeries(geom))
-    print("Filtering data with: ",gdf)
+    print("Filtering data with: ", gdf)
     return gdf
 
 
