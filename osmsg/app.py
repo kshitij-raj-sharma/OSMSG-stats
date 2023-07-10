@@ -431,6 +431,9 @@ def process_changefiles(url):
     except Exception as ex:
         print(f"File may be corrupt : Error at {url} : {ex}")
 
+    if remove_temp_files:
+        os.remove(file_path[:-3])
+
 
 def process_changesets(url):
     # print(f"Processing {url}")
@@ -440,6 +443,9 @@ def process_changesets(url):
         handler.apply_file(file_path[:-3])
     except Exception as ex:
         print(f"File may be corrupt : Error at {url} : {ex}")
+
+    if remove_temp_files:
+        os.remove(file_path[:-3])
 
 
 def auth(username, password):
@@ -786,6 +792,7 @@ def main():
     global collect_field_mappers_stats
     global geom_filter_df
     global geom_boundary
+    global remove_temp_files
 
     all_tags = args.all_tags
     additional_tags = args.tags
@@ -796,6 +803,8 @@ def main():
     summary = args.summary
     collect_field_mappers_stats = args.field_mappers
     geom_boundary = args.boundary
+    remove_temp_files = args.temp
+
     if args.boundary:
         if not args.changeset and not args.hashtags:
             args.changeset = True
