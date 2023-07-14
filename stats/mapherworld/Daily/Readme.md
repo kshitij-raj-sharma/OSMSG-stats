@@ -1,19 +1,19 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-07-13 04:08:43+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-07-14 04:08:07+00:00 (UTC Timezone)
 
 #### 107 Users made 5.0 thousand changesets with 67.9 thousand map changes.
-#### 20.7 thousand OSM Elements were Created, 47.0 thousand Modified & 124 Deleted.
+#### 20.7 thousand OSM Elements were Created, 47.1 thousand Modified & 128 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- charles chilufya : 11.5 thousand Map Changes
+- charles chilufya : 11.6 thousand Map Changes
 - paulsangu14 : 11.0 thousand Map Changes
 - Eugenie de Jesus : 8.1 thousand Map Changes
 - Yves umuganwa : 3.9 thousand Map Changes
 - Kelvin Manase : 3.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 12.3 thousand, Modified : 16.9 thousand
+- poi = Created: 12.4 thousand, Modified : 16.9 thousand
 - building = Created: 8.9 thousand, Modified : 27.5 thousand
 - highway = Created: 1.6 thousand, Modified : 88
 - waterway = Created: 11, Modified : 1
@@ -42,7 +42,7 @@ Top 5 trending hashtags are:
 - #OsmUgcampaign : 15 users
 - #mapherworld : 13 users
 - #OSMRwanda : 11 users
-- #EveryDoorRwanda : 8 users
+- #MapRwanda : 8 users
 
 
 Top 5 trending editors are:
