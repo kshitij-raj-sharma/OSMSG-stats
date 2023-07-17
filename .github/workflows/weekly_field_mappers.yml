@@ -1,7 +1,7 @@
-name: Run Daily Report Field Mappers
+name: Run Weekly Report Field Mappers
 on:
   schedule:
-    - cron: "0 7 * * *" # Run every day at 7 UTC
+    - cron: "0 0 * * MON" # Run every Monday
   # push:
   #   branches:
   #     - master
@@ -30,7 +30,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --format csv image --name stats --tags amenity --all_tags --charts --summary --update --name stats/fieldmappers/Daily/stats --force --field_mappers
+          osmsg --format csv image --name stats --tags amenity --all_tags --charts --summary --update --name stats/fieldmappers/Weekly/stats --force --field_mappers
 
       - name: add stats to git
 
@@ -38,7 +38,7 @@ jobs:
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          base_dir=stats/fieldmappers/Daily
+          base_dir=stats/fieldmappers/Weekly
           mkdir -p $base_dir
 
           mv $base_dir/stats_summary.md $base_dir/Readme.md
@@ -48,13 +48,13 @@ jobs:
           git commit -m "Updated Daily fieldmappers stats"
           git push
 
-      # - name : Tweet stats
-      #   env: #assign variables
-      #     API_KEY: ${{ secrets.API_KEY }}
-      #     API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
-      #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      #     ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-      #     BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
-      #   run : |
-      #     commit_id=$(git rev-parse --short HEAD)
-      #     python tweet.py --git $commit_id --tweet '#fieldmappers' --name stats/fieldmappers/Daily/stats
+      - name : Tweet stats
+        env: #assign variables
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+        run : |
+          commit_id=$(git rev-parse --short HEAD)
+          python tweet.py --git $commit_id --tweet '#fieldmappers' --name stats/fieldmappers/Weekly/stats
