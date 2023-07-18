@@ -129,7 +129,7 @@ osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
                         your name stats.csv and summary.csv in place where command is run
 ```
 
-It is a Simple python script processes osm files live and produces stats on the fly
+It is a python package that processes osm files live and produces stats on the fly
 
 1. It can Generate Stats on Country Level for countries based on geofabrik urls . Countries are available in [here](./data/countries.csv)
 2. It can also take any other server replication changefile to extract stats (Tested with Geofabrik and Planet Replication)
