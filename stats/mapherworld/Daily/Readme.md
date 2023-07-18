@@ -1,4 +1,4 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-07-16 04:07:01+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-07-18 04:07:46+00:00 (UTC Timezone)
 
 #### 107 Users made 5.0 thousand changesets with 67.9 thousand map changes.
 #### 20.7 thousand OSM Elements were Created, 47.1 thousand Modified & 128 Deleted.
@@ -42,7 +42,7 @@ Top 5 trending hashtags are:
 - #OsmUgcampaign : 15 users
 - #mapherworld : 13 users
 - #OSMRwanda : 11 users
-- #MapRwanda : 8 users
+- #EveryDoorRwanda : 8 users
 
 
 Top 5 trending editors are:
