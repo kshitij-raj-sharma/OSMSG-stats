@@ -1,62 +1,62 @@
-### Last Update : Stats from 2023-07-21 00:00:00+00:00 to 2023-07-22 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-07-22 00:00:00+00:00 to 2023-07-23 00:00:00+00:00 (UTC Timezone)
 
-#### 6.1 thousand Users made 46.1 thousand changesets with 3.3 million map changes.
-#### 2.4 million OSM Elements were Created, 646.1 thousand Modified & 221.2 thousand Deleted.
+#### 5.4 thousand Users made 40.2 thousand changesets with 2.6 million map changes.
+#### 1.9 million OSM Elements were Created, 554.5 thousand Modified & 153.5 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/Global/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Global/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Supaplex : 453.9 thousand Map Changes
-- Superadlen : 133.5 thousand Map Changes
-- Felis Pimeja : 57.5 thousand Map Changes
-- Miroff : 44.2 thousand Map Changes
-- Rukkhadevata : 43.4 thousand Map Changes
+- Supaplex : 208.1 thousand Map Changes
+- VARVAR8 : 159.6 thousand Map Changes
+- SvM : 40.9 thousand Map Changes
+- JLOSM : 36.4 thousand Map Changes
+- tgdbepe4 : 20.2 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 505.5 thousand, Modified : 90.3 thousand
-- building = Created: 137.5 thousand, Modified : 56.7 thousand
-- highway = Created: 56.6 thousand, Modified : 122.8 thousand
-- waterway = Created: 4.7 thousand, Modified : 3.2 thousand
-- amenity = Created: 8.2 thousand, Modified : 13.2 thousand
+- poi = Created: 252.5 thousand, Modified : 60.0 thousand
+- building = Created: 106.4 thousand, Modified : 81.0 thousand
+- highway = Created: 45.0 thousand, Modified : 115.2 thousand
+- waterway = Created: 3.6 thousand, Modified : 2.6 thousand
+- amenity = Created: 7.9 thousand, Modified : 13.0 thousand
 
 
 Top 5 Created tags are :
-- source: 500.2 thousand
-- addr:housenumber: 470.6 thousand
-- addr:city: 461.4 thousand
-- addr:postcode: 461.2 thousand
-- addr:country: 455.6 thousand
+- source: 239.8 thousand
+- addr:housenumber: 218.7 thousand
+- addr:city: 214.3 thousand
+- addr:postcode: 212.8 thousand
+- addr:country: 208.9 thousand
 
 
 Top 5 Modified tags are :
-- name: 129.4 thousand
-- highway: 122.8 thousand
-- surface: 57.1 thousand
-- building: 56.7 thousand
-- name:en: 51.2 thousand
+- highway: 115.2 thousand
+- name: 99.1 thousand
+- building: 81.0 thousand
+- surface: 59.6 thousand
+- addr:housenumber: 46.7 thousand
 
 
 Top 5 trending hashtags are:
-- #adt : 193 users
-- #maproulette : 107 users
-- #missingmaps : 82 users
-- #amap : 82 users
+- #youthmappers : 77 users
+- #mapmoz : 72 users
+- #mmb : 72 users
+- #FundaçãoCarlosMorgado : 72 users
 
 
 Top 5 trending editors are:
-- iD 2.26.2 : 2931 users
-- StreetComplete 53.3 : 778 users
-- JOSM/1.5 (18746 en) : 256 users
-- iD 2.21.1 : 219 users
-- JOSM/1.5 (18772 en) : 213 users
+- iD 2.26.2 : 2310 users
+- StreetComplete 53.3 : 1111 users
+- JOSM/1.5 (18772 en) : 175 users
+- Vespucci 19.0.3.0 : 165 users
+- Go Map!! 3.4.8 : 134 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 880 users
-- United States of America : 715 users
-- France : 456 users
-- U.K. of Great Britain and Northern Ireland : 284 users
-- Poland : 249 users
+- Germany : 944 users
+- United States of America : 571 users
+- France : 435 users
+- U.K. of Great Britain and Northern Ireland : 257 users
+- Poland : 226 users
 
 
  Charts : 
