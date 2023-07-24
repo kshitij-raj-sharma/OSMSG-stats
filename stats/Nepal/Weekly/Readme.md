@@ -1,62 +1,62 @@
-### Last Update : Stats from 2023-07-09 00:00:00+00:00 to 2023-07-16 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-07-16 00:00:00+00:00 to 2023-07-23 00:00:00+00:00 (UTC Timezone)
 
-#### 151 Users made 2.2 thousand changesets with 198.6 thousand map changes.
-#### 120.5 thousand OSM Elements were Created, 77.9 thousand Modified & 199 Deleted.
+#### 123 Users made 1.1 thousand changesets with 154.9 thousand map changes.
+#### 118.6 thousand OSM Elements were Created, 36.1 thousand Modified & 234 Deleted.
 Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Heinz_V : 34.8 thousand Map Changes
-- marek kleciak : 28.7 thousand Map Changes
-- Pragya Joshi : 16.2 thousand Map Changes
-- Niruta Neeupane : 15.7 thousand Map Changes
-- Adrie Sonke : 12.3 thousand Map Changes
+- Heinz_V : 44.8 thousand Map Changes
+- marek kleciak : 18.0 thousand Map Changes
+- Adrie Sonke : 15.0 thousand Map Changes
+- Niruta Neeupane : 13.5 thousand Map Changes
+- Pragya Joshi : 12.6 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 41, Modified : 269
-- building = Created: 7.3 thousand, Modified : 333
-- highway = Created: 1.1 thousand, Modified : 5.7 thousand
-- waterway = Created: 56, Modified : 133
-- amenity = Created: 15, Modified : 48
+- poi = Created: 86, Modified : 167
+- building = Created: 6.3 thousand, Modified : 328
+- highway = Created: 813, Modified : 1.1 thousand
+- waterway = Created: 17, Modified : 50
+- amenity = Created: 26, Modified : 50
 
 
 Top 5 Created tags are :
-- building: 7.3 thousand
-- highway: 1.1 thousand
-- boundary: 517
-- admin_level: 509
-- name: 308
+- building: 6.3 thousand
+- admin_level: 1.1 thousand
+- boundary: 1.1 thousand
+- highway: 813
+- name: 768
 
 
 Top 5 Modified tags are :
-- highway: 5.7 thousand
-- name: 1.3 thousand
-- admin_level: 1.1 thousand
-- boundary: 1.0 thousand
-- type: 847
+- name: 1.5 thousand
+- admin_level: 1.4 thousand
+- boundary: 1.4 thousand
+- highway: 1.1 thousand
+- name:ne: 719
 
 
 Top 5 trending hashtags are:
-- #adt : 63 users
-- #osmnepal : 14 users
-- #mappingtheunmapped : 8 users
-- #mapforcause : 8 users
+- #osmnepal : 36 users
+- #youthmappers : 23 users
+- #missingmaps : 22 users
+- #mapbuds : 22 users
 
 
 Top 5 trending editors are:
-- JOSM/1.5 (18746 en) : 70 users
-- iD 2.25.2 : 15 users
-- iD 2.21.1 : 13 users
-- iD 2.26.2 : 9 users
-- OSMLocalizer : 6 users
+- iD 2.26.2 : 34 users
+- iD 2.21.1 : 33 users
+- JOSM/1.5 (18746 en) : 17 users
+- JOSM/1.5 (18772 en) : 8 users
+- JOSM/1.5 (18721 en) : 4 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 143 users
-- India : 5 users
-- China : 5 users
-- Thailand : 2 users
-- Bangladesh : 1 users
+- Nepal : 113 users
+- China : 7 users
+- India : 7 users
+- Thailand : 3 users
+- Pakistan : 1 users
 
 
  Charts : 
