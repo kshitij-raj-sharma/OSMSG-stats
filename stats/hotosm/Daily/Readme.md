@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-07-24 00:00:00+00:00 to 2023-07-25 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-07-25 00:00:00+00:00 to 2023-07-26 00:00:00+00:00 (UTC Timezone)
 
-#### 229 Users made 2.2 thousand changesets with 341.6 thousand map changes.
-#### 229.2 thousand OSM Elements were Created, 91.9 thousand Modified & 20.4 thousand Deleted.
+#### 253 Users made 2.3 thousand changesets with 265.0 thousand map changes.
+#### 189.9 thousand OSM Elements were Created, 51.3 thousand Modified & 23.8 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Joshua Kacheyo : 13.9 thousand Map Changes
-- TeBaMa : 13.0 thousand Map Changes
-- Harissalam : 10.1 thousand Map Changes
-- UPegasus : 10.1 thousand Map Changes
-- jonbthatis : 8.2 thousand Map Changes
+- TeBaMa : 11.7 thousand Map Changes
+- ola_ooo : 7.3 thousand Map Changes
+- UPegasus : 7.1 thousand Map Changes
+- isabellklip : 6.7 thousand Map Changes
+- NadineM 6214 : 6.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 66, Modified : 56
-- building = Created: 34.7 thousand, Modified : 5.2 thousand
-- highway = Created: 1.9 thousand, Modified : 1.9 thousand
-- waterway = Created: 207, Modified : 102
-- amenity = Created: 21, Modified : 35
+- poi = Created: 123, Modified : 80
+- building = Created: 25.2 thousand, Modified : 5.5 thousand
+- highway = Created: 3.2 thousand, Modified : 2.2 thousand
+- waterway = Created: 156, Modified : 140
+- amenity = Created: 13, Modified : 58
 
 
 Top 5 Created tags are :
-- building: 34.7 thousand
-- highway: 1.9 thousand
-- source: 786
-- waterway: 207
-- surface: 160
+- building: 25.2 thousand
+- highway: 3.2 thousand
+- source: 571
+- surface: 525
+- landuse: 517
 
 
 Top 5 Modified tags are :
-- building: 5.2 thousand
-- building:levels: 2.1 thousand
-- height: 2.1 thousand
-- pmfsefin:idedif: 2.0 thousand
-- highway: 1.9 thousand
+- building: 5.5 thousand
+- building:levels: 4.1 thousand
+- height: 4.1 thousand
+- pmfsefin:idedif: 4.1 thousand
+- highway: 2.2 thousand
 
 
 Top 5 trending hashtags are:
-- #missingmaps : 42 users
-- #OpenCitiesLAC : 32 users
+- #missingmaps : 65 users
+- #OSMIndia : 36 users
+- #msf : 36 users
 - #hotosm-project-14912 : 31 users
-- #OSMIndia : 29 users
-- #NorthIndiaFloods2023 : 26 users
+- #OpenCitiesLAC : 29 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 121 users
+- iD 2.21.1 : 158 users
 - JOSM/1.5 (18772 en) : 23 users
-- JOSM/1.5 (18746 en) : 15 users
-- JOSM/1.5 (18463 en) : 8 users
-- JOSM/1.5 (18772 en_GB) : 5 users
+- JOSM/1.5 (18746 en) : 19 users
+- JOSM/1.5 (18463 en) : 7 users
+- JOSM/1.5 (18772 nl) : 4 users
 
 
 Top 5 trending Countries where user contributed are:
-- Honduras : 34 users
-- Philippines : 31 users
-- India : 30 users
-- Kenya : 18 users
-- Sri Lanka : 17 users
+- India : 39 users
+- Honduras : 32 users
+- Philippines : 32 users
+- Kenya : 23 users
+- Sudan : 18 users
 
 
  Charts : 
