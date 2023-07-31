@@ -25,6 +25,7 @@ import argparse
 import concurrent.futures
 import datetime as dt
 import json
+import logging
 import os
 import re
 import shutil
@@ -65,6 +66,7 @@ from .utils import (
     get_editors_name_strapped,
     get_file_path_from_url,
     process_boundary,
+    setup_logger,
     sum_tags,
     update_stats,
     update_summary,
@@ -90,12 +92,14 @@ field_mapping_editors = [
     "osmand maps",
 ]
 
+logger = logging.getLogger(__name__)
+
 
 def Initialize():
     global countries_df
     global geofabrik_countries
 
-    print("Initializing ....")
+    logger.info("Initializing ....")
     # read the GeoJSON file
     countries_df = gpd.read_file(
         "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/data/countries_un.geojson"
@@ -121,7 +125,7 @@ def collect_changefile_stats(
         try:
             len_feature = osmium.geom.haversine_distance(osm_obj_nodes)
         except:
-            # print("WARNING: way  incomplete." % w.id)
+            # logger.info("WARNING: way  incomplete." % w.id)
             pass
 
     # set default
@@ -419,7 +423,7 @@ def process_changefiles(url):
     # Check that the request was successful
     # Send a GET request to the URL
     if "minute" not in url:
-        print(f"Processing {url}")
+        logger.info(f"Processing {url}")
     file_path = get_file_path_from_url(url, "changefiles")
     # Open the .osc.gz file in read-only mode
     handler = ChangefileHandler()
@@ -429,33 +433,33 @@ def process_changefiles(url):
         else:
             handler.apply_file(file_path[:-3])
     except Exception as ex:
-        print(f"File may be corrupt : Error at {url} : {ex}")
+        logger.info(f"File may be corrupt : Error at {url} : {ex}")
 
     if remove_temp_files:
         os.remove(file_path[:-3])
 
 
 def process_changesets(url):
-    # print(f"Processing {url}")
+    # logger.info(f"Processing {url}")
     file_path = get_file_path_from_url(url, "changeset")
     handler = ChangesetHandler()
     try:
         handler.apply_file(file_path[:-3])
     except Exception as ex:
-        print(f"File may be corrupt : Error at {url} : {ex}")
+        logger.info(f"File may be corrupt : Error at {url} : {ex}")
 
     if remove_temp_files:
         os.remove(file_path[:-3])
 
 
 def auth(username, password):
-    print("Authenticating...")
+    logger.info("Authenticating...")
     try:
         cookies = verify_me_osm(username, password)
     except Exception as ex:
         raise ValueError("OSM Authentication Failed")
 
-    print("Authenticated !")
+    logger.info("Authenticated !")
     return cookies
 
 
@@ -678,28 +682,35 @@ def parse_args():
         default=False,
         help="Update the old dataset produced by osmsg , Very Experimental : There should be your name stats.csv and summary.csv in place where command is run",
     )
+    parser.add_argument("--debug", action="store_true", help="Enable debug mode")
     args = parser.parse_args()
     return args
 
 
 def main():
     args = parse_args()
+    if args.debug:
+        setup_logger(logging.DEBUG)
+    else:
+        setup_logger(logging.INFO)
     Initialize()
     fname = args.name
     full_path = os.path.abspath(
         os.path.join(os.getcwd(), os.path.join(os.getcwd(), f"{fname}.csv"))
     )
     base_path = os.path.abspath(os.path.dirname(full_path))
-    print(base_path)
+    logger.info(base_path)
     if not os.path.exists(base_path):
         os.makedirs(base_path)
 
     if args.update:
         if args.read_from_metadata:
-            print("Error : Option not allowed : read_from_metadata along with --update")
+            logger.info(
+                "Error : Option not allowed : read_from_metadata along with --update"
+            )
             sys.exit()
         if args.start_date:
-            print(
+            logger.info(
                 "Error : Start_date is not allowed during update it will read it from stats csv"
             )
             sys.exit()
@@ -711,14 +722,14 @@ def main():
             or args.last_hour
             or args.days
         ):
-            print(
+            logger.info(
                 "Error : Can't pass last_* parameters along with update , update will pick start date from old csv and try to update up to now / end_date"
             )
             sys.exit()
         old_csv_path = os.path.join(os.getcwd(), f"{fname}.csv")
         old_summary_path = os.path.join(os.getcwd(), f"{fname}_summary.csv")
         if not os.path.exists(old_csv_path) or not os.path.exists(old_summary_path):
-            print(
+            logger.info(
                 f"Error: Couldn't find old stats/summary csv at :{old_csv_path} hence changing update to false and extracting last day stats for default"
             )
             args.update = False
@@ -742,7 +753,7 @@ def main():
             or args.last_hour
             or args.days
         ):
-            print(
+            logger.info(
                 "ERR: Supply start_date or extraction parameters such as last_day , last_hour"
             )
             sys.exit()
@@ -757,7 +768,7 @@ def main():
         osc_url_temp = []
         for ctr in args.country:
             if not geofabrik_countries["id"].isin([ctr.lower()]).any():
-                print(
+                logger.info(
                     f"Error : {ctr} doesn't exists : Refer to data/countries.csv id column"
                 )
                 sys.exit()
@@ -766,7 +777,9 @@ def main():
                     geofabrik_countries["id"] == ctr.lower(), "update_url"
                 ].values[0]
             )
-        print(f"Ignoring --url , and using Geofabrik Update URL for {args.country}")
+        logger.info(
+            f"Ignoring --url , and using Geofabrik Update URL for {args.country}"
+        )
         args.url = osc_url_temp
 
     if args.tm_stats:
@@ -827,15 +840,15 @@ def main():
                 elif url == "day":
                     args.url = ["https://planet.openstreetmap.org/replication/day"]
                 else:
-                    print(f"Invalid input for urls {url}")
+                    logger.info(f"Invalid input for urls {url}")
                     sys.exit()
             if url.endswith("/"):
-                print(f"{url} should not end with trailing /")
+                logger.info(f"{url} should not end with trailing /")
                 sys.exit()
 
         if any("geofabrik" in url.lower() for url in args.url):
             if args.username is None:
-                # print(os.environ.get("OSM_USERNAME"))
+                # logger.info(os.environ.get("OSM_USERNAME"))
                 args.username = os.environ.get("OSM_USERNAME")
             if args.password is None:
                 args.password = os.environ.get("OSM_PASSWORD")
@@ -857,7 +870,7 @@ def main():
         ]
     )
     if count > 1:
-        print(
+        logger.info(
             "Error: only one of --last_hour, --last_year, --last_month, --last_day, --last_week, or --days should be specified."
         )
         sys.exit()
@@ -884,7 +897,7 @@ def main():
         if args.days > 0:
             start_date, end_date = last_days_count(args.timezone, args.days)
         else:
-            print(f"Error : {args.days} should be greater than 0")
+            logger.info(f"Error : {args.days} should be greater than 0")
             sys.exit()
     if args.read_from_metadata:
         if os.path.exists(args.read_from_metadata):
@@ -896,32 +909,34 @@ def main():
                     meta_json["end_date"], "%Y-%m-%d %H:%M:%S%z"
                 )
 
-                print(f"Start date changed to {start_date} after reading from metajson")
+                logger.info(
+                    f"Start date changed to {start_date} after reading from metajson"
+                )
             else:
-                print("no end_date in meta json")
+                logger.info("no end_date in meta json")
         else:
-            print("couldn't read start_date from metajson")
+            logger.info("couldn't read start_date from metajson")
     if start_date == end_date:
-        print("Err: Start date and end date are equal")
+        logger.info("Err: Start date and end date are equal")
         sys.exit()
     if ((end_date - start_date).days < 1 or args.last_hour) and args.country:
-        print(
+        logger.info(
             "Args country has day difference lesser than 1 day , Remove args country simply process a day data with --changeset option"
         )
         sys.exit()
     if (end_date - start_date).days > 1:
         if args.hashtags:
             if not args.force:
-                print(
+                logger.info(
                     "Warning : Replication for Changeset is minutely , To download more than day data it might take a while depending upon your internet speed, Use --force to ignore this warning"
                 )
                 sys.exit()
         for url in args.url:
             if "minute" in url and "geofabrik" not in url:
-                print(
+                logger.info(
                     "Warning : To Process more than day data consider using daily/hourly replciation files to avoid downloading huge data . To use daily pass : --url day , for Hourly : --url hour "
                 )
-    print(f"Supplied start_date: {start_date} and end_date: {end_date}")
+    logger.debug(f"Supplied start_date: {start_date} and end_date: {end_date}")
 
     if args.hashtags or args.changeset:
         Changeset = ChangesetToolKit()
@@ -930,7 +945,7 @@ def main():
             changeset_start_seq,
             changeset_end_seq,
         ) = Changeset.get_download_urls(start_date, end_date)
-        print(
+        logger.info(
             f"Processing Changeset from {strip_utc(Changeset.sequence_to_timestamp(changeset_start_seq),args.timezone)} to {strip_utc(Changeset.sequence_to_timestamp(changeset_end_seq),args.timezone)}"
         )
 
@@ -939,8 +954,8 @@ def main():
             os.makedirs(temp_path)
 
         max_workers = os.cpu_count() if not args.workers else args.workers
-        print(f"Using {max_workers} Threads")
-        print(
+        logger.info(f"Using {max_workers} Threads")
+        logger.info(
             "Downloading Changeset files using https://planet.openstreetmap.org/replication/changesets/"
         )
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -957,7 +972,7 @@ def main():
             ):
                 pass
 
-        print("Processing Changeset Files")
+        logger.info("Processing Changeset Files")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list
@@ -971,12 +986,12 @@ def main():
                 pass
             # executor.shutdown(wait=True)
 
-        print("Changeset Processing Finished")
+        logger.info("Changeset Processing Finished")
         end_seq_timestamp = Changeset.sequence_to_timestamp(changeset_end_seq)
         if end_date > end_seq_timestamp:
             end_date = strip_utc(end_seq_timestamp, args.timezone)
     for url in args.url:
-        print(f"Changefiles : Generating Download Urls Using {url}")
+        logger.info(f"Changefiles : Generating Download Urls Using {url}")
         (
             download_urls,
             server_ts,
@@ -986,26 +1001,26 @@ def main():
             end_seq_url,
         ) = get_download_urls_changefiles(start_date, end_date, url, args.timezone)
         if server_ts < end_date:
-            print(
+            logger.info(
                 f"Warning : End date data is not available at server, Changing to latest available date {server_ts}"
             )
             end_date = server_ts
             if start_date >= server_ts:
-                print("Err: Data is not available after start date ")
+                logger.info("Err: Data is not available after start date ")
                 sys.exit()
         global end_date_utc
         global start_date_utc
 
         start_date_utc = start_date.astimezone(dt.timezone.utc)
         end_date_utc = end_date.astimezone(dt.timezone.utc)
-        print(
-            f"Final UTC Date time to filter stats : {start_date_utc} to {end_date_utc}"
+        logger.info(
+            f"UTC Date time to filter stats : {start_date_utc} to {end_date_utc}"
         )
         # Use the ThreadPoolExecutor to download the images in parallel
         max_workers = os.cpu_count() if not args.workers else args.workers
-        print(f"Using {max_workers} Threads")
+        logger.info(f"Using {max_workers} Threads")
 
-        print("Downloading Changefiles")
+        logger.info("Downloading Changefiles")
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Use `map` to apply the `download osm files` function to each element in the `urls` list
             for _ in tqdm(
@@ -1021,7 +1036,7 @@ def main():
                 leave=True,
             ):
                 pass
-        print("Processing Changefiles")
+        logger.info("Processing Changefiles")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Use `map` to apply the `download_image` function to each element in the `urls` list
@@ -1036,12 +1051,12 @@ def main():
                 pass
 
             # executor.shutdown(wait=True)
-        print(f"Changefiles Processing Finished using {url}")
+        logger.info(f"Changefiles Processing Finished using {url}")
     os.chdir(os.getcwd())
     if args.temp:
         shutil.rmtree("temp")
     if len(users) >= 1:
-        # print(users)
+        # logger.info(users)
         if args.all_tags:
             for user in users:
                 for action in ["create", "modify"]:
@@ -1089,7 +1104,7 @@ def main():
 
         if args.rows:
             df = df.head(args.rows)
-        print(df)
+        logger.info(df)
         if args.all_tags:
             # Get the column names of the DataFrame
             cols = df.columns.tolist()
@@ -1121,7 +1136,7 @@ def main():
                     )
 
         if args.tm_stats:
-            print("Generating TM Stats ....")
+            logger.info("Generating TM Stats ....")
             # apply function to create new column with list of projects
             columns_to_drop = [
                 "tm_mapping_level",
@@ -1168,7 +1183,7 @@ def main():
 
                 df = pd.merge(df, df_final, on=["name"], how="left")
                 df["tm_projects"] = df["tm_projects"].apply(lambda x: ",".join(x))
-                print(df)
+                logger.info(df)
 
         if args.summary:
             summary_df = pd.json_normalize(list(summary_interval.values()))
@@ -1363,7 +1378,7 @@ def main():
                         tag_counts.items(), key=lambda x: x[1], reverse=True
                     )[:5]
                     created_tags_summary = "\nTop 5 Created tags are :\n"
-                    # Print the top tags and their counts
+                    # logger.info the top tags and their counts
                     for tag, count in top_tags:
                         created_tags_summary += f"- {tag}: {humanize.intword(count)}\n"
                     # Apply the sum_tags function to the tags column
@@ -1374,7 +1389,7 @@ def main():
                         tag_counts.items(), key=lambda x: x[1], reverse=True
                     )[:5]
                     modified_tags_summary = "\nTop 5 Modified tags are :\n"
-                    # Print the top tags and their counts
+                    # logger.info the top tags and their counts
                     for tag, count in top_tags:
                         modified_tags_summary += f"- {tag}: {humanize.intword(count)}\n"
                     file.write(f"{created_tags_summary}\n")
@@ -1477,10 +1492,10 @@ def main():
                         }
                     )
                 )
-            print("Metadata Created")
+            logger.info("Metadata Created")
 
     else:
-        print("No data Found")
+        logger.info("No data Found")
         sys.exit()
 
     end_time = time.time()
@@ -1489,7 +1504,7 @@ def main():
     # convert elapsed time to hr:min:sec format
     hours, rem = divmod(elapsed_time, 3600)
     minutes, seconds = divmod(rem, 60)
-    print(
+    logger.info(
         "Script Completed in hr:min:sec = {:0>2}:{:0>2}:{:05.2f}".format(
             int(hours), int(minutes), seconds
         )
@@ -1500,5 +1515,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as ex:
-        print(ex)
+        logger.info(ex)
         sys.exit()

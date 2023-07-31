@@ -24,6 +24,7 @@
 import ast
 import gzip
 import json
+import logging
 import os
 import re
 import shutil
@@ -50,12 +51,24 @@ retries = HTTPAdapter(max_retries=retry_count)
 session.mount("https://", retries)
 session.mount("http://", retries)
 
+logger = logging.getLogger(__name__)
+
+
+def setup_logger(log_level):
+    if log_level == logging.DEBUG:
+        logging.basicConfig(
+            level=log_level,
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        )
+    else:
+        logging.basicConfig(level=log_level, format="%(message)s")
+
 
 def get_editors_name_strapped(editor):
     try:
         pattern = r"([a-zA-Z\s]+)"
         editor_name = re.findall(pattern, editor)
-        # convert to lowercase and print editor name
+        # convert to lowercase and logger.debug editor name
         editor = editor_name[0].lower().strip()
         return editor
 
@@ -624,7 +637,7 @@ def update_stats(df1, df2):
 
     merged_df = merged_df.sort_values("map_changes", ascending=False)
     merged_df.insert(0, "rank", range(1, len(merged_df) + 1), True)
-    print("Updated the stats")
+    logger.debug("Updated the stats")
     return merged_df
 
 
@@ -821,7 +834,7 @@ def process_boundary(input_data):
         geom = polygons[0]
     ### return geom gdf here
     gdf = gpd.GeoDataFrame(geometry=gpd.GeoSeries(geom))
-    print("Filtering data with: ", gdf)
+    logger.debug("Filtering data with: ", gdf)
     return gdf
 
 

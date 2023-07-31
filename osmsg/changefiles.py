@@ -23,12 +23,15 @@
 
 import calendar
 import datetime as dt
+import logging
 import sys
 from datetime import datetime, timedelta
 
 import pytz
 import requests
 from osmium.replication.server import ReplicationServer
+
+logger = logging.getLogger(__name__)
 
 
 def in_local_timezone(date, timezone):
@@ -148,9 +151,12 @@ def get_download_urls_changefiles(start_date, end_date, base_url, timezone):
     repl = ReplicationServer(base_url)
 
     # Gets sequence id using timestamp we get from osm api using pyosmium tool
+    logger.debug(start_date)
     seq = repl.timestamp_to_sequence(start_date)
-    # going one step back to cover all changes only if it is not already behind
+    logger.debug(seq)
     start_seq_time = seq_to_timestamp(repl.get_state_url(seq), timezone)
+    logger.debug(start_seq_time)
+
     if start_date > start_seq_time:
         if "minute" in base_url:
             seq = (
@@ -165,7 +171,7 @@ def get_download_urls_changefiles(start_date, end_date, base_url, timezone):
     start_seq_url = repl.get_state_url(start_seq)
 
     if seq is None:
-        print(
+        logger.info(
             "Cannot reach the configured replication service '%s'.\n"
             "Does the URL point to a directory containing OSM update data?",
             base_url,
@@ -200,13 +206,13 @@ def get_download_urls_changefiles(start_date, end_date, base_url, timezone):
         if last_seq >= server_seq:
             last_seq = server_seq
 
-    print(
+    logger.info(
         # f"You have supplied {start_date} : {seq} to {last_ts} : {last_seq} . Latest Server Fetched is : {server_seq} & {in_local_timezone(server_ts,timezone)} on {base_url}\n
         f"Processing Changefiles from {seq_to_timestamp(repl.get_state_url(seq), timezone)} to {seq_to_timestamp(repl.get_state_url(last_seq), timezone)}"
     )
 
     if seq >= last_seq:
-        print("Changefile : Already up-to-date.")
+        logger.info("Changefile : Already up-to-date.")
         sys.exit()
 
     download_urls = []

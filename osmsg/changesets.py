@@ -23,9 +23,12 @@
 
 import datetime
 import datetime as dt
+import logging
 import sys
 
 import requests
+
+logger = logging.getLogger(__name__)
 
 
 class ChangesetToolKit:
@@ -117,7 +120,7 @@ class ChangesetToolKit:
         else:
             current_sequence, last_run = self.get_current_state()
             if end_date > last_run:
-                print(
+                logger.debug(
                     f"End Date is not available on changeset server changing to latest available date {last_run} "
                 )
                 end_seq = current_sequence
@@ -138,10 +141,12 @@ class ChangesetToolKit:
                 ):  # if it exceeds more than current seuquence
                     end_seq = current_sequence
         if start_seq >= end_seq:
-            print("Changeset : Already up-to-date.")
+            logger.debug("Changeset : Already up-to-date.")
             sys.exit()
         initial_seq = start_seq
-        print(f"Changesets: Generating Download URLS from {start_seq} to {end_seq}")
+        logger.debug(
+            f"Changesets: Generating Download URLS from {start_seq} to {end_seq}"
+        )
         while start_seq <= end_seq:
             seq_url = self.get_diff_url(start_seq)
             download_urls.append(seq_url)

@@ -22,12 +22,15 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import json
+import logging
 import re
 import sys
 
 import requests
 
 CUSTOM_HEADER = {"user-agent": "oauth_cookie_client.py"}
+
+logger = logging.getLogger(__name__)
 
 
 class RaiseError(Exception):
@@ -66,7 +69,6 @@ def verify_me_osm(
     consumer_url="https://osm-internal.download.geofabrik.de/get_cookie",
     format="http",
 ):
-
     username = user
     if username is None:
         report_error("The username must not be empty.")
