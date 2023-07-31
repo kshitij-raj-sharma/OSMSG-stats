@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-07-29 00:00:00+00:00 to 2023-07-30 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-07-30 00:00:00+00:00 to 2023-07-31 00:00:00+00:00 (UTC Timezone)
 
-#### 273 Users made 2.3 thousand changesets with 308.9 thousand map changes.
-#### 259.5 thousand OSM Elements were Created, 34.7 thousand Modified & 14.7 thousand Deleted.
+#### 161 Users made 1.2 thousand changesets with 171.7 thousand map changes.
+#### 129.7 thousand OSM Elements were Created, 29.0 thousand Modified & 12.9 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- TeBaMa : 11.4 thousand Map Changes
-- Joshua Kacheyo : 10.9 thousand Map Changes
-- EMP_94 : 6.6 thousand Map Changes
-- TCHANSI : 5.4 thousand Map Changes
-- Rayanehsn1 : 4.8 thousand Map Changes
+- bishbashbosh : 7.2 thousand Map Changes
+- EMP_94 : 7.1 thousand Map Changes
+- Waldhüter : 6.1 thousand Map Changes
+- TeBaMa : 6.0 thousand Map Changes
+- Libor Bednarik : 5.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 3.2 thousand, Modified : 28
-- building = Created: 34.2 thousand, Modified : 1.3 thousand
-- highway = Created: 3.3 thousand, Modified : 1.6 thousand
-- waterway = Created: 306, Modified : 140
-- amenity = Created: 4, Modified : 6
+- poi = Created: 38, Modified : 40
+- building = Created: 15.6 thousand, Modified : 722
+- highway = Created: 2.6 thousand, Modified : 1.5 thousand
+- waterway = Created: 181, Modified : 142
+- amenity = Created: 4, Modified : 12
 
 
 Top 5 Created tags are :
-- building: 34.2 thousand
-- highway: 3.3 thousand
-- natural: 3.3 thousand
-- source: 594
-- waterway: 306
+- building: 15.6 thousand
+- highway: 2.6 thousand
+- waterway: 181
+- natural: 119
+- intermittent: 109
 
 
 Top 5 Modified tags are :
-- highway: 1.6 thousand
-- building: 1.3 thousand
-- surface: 474
-- source: 197
-- tracktype: 146
+- highway: 1.5 thousand
+- building: 722
+- surface: 355
+- source: 195
+- waterway: 142
 
 
 Top 5 trending hashtags are:
-- #OSMMG : 49 users
-- #CartONG : 49 users
-- #Parera : 49 users
-- #OSMIndia : 43 users
-- #missingmaps : 38 users
+- #missingmaps : 36 users
+- #OSMIndia : 31 users
+- #NorthIndiaFloods2023 : 25 users
+- #msf : 21 users
+- #hotosm-project-15214 : 16 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 147 users
-- JOSM/1.5 (18772 en) : 24 users
-- JOSM/1.5 (18721 fr) : 15 users
-- JOSM/1.5 (18746 en) : 11 users
-- JOSM/1.5 (18772 fr) : 11 users
+- iD 2.21.1 : 86 users
+- JOSM/1.5 (18772 en) : 21 users
+- JOSM/1.5 (18772 en_GB) : 6 users
+- JOSM/1.5 (18746 en) : 6 users
+- JOSM/1.5 (18678 en) : 3 users
 
 
 Top 5 trending Countries where user contributed are:
-- Madagascar : 50 users
-- India : 47 users
-- Burkina Faso : 18 users
-- Philippines : 17 users
-- Kenya : 15 users
+- India : 31 users
+- Philippines : 14 users
+- Sri Lanka : 13 users
+- Sudan : 12 users
+- Ecuador : 11 users
 
 
  Charts : 
