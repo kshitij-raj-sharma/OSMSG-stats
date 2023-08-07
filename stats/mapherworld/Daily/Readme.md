@@ -1,4 +1,4 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-08-05 04:06:16+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-08-07 04:07:16+00:00 (UTC Timezone)
 
 #### 108 Users made 5.0 thousand changesets with 68.4 thousand map changes.
 #### 21.1 thousand OSM Elements were Created, 47.2 thousand Modified & 129 Deleted.
@@ -46,7 +46,7 @@ Top 5 trending hashtags are:
 
 
 Top 5 trending editors are:
-- Every Door Android 3.1 : 56 users
+- Every Door Android 3.1 : 57 users
 - Every Door Android 3.0 : 54 users
 - Every Door iOS 3.0 : 10 users
 - iD 2.25.2 : 3 users
