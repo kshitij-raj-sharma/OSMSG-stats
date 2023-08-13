@@ -2,7 +2,8 @@ name: Test App
 on:
   push:
     paths-ignore:
-      - '.github/**'
+      - ".github/**"
+      - "frontend/**"
     branches:
       - master
   pull_request:
@@ -34,4 +35,3 @@ jobs:
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
           osmsg  --format csv image --last_hour --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --changeset --summary --charts
-
