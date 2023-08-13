@@ -24,13 +24,14 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+defaults: # Define the default working directory for steps in this job
+  run:
+    working-directory: ./frontend
+
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    defaults: # Define the default working directory for steps in this job
-      run:
-        working-directory: ./frontend
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -55,7 +56,6 @@ jobs:
           fi
       - name: Setup Node
         uses: actions/setup-node@v3
-        working-directory: ./frontend
         with:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
