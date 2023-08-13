@@ -24,14 +24,13 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-defaults: # Define the default working directory for steps in this job
-  run:
-    working-directory: frontend
-
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    defaults: # Define the default working directory for steps in this job
+      run:
+        working-directory: frontend
     steps:
       - name: Checkout
         uses: actions/checkout@v3
