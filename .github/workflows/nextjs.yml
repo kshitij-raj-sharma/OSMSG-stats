@@ -55,7 +55,6 @@ jobs:
             exit 1
           fi
       - name: Setup Node
-        working-directory: frontend
         uses: actions/setup-node@v3
         with:
           node-version: "16"
