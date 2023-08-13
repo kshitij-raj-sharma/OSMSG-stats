@@ -55,6 +55,7 @@ jobs:
           fi
       - name: Setup Node
         uses: actions/setup-node@v3
+        working-directory: ./frontend
         with:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
