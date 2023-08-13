@@ -12,6 +12,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+defaults: # Define the default working directory for steps in this job
+  run:
+    working-directory: frontend
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -23,10 +27,6 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-
-defaults: # Define the default working directory for steps in this job
-  run:
-    working-directory: ./frontend
 
 jobs:
   # Build job
@@ -55,6 +55,7 @@ jobs:
             exit 1
           fi
       - name: Setup Node
+        working-directory: frontend
         uses: actions/setup-node@v3
         with:
           node-version: "16"
