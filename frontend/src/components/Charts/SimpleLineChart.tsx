@@ -22,16 +22,16 @@ const SimpleLineChart: React.FC<{ data: Data[] }> = ({ data }) => {
     const [point, setPoints] = useState(null);
 
 
-    const CustomTooltip = ({ payload }) => {
-        if (payload) {
-            return (
-                <div className="flex justify-center items-center bg-secondary-800 text-black w-40 h-32">
-                    <p>{payload[0]?.value}</p>
-                </div>
-            );
-        }
-        return null;
-    };
+    // const CustomTooltip = ({ payload }) => {
+    //     if (payload) {
+    //         return (
+    //             <div className="flex justify-center items-center bg-secondary-800 text-black w-40 h-32">
+    //                 <p>{payload[0]?.value}</p>
+    //             </div>
+    //         );
+    //     }
+    //     return null;
+    // };
 
     const updateTooltip = (e) => {
         let x = Math.round(e.cx);
