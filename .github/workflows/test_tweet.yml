@@ -21,6 +21,7 @@ jobs:
           pip install tweepy
 
       - name: Tweet Stats
+        continue-on-error: true
         env: #assign variables
           API_KEY: ${{ secrets.API_KEY }}
           API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
