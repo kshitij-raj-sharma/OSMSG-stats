@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-08-18 00:00:00+00:00 to 2023-08-19 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-19 00:00:00+00:00 to 2023-08-20 00:00:00+00:00 (UTC Timezone)
 
-#### 274 Users made 2.6 thousand changesets with 299.5 thousand map changes.
-#### 184.0 thousand OSM Elements were Created, 90.0 thousand Modified & 25.4 thousand Deleted.
+#### 188 Users made 1.8 thousand changesets with 313.6 thousand map changes.
+#### 210.8 thousand OSM Elements were Created, 80.6 thousand Modified & 22.1 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- TeBaMa : 14.7 thousand Map Changes
-- Arie den Boon : 8.7 thousand Map Changes
-- Noel Samson : 7.6 thousand Map Changes
-- Boyan Alexiev : 6.5 thousand Map Changes
-- Frans S : 5.3 thousand Map Changes
+- Noel Samson : 14.1 thousand Map Changes
+- TeBaMa : 12.0 thousand Map Changes
+- rita soma : 10.7 thousand Map Changes
+- jwalseth : 9.6 thousand Map Changes
+- Ziyadatul Hikmah : 8.8 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 326, Modified : 118
-- building = Created: 28.4 thousand, Modified : 4.7 thousand
-- highway = Created: 1.1 thousand, Modified : 1.4 thousand
-- waterway = Created: 96, Modified : 74
-- amenity = Created: 9, Modified : 25
+- poi = Created: 4.5 thousand, Modified : 60
+- building = Created: 37.9 thousand, Modified : 5.5 thousand
+- highway = Created: 890, Modified : 1.7 thousand
+- waterway = Created: 67, Modified : 96
+- amenity = Created: 85, Modified : 33
 
 
 Top 5 Created tags are :
-- building: 28.4 thousand
-- highway: 1.1 thousand
-- natural: 370
-- source: 289
-- landuse: 105
+- building: 37.9 thousand
+- natural: 928
+- highway: 890
+- roof:material: 183
+- barrier: 128
 
 
 Top 5 Modified tags are :
-- building: 4.7 thousand
-- building:levels: 1.7 thousand
-- highway: 1.4 thousand
-- height: 1.2 thousand
-- pmfsefin:idedif: 1.2 thousand
+- building: 5.5 thousand
+- building:levels: 2.5 thousand
+- height: 2.1 thousand
+- pmfsefin:idedif: 2.1 thousand
+- highway: 1.7 thousand
 
 
 Top 5 trending hashtags are:
-- #fao_rtea : 59 users
-- #omhesa : 59 users
-- #fao_swalim : 59 users
-- #elnino2023 : 58 users
-- #srilanka : 44 users
+- #omhesa : 54 users
+- #fao_swalim : 54 users
+- #fao_rtea : 54 users
+- #elnino2023 : 53 users
+- #missingmaps : 31 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 151 users
-- JOSM/1.5 (18789 en) : 21 users
-- JOSM/1.5 (18746 en) : 18 users
-- JOSM/1.5 (18772 en) : 10 users
-- JOSM/1.5 (18789 en_GB) : 6 users
+- iD 2.21.1 : 72 users
+- JOSM/1.5 (18789 en) : 29 users
+- JOSM/1.5 (18789 en_GB) : 9 users
+- JOSM/1.5 (18746 en) : 9 users
+- JOSM/1.5 (18772 en) : 8 users
 
 
 Top 5 trending Countries where user contributed are:
-- Sri Lanka : 44 users
-- Kenya : 38 users
-- Honduras : 32 users
-- Somalia : 30 users
-- India : 21 users
+- Kenya : 33 users
+- Somalia : 24 users
+- India : 24 users
+- Sri Lanka : 17 users
+- Mali : 13 users
 
 
  Charts : 
