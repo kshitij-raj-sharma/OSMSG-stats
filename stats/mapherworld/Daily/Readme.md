@@ -1,7 +1,7 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-08-20 04:15:01+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-08-21 04:14:49+00:00 (UTC Timezone)
 
-#### 108 Users made 5.0 thousand changesets with 68.4 thousand map changes.
-#### 21.1 thousand OSM Elements were Created, 47.2 thousand Modified & 129 Deleted.
+#### 109 Users made 5.0 thousand changesets with 68.5 thousand map changes.
+#### 21.2 thousand OSM Elements were Created, 47.2 thousand Modified & 129 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
 
@@ -15,8 +15,8 @@ Top 5 Users are :
 Summary of Supplied Tags
 - poi = Created: 12.4 thousand, Modified : 17.0 thousand
 - building = Created: 8.9 thousand, Modified : 27.5 thousand
-- highway = Created: 1.6 thousand, Modified : 88
-- waterway = Created: 12, Modified : 1
+- highway = Created: 1.6 thousand, Modified : 89
+- waterway = Created: 12, Modified : 2
 - amenity = Created: 1.5 thousand, Modified : 10.9 thousand
 - highway length created = 4 Km
 
@@ -38,7 +38,7 @@ Top 5 Modified tags are :
 
 
 Top 5 trending hashtags are:
-- #MapHerWorld : 85 users
+- #MapHerWorld : 86 users
 - #OsmUgcampaign : 15 users
 - #mapherworld : 13 users
 - #OSMRwanda : 11 users
