@@ -24,6 +24,6 @@
 
 - Create the pull request - If everything looks good, click on the "Create pull request" button to create the pull request. Provide description about what you wanted to do , Hashtag you wanted to add its frequency in words 
 
-- Wait for approval - Wait for the repository owner to review your changes and approve the pull request. If any changes are required, make the changes and push them to your forked repository. The pull request will automatically update with the new changes.
+- Wait for approval - Wait for the repository admins to review your changes and approve the pull request. If any changes are required, make the changes and push them to your forked repository. The pull request will automatically update with the new changes.
 
 ***Note : Don't change anything on .yml until and unless you know what you are doing***
