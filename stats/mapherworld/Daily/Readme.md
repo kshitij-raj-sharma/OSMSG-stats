@@ -1,6 +1,6 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-08-24 04:15:01+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-08-27 04:14:46+00:00 (UTC Timezone)
 
-#### 109 Users made 5.0 thousand changesets with 68.5 thousand map changes.
+#### 110 Users made 5.0 thousand changesets with 68.5 thousand map changes.
 #### 21.2 thousand OSM Elements were Created, 47.2 thousand Modified & 129 Deleted.
 Get Full Stats at [stats.csv](/stats/mapherworld/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/mapherworld/Daily/stats_summary.csv)
@@ -38,15 +38,15 @@ Top 5 Modified tags are :
 
 
 Top 5 trending hashtags are:
-- #MapHerWorld : 86 users
+- #MapHerWorld : 87 users
 - #OsmUgcampaign : 15 users
 - #mapherworld : 13 users
-- #OSMRwanda : 11 users
-- #MapRwanda : 8 users
+- #OSMRwanda : 12 users
+- #MapRwanda : 9 users
 
 
 Top 5 trending editors are:
-- Every Door Android 3.1 : 58 users
+- Every Door Android 3.1 : 59 users
 - Every Door Android 3.0 : 54 users
 - Every Door iOS 3.0 : 10 users
 - iD 2.25.2 : 3 users
@@ -56,7 +56,7 @@ Top 5 trending editors are:
 Top 5 trending Countries where user contributed are:
 - United Republic of Tanzania : 45 users
 - Uganda : 27 users
-- Rwanda : 12 users
+- Rwanda : 13 users
 - Zimbabwe : 7 users
 - Ghana : 6 users
 
