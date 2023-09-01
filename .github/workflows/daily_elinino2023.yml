@@ -1,8 +1,8 @@
-name: Run Daily Report omhesa Hashtag
+name: Run Daily Report elinino2023 Hashtag
 on:
   schedule:
     - cron: "0 3 * * *" # Run every day at 3 UTC
-    
+
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -22,23 +22,23 @@ jobs:
           pip install -e . 
           pip install tweepy
           pip install -r requirements.txt
-      - name: Generate Daily Hashtag omhesa Stats
+      - name: Generate Daily Hashtag elinino2023 Stats
         run: |
-          osmsg --format csv image --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --hashtags omhesa fao_swalim fao_rtea elinino2023 --charts --summary --length highway --update --name stats/omhesa/Daily/stats --force
- 
+          osmsg --format csv image --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --hashtags fao_swalim fao_rtea elinino2023 --charts --summary --length highway --update --name stats/elinino2023/Daily/stats --force
+
       - name: add stats to git
         run: |
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
-          base_dir=stats/omhesa/Daily
+          base_dir=stats/elinino2023/Daily
           mkdir -p $base_dir
           mv $base_dir/stats_summary.md $base_dir/Readme.md
           git add -f $base_dir/*
-          git commit -m "Updated Daily omhesa stats"
+          git commit -m "Updated Daily elinino2023 stats"
           git push
 
-      - name : Tweet stats
+      - name: Tweet stats
         continue-on-error: true
         env:
           API_KEY: ${{ secrets.API_KEY }}
@@ -46,6 +46,6 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
-        run : |
+        run: |
           commit_id=$(git rev-parse --short HEAD)
-          python tweet.py --git $commit_id --tweet '#omhesa' --name stats/omhesa/Daily/stats
+          python tweet.py --git $commit_id --tweet '#elinino2023' --name stats/elinino2023/Daily/stats
