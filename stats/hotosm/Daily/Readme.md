@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-08-30 00:00:00+00:00 to 2023-08-31 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-31 00:00:00+00:00 to 2023-09-01 00:00:00+00:00 (UTC Timezone)
 
-#### 368 Users made 4.1 thousand changesets with 444.0 thousand map changes.
-#### 299.6 thousand OSM Elements were Created, 105.2 thousand Modified & 39.2 thousand Deleted.
+#### 370 Users made 3.8 thousand changesets with 430.7 thousand map changes.
+#### 308.4 thousand OSM Elements were Created, 94.0 thousand Modified & 28.3 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- ngumenawesamson : 13.8 thousand Map Changes
-- Angela M Naluonde : 11.6 thousand Map Changes
-- UPegasus : 11.4 thousand Map Changes
-- TeBaMa : 10.9 thousand Map Changes
-- Nyaega Orina : 10.6 thousand Map Changes
+- KingVik : 26.7 thousand Map Changes
+- UPegasus : 12.9 thousand Map Changes
+- TeBaMa : 11.3 thousand Map Changes
+- zoubinnaba : 10.3 thousand Map Changes
+- Awania Morish : 9.8 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 433, Modified : 333
-- building = Created: 45.7 thousand, Modified : 2.8 thousand
-- highway = Created: 1.2 thousand, Modified : 1.5 thousand
-- waterway = Created: 70, Modified : 134
-- amenity = Created: 175, Modified : 34
+- poi = Created: 689, Modified : 141
+- building = Created: 45.5 thousand, Modified : 3.6 thousand
+- highway = Created: 1.2 thousand, Modified : 1.2 thousand
+- waterway = Created: 87, Modified : 97
+- amenity = Created: 358, Modified : 50
 
 
 Top 5 Created tags are :
-- building: 45.7 thousand
+- building: 45.5 thousand
 - highway: 1.2 thousand
-- natural: 192
-- amenity: 175
-- barrier: 171
+- barrier: 375
+- natural: 365
+- amenity: 358
 
 
 Top 5 Modified tags are :
-- building: 2.8 thousand
-- highway: 1.5 thousand
-- landuse: 410
-- surface: 388
-- source: 302
+- building: 3.6 thousand
+- roof:material: 1.4 thousand
+- highway: 1.2 thousand
+- surface: 323
+- building:material: 284
 
 
 Top 5 trending hashtags are:
-- #missingmaps : 60 users
-- #omhesa : 52 users
-- #fao_swalim : 52 users
-- #fao_rtea : 52 users
-- #elnino2023 : 52 users
+- #elnino2023 : 75 users
+- #omhesa : 75 users
+- #fao_swalim : 75 users
+- #fao_rtea : 75 users
+- #OpenCitiesLAC : 55 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 229 users
-- JOSM/1.5 (18789 en) : 25 users
-- JOSM/1.5 (18822 en) : 14 users
-- JOSM/1.5 (18746 en) : 10 users
-- JOSM/1.5 (18772 en) : 9 users
+- iD 2.21.1 : 234 users
+- JOSM/1.5 (18746 en) : 22 users
+- JOSM/1.5 (18822 en) : 19 users
+- JOSM/1.5 (18789 en) : 16 users
+- Rapid 2.1.0 : 9 users
 
 
 Top 5 trending Countries where user contributed are:
-- Honduras : 49 users
-- Kenya : 48 users
-- Malawi : 41 users
-- Nigeria : 38 users
-- Sri Lanka : 25 users
+- Honduras : 54 users
+- Malawi : 54 users
+- Kenya : 45 users
+- Nigeria : 35 users
+- Somalia : 31 users
 
 
  Charts : 
