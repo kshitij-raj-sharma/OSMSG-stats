@@ -1,0 +1,51 @@
+name: Run Daily Report kakuma Hashtag
+on:
+  schedule:
+    - cron: "0 3 * * *" # Run every day at 3 UTC
+
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install Osmium
+        run: sudo apt-get install -y osmium-tool
+
+      - name: Install necessary dependecies
+        run: |
+          pip install flare-floss
+          pip install -e . 
+          pip install tweepy
+          pip install -r requirements.txt
+      - name: Generate Daily Hashtag kakuma Stats
+        run: |
+          osmsg --format csv image --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --hashtags hotosm-project-13974 hotosm-project-11984 hotosm-project-14135 hotosm-project-14862 hotosm-project-14863 hotosm-project-14864 hotosm-project-15194 hotosm-project-15195 hotosm-project-15200 hotosm-project-15197 hotosm-project-15198 hotosm-project-15199 hotosm-project-15204 hotosm-project-15205 hotosm-project-15206 hotosm-project-15207 hotosm-project-15208 hotosm-project-15209 hotosm-project-15210 hotosm-project-15211 hotosm-project-15212 --charts --summary --length highway --name stats/kakuma/Daily/stats --force --update
+
+      - name: add stats to git
+        run: |
+          git pull
+          git config --global user.email "skshitizraj@gmail.com"
+          git config --global user.name "kshitijrajsharma"
+          base_dir=stats/kakuma/Daily
+          mkdir -p $base_dir
+          mv $base_dir/stats_summary.md $base_dir/Readme.md
+          git add -f $base_dir/*
+          git commit -m "Updated Daily kakuma stats"
+          git push
+
+      - name: Tweet stats
+        continue-on-error: true
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+        run: |
+          commit_id=$(git rev-parse --short HEAD)
+          python tweet.py --git $commit_id --tweet '#kakuma' --name stats/kakuma/Daily/stats
