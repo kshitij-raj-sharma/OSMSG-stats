@@ -1,62 +1,62 @@
-### Last Update : Stats from 2023-09-07 00:00:00+00:00 to 2023-09-08 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-09-08 00:00:00+00:00 to 2023-09-09 00:00:00+00:00 (UTC Timezone)
 
-#### 6.4 thousand Users made 45.4 thousand changesets with 3.2 million map changes.
-#### 2.3 million OSM Elements were Created, 687.1 thousand Modified & 207.6 thousand Deleted.
+#### 6.3 thousand Users made 43.8 thousand changesets with 3.2 million map changes.
+#### 2.4 million OSM Elements were Created, 679.9 thousand Modified & 198.0 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/Global/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Global/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- TheSwavu : 139.5 thousand Map Changes
-- حسام عبد الناصر : 118.3 thousand Map Changes
-- erickdeoliveiraleal : 40.3 thousand Map Changes
-- Evarist Isdory : 32.9 thousand Map Changes
-- Angela M Naluonde : 27.2 thousand Map Changes
+- Superadlen : 161.5 thousand Map Changes
+- NKA : 158.0 thousand Map Changes
+- حسام عبد الناصر : 128.2 thousand Map Changes
+- mottiger : 38.5 thousand Map Changes
+- Cascafico : 26.4 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 46.0 thousand, Modified : 69.1 thousand
-- building = Created: 153.2 thousand, Modified : 44.4 thousand
-- highway = Created: 55.1 thousand, Modified : 137.5 thousand
-- waterway = Created: 4.3 thousand, Modified : 6.6 thousand
-- amenity = Created: 11.7 thousand, Modified : 15.1 thousand
+- poi = Created: 60.4 thousand, Modified : 56.1 thousand
+- building = Created: 159.9 thousand, Modified : 47.7 thousand
+- highway = Created: 54.2 thousand, Modified : 137.2 thousand
+- waterway = Created: 6.3 thousand, Modified : 4.0 thousand
+- amenity = Created: 9.7 thousand, Modified : 12.0 thousand
 
 
 Top 5 Created tags are :
-- building: 153.2 thousand
-- highway: 55.1 thousand
-- source: 47.8 thousand
-- natural: 15.9 thousand
-- name: 15.0 thousand
+- building: 159.9 thousand
+- source: 66.3 thousand
+- highway: 54.2 thousand
+- addr:housenumber: 23.6 thousand
+- addr:street: 21.4 thousand
 
 
 Top 5 Modified tags are :
-- highway: 137.5 thousand
-- name: 84.8 thousand
-- surface: 61.0 thousand
-- building: 44.4 thousand
-- addr:housenumber: 37.6 thousand
+- highway: 137.2 thousand
+- name: 89.6 thousand
+- surface: 65.3 thousand
+- building: 47.7 thousand
+- source: 37.8 thousand
 
 
 Top 5 trending hashtags are:
-- #adt : 221 users
-- #OpenCitiesLAC : 166 users
-- #missingmaps : 86 users
-- #awsmapathon : 73 users
+- #adt : 206 users
+- #maproulette : 75 users
+- #missingmaps : 64 users
+- #amap : 58 users
 
 
 Top 5 trending editors are:
-- iD 2.27.1 : 3180 users
-- StreetComplete 54.0 : 520 users
-- StreetComplete 53.3 : 434 users
-- iD 2.21.1 : 361 users
-- JOSM/1.5 (18746 en) : 231 users
+- iD 2.27.1 : 3098 users
+- StreetComplete 54.0 : 703 users
+- StreetComplete 53.3 : 380 users
+- JOSM/1.5 (18746 en) : 224 users
+- JOSM/1.5 (18822 en) : 215 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 843 users
-- United States of America : 792 users
-- France : 437 users
-- U.K. of Great Britain and Northern Ireland : 290 users
-- Russian Federation : 251 users
+- Germany : 904 users
+- United States of America : 774 users
+- France : 427 users
+- U.K. of Great Britain and Northern Ireland : 287 users
+- Italy : 284 users
 
 
  Charts : 
