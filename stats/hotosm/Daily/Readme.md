@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-09-09 00:00:00+00:00 to 2023-09-10 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-09-10 00:00:00+00:00 to 2023-09-11 00:00:00+00:00 (UTC Timezone)
 
-#### 316 Users made 2.9 thousand changesets with 440.3 thousand map changes.
-#### 327.8 thousand OSM Elements were Created, 73.9 thousand Modified & 38.6 thousand Deleted.
+#### 413 Users made 3.7 thousand changesets with 491.9 thousand map changes.
+#### 382.6 thousand OSM Elements were Created, 87.0 thousand Modified & 22.3 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Joachim_0 : 16.5 thousand Map Changes
-- Ivan Arinin : 14.0 thousand Map Changes
-- adewi1997 : 11.6 thousand Map Changes
-- Dannyoung : 10.9 thousand Map Changes
-- tonybendell : 10.4 thousand Map Changes
+- Erick tamba : 25.3 thousand Map Changes
+- Uwaina : 11.5 thousand Map Changes
+- Cornelius Kipruto : 10.4 thousand Map Changes
+- Kraan46 : 9.1 thousand Map Changes
+- toponomastica_comune_arenzano : 8.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 345, Modified : 108
-- building = Created: 44.7 thousand, Modified : 2.8 thousand
-- highway = Created: 1.6 thousand, Modified : 1.6 thousand
-- waterway = Created: 405, Modified : 210
-- amenity = Created: 67, Modified : 21
+- poi = Created: 404, Modified : 314
+- building = Created: 47.9 thousand, Modified : 3.0 thousand
+- highway = Created: 2.5 thousand, Modified : 2.1 thousand
+- waterway = Created: 444, Modified : 429
+- amenity = Created: 94, Modified : 19
 
 
 Top 5 Created tags are :
-- building: 44.7 thousand
-- highway: 1.6 thousand
-- landuse: 570
-- waterway: 405
-- natural: 353
+- building: 47.9 thousand
+- highway: 2.5 thousand
+- source: 1.6 thousand
+- landuse: 637
+- type: 507
 
 
 Top 5 Modified tags are :
-- building: 2.8 thousand
-- highway: 1.6 thousand
-- roof:material: 367
-- landuse: 342
-- surface: 308
+- building: 3.0 thousand
+- highway: 2.1 thousand
+- landuse: 595
+- surface: 480
+- roof:material: 472
 
 
 Top 5 trending hashtags are:
-- #hotosm-project-15468 : 146 users
-- #moroccoearthquake2023 : 96 users
-- #missingmaps : 39 users
-- #elnino2023 : 34 users
-- #omhesa : 34 users
+- #hotosm-project-15468 : 291 users
+- #moroccoearthquake2023 : 290 users
+- #missingmaps : 32 users
+- #omhesa : 22 users
+- #fao_rtea : 22 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 158 users
-- JOSM/1.5 (18822 en) : 33 users
-- JOSM/1.5 (18822 fr) : 12 users
-- JOSM/1.5 (18746 en) : 7 users
-- JOSM/1.5 (18789 en) : 7 users
+- iD 2.21.1 : 244 users
+- JOSM/1.5 (18822 en) : 46 users
+- JOSM/1.5 (18822 en_GB) : 11 users
+- JOSM/1.5 (18789 en) : 9 users
+- JOSM/1.5 (18822 fr) : 9 users
 
 
 Top 5 trending Countries where user contributed are:
-- Morocco : 147 users
-- Kenya : 22 users
-- Malawi : 18 users
-- Sudan : 17 users
-- Togo : 17 users
+- Morocco : 291 users
+- Malawi : 14 users
+- Ethiopia : 14 users
+- Kenya : 13 users
+- Sudan : 13 users
 
 
  Charts : 
