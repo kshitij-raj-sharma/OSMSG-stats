@@ -1,62 +1,62 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-09-11 03:09:47+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-09-12 03:10:16+00:00 (UTC Timezone)
 
-#### 254 Users made 25.0 thousand changesets with 3.1 million map changes.
-#### 2.5 million OSM Elements were Created, 515.1 thousand Modified & 97.0 thousand Deleted.
+#### 257 Users made 26.2 thousand changesets with 3.4 million map changes.
+#### 2.7 million OSM Elements were Created, 596.9 thousand Modified & 109.7 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Angela M Naluonde : 178.8 thousand Map Changes
-- Awania Morish : 119.7 thousand Map Changes
-- zoubinnaba : 111.5 thousand Map Changes
-- Joseph Munyenze Kathukya : 111.0 thousand Map Changes
-- severino chundu : 107.4 thousand Map Changes
+- Angela M Naluonde : 213.6 thousand Map Changes
+- Evarist Isdory : 136.5 thousand Map Changes
+- Awania Morish : 124.5 thousand Map Changes
+- JaphetMasunzu : 124.1 thousand Map Changes
+- zoubinnaba : 121.4 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 22.1 thousand, Modified : 540
-- building = Created: 404.7 thousand, Modified : 15.1 thousand
-- highway = Created: 1.4 thousand, Modified : 4.3 thousand
-- waterway = Created: 53, Modified : 177
-- amenity = Created: 0, Modified : 59
-- highway length created = 360 Km
+- poi = Created: 22.1 thousand, Modified : 547
+- building = Created: 437.1 thousand, Modified : 16.6 thousand
+- highway = Created: 1.5 thousand, Modified : 4.6 thousand
+- waterway = Created: 53, Modified : 180
+- amenity = Created: 0, Modified : 65
+- highway length created = 387 Km
 
 
 Top 5 Created tags are :
-- building: 404.7 thousand
-- highway: 1.4 thousand
-- source: 388
-- type: 312
+- building: 437.1 thousand
+- highway: 1.5 thousand
+- source: 393
+- type: 316
 - name: 281
 
 
 Top 5 Modified tags are :
-- building: 15.1 thousand
-- highway: 4.3 thousand
-- surface: 2.4 thousand
-- landuse: 798
-- source: 547
+- building: 16.6 thousand
+- highway: 4.6 thousand
+- surface: 2.5 thousand
+- landuse: 850
+- source: 609
 
 
 Top 5 trending hashtags are:
-- #omhesa : 254 users
-- #fao_rtea : 254 users
-- #fao_swalim : 254 users
-- #elnino2023 : 249 users
-- #hotosm-project-15400 : 57 users
+- #omhesa : 257 users
+- #fao_rtea : 257 users
+- #fao_swalim : 257 users
+- #elnino2023 : 252 users
+- #hotosm-project-15400 : 58 users
 
 
 Top 5 trending editors are:
 - iD 2.21.1 : 149 users
 - JOSM/1.5 (18789 en) : 28 users
-- JOSM/1.5 (18822 en) : 17 users
+- JOSM/1.5 (18822 en) : 19 users
 - JOSM/1.5 (18772 en) : 11 users
 - JOSM/1.5 (18583 en) : 8 users
 
 
 Top 5 trending Countries where user contributed are:
-- Somalia : 161 users
+- Somalia : 165 users
 - Kenya : 155 users
-- Ethiopia : 90 users
+- Ethiopia : 94 users
 - Zambia : 2 users
 
 
