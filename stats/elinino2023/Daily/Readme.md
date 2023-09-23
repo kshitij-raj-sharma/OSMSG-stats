@@ -1,38 +1,38 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-09-22 03:10:10+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-09-23 03:09:17+00:00 (UTC Timezone)
 
-#### 341 Users made 36.4 thousand changesets with 5.8 million map changes.
-#### 4.2 million OSM Elements were Created, 1.3 million Modified & 210.4 thousand Deleted.
+#### 341 Users made 37.0 thousand changesets with 6.0 million map changes.
+#### 4.3 million OSM Elements were Created, 1.4 million Modified & 231.0 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Angela M Naluonde : 491.6 thousand Map Changes
-- Evarist Isdory : 362.8 thousand Map Changes
-- JaphetMasunzu : 244.0 thousand Map Changes
-- SSEKITOLEKO : 211.4 thousand Map Changes
-- zoubinnaba : 196.2 thousand Map Changes
+- Angela M Naluonde : 521.4 thousand Map Changes
+- Evarist Isdory : 366.0 thousand Map Changes
+- JaphetMasunzu : 259.5 thousand Map Changes
+- SSEKITOLEKO : 215.8 thousand Map Changes
+- zoubinnaba : 202.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 22.1 thousand, Modified : 986
-- building = Created: 675.2 thousand, Modified : 37.5 thousand
-- highway = Created: 1.8 thousand, Modified : 6.7 thousand
-- waterway = Created: 74, Modified : 218
-- amenity = Created: 3, Modified : 141
-- highway length created = 471 Km
+- poi = Created: 22.1 thousand, Modified : 991
+- building = Created: 686.0 thousand, Modified : 46.4 thousand
+- highway = Created: 1.9 thousand, Modified : 6.9 thousand
+- waterway = Created: 74, Modified : 245
+- amenity = Created: 3, Modified : 146
+- highway length created = 482 Km
 
 
 Top 5 Created tags are :
-- building: 675.2 thousand
-- highway: 1.8 thousand
-- source: 408
-- type: 367
+- building: 686.0 thousand
+- highway: 1.9 thousand
+- source: 416
+- type: 369
 - name: 317
 
 
 Top 5 Modified tags are :
-- building: 37.5 thousand
-- highway: 6.7 thousand
-- surface: 3.8 thousand
+- building: 46.4 thousand
+- highway: 6.9 thousand
+- surface: 3.9 thousand
 - source: 1.4 thousand
 - landuse: 1.2 thousand
 
@@ -55,8 +55,8 @@ Top 5 trending editors are:
 
 Top 5 trending Countries where user contributed are:
 - Somalia : 214 users
-- Kenya : 212 users
-- Ethiopia : 116 users
+- Kenya : 214 users
+- Ethiopia : 117 users
 - Zambia : 2 users
 
 
