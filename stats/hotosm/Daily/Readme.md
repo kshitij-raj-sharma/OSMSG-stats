@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-09-22 00:00:00+00:00 to 2023-09-23 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-09-23 00:00:00+00:00 to 2023-09-24 00:00:00+00:00 (UTC Timezone)
 
-#### 584 Users made 5.3 thousand changesets with 572.9 thousand map changes.
-#### 389.3 thousand OSM Elements were Created, 140.0 thousand Modified & 43.5 thousand Deleted.
+#### 304 Users made 3.3 thousand changesets with 493.5 thousand map changes.
+#### 371.8 thousand OSM Elements were Created, 92.8 thousand Modified & 28.9 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Angela M Naluonde : 29.8 thousand Map Changes
-- sandra waniwroth : 19.3 thousand Map Changes
-- KingVik : 18.4 thousand Map Changes
-- JaphetMasunzu : 15.5 thousand Map Changes
-- ediyes : 14.6 thousand Map Changes
+- piligab : 20.3 thousand Map Changes
+- Angela M Naluonde : 16.0 thousand Map Changes
+- ngumenawesamson : 15.0 thousand Map Changes
+- Jepchumba : 12.8 thousand Map Changes
+- judithmurage : 9.9 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 749, Modified : 148
-- building = Created: 57.6 thousand, Modified : 11.5 thousand
-- highway = Created: 1.7 thousand, Modified : 1.8 thousand
-- waterway = Created: 354, Modified : 231
-- amenity = Created: 116, Modified : 38
+- poi = Created: 384, Modified : 143
+- building = Created: 53.2 thousand, Modified : 3.8 thousand
+- highway = Created: 1.7 thousand, Modified : 1.7 thousand
+- waterway = Created: 325, Modified : 212
+- amenity = Created: 178, Modified : 38
 
 
 Top 5 Created tags are :
-- building: 57.6 thousand
+- building: 53.2 thousand
 - highway: 1.7 thousand
-- source: 689
-- natural: 655
-- barrier: 562
+- source: 518
+- barrier: 330
+- waterway: 325
 
 
 Top 5 Modified tags are :
-- building: 11.5 thousand
-- highway: 1.8 thousand
-- surface: 587
-- roof:material: 464
-- name: 239
+- building: 3.8 thousand
+- highway: 1.7 thousand
+- roof:material: 623
+- source: 469
+- surface: 372
 
 
 Top 5 trending hashtags are:
-- #moroccoearthquake2023 : 209 users
-- #OpenCitiesLAC : 155 users
-- #hotosm-project-15476 : 99 users
-- #hotosm-project-15475 : 65 users
-- #hotosm-project-15095 : 44 users
+- #moroccoearthquake2023 : 69 users
+- #hotosm-project-14865 : 54 users
+- #hotosm-project-15475 : 40 users
+- #missingmaps : 31 users
+- #LibyaFloods2023 : 28 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 439 users
-- JOSM/1.5 (18822 en) : 37 users
-- JOSM/1.5 (18746 en) : 11 users
-- JOSM/1.5 (18463 en) : 8 users
-- JOSM/1.5 (18822 en_GB) : 8 users
+- iD 2.21.1 : 157 users
+- JOSM/1.5 (18822 en) : 53 users
+- JOSM/1.5 (18583 fr) : 13 users
+- JOSM/1.5 (18822 en_GB) : 11 users
+- JOSM/1.5 (18789 en) : 5 users
 
 
 Top 5 trending Countries where user contributed are:
-- Morocco : 209 users
-- Honduras : 157 users
-- Brazil : 43 users
-- Kenya : 33 users
-- Malawi : 23 users
+- Morocco : 70 users
+- Kenya : 68 users
+- Libyan Arab Jamahiriya : 34 users
+- Brazil : 18 users
+- Côte d'Ivoire : 16 users
 
 
  Charts : 
