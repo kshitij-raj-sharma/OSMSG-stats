@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults: # Define the default working directory for steps in this job
       run:
-        working-directory: /frontend
+        working-directory: ./frontend
     steps:
       - name: Checkout
         uses: actions/checkout@v3
