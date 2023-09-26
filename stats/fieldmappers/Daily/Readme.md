@@ -1,28 +1,28 @@
-### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2023-09-25 07:10:08+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2023-09-26 07:10:31+00:00 (UTC Timezone)
 
-#### 28.0 thousand Users made 1.3 million changesets with 8.1 million map changes.
-#### 1.9 million OSM Elements were Created, 6.0 million Modified & 214.3 thousand Deleted.
+#### 28.1 thousand Users made 1.3 million changesets with 8.2 million map changes.
+#### 1.9 million OSM Elements were Created, 6.1 million Modified & 217.2 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/fieldmappers/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/fieldmappers/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Đuro Jiří : 178.3 thousand Map Changes
-- biketeur : 93.3 thousand Map Changes
-- WN6 : 90.7 thousand Map Changes
-- Cubano153 : 90.2 thousand Map Changes
-- padvinder : 67.9 thousand Map Changes
+- Đuro Jiří : 181.1 thousand Map Changes
+- biketeur : 93.4 thousand Map Changes
+- Cubano153 : 91.1 thousand Map Changes
+- WN6 : 91.0 thousand Map Changes
+- padvinder : 68.8 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 440.8 thousand, Modified : 1.3 million
-- amenity = Created: 149.1 thousand, Modified : 433.9 thousand
+- poi = Created: 443.6 thousand, Modified : 1.3 million
+- amenity = Created: 150.2 thousand, Modified : 437.2 thousand
 
 
 Top 5 Created tags are :
-- name: 151.5 thousand
-- amenity: 149.1 thousand
-- highway: 145.9 thousand
-- addr:housenumber: 66.1 thousand
-- addr:street: 63.2 thousand
+- name: 152.6 thousand
+- amenity: 150.2 thousand
+- highway: 147.1 thousand
+- addr:housenumber: 66.3 thousand
+- addr:street: 63.4 thousand
 
 
 Top 5 Modified tags are :
@@ -36,23 +36,23 @@ Top 5 Modified tags are :
 Top 5 trending hashtags are:
 - #MapHerWorld : 62 users
 - #OsmUgcampaign : 16 users
-- #Map4Adjarra : 14 users
-- #CartoPartyBenin : 14 users
+- #Map4bj : 14 users
+- #Mwalai : 14 users
 
 
 Top 5 trending editors are:
-- StreetComplete 53.3 : 10123 users
-- StreetComplete 54.0 : 5942 users
-- StreetComplete 53.2 : 5750 users
+- StreetComplete 53.3 : 10132 users
+- StreetComplete 54.0 : 6081 users
+- StreetComplete 53.2 : 5751 users
 - StreetComplete 53.1 : 4496 users
-- Go Map!! 3.4.8 : 2124 users
+- Go Map!! 3.4.8 : 2141 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 7416 users
-- France : 3636 users
-- United States of America : 2832 users
-- Italy : 1658 users
+- Germany : 7459 users
+- France : 3648 users
+- United States of America : 2854 users
+- Italy : 1666 users
 
 
  Charts : 
