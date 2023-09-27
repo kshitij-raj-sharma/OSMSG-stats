@@ -1,4 +1,4 @@
-### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-09-02 04:13:58+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-03-20 00:00:00+00:00 to 2023-09-18 04:14:46+00:00 (UTC Timezone)
 
 #### 110 Users made 5.0 thousand changesets with 68.5 thousand map changes.
 #### 21.2 thousand OSM Elements were Created, 47.2 thousand Modified & 129 Deleted.
@@ -14,7 +14,7 @@ Top 5 Users are :
 
 Summary of Supplied Tags
 - poi = Created: 12.4 thousand, Modified : 17.0 thousand
-- building = Created: 8.9 thousand, Modified : 27.5 thousand
+- building = Created: 8.9 thousand, Modified : 27.6 thousand
 - highway = Created: 1.6 thousand, Modified : 89
 - waterway = Created: 12, Modified : 2
 - amenity = Created: 1.5 thousand, Modified : 10.9 thousand
@@ -26,12 +26,12 @@ Top 5 Created tags are :
 - roof:shape: 7.2 thousand
 - addr:housenumber: 2.7 thousand
 - building:levels: 2.4 thousand
-- roof:levels: 2.3 thousand
+- name: 2.3 thousand
 
 
 Top 5 Modified tags are :
-- building: 27.5 thousand
-- roof:shape: 21.8 thousand
+- building: 27.6 thousand
+- roof:shape: 21.9 thousand
 - building:levels: 21.0 thousand
 - roof:levels: 19.8 thousand
 - check_date: 19.7 thousand
@@ -46,7 +46,7 @@ Top 5 trending hashtags are:
 
 
 Top 5 trending editors are:
-- Every Door Android 3.1 : 59 users
+- Every Door Android 3.1 : 60 users
 - Every Door Android 3.0 : 54 users
 - Every Door iOS 3.0 : 10 users
 - iD 2.25.2 : 3 users
