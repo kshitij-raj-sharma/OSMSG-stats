@@ -1,48 +1,48 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-09-27 03:10:01+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-09-28 03:10:22+00:00 (UTC Timezone)
 
-#### 342 Users made 38.7 thousand changesets with 6.5 million map changes.
-#### 4.5 million OSM Elements were Created, 1.7 million Modified & 286.2 thousand Deleted.
+#### 342 Users made 39.1 thousand changesets with 6.7 million map changes.
+#### 4.6 million OSM Elements were Created, 1.8 million Modified & 302.7 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Angela M Naluonde : 575.7 thousand Map Changes
-- Evarist Isdory : 391.5 thousand Map Changes
-- JaphetMasunzu : 287.6 thousand Map Changes
-- ngumenawesamson : 241.2 thousand Map Changes
-- SSEKITOLEKO : 226.0 thousand Map Changes
+- Angela M Naluonde : 586.9 thousand Map Changes
+- Evarist Isdory : 393.0 thousand Map Changes
+- JaphetMasunzu : 299.6 thousand Map Changes
+- ngumenawesamson : 250.9 thousand Map Changes
+- SSEKITOLEKO : 233.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 22.1 thousand, Modified : 2.0 thousand
-- building = Created: 720.9 thousand, Modified : 50.9 thousand
-- highway = Created: 1.9 thousand, Modified : 7.4 thousand
+- poi = Created: 22.1 thousand, Modified : 2.1 thousand
+- building = Created: 732.5 thousand, Modified : 52.3 thousand
+- highway = Created: 1.9 thousand, Modified : 7.5 thousand
 - waterway = Created: 74, Modified : 259
-- amenity = Created: 4, Modified : 164
+- amenity = Created: 4, Modified : 167
 - highway length created = 498 Km
 
 
 Top 5 Created tags are :
-- building: 720.9 thousand
+- building: 732.5 thousand
 - highway: 1.9 thousand
 - source: 418
-- type: 380
+- type: 383
 - name: 318
 
 
 Top 5 Modified tags are :
-- building: 50.9 thousand
-- highway: 7.4 thousand
+- building: 52.3 thousand
+- highway: 7.5 thousand
 - surface: 4.1 thousand
 - source: 2.8 thousand
 - landuse: 1.3 thousand
 
 
 Top 5 trending hashtags are:
-- #fao_rtea : 342 users
 - #fao_swalim : 342 users
 - #omhesa : 342 users
+- #fao_rtea : 342 users
 - #elnino2023 : 337 users
-- #krcs-elnino-mapping : 104 users
+- #krcs-elnino-mapping : 106 users
 
 
 Top 5 trending editors are:
