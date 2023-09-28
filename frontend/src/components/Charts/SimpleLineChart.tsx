@@ -16,7 +16,10 @@ interface Data {
   id: number;
 }
 
-const SimpleLineChart: React.FC<{ data: Data[] }> = ({ data }) => {
+const SimpleLineChart: React.FC<{ data: Data[]; chartTitle: string }> = ({
+  data,
+  chartTitle,
+}) => {
   const [tooltip, setTooltip] = useState<null>(null);
   const [point, setPoints] = useState(null);
 
@@ -64,7 +67,7 @@ const SimpleLineChart: React.FC<{ data: Data[] }> = ({ data }) => {
   return (
     <div className="flex caption2 flex-col ui-chart m-10">
       <div className="ml-24 flex justify-center flex-col w-48 items-center mt-32 mb-10">
-        <p className="caption2">Turkey Summary Data </p>
+        <p className="caption2">{chartTitle} </p>
         <p className="subheading2">{totalDataCount}</p>
       </div>
       <LineChart width={650} height={300} data={data}>
