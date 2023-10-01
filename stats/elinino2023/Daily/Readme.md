@@ -1,28 +1,28 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-09-30 03:09:11+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-01 03:11:16+00:00 (UTC Timezone)
 
-#### 343 Users made 40.0 thousand changesets with 7.0 million map changes.
-#### 4.7 million OSM Elements were Created, 2.0 million Modified & 344.7 thousand Deleted.
+#### 343 Users made 40.1 thousand changesets with 7.0 million map changes.
+#### 4.7 million OSM Elements were Created, 2.0 million Modified & 351.0 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Angela M Naluonde : 628.0 thousand Map Changes
+- Angela M Naluonde : 634.4 thousand Map Changes
 - Evarist Isdory : 393.0 thousand Map Changes
 - JaphetMasunzu : 343.7 thousand Map Changes
 - KingVik : 270.9 thousand Map Changes
-- ngumenawesamson : 259.8 thousand Map Changes
+- ngumenawesamson : 260.1 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 22.1 thousand, Modified : 2.5 thousand
-- building = Created: 750.9 thousand, Modified : 56.1 thousand
-- highway = Created: 1.9 thousand, Modified : 7.8 thousand
+- building = Created: 752.8 thousand, Modified : 56.9 thousand
+- highway = Created: 1.9 thousand, Modified : 7.9 thousand
 - waterway = Created: 74, Modified : 259
 - amenity = Created: 4, Modified : 169
 - highway length created = 498 Km
 
 
 Top 5 Created tags are :
-- building: 750.9 thousand
+- building: 752.8 thousand
 - highway: 1.9 thousand
 - source: 421
 - type: 398
@@ -30,16 +30,16 @@ Top 5 Created tags are :
 
 
 Top 5 Modified tags are :
-- building: 56.1 thousand
-- highway: 7.8 thousand
+- building: 56.9 thousand
+- highway: 7.9 thousand
 - surface: 4.2 thousand
-- source: 3.4 thousand
+- source: 3.5 thousand
 - landuse: 1.3 thousand
 
 
 Top 5 trending hashtags are:
-- #fao_rtea : 343 users
 - #fao_swalim : 343 users
+- #fao_rtea : 343 users
 - #omhesa : 343 users
 - #elnino2023 : 338 users
 - #krcs-elnino-mapping : 106 users
@@ -47,7 +47,7 @@ Top 5 trending hashtags are:
 
 Top 5 trending editors are:
 - iD 2.21.1 : 199 users
-- JOSM/1.5 (18822 en) : 44 users
+- JOSM/1.5 (18822 en) : 45 users
 - JOSM/1.5 (18789 en) : 28 users
 - JOSM/1.5 (18772 en) : 12 users
 - JOSM/1.5 (18822 fr) : 9 users
