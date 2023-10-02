@@ -1,20 +1,20 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-01 03:11:16+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-02 03:10:46+00:00 (UTC Timezone)
 
-#### 343 Users made 40.1 thousand changesets with 7.0 million map changes.
-#### 4.7 million OSM Elements were Created, 2.0 million Modified & 351.0 thousand Deleted.
+#### 343 Users made 40.2 thousand changesets with 7.1 million map changes.
+#### 4.7 million OSM Elements were Created, 2.0 million Modified & 355.0 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Angela M Naluonde : 634.4 thousand Map Changes
+- Angela M Naluonde : 640.9 thousand Map Changes
 - Evarist Isdory : 393.0 thousand Map Changes
 - JaphetMasunzu : 343.7 thousand Map Changes
-- KingVik : 270.9 thousand Map Changes
+- KingVik : 282.8 thousand Map Changes
 - ngumenawesamson : 260.1 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 22.1 thousand, Modified : 2.5 thousand
-- building = Created: 752.8 thousand, Modified : 56.9 thousand
+- building = Created: 755.2 thousand, Modified : 57.3 thousand
 - highway = Created: 1.9 thousand, Modified : 7.9 thousand
 - waterway = Created: 74, Modified : 259
 - amenity = Created: 4, Modified : 169
@@ -22,15 +22,15 @@ Summary of Supplied Tags
 
 
 Top 5 Created tags are :
-- building: 752.8 thousand
+- building: 755.2 thousand
 - highway: 1.9 thousand
 - source: 421
-- type: 398
+- type: 406
 - name: 318
 
 
 Top 5 Modified tags are :
-- building: 56.9 thousand
+- building: 57.3 thousand
 - highway: 7.9 thousand
 - surface: 4.2 thousand
 - source: 3.5 thousand
@@ -55,7 +55,7 @@ Top 5 trending editors are:
 
 Top 5 trending Countries where user contributed are:
 - Somalia : 216 users
-- Kenya : 214 users
+- Kenya : 215 users
 - Ethiopia : 119 users
 - Zambia : 2 users
 
