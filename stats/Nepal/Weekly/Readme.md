@@ -1,62 +1,62 @@
-### Last Update : Stats from 2023-09-10 00:00:00+00:00 to 2023-09-16 20:21:21+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-09-16 20:21:21+00:00 to 2023-10-01 00:00:00+00:00 (UTC Timezone)
 
-#### 107 Users made 743 changesets with 62.9 thousand map changes.
-#### 46.5 thousand OSM Elements were Created, 16.3 thousand Modified & 26 Deleted.
+#### 120 Users made 1.0 thousand changesets with 112.9 thousand map changes.
+#### 92.6 thousand OSM Elements were Created, 20.2 thousand Modified & 139 Deleted.
 Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Niruta Neeupane : 13.8 thousand Map Changes
-- Lalit_IAAS : 11.5 thousand Map Changes
-- Adrie Sonke : 6.9 thousand Map Changes
-- marek kleciak : 4.6 thousand Map Changes
-- Marvin de Hont : 4.2 thousand Map Changes
+- marek kleciak : 38.7 thousand Map Changes
+- Adrie Sonke : 19.4 thousand Map Changes
+- Niruta Neeupane : 10.0 thousand Map Changes
+- Marvin de Hont : 9.5 thousand Map Changes
+- Nirmala Rawat : 7.7 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 60, Modified : 293
-- building = Created: 3.8 thousand, Modified : 194
-- highway = Created: 387, Modified : 515
-- waterway = Created: 90, Modified : 47
-- amenity = Created: 19, Modified : 33
+- poi = Created: 108, Modified : 178
+- building = Created: 5.8 thousand, Modified : 295
+- highway = Created: 476, Modified : 998
+- waterway = Created: 925, Modified : 322
+- amenity = Created: 28, Modified : 56
 
 
 Top 5 Created tags are :
-- building: 3.8 thousand
-- highway: 387
-- natural: 256
-- waterway: 90
-- landuse: 89
+- building: 5.8 thousand
+- waterway: 925
+- intermittent: 877
+- highway: 476
+- natural: 448
 
 
 Top 5 Modified tags are :
-- highway: 515
-- name: 246
-- building: 194
-- power: 168
-- surface: 129
+- highway: 998
+- name: 575
+- surface: 458
+- waterway: 322
+- building: 295
 
 
 Top 5 trending hashtags are:
-- #BIPAD : 23 users
-- #UKAID : 22 users
-- #D4D : 22 users
-- #TAF : 22 users
+- #osmnepal : 9 users
+- #adt : 6 users
+- #mappingtheunmapped : 5 users
+- #mapforcause : 5 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 38 users
-- iD 2.27.1 : 22 users
-- JOSM/1.5 (18746 en) : 6 users
-- StreetComplete 54.0 : 4 users
-- JOSM/1.5 (18822 en) : 4 users
+- iD 2.27.1 : 51 users
+- iD 2.21.1 : 11 users
+- JOSM/1.5 (18746 en) : 7 users
+- JOSM/1.5 (18822 en) : 6 users
+- MAPS.ME android 15.2.71630 : 6 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 95 users
-- India : 9 users
-- China : 6 users
-- Kazakhstan : 1 users
+- Nepal : 110 users
+- China : 7 users
+- India : 4 users
 - Pakistan : 1 users
+- Jammu-Kashmir : 1 users
 
 
  Charts : 
