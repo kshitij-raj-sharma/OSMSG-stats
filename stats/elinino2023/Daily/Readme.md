@@ -1,7 +1,7 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-06 03:09:50+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-07 03:09:46+00:00 (UTC Timezone)
 
-#### 343 Users made 41.0 thousand changesets with 7.3 million map changes.
-#### 4.9 million OSM Elements were Created, 2.1 million Modified & 371.0 thousand Deleted.
+#### 344 Users made 41.0 thousand changesets with 7.3 million map changes.
+#### 4.9 million OSM Elements were Created, 2.1 million Modified & 371.4 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
@@ -9,14 +9,14 @@ Top 5 Users are :
 - Angela M Naluonde : 650.0 thousand Map Changes
 - Evarist Isdory : 393.0 thousand Map Changes
 - JaphetMasunzu : 358.7 thousand Map Changes
-- KingVik : 290.1 thousand Map Changes
-- ngumenawesamson : 288.9 thousand Map Changes
+- KingVik : 290.9 thousand Map Changes
+- ngumenawesamson : 289.5 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 22.2 thousand, Modified : 2.6 thousand
 - building = Created: 776.8 thousand, Modified : 59.7 thousand
 - highway = Created: 1.9 thousand, Modified : 8.4 thousand
-- waterway = Created: 106, Modified : 313
+- waterway = Created: 109, Modified : 320
 - amenity = Created: 4, Modified : 174
 - highway length created = 502 Km
 
@@ -24,8 +24,8 @@ Summary of Supplied Tags
 Top 5 Created tags are :
 - building: 776.8 thousand
 - highway: 1.9 thousand
-- landuse: 534
-- type: 500
+- landuse: 748
+- type: 535
 - source: 422
 
 
@@ -38,15 +38,15 @@ Top 5 Modified tags are :
 
 
 Top 5 trending hashtags are:
-- #fao_swalim : 343 users
-- #fao_rtea : 343 users
-- #omhesa : 343 users
-- #elnino2023 : 338 users
+- #fao_rtea : 344 users
+- #omhesa : 344 users
+- #fao_swalim : 344 users
+- #elnino2023 : 339 users
 - #krcs-elnino-mapping : 106 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 199 users
+- iD 2.21.1 : 200 users
 - JOSM/1.5 (18822 en) : 45 users
 - JOSM/1.5 (18789 en) : 28 users
 - JOSM/1.5 (18772 en) : 12 users
@@ -54,7 +54,7 @@ Top 5 trending editors are:
 
 
 Top 5 trending Countries where user contributed are:
-- Somalia : 216 users
+- Somalia : 217 users
 - Kenya : 215 users
 - Ethiopia : 119 users
 - Zambia : 2 users
