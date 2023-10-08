@@ -1,7 +1,7 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-07 03:09:46+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-08 03:09:01+00:00 (UTC Timezone)
 
-#### 344 Users made 41.0 thousand changesets with 7.3 million map changes.
-#### 4.9 million OSM Elements were Created, 2.1 million Modified & 371.4 thousand Deleted.
+#### 344 Users made 41.1 thousand changesets with 7.4 million map changes.
+#### 4.9 million OSM Elements were Created, 2.1 million Modified & 371.6 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
@@ -9,24 +9,24 @@ Top 5 Users are :
 - Angela M Naluonde : 650.0 thousand Map Changes
 - Evarist Isdory : 393.0 thousand Map Changes
 - JaphetMasunzu : 358.7 thousand Map Changes
-- KingVik : 290.9 thousand Map Changes
+- KingVik : 293.3 thousand Map Changes
 - ngumenawesamson : 289.5 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 22.2 thousand, Modified : 2.6 thousand
-- building = Created: 776.8 thousand, Modified : 59.7 thousand
+- building = Created: 777.0 thousand, Modified : 59.7 thousand
 - highway = Created: 1.9 thousand, Modified : 8.4 thousand
-- waterway = Created: 109, Modified : 320
+- waterway = Created: 109, Modified : 322
 - amenity = Created: 4, Modified : 174
 - highway length created = 502 Km
 
 
 Top 5 Created tags are :
-- building: 776.8 thousand
+- building: 777.0 thousand
 - highway: 1.9 thousand
-- landuse: 748
-- type: 535
-- source: 422
+- landuse: 875
+- type: 538
+- natural: 473
 
 
 Top 5 Modified tags are :
@@ -34,12 +34,12 @@ Top 5 Modified tags are :
 - highway: 8.4 thousand
 - surface: 4.3 thousand
 - source: 3.6 thousand
-- landuse: 1.4 thousand
+- landuse: 1.5 thousand
 
 
 Top 5 trending hashtags are:
-- #fao_rtea : 344 users
 - #omhesa : 344 users
+- #fao_rtea : 344 users
 - #fao_swalim : 344 users
 - #elnino2023 : 339 users
 - #krcs-elnino-mapping : 106 users
