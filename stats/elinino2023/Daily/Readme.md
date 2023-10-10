@@ -1,4 +1,4 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-09 03:10:16+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-10 03:10:16+00:00 (UTC Timezone)
 
 #### 344 Users made 41.1 thousand changesets with 7.4 million map changes.
 #### 4.9 million OSM Elements were Created, 2.1 million Modified & 371.6 thousand Deleted.
@@ -14,7 +14,7 @@ Top 5 Users are :
 
 Summary of Supplied Tags
 - poi = Created: 22.2 thousand, Modified : 2.6 thousand
-- building = Created: 777.0 thousand, Modified : 59.7 thousand
+- building = Created: 777.7 thousand, Modified : 59.7 thousand
 - highway = Created: 1.9 thousand, Modified : 8.4 thousand
 - waterway = Created: 109, Modified : 322
 - amenity = Created: 4, Modified : 174
@@ -22,9 +22,9 @@ Summary of Supplied Tags
 
 
 Top 5 Created tags are :
-- building: 777.0 thousand
+- building: 777.7 thousand
 - highway: 1.9 thousand
-- landuse: 875
+- landuse: 876
 - type: 538
 - natural: 473
 
