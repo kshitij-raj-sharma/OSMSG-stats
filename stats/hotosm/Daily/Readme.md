@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-10-10 00:00:00+00:00 to 2023-10-11 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-10-11 00:00:00+00:00 to 2023-10-12 00:00:00+00:00 (UTC Timezone)
 
-#### 476 Users made 3.2 thousand changesets with 394.2 thousand map changes.
-#### 313.9 thousand OSM Elements were Created, 58.5 thousand Modified & 21.8 thousand Deleted.
+#### 394 Users made 2.8 thousand changesets with 314.2 thousand map changes.
+#### 230.2 thousand OSM Elements were Created, 64.5 thousand Modified & 19.4 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- mjgk : 9.7 thousand Map Changes
-- Libor Bednarik : 8.1 thousand Map Changes
-- UPegasus : 6.1 thousand Map Changes
-- ujinevich : 6.0 thousand Map Changes
-- onesimusGGA : 6.0 thousand Map Changes
+- Frans S : 17.0 thousand Map Changes
+- mjgk : 8.5 thousand Map Changes
+- anthaas : 7.9 thousand Map Changes
+- Qwajo OSM : 7.2 thousand Map Changes
+- Kevin Gaffney : 6.4 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 932, Modified : 64
-- building = Created: 42.0 thousand, Modified : 2.4 thousand
-- highway = Created: 798, Modified : 1.1 thousand
-- waterway = Created: 242, Modified : 213
-- amenity = Created: 47, Modified : 28
+- poi = Created: 1.6 thousand, Modified : 283
+- building = Created: 33.2 thousand, Modified : 2.7 thousand
+- highway = Created: 785, Modified : 1.2 thousand
+- waterway = Created: 118, Modified : 129
+- amenity = Created: 53, Modified : 37
 
 
 Top 5 Created tags are :
-- building: 42.0 thousand
-- natural: 886
-- highway: 798
-- barrier: 572
-- landuse: 439
+- building: 33.2 thousand
+- natural: 1.5 thousand
+- highway: 785
+- barrier: 498
+- roof:material: 338
 
 
 Top 5 Modified tags are :
-- building: 2.4 thousand
-- highway: 1.1 thousand
-- roof:material: 396
-- surface: 364
-- name: 249
+- building: 2.7 thousand
+- highway: 1.2 thousand
+- surface: 504
+- roof:material: 493
+- name: 289
 
 
 Top 5 trending hashtags are:
-- #missingmaps : 187 users
-- #msf : 159 users
-- #WestDarfur2023 : 78 users
-- #hotosm-project-15447 : 72 users
-- #LibyaFloods2023 : 59 users
+- #missingmaps : 71 users
+- #moroccoearthquake2023 : 66 users
+- #hotosm-project-15658 : 63 users
+- #AfghanistanEarthquake2023 : 63 users
+- #APHub : 63 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 320 users
-- JOSM/1.5 (18822 en) : 54 users
-- JOSM/1.5 (18822 en_GB) : 14 users
-- JOSM/1.5 (18822 sk) : 9 users
-- JOSM/1.5 (18822 cs) : 7 users
+- iD 2.21.1 : 265 users
+- JOSM/1.5 (18822 en) : 43 users
+- JOSM/1.5 (18772 en_GB) : 16 users
+- JOSM/1.5 (18822 en_GB) : 11 users
+- JOSM/1.5 (18746 en) : 8 users
 
 
 Top 5 trending Countries where user contributed are:
-- Sudan : 82 users
-- Malawi : 66 users
-- Libyan Arab Jamahiriya : 61 users
-- Morocco : 56 users
-- Chad : 44 users
+- Morocco : 67 users
+- Afghanistan : 63 users
+- Sri Lanka : 41 users
+- India : 33 users
+- Libyan Arab Jamahiriya : 27 users
 
 
  Charts : 
