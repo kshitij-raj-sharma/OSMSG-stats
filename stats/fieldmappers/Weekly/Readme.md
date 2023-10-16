@@ -1,59 +1,59 @@
-### Last Update : Stats from 2023-07-23 00:00:00+00:00 to 2023-10-09 01:09:54+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-07-23 00:00:00+00:00 to 2023-10-16 01:11:16+00:00 (UTC Timezone)
 
-#### 24.1 thousand Users made 975.4 thousand changesets with 6.2 million map changes.
-#### 1.4 million OSM Elements were Created, 4.6 million Modified & 168.1 thousand Deleted.
+#### 25.3 thousand Users made 1.1 million changesets with 6.8 million map changes.
+#### 1.6 million OSM Elements were Created, 5.0 million Modified & 182.4 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/fieldmappers/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/fieldmappers/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Đuro Jiří : 187.0 thousand Map Changes
-- biketeur : 65.4 thousand Map Changes
-- Cubano153 : 61.9 thousand Map Changes
-- nurdafur : 41.5 thousand Map Changes
-- WN6 : 40.4 thousand Map Changes
+- Đuro Jiří : 201.8 thousand Map Changes
+- biketeur : 71.5 thousand Map Changes
+- Cubano153 : 67.7 thousand Map Changes
+- nurdafur : 48.2 thousand Map Changes
+- padvinder : 48.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 325.4 thousand, Modified : 977.7 thousand
-- amenity = Created: 113.9 thousand, Modified : 330.1 thousand
+- poi = Created: 357.1 thousand, Modified : 1.1 million
+- amenity = Created: 122.1 thousand, Modified : 354.7 thousand
 
 
 Top 5 Created tags are :
-- highway: 114.3 thousand
-- amenity: 113.9 thousand
-- name: 112.0 thousand
-- building: 50.8 thousand
-- addr:housenumber: 46.7 thousand
+- highway: 124.8 thousand
+- amenity: 122.1 thousand
+- name: 121.6 thousand
+- building: 56.4 thousand
+- addr:housenumber: 52.4 thousand
 
 
 Top 5 Modified tags are :
-- highway: 2.2 million
-- surface: 1.6 million
-- name: 1.3 million
-- building: 1.1 million
-- addr:housenumber: 726.0 thousand
+- highway: 2.4 million
+- surface: 1.7 million
+- name: 1.4 million
+- building: 1.2 million
+- addr:housenumber: 794.6 thousand
 
 
 Top 5 trending hashtags are:
+- #FLCHgrdUNMSM : 32 users
+- #everydoor : 14 users
 - #MapHerWorld : 14 users
 - #letstalkspatial : 13 users
-- #osmbengaluru : 12 users
-- #everydoor : 12 users
 
 
 Top 5 trending editors are:
-- StreetComplete 53.3 : 9454 users
-- StreetComplete 54.0 : 7149 users
-- StreetComplete 54.1 : 2190 users
-- Go Map!! 3.4.8 : 1788 users
-- Vespucci 19.1.1.0 : 1203 users
+- StreetComplete 53.3 : 9465 users
+- StreetComplete 54.0 : 7296 users
+- StreetComplete 54.1 : 3988 users
+- Go Map!! 3.4.8 : 1862 users
+- Vespucci 19.1.1.0 : 1207 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 6567 users
-- France : 3080 users
-- United States of America : 2364 users
-- Italy : 1420 users
-- U.K. of Great Britain and Northern Ireland : 1169 users
+- Germany : 7001 users
+- France : 3193 users
+- United States of America : 2470 users
+- Italy : 1481 users
+- U.K. of Great Britain and Northern Ireland : 1227 users
 
 
  Charts : 
