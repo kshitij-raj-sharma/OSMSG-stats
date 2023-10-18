@@ -1,4 +1,4 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-17 03:10:27+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-18 03:09:57+00:00 (UTC Timezone)
 
 #### 344 Users made 41.1 thousand changesets with 7.4 million map changes.
 #### 4.9 million OSM Elements were Created, 2.1 million Modified & 371.6 thousand Deleted.
@@ -39,8 +39,8 @@ Top 5 Modified tags are :
 
 Top 5 trending hashtags are:
 - #fao_rtea : 344 users
-- #omhesa : 344 users
 - #fao_swalim : 344 users
+- #omhesa : 344 users
 - #elnino2023 : 339 users
 - #krcs-elnino-mapping : 106 users
 
