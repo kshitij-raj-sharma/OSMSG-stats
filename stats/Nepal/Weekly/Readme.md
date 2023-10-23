@@ -1,62 +1,62 @@
-### Last Update : Stats from 2023-10-08 00:00:00+00:00 to 2023-10-15 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-10-15 00:00:00+00:00 to 2023-10-21 20:21:00+00:00 (UTC Timezone)
 
-#### 133 Users made 708 changesets with 40.3 thousand map changes.
-#### 34.5 thousand OSM Elements were Created, 5.8 thousand Modified & 10 Deleted.
+#### 81 Users made 438 changesets with 28.9 thousand map changes.
+#### 25.6 thousand OSM Elements were Created, 3.3 thousand Modified & 22 Deleted.
 Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Adrie Sonke : 7.0 thousand Map Changes
-- marek kleciak : 4.6 thousand Map Changes
-- rahulwaiba : 2.9 thousand Map Changes
-- Lalit_IAAS : 1.8 thousand Map Changes
-- baum10 : 1.7 thousand Map Changes
+- Pragya Joshi : 9.0 thousand Map Changes
+- marek kleciak : 6.8 thousand Map Changes
+- Adrie Sonke : 3.2 thousand Map Changes
+- Shrestha Shristi : 2.5 thousand Map Changes
+- Jukka Tarkkala : 1.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 104, Modified : 71
-- building = Created: 3.8 thousand, Modified : 96
-- highway = Created: 156, Modified : 286
-- waterway = Created: 138, Modified : 80
-- amenity = Created: 48, Modified : 23
+- poi = Created: 180, Modified : 166
+- building = Created: 2.4 thousand, Modified : 103
+- highway = Created: 208, Modified : 249
+- waterway = Created: 30, Modified : 48
+- amenity = Created: 80, Modified : 45
 
 
 Top 5 Created tags are :
-- building: 3.8 thousand
-- highway: 156
-- waterway: 138
-- intermittent: 126
-- name: 124
+- building: 2.4 thousand
+- highway: 208
+- name: 114
+- amenity: 80
+- name:en: 78
 
 
 Top 5 Modified tags are :
-- highway: 286
-- name: 168
-- building: 96
-- waterway: 80
-- ref: 68
+- name: 272
+- highway: 249
+- website: 114
+- name:en: 106
+- building: 103
 
 
 Top 5 trending hashtags are:
-- #BIPAD : 36 users
-- #YILAB : 35 users
-- #YouthMappers : 35 users
-- #GESAN : 35 users
+- #osmnepal : 6 users
+- #aphub : 5 users
+- #hotosm-project-14310 : 4 users
+- #RemoteMappingBirendranagar : 4 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 54 users
-- iD 2.27.1 : 32 users
-- OsmAnd 4.5.10 : 8 users
-- JOSM/1.5 (18822 en) : 6 users
-- JOSM/1.5 (18746 en) : 5 users
+- iD 2.27.1 : 30 users
+- JOSM/1.5 (18822 en) : 12 users
+- iD 2.21.1 : 10 users
+- JOSM/1.5 (18772 en) : 3 users
+- StreetComplete 54.1 : 3 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 113 users
-- India : 17 users
-- China : 7 users
-- Bhutan : 1 users
-- Arunachal Pradesh : 1 users
+- Nepal : 69 users
+- China : 5 users
+- India : 5 users
+- Pakistan : 2 users
+- Bhutan : 2 users
 
 
  Charts : 
