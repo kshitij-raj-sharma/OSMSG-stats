@@ -223,9 +223,19 @@ def collect_changefile_stats(
         if tags:
             for key, value in tags:
                 if action != "delete":  # we don't need deleted tags
+                    if key_value:
+                        users[user][f"tags_{action}"].setdefault(f"{key}={value}", 0)
+                        users[user][f"tags_{action}"][f"{key}={value}"] += 1
                     users[user][f"tags_{action}"].setdefault(key, 0)
                     users[user][f"tags_{action}"][key] += 1
                     if summary:
+                        if key_value:
+                            summary_interval[timestamp][f"tags_{action}"].setdefault(
+                                f"{key}={value}", 0
+                            )
+                            summary_interval[timestamp][f"tags_{action}"][
+                                f"{key}={value}"
+                            ] += 1
                         summary_interval[timestamp][f"tags_{action}"].setdefault(key, 0)
                         summary_interval[timestamp][f"tags_{action}"][key] += 1
 
@@ -647,6 +657,14 @@ def parse_args():
         help="Extract statistics of all of the unique tags and its count",
         default=False,
     )
+
+    parser.add_argument(
+        "--key_value",
+        action="store_true",
+        help="Extracts stats for Unique combination of tags key and value by default it will count for unique key on --all_tags",
+        default=False,
+    )
+
     parser.add_argument(
         "--temp",
         action="store_true",
@@ -693,6 +711,10 @@ def main():
     print(base_path)
     if not os.path.exists(base_path):
         os.makedirs(base_path)
+
+    if args.key_value:
+        args.all_tags = True
+        print("Enabling all_tags option as key_value is passed")
 
     if args.update:
         if args.read_from_metadata:
@@ -784,6 +806,7 @@ def main():
     global additional_tags
     global cookies
     global all_tags
+    global key_value
     global hashtags
     global length
     global changeset_meta
@@ -795,6 +818,7 @@ def main():
     global remove_temp_files
 
     all_tags = args.all_tags
+    key_value = args.key_value
     additional_tags = args.tags
     hashtags = args.hashtags
     cookies = None
