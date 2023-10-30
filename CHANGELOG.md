@@ -1,3 +1,12 @@
+## v0.2.0 (2023-10-30)
+
+### Feat
+
+- intorduces key value stats feature for all the stats type
+- Turkey Data and Frontend Integration
+
+## v0.1.33 (2023-07-10)
+
 ## v0.1.32 (2023-07-10)
 
 ### Perf
