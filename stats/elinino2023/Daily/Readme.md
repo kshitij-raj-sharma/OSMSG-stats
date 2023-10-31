@@ -1,7 +1,7 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-30 03:10:16+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-10-31 03:09:46+00:00 (UTC Timezone)
 
 #### 345 Users made 41.2 thousand changesets with 7.4 million map changes.
-#### 4.9 million OSM Elements were Created, 2.1 million Modified & 371.9 thousand Deleted.
+#### 4.9 million OSM Elements were Created, 2.1 million Modified & 372.0 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
@@ -14,16 +14,16 @@ Top 5 Users are :
 
 Summary of Supplied Tags
 - poi = Created: 22.2 thousand, Modified : 2.6 thousand
-- building = Created: 780.5 thousand, Modified : 59.7 thousand
-- highway = Created: 2.1 thousand, Modified : 9.0 thousand
+- building = Created: 780.8 thousand, Modified : 59.7 thousand
+- highway = Created: 2.2 thousand, Modified : 9.2 thousand
 - waterway = Created: 141, Modified : 414
 - amenity = Created: 4, Modified : 174
-- highway length created = 559 Km
+- highway length created = 566 Km
 
 
 Top 5 Created tags are :
-- building: 780.5 thousand
-- highway: 2.1 thousand
+- building: 780.8 thousand
+- highway: 2.2 thousand
 - landuse: 876
 - type: 538
 - natural: 473
@@ -31,9 +31,9 @@ Top 5 Created tags are :
 
 Top 5 Modified tags are :
 - building: 59.7 thousand
-- highway: 9.0 thousand
+- highway: 9.2 thousand
 - surface: 4.7 thousand
-- source: 3.7 thousand
+- source: 3.8 thousand
 - landuse: 1.5 thousand
 
 
