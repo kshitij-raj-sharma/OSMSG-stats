@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-11-02 00:00:00+00:00 to 2023-11-03 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-11-03 00:00:00+00:00 to 2023-11-04 00:00:00+00:00 (UTC Timezone)
 
-#### 349 Users made 2.8 thousand changesets with 341.7 thousand map changes.
-#### 263.5 thousand OSM Elements were Created, 58.2 thousand Modified & 20.0 thousand Deleted.
+#### 376 Users made 3.1 thousand changesets with 297.2 thousand map changes.
+#### 232.0 thousand OSM Elements were Created, 47.7 thousand Modified & 17.5 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- la_nenemini : 13.6 thousand Map Changes
-- uliwanne : 12.3 thousand Map Changes
-- Henk Kamphuis : 11.7 thousand Map Changes
-- JohnW11 : 11.1 thousand Map Changes
-- ujinevich : 10.6 thousand Map Changes
+- ujinevich : 10.1 thousand Map Changes
+- kelu124 : 9.5 thousand Map Changes
+- swfox : 9.2 thousand Map Changes
+- la_nenemini : 8.6 thousand Map Changes
+- TeBaMa : 7.6 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 284, Modified : 83
-- building = Created: 36.1 thousand, Modified : 1.5 thousand
-- highway = Created: 1.4 thousand, Modified : 1.5 thousand
-- waterway = Created: 123, Modified : 101
-- amenity = Created: 42, Modified : 22
+- poi = Created: 69, Modified : 84
+- building = Created: 32.9 thousand, Modified : 1.3 thousand
+- highway = Created: 1.2 thousand, Modified : 1.4 thousand
+- waterway = Created: 67, Modified : 163
+- amenity = Created: 44, Modified : 66
 
 
 Top 5 Created tags are :
-- building: 36.1 thousand
-- highway: 1.4 thousand
-- source: 1.1 thousand
-- roof:material: 362
-- height: 355
+- building: 32.9 thousand
+- source: 2.4 thousand
+- highway: 1.2 thousand
+- landuse: 142
+- roof:material: 95
 
 
 Top 5 Modified tags are :
-- building: 1.5 thousand
-- highway: 1.5 thousand
-- source: 393
-- surface: 331
-- name: 181
+- highway: 1.4 thousand
+- building: 1.3 thousand
+- surface: 488
+- source: 347
+- name: 175
 
 
 Top 5 trending hashtags are:
-- #hotosm-project-15734 : 80 users
-- #guerrero : 80 users
-- #acapulco : 80 users
-- #hurricane : 80 users
-- #Otis : 80 users
+- #OSMGhana : 104 users
+- #AkosomboDamSpillage : 104 users
+- #KetaAnloga : 81 users
+- #hotosm-project-15746 : 81 users
+- #HUB_LAC : 53 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 253 users
-- JOSM/1.5 (18822 en) : 34 users
-- JOSM/1.5 (18822 fr) : 7 users
-- JOSM/1.5 (18822 en_GB) : 6 users
-- JOSM/1.5 (18772 en) : 5 users
+- iD 2.21.1 : 273 users
+- JOSM/1.5 (18822 en) : 44 users
+- JOSM/1.5 (18822 en_GB) : 9 users
+- JOSM/1.5 (18822 nl) : 7 users
+- JOSM/1.5 (18822 de) : 5 users
 
 
 Top 5 trending Countries where user contributed are:
-- Mexico : 79 users
-- Ghana : 54 users
-- Morocco : 33 users
-- Afghanistan : 33 users
-- Honduras : 23 users
+- Ghana : 103 users
+- Mexico : 48 users
+- Morocco : 44 users
+- Afghanistan : 32 users
+- Honduras : 31 users
 
 
  Charts : 
