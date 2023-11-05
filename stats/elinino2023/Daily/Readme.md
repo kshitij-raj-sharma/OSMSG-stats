@@ -1,7 +1,7 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-11-04 03:09:57+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-11-05 03:11:16+00:00 (UTC Timezone)
 
 #### 345 Users made 41.2 thousand changesets with 7.4 million map changes.
-#### 4.9 million OSM Elements were Created, 2.1 million Modified & 372.6 thousand Deleted.
+#### 4.9 million OSM Elements were Created, 2.1 million Modified & 372.8 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
@@ -14,33 +14,33 @@ Top 5 Users are :
 
 Summary of Supplied Tags
 - poi = Created: 22.2 thousand, Modified : 2.6 thousand
-- building = Created: 783.0 thousand, Modified : 59.7 thousand
-- highway = Created: 2.3 thousand, Modified : 10.0 thousand
-- waterway = Created: 143, Modified : 434
+- building = Created: 785.1 thousand, Modified : 59.7 thousand
+- highway = Created: 2.4 thousand, Modified : 10.1 thousand
+- waterway = Created: 143, Modified : 437
 - amenity = Created: 4, Modified : 174
-- highway length created = 598 Km
+- highway length created = 607 Km
 
 
 Top 5 Created tags are :
-- building: 783.0 thousand
-- highway: 2.3 thousand
+- building: 785.1 thousand
+- highway: 2.4 thousand
 - landuse: 876
+- surface: 548
 - type: 539
-- surface: 492
 
 
 Top 5 Modified tags are :
 - building: 59.7 thousand
-- highway: 10.0 thousand
-- surface: 5.0 thousand
+- highway: 10.1 thousand
+- surface: 5.1 thousand
 - source: 4.4 thousand
-- attribution: 1.5 thousand
+- attribution: 1.6 thousand
 
 
 Top 5 trending hashtags are:
+- #fao_rtea : 345 users
 - #omhesa : 345 users
 - #fao_swalim : 345 users
-- #fao_rtea : 345 users
 - #elnino2023 : 340 users
 - #krcs-elnino-mapping : 106 users
 
