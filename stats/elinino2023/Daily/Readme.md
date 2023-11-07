@@ -1,4 +1,4 @@
-### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-11-06 03:10:46+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-08-15 00:00:00+00:00 to 2023-11-07 03:11:01+00:00 (UTC Timezone)
 
 #### 345 Users made 41.2 thousand changesets with 7.4 million map changes.
 #### 4.9 million OSM Elements were Created, 2.1 million Modified & 372.8 thousand Deleted.
@@ -16,7 +16,7 @@ Summary of Supplied Tags
 - poi = Created: 22.2 thousand, Modified : 2.6 thousand
 - building = Created: 785.6 thousand, Modified : 59.7 thousand
 - highway = Created: 2.4 thousand, Modified : 10.3 thousand
-- waterway = Created: 146, Modified : 441
+- waterway = Created: 149, Modified : 442
 - amenity = Created: 4, Modified : 174
 - highway length created = 610 Km
 
@@ -25,7 +25,7 @@ Top 5 Created tags are :
 - building: 785.6 thousand
 - highway: 2.4 thousand
 - landuse: 876
-- surface: 563
+- surface: 564
 - type: 540
 
 
@@ -38,9 +38,9 @@ Top 5 Modified tags are :
 
 
 Top 5 trending hashtags are:
+- #fao_swalim : 345 users
 - #omhesa : 345 users
 - #fao_rtea : 345 users
-- #fao_swalim : 345 users
 - #elnino2023 : 340 users
 - #krcs-elnino-mapping : 106 users
 
