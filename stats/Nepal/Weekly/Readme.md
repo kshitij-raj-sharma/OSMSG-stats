@@ -1,62 +1,61 @@
-### Last Update : Stats from 2023-10-29 00:00:00+00:00 to 2023-11-05 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-11-05 00:00:00+00:00 to 2023-11-11 21:20:58+00:00 (UTC Timezone)
 
-#### 110 Users made 561 changesets with 67.1 thousand map changes.
-#### 49.0 thousand OSM Elements were Created, 18.0 thousand Modified & 97 Deleted.
+#### 227 Users made 3.0 thousand changesets with 296.9 thousand map changes.
+#### 215.8 thousand OSM Elements were Created, 78.9 thousand Modified & 2.1 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- Pragya Joshi : 19.4 thousand Map Changes
-- Adrie Sonke : 5.8 thousand Map Changes
-- Aarogya Pandey : 5.5 thousand Map Changes
-- Ashok Thakulla : 4.2 thousand Map Changes
-- Marvin de Hont : 3.9 thousand Map Changes
+- Aarogya Pandey : 29.5 thousand Map Changes
+- MJF MUBASSARA : 13.7 thousand Map Changes
+- Pragya Joshi : 13.2 thousand Map Changes
+- Ashim Paudel : 12.8 thousand Map Changes
+- mortyx : 11.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 42, Modified : 68
-- building = Created: 5.4 thousand, Modified : 518
-- highway = Created: 510, Modified : 424
-- waterway = Created: 57, Modified : 58
-- amenity = Created: 9, Modified : 22
+- poi = Created: 345, Modified : 145
+- building = Created: 12.1 thousand, Modified : 1.4 thousand
+- highway = Created: 4.7 thousand, Modified : 2.7 thousand
+- waterway = Created: 298, Modified : 231
+- amenity = Created: 28, Modified : 27
 
 
 Top 5 Created tags are :
-- building: 5.4 thousand
-- highway: 510
-- landuse: 68
-- waterway: 57
-- intermittent: 48
+- building: 12.1 thousand
+- highway: 4.7 thousand
+- landuse: 899
+- waterway: 298
+- natural: 229
 
 
 Top 5 Modified tags are :
-- building: 518
-- highway: 424
-- name: 179
-- source: 95
-- surface: 83
+- highway: 2.7 thousand
+- building: 1.4 thousand
+- surface: 511
+- name: 446
+- natural: 350
 
 
 Top 5 trending hashtags are:
-- #osmnepal : 20 users
-- #startnetwork : 14 users
-- #disasterresponse : 14 users
-- #nepalearthquake2023 : 14 users
+- #osmnepal : 120 users
+- #disasterresponse : 104 users
+- #nepalearthquake2023 : 104 users
+- #hotosm-project-15755 : 78 users
+- #jajarkotearthquake : 78 users
 
 
 Top 5 trending editors are:
-- iD 2.27.1 : 26 users
-- JOSM/1.5 (18822 en) : 23 users
-- iD 2.21.1 : 12 users
-- JOSM/1.5 (18822 en_GB) : 4 users
-- MAPS.ME android 15.1.71626 : 4 users
+- iD 2.21.1 : 106 users
+- JOSM/1.5 (18822 en) : 43 users
+- iD 2.27.1 : 27 users
+- iD 2.27.3 : 23 users
+- JOSM/1.5 (18772 en) : 5 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 97 users
-- India : 9 users
+- Nepal : 221 users
+- India : 7 users
 - China : 5 users
-- Jammu-Kashmir : 1 users
-- Arunachal Pradesh : 1 users
 
 
  Charts : 
