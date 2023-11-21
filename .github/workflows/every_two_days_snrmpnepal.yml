@@ -2,7 +2,9 @@ name: Run Every2days Report SNRMPNepal Hashtag
 on:
   schedule:
     - cron: "0 3 */2 * *"
-
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -19,7 +21,7 @@ jobs:
       - name: Install necessary dependecies
         run: |
           pip install flare-floss
-          pip install -e . 
+          pip install osmsg 
           pip install tweepy
           pip install -r requirements.txt
       - name: Generate Every2days Hashtag SNRMPNepal Stats
