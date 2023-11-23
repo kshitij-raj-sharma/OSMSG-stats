@@ -2,9 +2,9 @@ name: Run Every2days Report SNRMPNepal Hashtag
 on:
   schedule:
     - cron: "0 3 */2 * *"
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -22,9 +22,11 @@ jobs:
         run: |
           pip install flare-floss
           pip install tweepy
+          python setup.py install
+
       - name: Generate Every2days Hashtag SNRMPNepal Stats
         run: |
-          pip install osmsg 
+
           osmsg --format csv image --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --hashtags SNRMPNepal --charts --summary --length highway --update --name stats/SNRMPNepal/Every2days/stats --force
 
       - name: add stats to git
