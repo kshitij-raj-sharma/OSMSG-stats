@@ -33,7 +33,7 @@ jobs:
       - name: Show osmsg
         run: |
           pip show osmsg
-          /opt/hostedtoolcache/Python/3.11.6/x64/lib/python3.11/site-packages/osmsg --help
+          ls /opt/hostedtoolcache/Python/3.11.6/x64/lib/python3.11/site-packages/
 
       - name: Generate Last hour stats
         env: #assign variables
