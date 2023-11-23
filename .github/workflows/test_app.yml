@@ -24,6 +24,7 @@ jobs:
 
       - name: Install necessary dependecies
         run: |
+          pip install --upgrade pip
           pip install flare-floss
           pip install -e . 
           pip install tweepy
