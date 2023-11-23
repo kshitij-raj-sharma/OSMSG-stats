@@ -1,9 +1,9 @@
 name: Test App
 on:
   push:
-    paths-ignore:
-      - ".github/**"
-      - "frontend/**"
+    # paths-ignore:
+    #   - ".github/**"
+    #   - "frontend/**"
     branches:
       - master
   pull_request:
