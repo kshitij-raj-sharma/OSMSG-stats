@@ -22,6 +22,12 @@ jobs:
       - name: Install Osmium
         run: sudo apt-get install -y osmium-tool
 
+      - name: Install virtualenv
+        run: |
+          pip install virtualenv 
+          virtualenv env 
+          source env/bin/activate
+
       - name: Install necessary dependecies
         run: |
           pip install flare-floss
@@ -29,10 +35,9 @@ jobs:
           pip install tweepy
           pip install -r requirements.txt
 
-      - name: test package
+      - name: Show osmsg
         run: |
           pip show osmsg
-          virtualenv --version
 
       - name: Generate Last hour stats
         env: #assign variables
