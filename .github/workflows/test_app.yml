@@ -26,12 +26,12 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install flare-floss
-          pip install -e . 
           pip install tweepy
           pip install -r requirements.txt
 
       - name: Show osmsg
         run: |
+          pip install setup.py
           pip show osmsg
           ls /opt/hostedtoolcache/Python/3.11.6/x64/lib/python3.11/site-packages/
 
