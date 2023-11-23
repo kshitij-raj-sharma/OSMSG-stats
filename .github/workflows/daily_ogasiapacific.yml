@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.8
+      - name: Set up Python 3.11
         uses: actions/setup-python@v1
         with:
-          python-version: 3.8
+          python-version: 3.11
 
       - name: Install Osmium
         run: sudo apt-get install -y osmium-tool
@@ -24,34 +24,34 @@ jobs:
       - name: Install necessary dependecies
         run: |
           pip install flare-floss
-          pip install -e . 
+          python setup.py install 
           pip install tweepy
           pip install -r requirements.txt
       - name: Generate Daily Hashtag OGAsiaPacific Stats
         run: |
           osmsg --format csv image --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --hashtags OGAsiaPacific --charts --summary --length highway --update --name stats/OGAsiaPacific/Daily/stats --force
- 
+
       - name: add stats to git
         run: |
           git pull
           git config --global user.email "skshitizraj@gmail.com"
           git config --global user.name "kshitijrajsharma"
           base_dir=stats/OGAsiaPacific/Daily
-          
+
           mkdir -p $base_dir
           mv $base_dir/stats_summary.md $base_dir/Readme.md
           git add -f $base_dir/*
-          
+
           git commit -m "Updated Daily OGAsiaPacific stats"
           git push
 
-      - name : Tweet stats
+      - name: Tweet stats
         env:
           API_KEY: ${{ secrets.API_KEY }}
           API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
-        run : |
+        run: |
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --git $commit_id --tweet '#OGAsiaPacific' --name stats/OGAsiaPacific/Daily/stats

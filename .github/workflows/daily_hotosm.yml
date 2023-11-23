@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.8
+      - name: Set up Python 3.11
         uses: actions/setup-python@v1
         with:
-          python-version: 3.8
+          python-version: 3.11
 
       - name: Install Osmium
         run: sudo apt-get install -y osmium-tool
@@ -21,7 +21,7 @@ jobs:
       - name: Install necessary dependecies
         run: |
           pip install flare-floss
-          pip install -e . 
+          python setup.py install 
           pip install tweepy
           pip install -r requirements.txt
 
@@ -56,4 +56,3 @@ jobs:
         run: |
           commit_id=$(git rev-parse --short HEAD)
           python tweet.py --git $commit_id --name stats/hotosm/Daily/stats --tweet 'Tasking Manager Last Day' --mention '@hotosm'
-
