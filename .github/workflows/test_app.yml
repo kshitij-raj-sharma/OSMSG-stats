@@ -29,6 +29,9 @@ jobs:
           pip install tweepy
           pip install -r requirements.txt
 
+      - name: test package
+        run: pip show osmsg
+
       - name: Generate Last hour stats
         env: #assign variables
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
