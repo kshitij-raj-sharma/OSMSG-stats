@@ -1,14 +1,14 @@
-### Last Update : Stats from 2023-11-17 00:00:00+00:00 to 2023-11-26 03:06:53+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-11-17 00:00:00+00:00 to 2023-11-28 03:07:31+00:00 (UTC Timezone)
 
-#### 7 Users made 1.2 thousand changesets with 178.6 thousand map changes.
-#### 98.2 thousand OSM Elements were Created, 77.4 thousand Modified & 3.0 thousand Deleted.
+#### 7 Users made 1.2 thousand changesets with 182.4 thousand map changes.
+#### 98.4 thousand OSM Elements were Created, 80.9 thousand Modified & 3.1 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/elinino2023/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/elinino2023/Daily/stats_summary.csv)
 
 Top 5 Users are : 
 - ngumenawesamson : 46.8 thousand Map Changes
 - Qwajo OSM : 44.4 thousand Map Changes
-- KingVik : 38.2 thousand Map Changes
+- KingVik : 38.5 thousand Map Changes
 - Awania Morish : 25.7 thousand Map Changes
 - SSEKITOLEKO : 23.3 thousand Map Changes
 
@@ -38,11 +38,11 @@ Top 5 Modified tags are :
 
 
 Top 5 trending hashtags are:
-- #elnino2023 : 7 users
-- #fao_swalim : 7 users
 - #omhesa : 7 users
 - #fao_rtea : 7 users
-- #hotosm-project-15806 : 6 users
+- #elnino2023 : 7 users
+- #fao_swalim : 7 users
+- #hotosm-project-15808 : 6 users
 
 
 Top 5 trending editors are:
