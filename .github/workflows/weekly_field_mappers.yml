@@ -33,6 +33,7 @@ jobs:
           osmsg --format csv image --name stats --tags amenity --all_tags --charts --summary --update --name stats/fieldmappers/Weekly/stats --force --field_mappers
 
       - name: add stats to git
+        continue-on-error: true
 
         run: |
           git pull

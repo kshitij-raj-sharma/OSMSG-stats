@@ -27,6 +27,7 @@ jobs:
           osmsg --format csv image --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --hashtags REPLACE_ME_WITH_HASHTAG --charts --summary --length highway --update --name stats/REPLACE_ME_WITH_HASHTAG/Daily/stats --force
  
       - name: add stats to git
+        continue-on-error: true
         run: |
           git pull
           git config --global user.email "skshitizraj@gmail.com"

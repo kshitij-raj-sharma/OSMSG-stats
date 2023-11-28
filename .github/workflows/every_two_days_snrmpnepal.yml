@@ -31,6 +31,7 @@ jobs:
 
       - name: add stats to git
         continue-on-error: true
+        continue-on-error: true
         run: |
           git pull
           git config --global user.email "skshitizraj@gmail.com"

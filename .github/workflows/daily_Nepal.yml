@@ -40,6 +40,7 @@ jobs:
         #   osmsg --url "https://planet.openstreetmap.org/replication/minute" --format image csv --timezone Nepal --tags building highway waterway amenity --name stats --all_tags --last_day --country Nepal --name stats --read_from_metadata stats/Nepal/Daily/stats_metadata.json
 
       - name: add stats to git
+        continue-on-error: true
 
         run: |
           git pull 
