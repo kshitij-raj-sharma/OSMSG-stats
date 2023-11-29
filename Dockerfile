@@ -1,4 +1,6 @@
-FROM python:3
+ARG PYTHON_VERSION=3.10
+
+FROM docker.io/python:${PYTHON_VERSION}-slim-bookworm
 
 RUN apt-get update -y && apt-get autoremove -y && \
     apt-get install -y --no-install-recommends \
