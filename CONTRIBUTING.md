@@ -18,7 +18,7 @@ Make sure you Read our [Code of Conduct](./CODE_OF_CONDUCT.md) before starting.
 ### Coding Standards
 1. Python Style Guide: Follow the PEP 8 Python style guide for the backend. Format your code using black.
    
-2. Commit standards: Follow [commitizen](https://github.com/commitizen-tools/commitizen) Standards
+2. Commit standards: Follow [commitizen](https://github.com/commitizen-tools/commitizen) Conventional Commit Standards
    
 3. Documentation Style: Use the NumPy docstrings style to document your code.
    
