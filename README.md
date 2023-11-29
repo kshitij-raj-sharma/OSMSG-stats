@@ -262,12 +262,17 @@ export OSM_PASSWORD="yourpassword"
 Now use command as it is without username and password , OSM Login is enabled from Geofabrik [itself](https://github.com/geofabrik/sendfile_osm_oauth_protector) So OSMSG Doesn't uses any third party tool/methododology for the authentication
 
 ### Contributing
-Contributions are always welcome! Project is in active development phase , Improving documentation is always great place to start. Here's how you can get involved:
+Contributions are always welcome! The project is in an active development phase, Improving documentation is always a great place to start. Here's how you can get involved:
 
   - File an issue if you find any bugs or have a feature request.
   - Set up a development environment.
   - Fork the repository.
   - Make your changes and submit a pull request.
+    
+#### Formatting & Info
+  - Use ```black``` formatter
+  - Core login is in ```osmsg/app.py```
+  - Use ```pip install -e . ``` For doing changes and test it 
 
 ### Version Control
 Follow [Version Control Docs](./docs/Version_control.md)
