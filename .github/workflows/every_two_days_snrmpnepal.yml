@@ -2,9 +2,9 @@ name: Run Every2days Report SNRMPNepal Hashtag
 on:
   schedule:
     - cron: "0 3 */2 * *"
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
@@ -30,7 +30,6 @@ jobs:
           osmsg --format csv image --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --hashtags SNRMPNepal --charts --summary --length highway --update --name stats/SNRMPNepal/Every2days/stats --force
 
       - name: add stats to git
-        continue-on-error: true
         continue-on-error: true
         run: |
           git pull
