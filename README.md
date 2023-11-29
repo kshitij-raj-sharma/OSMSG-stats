@@ -273,7 +273,8 @@ Contributions are always welcome! The project is in an active development phase,
   - Use ```black``` formatter
   - Core login is in ```osmsg/app.py```
   - Use ```pip install -e . ``` For doing changes and test it 
-
+  - For stats visualization navigate to ```/frontend ``` which is in next.js and under testing
+    
 ### Version Control
 Follow [Version Control Docs](./docs/Version_control.md)
 
