@@ -6,44 +6,8 @@ I tweet stats Every day/week/month for Global/Region and #hotosm hashtag at http
 
 Monitored stats are available under `stats`, Currently Bot monitors OSM as whole , hotosm hashtag , Nepal Country : weekly,monthly and yearly stats are stored in github and twitter
 
-### Installation
-
-Follow [windows_installation](./docs/Install_windows.md) for Windows Users .
-
-- Install [osmium](https://github.com/osmcode/pyosmium) lib on your machine
-
-```
-pip install osmium
-```
-
-- Install osmsg
-
-```
-pip install osmsg
-```
-
-### [DOCKER] Install with Docker locally
-
-- Clone repo & Build Local container : 
-
-  ```
-  docker build -t osmsg:latest .
-  ```
-
-- Run Container terminal to run osmsg commands: 
-
-  ```
-  docker run -it osmsg
-  ```
-
-  Attach your volume for stats generation if necessary 
-
-  ```
-  docker run -it -v /home/user/data:/app/data osmsg
-  ```
-
 ### Usage:
-
+For installation & Local Setup follow [Installation](./docs/Installation.md)
 ```
 osmsg [-h] [--start_date START_DATE] [--end_date END_DATE] [--username USERNAME]
              [--password PASSWORD] [--timezone {Nepal,UTC}] [--name NAME]
@@ -262,12 +226,7 @@ export OSM_PASSWORD="yourpassword"
 Now use command as it is without username and password , OSM Login is enabled from Geofabrik [itself](https://github.com/geofabrik/sendfile_osm_oauth_protector) So OSMSG Doesn't uses any third party tool/methododology for the authentication
 
 ### Contributing
-Contributions are always welcome! Project is in active development phase , Improving documentation is always great place to start. Here's how you can get involved:
-
-  - File an issue if you find any bugs or have a feature request.
-  - Set up a development environment.
-  - Fork the repository.
-  - Make your changes and submit a pull request.
+Contributions are always welcome! Follow [Contributing Guidelines](./CONTRIBUTING.md) & Go through [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 ### Version Control
 Follow [Version Control Docs](./docs/Version_control.md)
