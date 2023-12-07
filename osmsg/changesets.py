@@ -26,6 +26,13 @@ import datetime as dt
 import sys
 
 import requests
+from requests.adapters import HTTPAdapter
+
+retry_count = 5
+session = requests.Session()
+retries = HTTPAdapter(max_retries=retry_count)
+session.mount("https://", retries)
+session.mount("http://", retries)
 
 
 class ChangesetToolKit:
@@ -35,7 +42,7 @@ class ChangesetToolKit:
         self.replication_url = replication_url
 
     def get_current_state(self):
-        state_yml = requests.get(self.replication_url + "state.yaml").text
+        state_yml = session.get(self.replication_url + "state.yaml").text
         current_sequence = int(state_yml.split("sequence: ")[1])
         last_run = datetime.datetime.strptime(
             state_yml.split("last_run: ")[1][:19], "%Y-%m-%d %H:%M:%S"
@@ -89,7 +96,7 @@ class ChangesetToolKit:
     def sequence_to_timestamp(self, sequence):
         state_url = self.get_state_url(sequence)
 
-        state_yml = requests.get(state_url).text
+        state_yml = session.get(state_url).text
         last_run = datetime.datetime.strptime(
             state_yml.split("last_run: ")[1][:19], "%Y-%m-%d %H:%M:%S"
         ).replace(tzinfo=dt.timezone.utc)
