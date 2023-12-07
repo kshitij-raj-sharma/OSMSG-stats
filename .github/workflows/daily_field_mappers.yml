@@ -30,7 +30,7 @@ jobs:
           OSM_USERNAME: ${{ secrets.OSM_USERNAME }}
           OSM_PASSWORD: ${{ secrets.OSM_PASSWORD }}
         run: |
-          osmsg --format csv image --name stats --tags amenity --all_tags --charts --summary --update --name stats/fieldmappers/Daily/stats --force --field_mappers
+          osmsg --format csv image --name stats --tags amenity --all_tags --charts --summary --update --name stats/fieldmappers/Daily/stats --force --field_mappers --temp
 
       - name: add stats to git
         continue-on-error: true

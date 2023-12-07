@@ -27,7 +27,7 @@ jobs:
 
       - name: Generate Daily Hashtag Stats
         run: |
-          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats/hotosm/Daily/stats --all_tags --read_from_metadata stats/hotosm/Daily/stats_metadata.json --hashtags hotosm --summary --charts  --meta --force
+          osmsg  --url "https://planet.openstreetmap.org/replication/day" --format csv image --last_day --tags 'building' 'highway' 'waterway' 'amenity' --name stats/hotosm/Daily/stats --all_tags --read_from_metadata stats/hotosm/Daily/stats_metadata.json --hashtags hotosm --summary --charts  --meta --force --temp
 
       - name: add stats to git
         continue-on-error: true

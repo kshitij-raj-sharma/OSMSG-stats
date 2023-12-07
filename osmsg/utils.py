@@ -43,8 +43,7 @@ from requests.adapters import HTTPAdapter
 from shapely.geometry import MultiPolygon, Polygon, box
 
 # number of times to retry
-retry_count = 3
-# create a session with retry configuration
+retry_count = 5
 session = requests.Session()
 retries = HTTPAdapter(max_retries=retry_count)
 session.mount("https://", retries)

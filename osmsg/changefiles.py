@@ -29,6 +29,13 @@ from datetime import datetime, timedelta
 import pytz
 import requests
 from osmium.replication.server import ReplicationServer
+from requests.adapters import HTTPAdapter
+
+retry_count = 5
+session = requests.Session()
+retries = HTTPAdapter(max_retries=retry_count)
+session.mount("https://", retries)
+session.mount("http://", retries)
 
 
 def in_local_timezone(date, timezone):
@@ -124,7 +131,7 @@ def previous_week(timezone):
 
 
 def seq_to_timestamp(url, timezone):
-    response = requests.get(url)
+    response = session.get(url)
     rtxt = response.text
     # find the index of the "timestamp=" substring
     timestamp_start = rtxt.find("timestamp=") + len("timestamp=")
