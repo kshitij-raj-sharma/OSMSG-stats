@@ -1,61 +1,61 @@
-### Last Update : Stats from 2023-10-05 00:00:00+00:00 to 2023-12-07 03:10:46+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-10-05 00:00:00+00:00 to 2023-12-09 03:10:01+00:00 (UTC Timezone)
 
-#### 77 Users made 2.2 thousand changesets with 176.5 thousand map changes.
-#### 134.2 thousand OSM Elements were Created, 36.8 thousand Modified & 5.5 thousand Deleted.
+#### 80 Users made 2.5 thousand changesets with 219.5 thousand map changes.
+#### 147.0 thousand OSM Elements were Created, 59.9 thousand Modified & 12.7 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/SNRMPNepal/Every2days/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/SNRMPNepal/Every2days/stats_summary.csv)
 
 Top 5 Users are : 
-- Aarogya Pandey : 55.4 thousand Map Changes
+- Aarogya Pandey : 60.5 thousand Map Changes
 - Ashim Paudel : 20.6 thousand Map Changes
+- Shrestha Shristi : 16.5 thousand Map Changes
 - Gremmy Dhungana : 12.0 thousand Map Changes
-- Shrestha Shristi : 8.7 thousand Map Changes
-- Nischal Acharya - 642 : 7.3 thousand Map Changes
+- Niruta Neeupane : 9.2 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 48, Modified : 53
-- building = Created: 1.4 thousand, Modified : 1.3 thousand
-- highway = Created: 3.5 thousand, Modified : 1.6 thousand
-- waterway = Created: 176, Modified : 166
-- amenity = Created: 0, Modified : 12
+- poi = Created: 73, Modified : 160
+- building = Created: 1.8 thousand, Modified : 1.5 thousand
+- highway = Created: 3.6 thousand, Modified : 2.4 thousand
+- waterway = Created: 183, Modified : 267
+- amenity = Created: 0, Modified : 21
 - highway length created = 1.2 thousand Km
 
 
 Top 5 Created tags are :
-- highway: 3.5 thousand
-- building: 1.4 thousand
-- waterway: 176
-- natural: 90
-- tracktype: 40
+- highway: 3.6 thousand
+- building: 1.8 thousand
+- waterway: 183
+- natural: 96
+- surface: 44
 
 
 Top 5 Modified tags are :
-- highway: 1.6 thousand
-- building: 1.3 thousand
-- surface: 347
-- name: 343
-- natural: 207
+- highway: 2.4 thousand
+- building: 1.5 thousand
+- surface: 479
+- name: 462
+- waterway: 267
 
 
 Top 5 trending hashtags are:
-- #SNRMPNepal : 77 users
-- #OMGuru : 77 users
-- #aphub : 77 users
-- #startnetwork : 77 users
-- #hotosm-project-15639 : 53 users
+- #aphub : 80 users
+- #SNRMPNepal : 80 users
+- #OMGuru : 80 users
+- #startnetwork : 80 users
+- #hotosm-project-15639 : 54 users
 
 
 Top 5 trending editors are:
 - iD 2.21.1 : 41 users
 - JOSM/1.5 (18822 en) : 29 users
+- JOSM/1.5 (18700 en) : 4 users
 - JOSM/1.5 (18772 en) : 4 users
-- JOSM/1.5 (18678 en) : 2 users
-- JOSM/1.5 (18427 en) : 2 users
+- RapiD 1.1.9-tm.1 : 2 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 76 users
-- China : 4 users
+- Nepal : 79 users
+- China : 5 users
 - India : 2 users
 
 
