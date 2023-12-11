@@ -968,32 +968,44 @@ def main():
             "Downloading Changeset files using https://planet.openstreetmap.org/replication/changesets/"
         )
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # Use `map` to apply the `download osm files` function to each element in the `urls` list
-            for _ in tqdm(
-                executor.map(
-                    lambda x: download_osm_files(x, mode="changeset", cookies=cookies),
-                    changeset_download_urls,
-                ),
-                total=len(changeset_download_urls),
-                unit_scale=True,
-                unit="changesets",
-                leave=True,
-            ):
-                pass
+            try:
+                with tqdm(
+                    total=len(changeset_download_urls),
+                    unit_scale=True,
+                    unit="changesets",
+                    leave=True,
+                ) as pbar:
+                    for _ in executor.map(
+                        lambda x: download_osm_files(
+                            x, mode="changeset", cookies=cookies
+                        ),
+                        changeset_download_urls,
+                    ):
+                        pbar.update(1)
+            except Exception as e:
+                print(f"An error occurred: {e}")
+            finally:
+                executor.shutdown(wait=True)
 
         print("Processing Changeset Files")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # Use `map` to apply the `download_image` function to each element in the `urls` list
-            for _ in tqdm(
-                executor.map(process_changesets, changeset_download_urls),
-                total=len(changeset_download_urls),
-                unit_scale=True,
-                unit="changesets",
-                leave=True,
-            ):
-                pass
-            # executor.shutdown(wait=True)
+            try:
+                with tqdm(
+                    total=len(changeset_download_urls),
+                    unit_scale=True,
+                    unit="changesets",
+                    leave=True,
+                ) as pbar:
+                    for _ in executor.map(
+                        process_changesets,
+                        changeset_download_urls,
+                    ):
+                        pbar.update(1)
+            except Exception as e:
+                print(f"An error occurred: {e}")
+            finally:
+                executor.shutdown(wait=True)
 
         print("Changeset Processing Finished")
         end_seq_timestamp = Changeset.sequence_to_timestamp(changeset_end_seq)
@@ -1031,35 +1043,41 @@ def main():
 
         print("Downloading Changefiles")
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # Use `map` to apply the `download osm files` function to each element in the `urls` list
-            for _ in tqdm(
-                executor.map(
-                    lambda x: download_osm_files(
-                        x, mode="changefiles", cookies=cookies
-                    ),
-                    download_urls,
-                ),
-                total=len(download_urls),
-                unit_scale=True,
-                unit="changefiles",
-                leave=True,
-            ):
-                pass
+            try:
+                with tqdm(
+                    total=len(download_urls),
+                    unit_scale=True,
+                    unit="changefiles",
+                    leave=True,
+                ) as pbar:
+                    for _ in executor.map(
+                        lambda x: download_osm_files(
+                            x, mode="changefiles", cookies=cookies
+                        ),
+                        download_urls,
+                    ):
+                        pbar.update(1)
+            except Exception as e:
+                print(f"An error occurred: {e}")
+            finally:
+                executor.shutdown(wait=True)
+
         print("Processing Changefiles")
-
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # Use `map` to apply the `download_image` function to each element in the `urls` list
-            # executor.map(process_changefiles, download_urls)
-            for _ in tqdm(
-                executor.map(process_changefiles, download_urls),
-                total=len(download_urls),
-                unit_scale=True,
-                unit="changefiles",
-                leave=True,
-            ):
-                pass
+            try:
+                with tqdm(
+                    total=len(download_urls),
+                    unit_scale=True,
+                    unit="changefiles",
+                    leave=True,
+                ) as pbar:
+                    for _ in executor.map(process_changefiles, download_urls):
+                        pbar.update(1)
+            except Exception as e:
+                print(f"An error occurred: {e}")
+            finally:
+                executor.shutdown(wait=True)
 
-            # executor.shutdown(wait=True)
         print(f"Changefiles Processing Finished using {url}")
     os.chdir(os.getcwd())
     if args.temp:
