@@ -1,10 +1,10 @@
-name: Run Daily Report Field Mapping Tasking Manger
+name: Run Weekly Report Field Mapping Tasking Manger
 on:
   schedule:
     - cron: "0 5 * * *" # Run every day at 5 UTC
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
 jobs:
   issue:
     runs-on: ubuntu-latest
