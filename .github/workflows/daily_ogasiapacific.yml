@@ -47,6 +47,7 @@ jobs:
           git push
 
       - name: Tweet stats
+        continue-on-error: true
         env:
           API_KEY: ${{ secrets.API_KEY }}
           API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}

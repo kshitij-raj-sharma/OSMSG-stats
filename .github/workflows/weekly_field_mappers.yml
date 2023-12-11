@@ -50,6 +50,7 @@ jobs:
           git push
 
       - name: Tweet stats
+        continue-on-error: true
         env: #assign variables
           API_KEY: ${{ secrets.API_KEY }}
           API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
