@@ -1,28 +1,28 @@
-### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2023-12-09 07:10:46+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2023-12-11 07:12:02+00:00 (UTC Timezone)
 
-#### 35.4 thousand Users made 2.0 million changesets with 13.2 million map changes.
-#### 3.3 million OSM Elements were Created, 9.5 million Modified & 357.6 thousand Deleted.
+#### 35.5 thousand Users made 2.0 million changesets with 13.3 million map changes.
+#### 3.3 million OSM Elements were Created, 9.6 million Modified & 360.3 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/fieldmappers/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/fieldmappers/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Đuro Jiří : 352.2 thousand Map Changes
-- PizzaTreeIsland : 254.9 thousand Map Changes
-- biketeur : 167.4 thousand Map Changes
-- WN6 : 144.7 thousand Map Changes
-- padvinder : 127.0 thousand Map Changes
+- Đuro Jiří : 355.0 thousand Map Changes
+- PizzaTreeIsland : 257.7 thousand Map Changes
+- biketeur : 170.4 thousand Map Changes
+- WN6 : 145.4 thousand Map Changes
+- padvinder : 127.1 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 697.8 thousand, Modified : 2.0 million
-- amenity = Created: 226.4 thousand, Modified : 662.3 thousand
+- poi = Created: 703.7 thousand, Modified : 2.0 million
+- amenity = Created: 228.6 thousand, Modified : 667.4 thousand
 
 
 Top 5 Created tags are :
-- highway: 247.2 thousand
-- name: 242.5 thousand
-- amenity: 226.4 thousand
-- addr:housenumber: 110.7 thousand
-- addr:street: 105.6 thousand
+- highway: 249.3 thousand
+- name: 245.0 thousand
+- amenity: 228.6 thousand
+- addr:housenumber: 111.6 thousand
+- addr:street: 106.4 thousand
 
 
 Top 5 Modified tags are :
@@ -30,29 +30,29 @@ Top 5 Modified tags are :
 - surface: 3.3 million
 - name: 2.7 million
 - building: 2.3 million
-- addr:housenumber: 1.5 million
+- addr:housenumber: 1.6 million
 
 
 Top 5 trending hashtags are:
 - #MapHerWorld : 62 users
 - #FLCHgrdUNMSM : 32 users
 - #OsmUgcampaign : 16 users
-- #everydoor : 15 users
+- #everydoor : 16 users
 
 
 Top 5 trending editors are:
 - StreetComplete 53.3 : 10225 users
 - StreetComplete 54.0 : 7441 users
-- StreetComplete 55.0 : 6055 users
-- StreetComplete 54.1 : 5843 users
+- StreetComplete 55.0 : 6075 users
+- StreetComplete 54.1 : 5847 users
 - StreetComplete 53.2 : 5775 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 9586 users
-- France : 4589 users
-- United States of America : 3649 users
-- Italy : 2107 users
+- Germany : 9627 users
+- France : 4605 users
+- United States of America : 3665 users
+- Italy : 2115 users
 
 
  Charts : 
