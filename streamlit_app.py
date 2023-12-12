@@ -1,8 +1,10 @@
 import json
 from datetime import datetime
+from io import StringIO
 
 import matplotlib.pyplot as plt
 import pandas as pd
+import requests
 import streamlit as st
 from matplotlib.ticker import FuncFormatter
 
@@ -16,6 +18,22 @@ def extract_json_value(df, column, selected_key):
             return None
 
     return df[column].apply(extract_value)
+
+
+def get_data_from_url(url):
+    try:
+        if "github.com" in url:
+            # If the URL is from GitHub, map it to the raw URL
+            url = url.replace("github.com", "raw.githubusercontent.com").replace(
+                "/blob/", "/"
+            )
+        response = requests.get(url)
+        response.raise_for_status()
+        st.sidebar.success("Remote URl Added Successfully")
+        return pd.read_csv(StringIO(response.text))
+    except requests.exceptions.RequestException as e:
+        st.sidebar.error(f"Error retrieving data from URL: {e}")
+        return pd.DataFrame()
 
 
 def dynamic_json_extraction(df):
@@ -99,7 +117,7 @@ def main():
     st.sidebar.title("OSMSG Stats Visualizer")
     st.sidebar.subheader("Choose Data")
     data_source = st.sidebar.radio(
-        "Select data source", ("Upload CSV", "Use Sample Data")
+        "Select data source", ("Upload CSV", "Use Remote URL")
     )
 
     if data_source == "Upload CSV":
@@ -107,10 +125,10 @@ def main():
         if uploaded_file is not None:
             df = pd.read_csv(uploaded_file)
     else:
-        # Use sample data
-        df = pd.read_csv(
-            "https://raw.githubusercontent.com/kshitijrajsharma/OSMSG/master/stats/turkeyeq/Daily/stats_summary.csv"
-        )
+        # Use remote data
+        remote_url = st.sidebar.text_input("Enter Remote CSV URL", "")
+        if remote_url:
+            df = get_data_from_url(remote_url)
 
     st.sidebar.title("Choose Chart Options")
     selected_columns = st.sidebar.multiselect("Select columns for chart", df.columns)
