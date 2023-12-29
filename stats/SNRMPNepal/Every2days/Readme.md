@@ -1,23 +1,23 @@
-### Last Update : Stats from 2023-10-05 00:00:00+00:00 to 2023-12-25 03:10:52+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-10-05 00:00:00+00:00 to 2023-12-29 03:10:46+00:00 (UTC Timezone)
 
-#### 82 Users made 3.1 thousand changesets with 312.8 thousand map changes.
-#### 163.1 thousand OSM Elements were Created, 116.2 thousand Modified & 33.4 thousand Deleted.
+#### 82 Users made 3.1 thousand changesets with 314.3 thousand map changes.
+#### 163.7 thousand OSM Elements were Created, 116.8 thousand Modified & 33.9 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/SNRMPNepal/Every2days/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/SNRMPNepal/Every2days/stats_summary.csv)
 
 Top 5 Users are : 
 - Aarogya Pandey : 70.2 thousand Map Changes
-- Shrestha Shristi : 47.0 thousand Map Changes
-- Niruta Neeupane : 31.2 thousand Map Changes
+- Shrestha Shristi : 47.9 thousand Map Changes
+- Niruta Neeupane : 31.8 thousand Map Changes
 - Ashim Paudel : 20.6 thousand Map Changes
 - Vivek Dumre : 14.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 97, Modified : 292
+- poi = Created: 97, Modified : 293
 - building = Created: 2.7 thousand, Modified : 2.4 thousand
-- highway = Created: 3.8 thousand, Modified : 3.9 thousand
+- highway = Created: 3.8 thousand, Modified : 4.0 thousand
 - waterway = Created: 230, Modified : 560
-- amenity = Created: 2, Modified : 44
+- amenity = Created: 2, Modified : 46
 - highway length created = 1.3 thousand Km
 
 
@@ -30,10 +30,10 @@ Top 5 Created tags are :
 
 
 Top 5 Modified tags are :
-- highway: 3.9 thousand
+- highway: 4.0 thousand
 - building: 2.4 thousand
-- name: 750
-- surface: 736
+- name: 762
+- surface: 744
 - waterway: 560
 
 
@@ -50,7 +50,7 @@ Top 5 trending editors are:
 - JOSM/1.5 (18822 en) : 29 users
 - JOSM/1.5 (18700 en) : 4 users
 - JOSM/1.5 (18772 en) : 4 users
-- JOSM/1.5 (17580 en) : 2 users
+- iD 2.27.3 : 2 users
 
 
 Top 5 trending Countries where user contributed are:
