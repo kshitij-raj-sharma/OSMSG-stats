@@ -1,63 +1,63 @@
-### Last Update : Stats from 2023-12-28 00:00:00+00:00 to 2023-12-29 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-12-29 00:00:00+00:00 to 2023-12-30 00:00:00+00:00 (UTC Timezone)
 
-#### 192 Users made 2.9 thousand changesets with 217.5 thousand map changes.
-#### 147.6 thousand OSM Elements were Created, 49.3 thousand Modified & 20.6 thousand Deleted.
+#### 182 Users made 1.8 thousand changesets with 229.7 thousand map changes.
+#### 149.1 thousand OSM Elements were Created, 56.9 thousand Modified & 23.7 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- oscarvelmu : 8.0 thousand Map Changes
-- Hessel54 : 7.8 thousand Map Changes
-- anthaas : 7.4 thousand Map Changes
-- KevinPilliza : 6.1 thousand Map Changes
-- Kathyaus : 5.8 thousand Map Changes
+- jmsbert : 9.5 thousand Map Changes
+- Libor Bednarik : 7.9 thousand Map Changes
+- Ryan Coles : 7.7 thousand Map Changes
+- Kathyaus : 6.7 thousand Map Changes
+- birgitt m : 6.4 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 56, Modified : 265
-- building = Created: 21.9 thousand, Modified : 1.4 thousand
-- highway = Created: 838, Modified : 881
-- waterway = Created: 15, Modified : 97
-- amenity = Created: 3, Modified : 54
+- poi = Created: 175, Modified : 82
+- building = Created: 21.3 thousand, Modified : 1.2 thousand
+- highway = Created: 1.0 thousand, Modified : 963
+- waterway = Created: 43, Modified : 74
+- amenity = Created: 9, Modified : 12
 
 
 Top 5 Created tags are :
-- building: 21.9 thousand
-- highway: 838
-- landuse: 518
-- aquaculture: 311
-- seamark:type: 311
+- building: 21.3 thousand
+- highway: 1.0 thousand
+- landuse: 462
+- aquaculture: 285
+- seamark:type: 285
 
 
 Top 5 Modified tags are :
-- building: 1.4 thousand
-- highway: 881
-- source: 206
-- surface: 201
-- name: 187
+- building: 1.2 thousand
+- highway: 963
+- surface: 267
+- source: 232
+- landuse: 118
 
 
 Top 5 trending hashtags are:
-- #missingmaps : 43 users
+- #missingmaps : 49 users
+- #msf : 31 users
 - #moroccoearthquake2023 : 26 users
-- #hotosm-project-15476 : 22 users
-- #msf : 21 users
-- #hotosm-project-13532 : 18 users
+- #hotosm-project-15476 : 21 users
+- #hotosm-project-13532 : 15 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 121 users
+- iD 2.21.1 : 118 users
 - JOSM/1.5 (18907 en) : 16 users
-- JOSM/1.5 (18822 en) : 12 users
+- JOSM/1.5 (18822 en) : 15 users
 - JOSM/1.5 (18907 en_GB) : 6 users
-- JOSM/1.5 (18907 nl) : 4 users
+- JOSM/1.5 (18907 nl) : 3 users
 
 
 Top 5 trending Countries where user contributed are:
-- Kenya : 35 users
-- Morocco : 26 users
-- India : 18 users
-- Sudan : 16 users
+- Kenya : 33 users
+- Morocco : 23 users
+- Nepal : 21 users
 - Honduras : 16 users
+- Sudan : 15 users
 
 
  Charts : 
