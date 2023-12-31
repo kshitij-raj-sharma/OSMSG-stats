@@ -1,19 +1,19 @@
-### Last Update : Stats from 2023-10-05 00:00:00+00:00 to 2023-12-29 03:10:46+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-10-05 00:00:00+00:00 to 2023-12-31 03:10:41+00:00 (UTC Timezone)
 
-#### 82 Users made 3.1 thousand changesets with 314.3 thousand map changes.
-#### 163.7 thousand OSM Elements were Created, 116.8 thousand Modified & 33.9 thousand Deleted.
+#### 82 Users made 3.1 thousand changesets with 316.1 thousand map changes.
+#### 163.9 thousand OSM Elements were Created, 117.7 thousand Modified & 34.5 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/SNRMPNepal/Every2days/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/SNRMPNepal/Every2days/stats_summary.csv)
 
 Top 5 Users are : 
 - Aarogya Pandey : 70.2 thousand Map Changes
-- Shrestha Shristi : 47.9 thousand Map Changes
+- Shrestha Shristi : 49.7 thousand Map Changes
 - Niruta Neeupane : 31.8 thousand Map Changes
 - Ashim Paudel : 20.6 thousand Map Changes
 - Vivek Dumre : 14.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 97, Modified : 293
+- poi = Created: 97, Modified : 296
 - building = Created: 2.7 thousand, Modified : 2.4 thousand
 - highway = Created: 3.8 thousand, Modified : 4.0 thousand
 - waterway = Created: 230, Modified : 560
@@ -32,16 +32,16 @@ Top 5 Created tags are :
 Top 5 Modified tags are :
 - highway: 4.0 thousand
 - building: 2.4 thousand
-- name: 762
-- surface: 744
+- name: 770
+- surface: 751
 - waterway: 560
 
 
 Top 5 trending hashtags are:
 - #OMGuru : 82 users
-- #startnetwork : 82 users
-- #aphub : 82 users
 - #SNRMPNepal : 82 users
+- #aphub : 82 users
+- #startnetwork : 82 users
 - #hotosm-project-15639 : 56 users
 
 
