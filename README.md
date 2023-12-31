@@ -73,3 +73,10 @@ Follow [Version Control Docs](./docs/Version_control.md)
 
 ### Request Stats Tracking on Github 
 Follow [stats_request_docs](./docs/Request_Stats.md)
+
+## Visualize stats with streamlit
+
+```bash
+pip install streamlit
+streamlit run streamlit_app.py
+```
