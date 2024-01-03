@@ -19,7 +19,7 @@ jobs:
       - name: Install necessary dependecies
         run: |
           pip install flare-floss
-          python setup.py install 
+          pip install osmsg
           pip install tweepy
           pip install -r requirements.txt
       - name: Generate Daily Hashtag elinino2023 Stats
