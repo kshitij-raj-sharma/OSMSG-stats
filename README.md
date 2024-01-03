@@ -1,6 +1,10 @@
-# OpenStreetMap Stats Generator
+# OpenStreetMap Stats Generator Stats Collection Dir
 
-Stas Collection Repo : Go here for CodeBase : (https://github.com/kshitij-raj-sharma/OSMSG)
+## CodeBase : 
+Code base has been migrated here : 
+(https://github.com/kshitij-raj-sharma/OSMSG)
+
+## Overview
 
 On the Fly Commandline Stats Generator for OpenStreetMap User Contributions
 
