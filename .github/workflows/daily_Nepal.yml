@@ -44,8 +44,8 @@ jobs:
 
         run: |
           git pull 
-          git config --global user.email "skshitizraj@gmail.com"
-          git config --global user.name "kshitijrajsharma"
+          git config --global user.email ${{ secrets.GIT_EMAIL }}
+          git config --global user.name ${{ secrets.GIT_USERNAME }}
           cp *.csv stats/Nepal/Daily/daily_nepal_stats.csv
           cp *.png stats/Nepal/Daily/charts/top_users.png
           cp stats_metadata.json stats/Nepal/Daily/stats_metadata.json
