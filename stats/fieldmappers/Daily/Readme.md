@@ -1,28 +1,28 @@
-### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2024-01-02 07:11:05+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2024-01-03 07:13:16+00:00 (UTC Timezone)
 
-#### 37.3 thousand Users made 2.2 million changesets with 14.8 million map changes.
-#### 3.7 million OSM Elements were Created, 10.6 million Modified & 395.7 thousand Deleted.
+#### 37.4 thousand Users made 2.2 million changesets with 14.8 million map changes.
+#### 3.8 million OSM Elements were Created, 10.7 million Modified & 400.4 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/fieldmappers/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/fieldmappers/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Đuro Jiří : 402.8 thousand Map Changes
-- PizzaTreeIsland : 315.4 thousand Map Changes
-- biketeur : 199.8 thousand Map Changes
-- WN6 : 187.5 thousand Map Changes
-- padvinder : 149.1 thousand Map Changes
+- Đuro Jiří : 408.6 thousand Map Changes
+- PizzaTreeIsland : 317.8 thousand Map Changes
+- biketeur : 201.3 thousand Map Changes
+- WN6 : 198.3 thousand Map Changes
+- padvinder : 150.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 776.4 thousand, Modified : 2.2 million
-- amenity = Created: 249.9 thousand, Modified : 726.0 thousand
+- poi = Created: 779.2 thousand, Modified : 2.2 million
+- amenity = Created: 250.9 thousand, Modified : 728.9 thousand
 
 
 Top 5 Created tags are :
-- highway: 275.2 thousand
-- name: 272.7 thousand
-- amenity: 249.9 thousand
-- addr:housenumber: 126.5 thousand
-- addr:street: 119.7 thousand
+- highway: 276.3 thousand
+- name: 273.8 thousand
+- amenity: 250.9 thousand
+- addr:housenumber: 126.8 thousand
+- addr:street: 120.0 thousand
 
 
 Top 5 Modified tags are :
@@ -36,23 +36,23 @@ Top 5 Modified tags are :
 Top 5 trending hashtags are:
 - #MapHerWorld : 62 users
 - #FLCHgrdUNMSM : 32 users
-- #everydoor : 16 users
 - #OsmUgcampaign : 16 users
+- #everydoor : 16 users
 
 
 Top 5 trending editors are:
 - StreetComplete 53.3 : 10239 users
 - StreetComplete 54.0 : 7466 users
-- StreetComplete 55.0 : 6179 users
+- StreetComplete 55.0 : 6183 users
 - StreetComplete 54.1 : 5879 users
-- StreetComplete 53.2 : 5777 users
+- StreetComplete 53.2 : 5779 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 10079 users
-- France : 4844 users
-- United States of America : 3901 users
-- Italy : 2204 users
+- Germany : 10093 users
+- France : 4850 users
+- United States of America : 3917 users
+- Italy : 2208 users
 
 
  Charts : 
