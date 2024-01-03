@@ -1,6 +1,6 @@
 ### Quickly Raise Stats Request 
 
-- Fork the repository - Go to the OSMSG repository and click on the Fork button to create a fork of the repository under your own Github account.
+- Fork the repository (https://github.com/kshitij-raj-sharma/OSMSG-stats)- Go to the OSMSG repository and click on the Fork button to create a fork of the repository under your own Github account.
 
 - Create a new branch - After forking the repository, create a new branch for your changes. Name the branch according to the changes you're making. for eg : ```request/hashtag_name```
 
