@@ -23,7 +23,7 @@ jobs:
           pip install flare-floss
           pip install osmsg
           pip install tweepy
-          pip install -r requirements.txt
+
       - name: Generate Daily Hashtag mapherworld Stats
         run: |
           osmsg --format csv image --tags 'building' 'highway' 'waterway' 'amenity' --name stats --all_tags --hashtags mapherworld --charts --summary --length highway --update --name stats/mapherworld/Daily/stats --force

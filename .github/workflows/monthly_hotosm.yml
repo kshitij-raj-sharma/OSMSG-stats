@@ -23,7 +23,7 @@ jobs:
           pip install flare-floss
           pip install osmsg
           pip install tweepy
-          pip install -r requirements.txt
+
 
       - name: Generate Monthly Hashtag Stats
         run: |
