@@ -25,6 +25,7 @@ jobs:
         run: |
           pip install flare-floss
           pip install osmsg
+          pip install -r requirements.txt
           pip install tweepy
 
       - name: Generate Daily Hashtag OGAsiaPacific Stats
