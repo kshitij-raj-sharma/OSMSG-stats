@@ -2,7 +2,7 @@
 
 ## CodeBase : 
 Code base has been migrated here : 
-(https://github.com/kshitij-raj-sharma/OSMSG)
+(https://github.com/osgeonepal/OSMSG)
 
 ## Overview
 
