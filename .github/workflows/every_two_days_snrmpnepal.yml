@@ -22,7 +22,7 @@ jobs:
         run: |
           pip install flare-floss
           pip install tweepy
-          python setup.py install
+          pip install osmsg
 
       - name: Generate Every2days Hashtag SNRMPNepal Stats
         run: |
