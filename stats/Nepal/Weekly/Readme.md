@@ -1,60 +1,61 @@
-### Last Update : Stats from 2023-12-24 00:00:00+00:00 to 2023-12-31 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-12-31 00:00:00+00:00 to 2024-01-14 00:00:00+00:00 (UTC Timezone)
 
-#### 117 Users made 843 changesets with 110.6 thousand map changes.
-#### 73.1 thousand OSM Elements were Created, 37.3 thousand Modified & 198 Deleted.
+#### 150 Users made 1.9 thousand changesets with 186.7 thousand map changes.
+#### 124.7 thousand OSM Elements were Created, 59.5 thousand Modified & 2.4 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/Nepal/Weekly/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Nepal/Weekly/stats_summary.csv)
 
 Top 5 Users are : 
-- 4rch : 24.1 thousand Map Changes
-- Kathyaus : 16.5 thousand Map Changes
-- Grannymeg : 11.2 thousand Map Changes
-- Gunjan Adhikari : 7.5 thousand Map Changes
-- lucianmanescu : 4.7 thousand Map Changes
+- lucianmanescu : 26.0 thousand Map Changes
+- Grannymeg : 25.4 thousand Map Changes
+- Adrie Sonke : 16.9 thousand Map Changes
+- Gunjan Adhikari : 14.0 thousand Map Changes
+- jean-ray2 : 13.5 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 106, Modified : 83
-- building = Created: 4.8 thousand, Modified : 522
-- highway = Created: 517, Modified : 881
-- waterway = Created: 50, Modified : 64
-- amenity = Created: 27, Modified : 32
+- poi = Created: 610, Modified : 282
+- building = Created: 9.2 thousand, Modified : 700
+- highway = Created: 1.2 thousand, Modified : 2.1 thousand
+- waterway = Created: 373, Modified : 317
+- amenity = Created: 60, Modified : 91
 
 
 Top 5 Created tags are :
-- building: 4.8 thousand
-- highway: 517
-- natural: 315
-- source: 220
-- landuse: 186
+- building: 9.2 thousand
+- highway: 1.2 thousand
+- natural: 579
+- landuse: 576
+- tourism: 453
 
 
 Top 5 Modified tags are :
-- highway: 881
-- building: 522
-- name: 269
-- landuse: 184
-- natural: 168
+- highway: 2.1 thousand
+- building: 700
+- name: 607
+- landuse: 461
+- natural: 409
 
 
 Top 5 trending hashtags are:
-- #osmnepal : 27 users
-- #nepalearthquake2023 : 23 users
-- #disasterresponse : 23 users
-- #jajarkotearthquake : 14 users
+- #osmnepal : 32 users
+- #disasterresponse : 25 users
+- #nepalearthquake2023 : 25 users
+- #maproulette : 21 users
 
 
 Top 5 trending editors are:
-- iD 2.27.3 : 40 users
-- JOSM/1.5 (18907 en) : 17 users
-- iD 2.21.1 : 15 users
-- JOSM/1.5 (18822 en) : 15 users
-- MAPS.ME android 15.5.71668 : 4 users
+- iD 2.27.3 : 38 users
+- iD 2.21.1 : 24 users
+- JOSM/1.5 (18822 en) : 22 users
+- JOSM/1.5 (18907 en) : 18 users
+- JOSM/1.5 (18463 en) : 10 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nepal : 101 users
-- India : 10 users
-- China : 9 users
+- Nepal : 134 users
+- India : 17 users
+- China : 7 users
+- Burkina Faso : 1 users
 - Myanmar : 1 users
 
 
