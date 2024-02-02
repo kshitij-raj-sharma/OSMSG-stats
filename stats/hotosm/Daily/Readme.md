@@ -1,63 +1,63 @@
-### Last Update : Stats from 2024-01-31 00:00:00+00:00 to 2024-02-01 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-02-01 00:00:00+00:00 to 2024-02-02 00:00:00+00:00 (UTC Timezone)
 
-#### 564 Users made 5.7 thousand changesets with 698.0 thousand map changes.
-#### 539.1 thousand OSM Elements were Created, 115.5 thousand Modified & 43.3 thousand Deleted.
+#### 468 Users made 4.6 thousand changesets with 575.9 thousand map changes.
+#### 431.5 thousand OSM Elements were Created, 104.7 thousand Modified & 39.7 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Huygens_Jnr : 38.4 thousand Map Changes
-- onesimusGGA : 16.4 thousand Map Changes
-- Ibrahim Adamu : 15.5 thousand Map Changes
-- Afolabi Victor Ayodeji : 13.8 thousand Map Changes
-- Masud Mamza : 12.7 thousand Map Changes
+- la_nenemini : 19.5 thousand Map Changes
+- Huygens_Jnr : 19.1 thousand Map Changes
+- Frans S : 15.2 thousand Map Changes
+- Afolabi Victor Ayodeji : 12.0 thousand Map Changes
+- Vickystickz : 11.7 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 334, Modified : 85
-- building = Created: 81.7 thousand, Modified : 4.9 thousand
-- highway = Created: 1.9 thousand, Modified : 2.4 thousand
-- waterway = Created: 307, Modified : 192
-- amenity = Created: 34, Modified : 56
+- poi = Created: 64, Modified : 177
+- building = Created: 66.8 thousand, Modified : 2.8 thousand
+- highway = Created: 2.1 thousand, Modified : 2.4 thousand
+- waterway = Created: 248, Modified : 189
+- amenity = Created: 28, Modified : 30
 
 
 Top 5 Created tags are :
-- building: 81.7 thousand
-- source: 23.6 thousand
-- highway: 1.9 thousand
-- landuse: 564
-- type: 425
+- building: 66.8 thousand
+- source: 15.8 thousand
+- highway: 2.1 thousand
+- landuse: 390
+- waterway: 248
 
 
 Top 5 Modified tags are :
-- building: 4.9 thousand
+- building: 2.8 thousand
 - highway: 2.4 thousand
-- source: 2.2 thousand
-- surface: 343
-- name: 278
+- source: 1.0 thousand
+- surface: 416
+- name: 222
 
 
 Top 5 trending hashtags are:
-- #amm : 136 users
-- #hotosm-project-15305 : 120 users
-- #missingmaps : 111 users
-- #hotosm-project-15306 : 101 users
-- #msf : 62 users
+- #amm : 99 users
+- #missingmaps : 76 users
+- #hotosm-project-15306 : 67 users
+- #msf : 52 users
+- #cork : 50 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 403 users
-- JOSM/1.5 (18940 en) : 54 users
-- JOSM/1.5 (18822 en) : 22 users
-- JOSM/1.5 (18940 en_GB) : 13 users
+- iD 2.21.1 : 324 users
+- JOSM/1.5 (18940 en) : 48 users
+- JOSM/1.5 (18822 en) : 17 users
+- JOSM/1.5 (18940 en_GB) : 11 users
 - JOSM/1.5 (18907 en) : 7 users
 
 
 Top 5 trending Countries where user contributed are:
-- Honduras : 172 users
-- Kenya : 56 users
-- Nigeria : 53 users
-- Japan : 52 users
-- Morocco : 40 users
+- Honduras : 122 users
+- Nigeria : 46 users
+- Kenya : 45 users
+- Japan : 39 users
+- Morocco : 34 users
 
 
  Charts : 
