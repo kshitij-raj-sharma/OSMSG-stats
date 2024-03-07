@@ -1,28 +1,28 @@
-### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2024-03-06 07:10:16+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2024-03-07 07:09:17+00:00 (UTC Timezone)
 
-#### 41.7 thousand Users made 2.7 million changesets with 18.7 million map changes.
-#### 4.9 million OSM Elements were Created, 13.4 million Modified & 508.8 thousand Deleted.
+#### 41.8 thousand Users made 2.7 million changesets with 18.8 million map changes.
+#### 4.9 million OSM Elements were Created, 13.4 million Modified & 509.8 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/fieldmappers/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/fieldmappers/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Đuro Jiří : 566.8 thousand Map Changes
-- PizzaTreeIsland : 556.3 thousand Map Changes
+- Đuro Jiří : 571.0 thousand Map Changes
+- PizzaTreeIsland : 565.0 thousand Map Changes
 - biketeur : 281.9 thousand Map Changes
 - WN6 : 272.4 thousand Map Changes
-- padvinder : 209.1 thousand Map Changes
+- padvinder : 209.9 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 966.4 thousand, Modified : 2.8 million
-- amenity = Created: 305.8 thousand, Modified : 890.8 thousand
+- poi = Created: 969.1 thousand, Modified : 2.8 million
+- amenity = Created: 306.6 thousand, Modified : 893.5 thousand
 
 
 Top 5 Created tags are :
-- highway: 343.1 thousand
-- name: 342.4 thousand
-- amenity: 305.8 thousand
-- addr:housenumber: 164.1 thousand
-- addr:street: 156.2 thousand
+- highway: 344.1 thousand
+- name: 343.5 thousand
+- amenity: 306.6 thousand
+- addr:housenumber: 164.4 thousand
+- addr:street: 156.5 thousand
 
 
 Top 5 Modified tags are :
@@ -49,10 +49,10 @@ Top 5 trending editors are:
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 11288 users
-- France : 5329 users
-- United States of America : 4380 users
-- Italy : 2423 users
+- Germany : 11297 users
+- France : 5332 users
+- United States of America : 4388 users
+- Italy : 2431 users
 
 
  Charts : 
