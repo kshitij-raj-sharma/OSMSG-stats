@@ -1,62 +1,62 @@
-### Last Update : Stats from 2024-03-16 00:00:00+00:00 to 2024-03-17 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-03-17 00:00:00+00:00 to 2024-03-18 00:00:00+00:00 (UTC Timezone)
 
-#### 332 Users made 6.1 thousand changesets with 559.7 thousand map changes.
-#### 409.1 thousand OSM Elements were Created, 133.7 thousand Modified & 16.9 thousand Deleted.
+#### 250 Users made 3.8 thousand changesets with 440.4 thousand map changes.
+#### 327.5 thousand OSM Elements were Created, 96.9 thousand Modified & 15.9 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Vickystickz : 66.5 thousand Map Changes
-- NicaTopo : 16.1 thousand Map Changes
-- Lioness_001 : 14.5 thousand Map Changes
-- Ttara : 13.5 thousand Map Changes
-- Jaybitzee_PYJ : 13.1 thousand Map Changes
+- NicaTopo : 28.7 thousand Map Changes
+- Ehrie : 18.9 thousand Map Changes
+- Aneehat : 12.7 thousand Map Changes
+- khelani : 10.8 thousand Map Changes
+- sheillahnayiga : 10.6 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 122, Modified : 422
-- building = Created: 59.1 thousand, Modified : 12.0 thousand
-- highway = Created: 1.5 thousand, Modified : 2.8 thousand
-- waterway = Created: 105, Modified : 132
-- amenity = Created: 70, Modified : 71
+- poi = Created: 91, Modified : 193
+- building = Created: 52.3 thousand, Modified : 3.0 thousand
+- highway = Created: 1.2 thousand, Modified : 1.8 thousand
+- waterway = Created: 45, Modified : 87
+- amenity = Created: 24, Modified : 74
 
 
 Top 5 Created tags are :
-- building: 59.1 thousand
-- source: 5.3 thousand
-- destroyed:building: 3.8 thousand
-- highway: 1.5 thousand
-- landuse: 1.2 thousand
+- building: 52.3 thousand
+- source: 5.8 thousand
+- highway: 1.2 thousand
+- destroyed:building: 1.0 thousand
+- landuse: 579
 
 
 Top 5 Modified tags are :
-- building: 12.0 thousand
-- source: 10.1 thousand
-- highway: 2.8 thousand
-- surface: 581
-- name: 416
+- building: 3.0 thousand
+- highway: 1.8 thousand
+- source: 765
+- surface: 438
+- name: 372
 
 
 Top 5 trending hashtags are:
-- #wnah : 84 users
-- #Amazonprogram : 65 users
-- #Amazonía_Ecuatoriana : 61 users
-- #hotosm-project-16363 : 61 users
-- #niño : 59 users
+- #wnah : 83 users
+- #OSMMorocco : 48 users
+- #OSMAfrica : 48 users
+- #RDPR2023 : 47 users
+- #HOT : 47 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 217 users
+- iD 2.21.1 : 148 users
 - JOSM/1.5 (18969 en) : 41 users
-- JOSM/1.5 (18822 en) : 14 users
 - JOSM/1.5 (18940 en) : 9 users
-- JOSM/1.5 (18969 en_GB) : 7 users
+- JOSM/1.5 (18969 en_GB) : 6 users
+- JOSM/1.5 (18822 en) : 6 users
 
 
 Top 5 trending Countries where user contributed are:
-- Ecuador : 65 users
-- Morocco : 64 users
-- Nigeria : 37 users
-- Malawi : 31 users
+- Morocco : 60 users
+- Nigeria : 36 users
+- Malawi : 20 users
+- Kenya : 17 users
 - India : 15 users
 
 
