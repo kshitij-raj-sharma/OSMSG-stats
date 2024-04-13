@@ -1,63 +1,63 @@
-### Last Update : Stats from 2024-04-11 00:00:00+00:00 to 2024-04-12 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-04-12 00:00:00+00:00 to 2024-04-13 00:00:00+00:00 (UTC Timezone)
 
-#### 478 Users made 5.6 thousand changesets with 538.4 thousand map changes.
-#### 398.6 thousand OSM Elements were Created, 118.7 thousand Modified & 21.1 thousand Deleted.
+#### 397 Users made 4.0 thousand changesets with 532.4 thousand map changes.
+#### 405.6 thousand OSM Elements were Created, 105.7 thousand Modified & 21.1 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- ujinevich : 14.7 thousand Map Changes
-- 3xodusse : 14.0 thousand Map Changes
-- Frans S : 13.0 thousand Map Changes
-- Tadiavwa : 12.2 thousand Map Changes
-- Pilar Gazo : 12.1 thousand Map Changes
+- OPEOLUWA250 : 17.9 thousand Map Changes
+- mjgk : 15.4 thousand Map Changes
+- ujinevich : 14.6 thousand Map Changes
+- Libor Bednarik : 10.9 thousand Map Changes
+- Rachealayeni : 10.8 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 49, Modified : 139
-- building = Created: 63.1 thousand, Modified : 4.4 thousand
-- highway = Created: 907, Modified : 2.6 thousand
-- waterway = Created: 105, Modified : 62
-- amenity = Created: 11, Modified : 55
+- poi = Created: 35, Modified : 349
+- building = Created: 62.2 thousand, Modified : 3.1 thousand
+- highway = Created: 1.3 thousand, Modified : 1.8 thousand
+- waterway = Created: 70, Modified : 82
+- amenity = Created: 10, Modified : 40
 
 
 Top 5 Created tags are :
-- building: 63.1 thousand
-- source: 2.0 thousand
-- highway: 907
-- landuse: 417
-- construction: 216
+- building: 62.2 thousand
+- source: 3.1 thousand
+- highway: 1.3 thousand
+- surface: 392
+- landuse: 372
 
 
 Top 5 Modified tags are :
-- building: 4.4 thousand
-- highway: 2.6 thousand
-- surface: 1.8 thousand
-- source: 829
-- name: 302
+- building: 3.1 thousand
+- highway: 1.8 thousand
+- surface: 849
+- source: 763
+- name: 284
 
 
 Top 5 trending hashtags are:
-- #missingmaps : 117 users
-- #msf : 100 users
-- #OMGuru : 92 users
-- #mizoramstate : 84 users
-- #hotosm-project-16509 : 83 users
+- #missingmaps : 75 users
+- #OMGuru : 73 users
+- #msf : 54 users
+- #esc2023 : 45 users
+- #APHub : 41 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 344 users
+- iD 2.21.1 : 257 users
+- JOSM/1.5 (19017 en) : 20 users
 - JOSM/1.5 (18969 en) : 18 users
-- JOSM/1.5 (19017 en) : 17 users
-- JOSM/1.5 (19039 en) : 12 users
-- JOSM/1.5 (18583 fr) : 11 users
+- JOSM/1.5 (18822 en) : 15 users
+- JOSM/1.5 (18940 en) : 11 users
 
 
 Top 5 trending Countries where user contributed are:
-- India : 119 users
-- Honduras : 67 users
-- Papua New Guinea : 66 users
-- Libyan Arab Jamahiriya : 35 users
-- Nigeria : 34 users
+- Honduras : 54 users
+- Kenya : 45 users
+- Papua New Guinea : 42 users
+- Nigeria : 39 users
+- India : 38 users
 
 
  Charts : 
