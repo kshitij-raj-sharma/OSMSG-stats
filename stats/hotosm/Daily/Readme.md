@@ -1,63 +1,63 @@
-### Last Update : Stats from 2024-04-16 00:00:00+00:00 to 2024-04-17 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-04-17 00:00:00+00:00 to 2024-04-18 00:00:00+00:00 (UTC Timezone)
 
-#### 633 Users made 5.6 thousand changesets with 630.4 thousand map changes.
-#### 443.3 thousand OSM Elements were Created, 151.3 thousand Modified & 35.9 thousand Deleted.
+#### 657 Users made 7.6 thousand changesets with 758.4 thousand map changes.
+#### 523.4 thousand OSM Elements were Created, 178.8 thousand Modified & 56.2 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- ujinevich : 22.1 thousand Map Changes
-- Frans S : 16.5 thousand Map Changes
-- Austinenoni : 15.1 thousand Map Changes
-- OKIKIRI FAVOUR : 14.8 thousand Map Changes
-- Huygens_Jnr : 14.4 thousand Map Changes
+- OKIKIRI FAVOUR : 25.6 thousand Map Changes
+- Angielo : 20.8 thousand Map Changes
+- timzygold : 15.9 thousand Map Changes
+- ujinevich : 14.0 thousand Map Changes
+- Frans S : 13.8 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 255, Modified : 150
-- building = Created: 63.6 thousand, Modified : 6.2 thousand
-- highway = Created: 2.0 thousand, Modified : 4.5 thousand
-- waterway = Created: 93, Modified : 167
-- amenity = Created: 32, Modified : 45
+- poi = Created: 247, Modified : 373
+- building = Created: 82.2 thousand, Modified : 10.8 thousand
+- highway = Created: 1.3 thousand, Modified : 3.3 thousand
+- waterway = Created: 100, Modified : 126
+- amenity = Created: 100, Modified : 47
 
 
 Top 5 Created tags are :
-- building: 63.6 thousand
-- source: 3.6 thousand
-- highway: 2.0 thousand
-- landuse: 511
-- surface: 495
+- building: 82.2 thousand
+- highway: 1.3 thousand
+- landuse: 937
+- source: 887
+- construction: 697
 
 
 Top 5 Modified tags are :
-- building: 6.2 thousand
-- highway: 4.5 thousand
-- surface: 2.4 thousand
-- source: 1.2 thousand
-- name: 304
+- building: 10.8 thousand
+- highway: 3.3 thousand
+- building:levels: 2.8 thousand
+- surface: 2.0 thousand
+- source: 761
 
 
 Top 5 trending hashtags are:
-- #onemillionactofscience : 108 users
-- #uniquemappersnetwork2024 : 108 users
-- #uniquemappersnetwork : 108 users
-- #uniquemappersteam : 108 users
-- #MapUmuahiaNorth : 108 users
+- #missingmaps : 133 users
+- #msf : 123 users
+- #OMGuru : 107 users
+- #homabay2023 : 99 users
+- #hotosm-project-15740 : 94 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 479 users
-- JOSM/1.5 (19039 en) : 19 users
-- JOSM/1.5 (18969 en) : 17 users
-- JOSM/1.5 (18822 en) : 17 users
-- JOSM/1.5 (19017 en) : 15 users
+- iD 2.21.1 : 496 users
+- JOSM/1.5 (19039 en) : 22 users
+- JOSM/1.5 (18822 en) : 18 users
+- JOSM/1.5 (19017 en) : 16 users
+- JOSM/1.5 (18969 en) : 15 users
 
 
 Top 5 trending Countries where user contributed are:
-- India : 170 users
-- Nigeria : 160 users
-- Mozambique : 42 users
-- Papua New Guinea : 35 users
-- Taiwan : 32 users
+- India : 136 users
+- Kenya : 114 users
+- Papua New Guinea : 94 users
+- Honduras : 65 users
+- Nigeria : 47 users
 
 
  Charts : 
