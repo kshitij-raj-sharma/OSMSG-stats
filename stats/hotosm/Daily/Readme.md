@@ -1,63 +1,63 @@
-### Last Update : Stats from 2024-04-27 00:00:00+00:00 to 2024-04-28 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-04-28 00:00:00+00:00 to 2024-04-29 00:00:00+00:00 (UTC Timezone)
 
-#### 293 Users made 3.7 thousand changesets with 533.5 thousand map changes.
-#### 408.5 thousand OSM Elements were Created, 100.3 thousand Modified & 24.7 thousand Deleted.
+#### 263 Users made 2.4 thousand changesets with 405.5 thousand map changes.
+#### 277.0 thousand OSM Elements were Created, 110.7 thousand Modified & 17.8 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Muhd Arabe : 19.9 thousand Map Changes
-- King edgar : 15.0 thousand Map Changes
-- Ehrie : 14.9 thousand Map Changes
-- Kosebi : 14.0 thousand Map Changes
-- Abdulaziz Jimoh : 13.3 thousand Map Changes
+- NicaTopo : 28.5 thousand Map Changes
+- bentoye_007 : 15.6 thousand Map Changes
+- waheed sarafa : 12.0 thousand Map Changes
+- Ehrie : 11.2 thousand Map Changes
+- Lioness_001 : 11.1 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 70, Modified : 93
-- building = Created: 61.2 thousand, Modified : 2.8 thousand
-- highway = Created: 1.5 thousand, Modified : 3.5 thousand
-- waterway = Created: 95, Modified : 121
-- amenity = Created: 1, Modified : 23
+- poi = Created: 112, Modified : 5.8 thousand
+- building = Created: 41.9 thousand, Modified : 3.7 thousand
+- highway = Created: 1.3 thousand, Modified : 2.4 thousand
+- waterway = Created: 140, Modified : 126
+- amenity = Created: 6, Modified : 7
 
 
 Top 5 Created tags are :
-- building: 61.2 thousand
-- source: 5.4 thousand
-- highway: 1.5 thousand
-- landuse: 1.1 thousand
-- natural: 441
+- building: 41.9 thousand
+- source: 4.2 thousand
+- highway: 1.3 thousand
+- landuse: 878
+- natural: 179
 
 
 Top 5 Modified tags are :
-- highway: 3.5 thousand
-- building: 2.8 thousand
-- surface: 1.9 thousand
-- source: 707
-- landuse: 389
+- surface: 8.5 thousand
+- building: 3.7 thousand
+- highway: 2.4 thousand
+- source: 782
+- landuse: 246
 
 
 Top 5 trending hashtags are:
-- #OMGuru : 59 users
-- #APHub : 55 users
-- #wnah : 45 users
-- #PNGearthquakeMarch2024 : 45 users
-- #OSMPNG : 45 users
+- #OMGuru : 65 users
+- #APHub : 58 users
+- #PNGearthquakeMarch2024 : 54 users
+- #OSMPNG : 54 users
+- #wnah : 33 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 161 users
-- JOSM/1.5 (19039 en) : 27 users
-- JOSM/1.5 (19017 en) : 16 users
-- JOSM/1.5 (18969 en) : 16 users
-- JOSM/1.5 (18822 en) : 12 users
+- iD 2.21.1 : 138 users
+- JOSM/1.5 (19039 en) : 31 users
+- JOSM/1.5 (18969 en) : 17 users
+- JOSM/1.5 (19017 en) : 11 users
+- JOSM/1.5 (18822 en) : 11 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nigeria : 59 users
-- Papua New Guinea : 45 users
-- Rwanda : 25 users
-- Democratic Republic of the Congo : 22 users
-- India : 18 users
+- Papua New Guinea : 57 users
+- Nigeria : 45 users
+- India : 23 users
+- Pakistan : 14 users
+- Kenya : 13 users
 
 
  Charts : 
