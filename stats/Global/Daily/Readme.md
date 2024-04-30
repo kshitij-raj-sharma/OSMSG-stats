@@ -1,62 +1,62 @@
-### Last Update : Stats from 2024-04-28 00:00:00+00:00 to 2024-04-29 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-04-29 00:00:00+00:00 to 2024-04-30 00:00:00+00:00 (UTC Timezone)
 
-#### 5.7 thousand Users made 39.9 thousand changesets with 3.3 million map changes.
-#### 2.5 million OSM Elements were Created, 677.2 thousand Modified & 171.7 thousand Deleted.
+#### 6.6 thousand Users made 44.5 thousand changesets with 5.3 million map changes.
+#### 4.3 million OSM Elements were Created, 797.1 thousand Modified & 223.6 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/Global/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/Global/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- jmarchon : 471.0 thousand Map Changes
-- SwapnilMali : 164.4 thousand Map Changes
-- Vidyac : 78.1 thousand Map Changes
-- leojth : 58.4 thousand Map Changes
-- ivanbranco : 52.6 thousand Map Changes
+- dmich9 : 1.6 million Map Changes
+- jmarchon : 192.9 thousand Map Changes
+- SwapnilMali : 163.5 thousand Map Changes
+- Hugoren Martinako : 68.7 thousand Map Changes
+- rechlin : 59.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 56.5 thousand, Modified : 111.9 thousand
-- building = Created: 110.5 thousand, Modified : 58.8 thousand
-- highway = Created: 44.4 thousand, Modified : 111.5 thousand
-- waterway = Created: 6.8 thousand, Modified : 3.6 thousand
-- amenity = Created: 8.9 thousand, Modified : 11.5 thousand
+- poi = Created: 48.6 thousand, Modified : 102.6 thousand
+- building = Created: 177.4 thousand, Modified : 77.6 thousand
+- highway = Created: 51.8 thousand, Modified : 120.9 thousand
+- waterway = Created: 29.5 thousand, Modified : 3.2 thousand
+- amenity = Created: 10.9 thousand, Modified : 10.9 thousand
 
 
 Top 5 Created tags are :
-- building: 110.5 thousand
-- source: 48.1 thousand
-- highway: 44.4 thousand
-- natural: 34.0 thousand
-- addr:housenumber: 23.0 thousand
+- building: 177.4 thousand
+- source: 108.6 thousand
+- natural: 55.9 thousand
+- highway: 51.8 thousand
+- waterway: 29.5 thousand
 
 
 Top 5 Modified tags are :
-- highway: 111.5 thousand
-- name: 77.3 thousand
-- surface: 66.7 thousand
-- natural: 58.8 thousand
-- building: 58.8 thousand
+- name: 146.5 thousand
+- highway: 120.9 thousand
+- building: 77.6 thousand
+- population: 68.9 thousand
+- population:date: 68.8 thousand
 
 
 Top 5 trending hashtags are:
+- #adt : 171 users
+- #maproulette : 83 users
+- #missingmaps : 70 users
 - #OMGuru : 69 users
-- #APHub : 58 users
-- #PNGearthquakeMarch2024 : 54 users
-- #OSMPNG : 54 users
 
 
 Top 5 trending editors are:
-- iD 2.29.0 : 2696 users
-- StreetComplete 57.2 : 935 users
-- JOSM/1.5 (19039 en) : 195 users
-- Go Map!! 3.5.5 : 164 users
-- Vespucci 20.0.0.0 : 156 users
+- iD 2.29.0 : 3268 users
+- StreetComplete 57.2 : 697 users
+- iD 2.21.1 : 317 users
+- JOSM/1.5 (19039 en) : 262 users
+- JOSM/1.5 (18969 en) : 235 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 1122 users
-- United States of America : 560 users
-- France : 420 users
-- U.K. of Great Britain and Northern Ireland : 272 users
-- Italy : 223 users
+- Germany : 1007 users
+- United States of America : 712 users
+- France : 470 users
+- U.K. of Great Britain and Northern Ireland : 311 users
+- Italy : 279 users
 
 
  Charts : 
