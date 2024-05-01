@@ -1,28 +1,28 @@
-### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2024-04-30 07:12:21+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2024-05-01 07:14:42+00:00 (UTC Timezone)
 
-#### 46.4 thousand Users made 3.3 million changesets with 23.1 million map changes.
-#### 6.1 million OSM Elements were Created, 16.3 million Modified & 601.9 thousand Deleted.
+#### 46.5 thousand Users made 3.3 million changesets with 23.1 million map changes.
+#### 6.1 million OSM Elements were Created, 16.4 million Modified & 603.2 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/fieldmappers/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/fieldmappers/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- PizzaTreeIsland : 790.5 thousand Map Changes
-- Đuro Jiří : 750.6 thousand Map Changes
-- biketeur : 335.4 thousand Map Changes
+- PizzaTreeIsland : 799.1 thousand Map Changes
+- Đuro Jiří : 753.0 thousand Map Changes
+- biketeur : 339.0 thousand Map Changes
 - WN6 : 272.4 thousand Map Changes
-- padvinder : 265.2 thousand Map Changes
+- padvinder : 265.7 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 1.2 million, Modified : 3.4 million
-- amenity = Created: 386.9 thousand, Modified : 1.1 million
+- amenity = Created: 388.6 thousand, Modified : 1.1 million
 
 
 Top 5 Created tags are :
-- highway: 424.6 thousand
-- name: 413.5 thousand
-- amenity: 386.9 thousand
-- addr:housenumber: 194.7 thousand
-- building: 188.5 thousand
+- highway: 425.8 thousand
+- name: 414.7 thousand
+- amenity: 388.6 thousand
+- addr:housenumber: 195.1 thousand
+- building: 188.9 thousand
 
 
 Top 5 Modified tags are :
@@ -43,16 +43,16 @@ Top 5 trending hashtags are:
 Top 5 trending editors are:
 - StreetComplete 53.3 : 10274 users
 - StreetComplete 54.0 : 7507 users
-- StreetComplete 57.1 : 6910 users
+- StreetComplete 57.1 : 6914 users
 - StreetComplete 55.0 : 6311 users
 - StreetComplete 55.1 : 6129 users
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 12693 users
-- France : 5879 users
-- United States of America : 4900 users
-- Italy : 2812 users
+- Germany : 12708 users
+- France : 5885 users
+- United States of America : 4911 users
+- Italy : 2820 users
 
 
  Charts : 
