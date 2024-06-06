@@ -1,33 +1,33 @@
-### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2024-06-04 07:12:31+00:00 (UTC Timezone)
+### Last Update : Stats from 2023-06-10 00:00:00+00:00 to 2024-06-06 07:13:16+00:00 (UTC Timezone)
 
-#### 49.8 thousand Users made 3.7 million changesets with 26.2 million map changes.
-#### 7.0 million OSM Elements were Created, 18.4 million Modified & 668.6 thousand Deleted.
+#### 50.0 thousand Users made 3.8 million changesets with 26.3 million map changes.
+#### 7.1 million OSM Elements were Created, 18.5 million Modified & 672.2 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/fieldmappers/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/fieldmappers/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- PizzaTreeIsland : 968.5 thousand Map Changes
-- Đuro Jiří : 869.2 thousand Map Changes
-- biketeur : 406.0 thousand Map Changes
-- Реdактор : 356.4 thousand Map Changes
-- padvinder : 282.8 thousand Map Changes
+- PizzaTreeIsland : 975.1 thousand Map Changes
+- Đuro Jiří : 869.9 thousand Map Changes
+- biketeur : 408.1 thousand Map Changes
+- Реdактор : 360.8 thousand Map Changes
+- padvinder : 284.2 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 1.4 million, Modified : 3.9 million
-- amenity = Created: 447.1 thousand, Modified : 1.3 million
+- poi = Created: 1.4 million, Modified : 4.0 million
+- amenity = Created: 449.8 thousand, Modified : 1.3 million
 
 
 Top 5 Created tags are :
-- highway: 483.4 thousand
-- name: 463.7 thousand
-- amenity: 447.1 thousand
-- addr:housenumber: 215.4 thousand
-- building: 210.1 thousand
+- highway: 487.0 thousand
+- name: 466.3 thousand
+- amenity: 449.8 thousand
+- addr:housenumber: 216.4 thousand
+- building: 211.3 thousand
 
 
 Top 5 Modified tags are :
-- highway: 8.8 million
-- surface: 6.2 million
+- highway: 8.9 million
+- surface: 6.3 million
 - name: 5.3 million
 - building: 4.3 million
 - addr:housenumber: 2.9 million
@@ -49,10 +49,10 @@ Top 5 trending editors are:
 
 
 Top 5 trending Countries where user contributed are:
-- Germany : 13600 users
-- France : 6332 users
-- United States of America : 5282 users
-- Italy : 3056 users
+- Germany : 13650 users
+- France : 6357 users
+- United States of America : 5300 users
+- Italy : 3063 users
 
 
  Charts : 
