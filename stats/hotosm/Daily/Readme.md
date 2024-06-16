@@ -1,63 +1,63 @@
-### Last Update : Stats from 2024-06-14 00:00:00+00:00 to 2024-06-15 00:00:00+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-06-15 00:00:00+00:00 to 2024-06-16 00:00:00+00:00 (UTC Timezone)
 
-#### 447 Users made 5.0 thousand changesets with 624.3 thousand map changes.
-#### 446.1 thousand OSM Elements were Created, 135.0 thousand Modified & 43.3 thousand Deleted.
+#### 179 Users made 2.1 thousand changesets with 303.1 thousand map changes.
+#### 231.1 thousand OSM Elements were Created, 60.6 thousand Modified & 11.4 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/hotosm/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/hotosm/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- Mary Afolabi : 25.4 thousand Map Changes
-- Austinenoni : 17.2 thousand Map Changes
-- waheed sarafa : 13.0 thousand Map Changes
-- ravidwivedi : 11.6 thousand Map Changes
-- TOMI BECCAH : 11.3 thousand Map Changes
+- Sonam Tshewang : 22.4 thousand Map Changes
+- NicaTopo : 15.3 thousand Map Changes
+- ravidwivedi : 13.5 thousand Map Changes
+- TeBaMa : 9.6 thousand Map Changes
+- manex9430 : 9.4 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 30, Modified : 49
-- building = Created: 69.5 thousand, Modified : 10.5 thousand
-- highway = Created: 1.5 thousand, Modified : 2.2 thousand
-- waterway = Created: 156, Modified : 183
-- amenity = Created: 4, Modified : 29
+- poi = Created: 454, Modified : 169
+- building = Created: 33.3 thousand, Modified : 1.8 thousand
+- highway = Created: 1.3 thousand, Modified : 1.3 thousand
+- waterway = Created: 100, Modified : 134
+- amenity = Created: 3, Modified : 18
 
 
 Top 5 Created tags are :
-- building: 69.5 thousand
-- highway: 1.5 thousand
-- source: 519
-- landuse: 317
-- surface: 256
+- building: 33.3 thousand
+- highway: 1.3 thousand
+- source: 732
+- natural: 530
+- landuse: 463
 
 
 Top 5 Modified tags are :
-- building: 10.5 thousand
-- source: 4.5 thousand
-- level: 2.8 thousand
-- highway: 2.2 thousand
-- surface: 819
+- building: 1.8 thousand
+- highway: 1.3 thousand
+- surface: 595
+- source: 268
+- name: 243
 
 
 Top 5 trending hashtags are:
-- #salesforce : 98 users
-- #hotosm-project-16430 : 91 users
 - #OMGuru : 72 users
-- #APHub : 68 users
-- #msgivesback : 52 users
+- #APHub : 69 users
+- #CCC2024 : 36 users
+- #MtKanlaonEruption : 29 users
+- #OSMPH : 29 users
 
 
 Top 5 trending editors are:
-- iD 2.21.1 : 296 users
-- JOSM/1.5 (19096 en) : 23 users
-- JOSM/1.5 (19067 en) : 16 users
-- JOSM/1.5 (18969 en) : 13 users
-- JOSM/1.5 (18822 en) : 13 users
+- iD 2.21.1 : 75 users
+- JOSM/1.5 (19096 en) : 17 users
+- JOSM/1.5 (19067 en) : 15 users
+- JOSM/1.5 (19096 en_GB) : 9 users
+- JOSM/1.5 (18822 en) : 8 users
 
 
 Top 5 trending Countries where user contributed are:
-- Nicaragua : 168 users
-- Nigeria : 42 users
-- Brazil : 35 users
-- Papua New Guinea : 25 users
-- Philippines : 24 users
+- Philippines : 33 users
+- Papua New Guinea : 22 users
+- Nigeria : 20 users
+- Brazil : 18 users
+- Myanmar : 12 users
 
 
  Charts : 
