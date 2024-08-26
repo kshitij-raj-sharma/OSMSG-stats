@@ -1,0 +1,51 @@
+name: Run Daily Report watersurfacemapping Hashtag
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # Run every day at 3 UTC
+
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.11
+
+      - name: Install Osmium
+        run: sudo apt-get install -y osmium-tool
+
+      - name: Install necessary dependecies
+        run: |
+          pip install osmsg
+
+      - name: Generate Daily Hashtag watersurfacemapping Stats
+        run: |
+          osmsg --format csv image --tags 'building' 'waterway' 'amenity' 'nature' 'water' --name stats --all_tags --hashtags fao_swalim watersurfacemapping2024 omhesa 'LA NIÑA2024' --charts --summary --update --name stats/watersurfacemapping/Daily/stats --force --temp
+
+      - name: add stats to git
+        continue-on-error: true
+        run: |
+          git pull
+          git config --global user.email ${{ secrets.GIT_EMAIL }}
+          git config --global user.name ${{ secrets.GIT_USERNAME }}
+          base_dir=stats/watersurfacemapping/Daily
+          mkdir -p $base_dir
+          mv $base_dir/stats_summary.md $base_dir/Readme.md
+          git add -f $base_dir/*
+          git commit -m "Updated Daily watersurfacemapping stats"
+          git push
+
+      - name: Tweet stats
+        continue-on-error: true
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
+        run: |
+          commit_id=$(git rev-parse --short HEAD)
+          python tweet.py --git $commit_id --tweet '#watersurfacemapping' --name stats/watersurfacemapping/Daily/stats
