@@ -23,7 +23,7 @@ jobs:
 
       - name: Generate Daily Hashtag watersurfacemapping Stats
         run: |
-          osmsg --format csv image --tags 'building' 'waterway' 'amenity' 'nature' 'water' --name stats --all_tags --hashtags fao_swalim watersurfacemapping2024 omhesa 'LA NIÑA2024' --charts --summary --update --name stats/watersurfacemapping/Daily/stats --force --temp
+          osmsg --format csv image --tags 'building' 'waterway' 'amenity' 'natural' 'water' --name stats --all_tags --hashtags watersurfacemapping2024 'LA NIÑA2024' --charts --summary --update --name stats/watersurfacemapping/Daily/stats --force --temp
 
       - name: add stats to git
         continue-on-error: true
