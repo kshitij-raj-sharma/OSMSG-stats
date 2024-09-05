@@ -1,40 +1,40 @@
-### Last Update : Stats from 2024-08-26 00:00:00+00:00 to 2024-09-04 01:14:16+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-08-26 00:00:00+00:00 to 2024-09-05 01:14:27+00:00 (UTC Timezone)
 
-#### 59 Users made 4.7 thousand changesets with 156.4 thousand map changes.
-#### 129.3 thousand OSM Elements were Created, 14.6 thousand Modified & 12.6 thousand Deleted.
+#### 59 Users made 4.9 thousand changesets with 164.8 thousand map changes.
+#### 136.2 thousand OSM Elements were Created, 15.8 thousand Modified & 12.8 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/watersurfacemapping/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/watersurfacemapping/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- KingVik : 16.1 thousand Map Changes
+- KingVik : 17.0 thousand Map Changes
 - severino chundu : 13.5 thousand Map Changes
-- Ahmednasir_Abdi : 10.3 thousand Map Changes
+- Ahmednasir_Abdi : 11.1 thousand Map Changes
 - Becky Candy : 10.1 thousand Map Changes
-- Peter Agenga : 8.3 thousand Map Changes
+- charles chilufya : 9.3 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 110, Modified : 142
-- building = Created: 121, Modified : 10
+- poi = Created: 165, Modified : 143
+- building = Created: 122, Modified : 11
 - waterway = Created: 3, Modified : 30
 - amenity = Created: 0, Modified : 0
-- natural = Created: 19.9 thousand, Modified : 2.1 thousand
-- water = Created: 19.7 thousand, Modified : 2.1 thousand
+- natural = Created: 20.9 thousand, Modified : 2.4 thousand
+- water = Created: 20.6 thousand, Modified : 2.4 thousand
 
 
 Top 5 Created tags are :
-- natural: 19.9 thousand
-- water: 19.7 thousand
-- shape: 16.5 thousand
-- description: 16.5 thousand
+- natural: 20.9 thousand
+- water: 20.6 thousand
+- description: 17.5 thousand
+- shape: 17.4 thousand
 - reservoir_type: 317
 
 
 Top 5 Modified tags are :
-- natural: 2.1 thousand
-- water: 2.1 thousand
-- description: 2.1 thousand
-- shape: 1.9 thousand
-- intermittent: 103
+- natural: 2.4 thousand
+- water: 2.4 thousand
+- description: 2.4 thousand
+- shape: 2.2 thousand
+- intermittent: 148
 
 
 Top 5 trending hashtags are:
