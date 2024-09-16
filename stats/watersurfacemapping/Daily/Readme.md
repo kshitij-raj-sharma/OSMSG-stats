@@ -1,47 +1,47 @@
-### Last Update : Stats from 2024-08-26 00:00:00+00:00 to 2024-09-15 01:22:16+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-08-26 00:00:00+00:00 to 2024-09-16 01:19:16+00:00 (UTC Timezone)
 
-#### 86 Users made 10.1 thousand changesets with 304.9 thousand map changes.
-#### 234.8 thousand OSM Elements were Created, 52.0 thousand Modified & 18.0 thousand Deleted.
+#### 86 Users made 10.1 thousand changesets with 305.7 thousand map changes.
+#### 235.3 thousand OSM Elements were Created, 52.3 thousand Modified & 18.1 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/watersurfacemapping/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/watersurfacemapping/Daily/stats_summary.csv)
 
 Top 5 Users are : 
 - KingVik : 28.7 thousand Map Changes
 - severino chundu : 23.1 thousand Map Changes
-- Peter Agenga : 20.9 thousand Map Changes
+- Peter Agenga : 21.3 thousand Map Changes
 - Samwel Kyando : 18.6 thousand Map Changes
 - Becky Candy : 16.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 408, Modified : 2.1 thousand
+- poi = Created: 408, Modified : 2.2 thousand
 - building = Created: 424, Modified : 43
 - waterway = Created: 6, Modified : 45
 - amenity = Created: 0, Modified : 0
-- natural = Created: 33.5 thousand, Modified : 12.7 thousand
-- water = Created: 33.3 thousand, Modified : 12.6 thousand
+- natural = Created: 33.6 thousand, Modified : 12.8 thousand
+- water = Created: 33.3 thousand, Modified : 12.7 thousand
 
 
 Top 5 Created tags are :
-- natural: 33.5 thousand
+- natural: 33.6 thousand
 - water: 33.3 thousand
-- description: 30.0 thousand
-- shape: 29.9 thousand
+- description: 30.1 thousand
+- shape: 30.0 thousand
 - building: 424
 
 
 Top 5 Modified tags are :
-- natural: 12.7 thousand
-- water: 12.6 thousand
-- description: 12.6 thousand
-- shape: 12.3 thousand
+- natural: 12.8 thousand
+- description: 12.7 thousand
+- water: 12.7 thousand
+- shape: 12.4 thousand
 - intermittent: 3.4 thousand
 
 
 Top 5 trending hashtags are:
-- #LA : 86 users
-- #omhesa : 86 users
 - #watersurfacemapping2024 : 86 users
 - #fao_swalim : 86 users
+- #LA : 86 users
+- #omhesa : 86 users
 - #hotosm-project-17522 : 37 users
 
 
