@@ -1,48 +1,48 @@
-### Last Update : Stats from 2024-08-26 00:00:00+00:00 to 2024-09-18 01:15:16+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-08-26 00:00:00+00:00 to 2024-09-19 01:16:03+00:00 (UTC Timezone)
 
-#### 86 Users made 10.5 thousand changesets with 317.4 thousand map changes.
-#### 240.4 thousand OSM Elements were Created, 57.8 thousand Modified & 19.2 thousand Deleted.
+#### 86 Users made 10.8 thousand changesets with 323.8 thousand map changes.
+#### 242.7 thousand OSM Elements were Created, 60.9 thousand Modified & 20.2 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/watersurfacemapping/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/watersurfacemapping/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- KingVik : 29.9 thousand Map Changes
+- KingVik : 30.7 thousand Map Changes
+- Peter Agenga : 24.0 thousand Map Changes
 - severino chundu : 23.1 thousand Map Changes
-- Peter Agenga : 22.4 thousand Map Changes
-- Samwel Kyando : 21.2 thousand Map Changes
-- charles chilufya : 16.5 thousand Map Changes
+- Samwel Kyando : 21.7 thousand Map Changes
+- charles chilufya : 17.0 thousand Map Changes
 
 Summary of Supplied Tags
-- poi = Created: 498, Modified : 3.3 thousand
-- building = Created: 426, Modified : 43
+- poi = Created: 506, Modified : 3.4 thousand
+- building = Created: 427, Modified : 43
 - waterway = Created: 6, Modified : 47
 - amenity = Created: 0, Modified : 0
-- natural = Created: 34.4 thousand, Modified : 14.8 thousand
-- water = Created: 34.2 thousand, Modified : 14.7 thousand
+- natural = Created: 34.8 thousand, Modified : 16.4 thousand
+- water = Created: 34.5 thousand, Modified : 16.2 thousand
 
 
 Top 5 Created tags are :
-- natural: 34.4 thousand
-- water: 34.2 thousand
-- description: 31.0 thousand
-- shape: 30.9 thousand
-- building: 426
+- natural: 34.8 thousand
+- water: 34.5 thousand
+- description: 31.4 thousand
+- shape: 31.2 thousand
+- building: 427
 
 
 Top 5 Modified tags are :
-- description: 15.6 thousand
-- natural: 14.8 thousand
-- water: 14.7 thousand
-- shape: 14.7 thousand
+- description: 17.3 thousand
+- natural: 16.4 thousand
+- shape: 16.3 thousand
+- water: 16.2 thousand
 - intermittent: 3.4 thousand
 
 
 Top 5 trending hashtags are:
-- #watersurfacemapping2024 : 86 users
-- #omhesa : 86 users
 - #fao_swalim : 86 users
 - #LA : 86 users
-- #hotosm-project-17522 : 37 users
+- #omhesa : 86 users
+- #watersurfacemapping2024 : 86 users
+- #hotosm-project-17522 : 38 users
 
 
 Top 5 trending editors are:
