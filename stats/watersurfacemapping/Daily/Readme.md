@@ -1,47 +1,47 @@
-### Last Update : Stats from 2024-08-26 00:00:00+00:00 to 2024-09-29 01:24:46+00:00 (UTC Timezone)
+### Last Update : Stats from 2024-08-26 00:00:00+00:00 to 2024-09-30 01:21:02+00:00 (UTC Timezone)
 
-#### 86 Users made 12.3 thousand changesets with 388.3 thousand map changes.
-#### 260.5 thousand OSM Elements were Created, 100.9 thousand Modified & 26.8 thousand Deleted.
+#### 86 Users made 12.4 thousand changesets with 390.4 thousand map changes.
+#### 261.2 thousand OSM Elements were Created, 101.6 thousand Modified & 27.5 thousand Deleted.
 Get Full Stats at [stats.csv](/stats/watersurfacemapping/Daily/stats.csv)
  & Get Summary Stats at [stats_summary.csv](/stats/watersurfacemapping/Daily/stats_summary.csv)
 
 Top 5 Users are : 
-- KingVik : 54.9 thousand Map Changes
-- Peter Agenga : 32.5 thousand Map Changes
+- KingVik : 55.6 thousand Map Changes
+- Peter Agenga : 33.2 thousand Map Changes
 - Samwel Kyando : 25.5 thousand Map Changes
 - severino chundu : 23.1 thousand Map Changes
-- charles chilufya : 19.9 thousand Map Changes
+- charles chilufya : 20.5 thousand Map Changes
 
 Summary of Supplied Tags
 - poi = Created: 548, Modified : 3.6 thousand
 - building = Created: 427, Modified : 47
 - waterway = Created: 6, Modified : 47
 - amenity = Created: 0, Modified : 0
-- natural = Created: 36.7 thousand, Modified : 42.1 thousand
-- water = Created: 36.4 thousand, Modified : 41.8 thousand
+- natural = Created: 36.7 thousand, Modified : 42.2 thousand
+- water = Created: 36.5 thousand, Modified : 41.9 thousand
 
 
 Top 5 Created tags are :
 - natural: 36.7 thousand
-- water: 36.4 thousand
+- water: 36.5 thousand
 - description: 33.3 thousand
 - shape: 33.1 thousand
 - category: 1.4 thousand
 
 
 Top 5 Modified tags are :
-- description: 42.1 thousand
-- natural: 42.1 thousand
-- water: 41.8 thousand
-- shape: 40.9 thousand
-- category: 23.3 thousand
+- description: 42.2 thousand
+- natural: 42.2 thousand
+- water: 41.9 thousand
+- shape: 41.0 thousand
+- category: 23.5 thousand
 
 
 Top 5 trending hashtags are:
 - #LA : 86 users
+- #omhesa : 86 users
 - #fao_swalim : 86 users
 - #watersurfacemapping2024 : 86 users
-- #omhesa : 86 users
 - #hotosm-project-17522 : 38 users
 
 
